@@ -5,5 +5,14 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
+coffeescript
+meteorhacks:npm
+
+
+npm-container
+iron:router
+accounts-google
+ian:accounts-ui-bootstrap-3
+mizzao:bootstrap-3
+service-configuration
+gandev:server-eval
