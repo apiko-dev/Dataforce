@@ -18,3 +18,7 @@ service-configuration
 gandev:server-eval
 rajit:bootstrap3-datepicker
 less
+maazalik:highcharts
+reactive-var
+natestrauser:select2
+zimme:select2-bootstrap3-css
