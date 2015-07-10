@@ -1,4 +1,7 @@
 Template.main.onRendered ->
+  @.$("#metrics-selector").select2()
+  @.$("#dimensions-selector").select2()
+
   @.$('.input-daterange').datepicker
     format: "yyyy-mm-dd",
     startDate: "2007-12-01",
@@ -68,6 +71,8 @@ Template.main.helpers
 
   stringify: (obj) ->
     JSON.stringify obj
+  selected: (event, suggestion, datasetName) ->
+    console.log event, suggestion, datasetName
 
 Template.main.events
   'click #auth-with-ga': (e, t) ->
