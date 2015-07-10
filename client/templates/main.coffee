@@ -1,8 +1,7 @@
 Template.main.onRendered ->
-  @.$("#metrics-selector").select2()
-  @.$("#dimensions-selector").select2()
+  @.$("#profile-selector").select2()
 
-  @.$('.input-daterange').datepicker
+  @.$('#gaDatepicker').datepicker
     format: "yyyy-mm-dd",
     startDate: "2007-12-01",
     autoclose: true,
@@ -57,10 +56,10 @@ Template.main.helpers
   GAaccounts: ->
     Session.get "GAaccounts"
 
-  metrics: ->
+  metricsList: ->
     gaMetricsList
 
-  dimensions: ->
+  dimensionsList: ->
     gaDimensionsList
 
   UAProfileData: ->
