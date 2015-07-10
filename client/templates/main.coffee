@@ -1,39 +1,110 @@
-Template.main.rendered = ->
-  $('.input-daterange').datepicker
+Template.main.onRendered ->
+  @.$('.input-daterange').datepicker
     format: "yyyy-mm-dd",
     startDate: "2007-12-01",
     autoclose: true,
     orientation: "top right"
     todayHighlight: true
 
+  Tracker.autorun ->
+    rawData = Session.get "UAProfileData"
+    chartType = Session.get "chartType"
+    axisNames = Session.get "axisNames"
+    xData = _.map rawData, (el) -> el[0]
+    yData = _.map rawData, (el) -> el[1]
+    yData2 = {}
+    seriesData = [
+        {name: axisNames?.y, data: yData}
+    ]
+    yAxisConfig = [
+      title:
+        text: axisNames?.y or ""
+      plotLines: [{
+        value: 0
+        width: 1
+        color: '#808080'
+      }]
+    ]
+    if rawData?[0]?[2]
+      yData2 = _.map rawData, (el) -> el[2]
+      seriesData.push {name: axisNames?.y2, data: yData2}
+      yAxisConfig.push
+        title:
+          text: axisNames? y2 or ""
+
+    $("textarea").val("#{xData}\n#{JSON.stringify seriesData}")
+
+    @.$("#chart").highcharts
+      chart:
+        type: chartType
+      title:
+        text: ''
+        x: -20
+      subtitle:
+        text: ''
+        x: -20
+      xAxis:
+        categories: xData
+        title:
+          text: axisNames?.x or ""
+      yAxis: yAxisConfig
+      series: seriesData
+
 Template.main.helpers
   GAaccounts: ->
     Session.get "GAaccounts"
 
+  metrics: ->
+    gaMetricsList
+
+  dimensions: ->
+    gaDimensionsList
+
   UAProfileData: ->
     Session.get "UAProfileData"
 
-  arrayify: (obj) ->
-    _.map obj, (val, key) ->
-      console.log val, key
-      name: key
-      value: val
+  addMoreYAxis: ->
+    Session.get("addMoreYAxis") or false
 
   stringify: (obj) ->
     JSON.stringify obj
 
 Template.main.events
+  'click #auth-with-ga': (e, t) ->
+    Meteor.call "getGAAuthUrl", (err, result) ->
+      t.$("#auth-with-ga").attr "href", result
+
   'click #getUAlist': ->
     Meteor.call "getGAaccounts", Meteor.userId(), (err, result) ->
-      console.log result
       Session.set "GAaccounts", result.result
 
+  'click #chart-type-selector': (e, t) ->
+    Session.set "chartType", t.$(e.target).val()
+
+  'click #more-axis-checkbox': (e, t) ->
+    Session.set "addMoreYAxis", t.$(e.target).prop "checked"
+
   'click #getData': (e, t) ->
+    firstMetric = t.$("#metrics-selector").val()
+    secondMetric = if (secondMetric = t.$("#second-metrics-selector").val())? then "," + secondMetric else ""
     query =
       profileId: t.$("#profile-selector").val()
+      metrics: firstMetric + secondMetric
+      dimensions: t.$("#dimensions-selector").val()
       from: t.$("#datepicker input").eq(0).val()
       to: t.$("#datepicker input").eq(1).val()
 
+    console.log query
+
     Meteor.call "getUAProfileData", query, (err, result) ->
-      console.log result.result.totalsForAllResults
-      Session.set "UAProfileData", result.result.totalsForAllResults
+      UAProfileData = _.map result.result, (el) ->
+        arr = el
+        arr[1] = parseInt el[1]
+        if el[2]
+          arr[2] = parseInt el[2]
+        arr
+      Session.set "UAProfileData", UAProfileData
+      Session.set "axisNames",
+        x: _.find(gaDimensionsList, (el) -> el.key is query.dimensions).value
+        y: _.find(gaMetricsList, (el) -> el.key is firstMetric).value
+        y2: _.find(gaMetricsList, (el) -> el.key is secondMetric)?.value
