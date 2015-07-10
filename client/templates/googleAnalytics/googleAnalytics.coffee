@@ -1,4 +1,4 @@
-Template.main.onRendered ->
+Template.googleAnalytics.onRendered ->
   @.$("#profile-selector").select2()
 
   @.$('#gaDatepicker').datepicker
@@ -52,7 +52,7 @@ Template.main.onRendered ->
       yAxis: yAxisConfig
       series: seriesData
 
-Template.main.helpers
+Template.googleAnalytics.helpers
   GAaccounts: ->
     Session.get "GAaccounts"
 
@@ -73,7 +73,7 @@ Template.main.helpers
   selected: (event, suggestion, datasetName) ->
     console.log event, suggestion, datasetName
 
-Template.main.events
+Template.googleAnalytics.events
   'click #auth-with-ga': (e, t) ->
     Meteor.call "getGAAuthUrl", (err, result) ->
       t.$("#auth-with-ga").attr "href", result
@@ -98,8 +98,8 @@ Template.main.events
       profileId: t.$("#profile-selector").val()
       metrics: firstMetric + secondMetric
       dimensions: t.$("#dimensions-selector").val()
-      from: t.$("#datepicker input").eq(0).val()
-      to: t.$("#datepicker input").eq(1).val()
+      from: t.$("#gaDatepicker input").eq(0).val()
+      to: t.$("#gaDatepicker input").eq(1).val()
 
     console.log query
 
