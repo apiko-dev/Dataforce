@@ -8,14 +8,18 @@ Template.main.onRendered ->
 
   Tracker.autorun ->
     rawData = Session.get "UAProfileData"
+
     chartType = Session.get "chartType"
     axisNames = Session.get "axisNames"
+
     xData = _.map rawData, (el) -> el[0]
     yData = _.map rawData, (el) -> el[1]
     yData2 = {}
+
     seriesData = [
         {name: axisNames?.y, data: yData}
     ]
+
     yAxisConfig = [
       title:
         text: axisNames?.y or ""
@@ -25,24 +29,20 @@ Template.main.onRendered ->
         color: '#808080'
       }]
     ]
-    if rawData?[0]?[2]
+
+    if hasSecondYAxis = rawData?[0]?[2]
       yData2 = _.map rawData, (el) -> el[2]
-      seriesData.push {name: axisNames?.y2, data: yData2}
+      seriesData.push {name: axisNames.y2, data: yData2}
       yAxisConfig.push
         title:
-          text: axisNames? y2 or ""
+          text: axisNames.y2 or ""
 
+    # output debug info
     $("textarea").val("#{xData}\n#{JSON.stringify seriesData}")
 
     @.$("#chart").highcharts
       chart:
         type: chartType
-      title:
-        text: ''
-        x: -20
-      subtitle:
-        text: ''
-        x: -20
       xAxis:
         categories: xData
         title:
@@ -79,14 +79,17 @@ Template.main.events
       Session.set "GAaccounts", result.result
 
   'click #chart-type-selector': (e, t) ->
-    Session.set "chartType", t.$(e.target).val()
+    selectedChartType = t.$(e.target).val()
+    Session.set "chartType", selectedChartType
 
   'click #more-axis-checkbox': (e, t) ->
-    Session.set "addMoreYAxis", t.$(e.target).prop "checked"
+    addSecondAxis = t.$(e.target).prop "checked"
+    Session.set "addMoreYAxis", addSecondAxis
 
   'click #getData': (e, t) ->
     firstMetric = t.$("#metrics-selector").val()
     secondMetric = if (secondMetric = t.$("#second-metrics-selector").val())? then "," + secondMetric else ""
+
     query =
       profileId: t.$("#profile-selector").val()
       metrics: firstMetric + secondMetric
@@ -98,11 +101,9 @@ Template.main.events
 
     Meteor.call "getUAProfileData", query, (err, result) ->
       UAProfileData = _.map result.result, (el) ->
-        arr = el
-        arr[1] = parseInt el[1]
-        if el[2]
-          arr[2] = parseInt el[2]
-        arr
+        el[1] = parseInt el[1]
+        el[2] = parseInt el[2] if el[2]
+        el
       Session.set "UAProfileData", UAProfileData
       Session.set "axisNames",
         x: _.find(gaDimensionsList, (el) -> el.key is query.dimensions).value
