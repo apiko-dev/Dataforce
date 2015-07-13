@@ -1,0 +1,9 @@
+{
+  "private": {
+    "zendesk": {
+      "username": "golubev.vld@gmail.com",
+      "token": "5ydHzQY9N4azJen0JaQzQuOM6Kl7BtBCxiPSsxOx",
+      "remoteUri": "https://home50.zendesk.com/api/v2"
+    }
+  }
+}

@@ -70,6 +70,7 @@ Template.googleAnalytics.helpers
 
   stringify: (obj) ->
     JSON.stringify obj
+
   selected: (event, suggestion, datasetName) ->
     console.log event, suggestion, datasetName
 
@@ -89,6 +90,9 @@ Template.googleAnalytics.events
   'click #more-axis-checkbox': (e, t) ->
     addSecondAxis = t.$(e.target).prop "checked"
     Session.set "addMoreYAxis", addSecondAxis
+
+  'click #debug': (e, t) ->
+    Meteor.call "zendesk"
 
   'click #getData': (e, t) ->
     firstMetric = t.$("#metrics-selector").val()
