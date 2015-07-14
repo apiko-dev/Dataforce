@@ -53,7 +53,7 @@ Template.zendeskExample.events
 
   "click .satisfaction-rating-ctnr": (e, t) ->
     Meteor.call "getSatisfactionRatingForLastWeek", (err, result) ->
-      fillResultSpan ".satisfaction-rating-ctnr", err, result
+      fillResultSpan ".satisfaction-rating-ctnr", err, result + "%"
 
   "click .backlog-ctnr": (e, t) ->
     Meteor.call "getBacklogItemsNumber", (err, result) ->
@@ -80,5 +80,7 @@ Template.zendeskExample.events
 
 fillResultSpan = (parentSelector, err, result) ->
   resultSpan = $("#{parentSelector} .result")
-  if err resultSpan.text err
-  else resultSpan.text result
+  if err
+    resultSpan.text err
+  else
+    resultSpan.text result
