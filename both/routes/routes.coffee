@@ -9,3 +9,6 @@ Router.map ->
   @route '/sales-force-sample',
     name: 'salesForceSample',
     template: 'SalesForceSample'
+
+  @route '/zendesk-example', ->
+    @render 'zendesk-example'

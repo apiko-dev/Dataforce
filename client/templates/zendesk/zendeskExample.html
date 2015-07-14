@@ -1,0 +1,69 @@
+<template name="zendeskExample">
+  <div class="container">
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Zendesk Data Visualization</h1>
+
+        <p>Here you can view various useful stats necessary to understand underneath processes of your application.</p>
+
+        <p>
+          <a class="btn btn-primary btn-lg">Auth with Zendesk</a>
+          <a id="load-stats" class="btn btn-primary btn-lg">Load statistic</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="btn-group form-group">
+      <button type="button" class="btn btn-default btn-lg new-tickets-ctnr chartable">
+        New Tickets
+        <br/>
+        <hr/>
+        {{newTickets}}
+      </button>
+      <button type="button" class="btn btn-default btn-lg solved-tickets-ctnr chartable">
+        Solved Tickets
+        <br/>
+        <hr/>
+        <span class="result">-</span>
+      </button>
+      <button type="button" class="btn btn-default btn-lg backlog-ctnr">
+        Backlog
+        <br/>
+        <hr/>
+        <span class="result">-</span>
+      </button>
+      <button type="button" class="btn btn-default btn-lg opened-tickets-ctnr">
+        Opened Tickets
+        <br/>
+        <hr/>
+        <span class="result">-</span>
+      </button>
+      <button type="button" class="btn btn-default btn-lg">
+        Satisfaction rating
+        <br/>
+        <hr/>
+        <span class="result">-</span>
+      </button>
+      <button type="button" class="btn btn-default btn-lg">
+        Time to First Reply
+        <br/>
+        <hr/>
+        <span class="result">-</span>
+      </button>
+    </div>
+    <div class="form-group">
+      <label for="chart-type-selector">Select the chart type</label>
+      <select id="chart-type-selector">
+        <option value="line">Line</option>
+        <option value="column">Column</option>
+      </select>
+
+      <label for="chart-date-selector">Select the chart date period</label>
+      <select id="chart-date-selector">
+        <option value="7days">7 days</option>
+        <option value="2weeks">2 weeks</option>
+      </select>
+    </div>
+    <div id="chart"></div>
+  </div>
+</template>
