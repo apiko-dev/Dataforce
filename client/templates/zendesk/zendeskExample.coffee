@@ -50,12 +50,8 @@ Template.zendeskExample.events
       fillResultSpan ".opened-tickets-ctnr", err, result
     Meteor.call "getSolvedTicketsNumber", (err, result) ->
       fillResultSpan ".solved-tickets-ctnr", err, result
-
-  "click .satisfaction-rating-ctnr": (e, t) ->
     Meteor.call "getSatisfactionRatingForLastWeek", (err, result) ->
       fillResultSpan ".satisfaction-rating-ctnr", err, result + "%"
-
-  "click .backlog-ctnr": (e, t) ->
     Meteor.call "getBacklogItemsNumber", (err, result) ->
       fillResultSpan ".backlog-ctnr", err, result
 
