@@ -1,13 +1,13 @@
 Template.zendeskExample.onRendered ->
-  Session.set "axisNames", {x: "Date", y: []}
+  Session.set "axisNames",
+    x: "Date"
+    y: []
 
   Tracker.autorun ->
     rawData = Session.get "chartData"
-
-    if rawData is undefined then return
-
     chartType = Session.get "chartType"
     axisNames = Session.get "axisNames"
+    if rawData is undefined then return
 
     xData = _.map rawData[0], (el) -> el[0]
     seriesData = []
@@ -15,11 +15,11 @@ Template.zendeskExample.onRendered ->
 
     addNewLine = (axisData, axisName) ->
       seriesData.push
-        name: axisName or "No name"
+        name: axisName
         data: axisData
       yAxisConfig.push
         title:
-          text: axisName or "No name"
+          text: axisName
 
     for rawAxisData, i in rawData
       yData = _.map rawAxisData, (el) -> el[1]
@@ -40,7 +40,7 @@ Template.zendeskExample.helpers
     _.map(Session.get("chartData"), (el) -> el[1]).length
 
 Template.zendeskExample.events
-  "click #load-stats": (e, t) ->
+  "click #load-stats": ->
     Meteor.call "getOpenTicketsNumber", (err, result) ->
       fillResultSpan ".opened-tickets-ctnr", err, result
     Meteor.call "getSolvedTicketsNumber", (err, result) ->
@@ -50,18 +50,18 @@ Template.zendeskExample.events
     Meteor.call "getBacklogItemsNumber", (err, result) ->
       fillResultSpan ".backlog-ctnr", err, result
 
-  "click .solved-tickets-ctnr": (e, t)->
+  "click .solved-tickets-ctnr": ->
     Meteor.call "getSolvedTicketsForLastWeek", (err, result) ->
-      console.log err, result
       if not err
         newChartData = Session.get "chartData"
         newChartData.push result
         Session.set "chartData", newChartData
         addYAxisName "Solved tickets"
+      else
+        console.log err
 
-  "click .satisfaction-rating-ctnr": (e, t)->
+  "click .satisfaction-rating-ctnr": ->
     Meteor.call "getSatisfactionRatingForLastWeek", no, (err, result) ->
-      console.log err, result
       if not err
         newChartData = Session.get "chartData"
         if not _.isArray newChartData
@@ -70,6 +70,8 @@ Template.zendeskExample.events
 
         Session.set "chartData", newChartData
         addYAxisName "Satisfaction Rating"
+      else
+        console.log err
 
   "click .chartable.new-tickets-ctnr": (e, t) ->
     console.log "new tickets by date", moment().format("DD-MM-YYYY")
