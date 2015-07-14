@@ -8,42 +8,26 @@ Template.zendeskExample.onRendered ->
     axisNames = Session.get "axisNames"
 
     xData = _.map rawData[0], (el) -> el[0]
-    yData = _.map rawData[0], (el) -> el[1]
-    yData2 = {}
-    yData3 = {}
+    seriesData = []
+    yAxisConfig = []
 
-    seriesData = [
-      {name: axisNames?.y, data: yData}
-    ]
+    addNewLine = (axisData, axisName) ->
+      seriesData.push
+        name: axisName or "No name"
+        data: axisData
+      yAxisConfig.push
+        title:
+          text: axisName or "No name"
 
-    yAxisConfig = [
-      title:
-        text: axisNames?.y or ""
-      plotLines: [{
-        value: 0
-        width: 1
-        color: '#808080'
-      }]
-    ]
-
-    if hasSecondYAxis = rawData?[1]
+    if presentFirstYAxis = rawData?[0]
+      yData = _.map rawData[0], (el) -> el[1]
+      addNewLine yData, axisNames.y
+    if presentSecondYAxis = rawData?[1]
       yData2 = _.map rawData[1], (el) -> el[1]
-      seriesData.push {name: axisNames.y2, data: yData2}
-      yAxisConfig.push
-        title:
-          text: axisNames.y2 or "No name"
-
-    if hasThirdAxis = rawData?[2]
+      addNewLine yData2, axisNames.y2
+    if presentThirdAxis = rawData?[2]
       yData3 = _.map rawData[2], (el) -> el[1]
-      seriesData.push {name: axisNames?.y3, data: yData3}
-      yAxisConfig.push
-        title:
-          text: axisNames?.y3 or "No name"
-
-    console.log xData
-    console.log yData
-    console.log yData2
-    console.log yData3
+      addNewLine yData3, axisNames.y3
 
     @.$("#chart").highcharts
       chart:
