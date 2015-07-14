@@ -1,0 +1,9 @@
+<template name="SampleNavigation">
+    <ul>
+        {{#each samplesRoutes}}
+            <li>
+                <a href="{{pathFor name}}">{{caption}}</a>
+            </li>
+        {{/each}}
+    </ul>
+</template>

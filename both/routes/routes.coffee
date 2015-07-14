@@ -1,14 +1,31 @@
 Router.map ->
-  @route '/', ->
-    if @params.query.code
-      Meteor.call "saveGAToken", @params.query.code, (err, result) ->
-        Router.go "/"
-    @render 'googleAnalytics'
+  @configure
+    layoutTemplate: 'MasterLayout'
+#    loadingTemplate: 'Loading'
+#    notFoundTemplate: 'NotFound'
+    yieldTemplates:
+      'SampleNavigation': {to: 'header'}
+  #      'Footer': {to: 'footer'}
+
+  @route '/',
+    name: 'home',
+    template: 'Home'
+
+
+  @route '/google-analytics-sample',
+    name: 'googleAnalyticsSample'
+    action: ->
+      if @params.query.code
+        Meteor.call "saveGAToken", @params.query.code, (err, result) ->
+          Router.go "googleAnalyticsSample"
+      @render 'googleAnalytics'
+
+
+  @route '/zendesk-example',
+    name: 'zendeskExample',
+    action: -> @render 'zendesk-example'
 
 
   @route '/sales-force-sample',
     name: 'salesForceSample',
     template: 'SalesForceSample'
-
-  @route '/zendesk-example', ->
-    @render 'zendesk-example'
