@@ -46,12 +46,18 @@ Template.zendeskExample.helpers
 
 Template.zendeskExample.events
   "click #load-stats": (e, t) ->
-    console.log "Loading statistic..."
     Meteor.call "getOpenTicketsNumber", (err, result) ->
-      console.log err, result
-      t.$(".opened-tickets-ctnr .result").text(result.result)
-      if err
-        t.$(".opened-tickets-ctnr .result").text(err)
+      fillResultSpan ".opened-tickets-ctnr", err, result
+    Meteor.call "getSolvedTicketsNumber", (err, result) ->
+      fillResultSpan ".solved-tickets-ctnr", err, result
+
+  "click .satisfaction-rating-ctnr": (e, t) ->
+    Meteor.call "getSatisfactionRatingForLastWeek", (err, result) ->
+      fillResultSpan ".satisfaction-rating-ctnr", err, result
+
+  "click .backlog-ctnr": (e, t) ->
+    Meteor.call "getBacklogItemsNumber", (err, result) ->
+      fillResultSpan ".backlog-ctnr", err, result
 
   "click .chartable.new-tickets-ctnr": (e, t) ->
     console.log "new tickets by date",  moment().format("DD-MM-YYYY")
@@ -71,3 +77,8 @@ Template.zendeskExample.events
     chartDateRangeValue = t.$(e.target).val()
     console.log chartDateRangeValue
     Session.set "chartDateRange", chartDateRangeValue
+
+fillResultSpan = (parentSelector, err, result) ->
+  resultSpan = $("#{parentSelector} .result")
+  if err resultSpan.text err
+  else resultSpan.text result
