@@ -14,7 +14,7 @@ Meteor.methods
     sevenDaysBefore = moment().subtract(7, "days")
     results = []
 
-    for i in [0..6]
+    _.times 7, ->
       newDate = sevenDaysBefore.add(1, "days").format("YYYY-MM-DD")
 
       if not DEBUG
@@ -32,35 +32,70 @@ Meteor.methods
           error: {}
           result:
             date: newDate
-            data: _.random(1, 100)
+            data: _.random(1, 5)
         console.log fakeDayData
         results.push fakeDayData
 
     _.map results, (el) ->
       [el.result.date, el.result.data]
 
-  getSatisfactionRatingForLastWeek: ->
+  getSatisfactionRatingForLastWeek: (summaryRating) ->
     sevenDaysBefore = moment().subtract(7, "days")
     results = []
+    totalTicketsRating = 0
+    totalTicketsNumber = 0
 
-    for i in [0..6]
+    _.times 7, ->
       newDate = sevenDaysBefore.add(1, "days").format("YYYY-MM-DD")
       mockJson = JSON.parse HTTP.get("http://beta.json-generator.com/api/json/get/Ny3DfoaO").content
+
       fakeDayData =
-        error: {}
-        result:
-          date: newDate
-          data: 0
-      summaryRating = 0
+        date: newDate
+        data: 0
+
+      summaryDayRating = 0
       for ticket in mockJson
-        summaryRating += getScoreBySatisfactionRatingName ticket.satisfaction_rating.score
-      fakeDayData.result.data = summaryRating / mockJson.length
+        score = getScoreBySatisfactionRatingName ticket.satisfaction_rating.score
+        if summaryRating
+          totalTicketsRating += score
+          totalTicketsNumber++
+        else summaryDayRating += score
+      fakeDayData.data = if DEBUG then _.random(1, 12) + Math.random() else summaryDayRating / mockJson.length
+
       console.log fakeDayData
       results.push fakeDayData
 
-    (_.reduce(results, (memo, el) ->
-      memo + el.result.data
-    , 0) / 7).toFixed 2
+    if summaryRating
+      (_.reduce(results, (memo, el) ->
+        console.log memo, el
+        return memo + el.data
+      , 0) / 7).toFixed 2
+    else
+      _.map results, (el) ->
+        [el.date, el.data]
+
+  getSolvedTicketsForLastWeek: ->
+    sevenDaysBefore = moment().subtract(7, "days")
+    results = []
+    _.times 7, ->
+      newDate = sevenDaysBefore.add(1, "days").format("YYYY-MM-DD")
+      console.log newDate
+      apiCallResult = Async.runSync (done) ->
+        Zendesk().search.query "type:ticket status:solved created:#{newDate}", (err, req, res) ->
+          if err
+            console.error 'Zendesk error: ', err
+            done err, 0
+          else
+            done err, {
+              date: newDate
+              data: if DEBUG then _.random(1, 5) else res.length
+            }
+      results.push apiCallResult.result
+
+    results = _.map results, (el) ->
+      [el.date, el.data]
+    console.log results
+    results
 
 getScoreBySatisfactionRatingName = (name) ->
   if name is "good"
