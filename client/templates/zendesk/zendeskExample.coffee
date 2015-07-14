@@ -1,4 +1,6 @@
 Template.zendeskExample.onRendered ->
+  Session.set "axisNames", {x: "Date", y: []}
+
   Tracker.autorun ->
     rawData = Session.get "chartData"
 
@@ -19,15 +21,9 @@ Template.zendeskExample.onRendered ->
         title:
           text: axisName or "No name"
 
-    if presentFirstYAxis = rawData?[0]
-      yData = _.map rawData[0], (el) -> el[1]
-      addNewLine yData, axisNames.y
-    if presentSecondYAxis = rawData?[1]
-      yData2 = _.map rawData[1], (el) -> el[1]
-      addNewLine yData2, axisNames.y2
-    if presentThirdAxis = rawData?[2]
-      yData3 = _.map rawData[2], (el) -> el[1]
-      addNewLine yData3, axisNames.y3
+    for rawAxisData, i in rawData
+      yData = _.map rawAxisData, (el) -> el[1]
+      addNewLine yData, axisNames.y?[i] or "-"
 
     @.$("#chart").highcharts
       chart:
@@ -61,6 +57,7 @@ Template.zendeskExample.events
         newChartData = Session.get "chartData"
         newChartData.push result
         Session.set "chartData", newChartData
+        addYAxisName "Solved tickets"
 
   "click .satisfaction-rating-ctnr": (e, t)->
     Meteor.call "getSatisfactionRatingForLastWeek", no, (err, result) ->
@@ -70,14 +67,16 @@ Template.zendeskExample.events
         if not _.isArray newChartData
           newChartData = []
         newChartData.push result
+
         Session.set "chartData", newChartData
+        addYAxisName "Satisfaction Rating"
 
   "click .chartable.new-tickets-ctnr": (e, t) ->
-    console.log "new tickets by date",  moment().format("DD-MM-YYYY")
+    console.log "new tickets by date", moment().format("DD-MM-YYYY")
     Meteor.call "getNewTicketsStatsForSevenDays", (err, result) ->
       if not err
         Session.set "chartData", [result]
-        Session.set "axisNames", {x: "Date", y: "Number of tickets"}
+        addYAxisName "Number of tickets"
       else
         console.log err
 
@@ -97,3 +96,8 @@ fillResultSpan = (parentSelector, err, result) ->
     resultSpan.text err
   else
     resultSpan.text result
+
+addYAxisName = (axisName) ->
+  axisNames = Session.get("axisNames")
+  axisNames.y.push axisName
+  Session.set "axisNames", axisNames
