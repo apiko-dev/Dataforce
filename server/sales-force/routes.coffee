@@ -13,9 +13,7 @@ createOAuth2Credentials = ->
 mapAuthParams = (connection) ->
   authParamsKeys = [
     'accessToken'
-    'refreshToken'
     'instanceUrl'
-    'refreshToken'
   ]
 
   params = {}
@@ -50,6 +48,9 @@ Router.route 'oauth2/sales-force/callback', ->
       console.error(err)
     else
       authParams = mapAuthParams conn
-      redirect @response, Router.routes['salesForceSample'].url(authParams)
+      authParams.userId = userInfo.id
+      url = Router.routes['salesForceSample'].url() + '?' + Object.keys(authParams).map((key)-> key + '=' + authParams[key]).join('&')
+      console.log url
+      redirect @response, url
 
 , {where: 'server'}

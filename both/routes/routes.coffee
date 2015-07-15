@@ -29,3 +29,8 @@ Router.map ->
   @route '/sales-force-sample',
     name: 'salesForceSample',
     template: 'SalesForceSample'
+    data: ->
+      queryFields = ['accessToken', 'instanceUrl', 'userId']
+      data = {}
+      queryFields.forEach (key) => data[key] = @params.query[key]
+      return data

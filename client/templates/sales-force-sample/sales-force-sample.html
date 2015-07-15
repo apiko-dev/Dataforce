@@ -3,8 +3,13 @@
         <h3>SalesForce API Sample</h3>
 
         <div class="sample-body">
-
-            <p>content here</p>
+            <div class="sf-login-panel">
+                {{#if accessToken}}
+                    User ID: {{userId}}
+                {{else}}
+                    <a href="/oauth2/sales-force">SalesForce Login</a>
+                {{/if}}
+            </div>
         </div>
     </div>
 </template>
