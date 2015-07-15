@@ -18,14 +18,11 @@ Meteor.methods
 
     connection = createSalesForceConnection(credentials)
 
-    query = connection.sobject("Contact").find({FirstName: {$like: 'A%'}}).limit(5)
+    queryResult = Async.runSync (done) ->
+      connection.sobject("Contact").find({FirstName: {$like: 'A%'}}).limit(5).execute done
 
-    asyncExecute = Meteor.wrapAsync(query.execute, query)
+    if queryResult.error
+      console.log queryResult.error
+      return
 
-    records = asyncExecute (err, records) ->
-      if (err)
-        throw new Meteor.Error(err)
-      else
-        return records
-
-    return records
+    return queryResult.result
