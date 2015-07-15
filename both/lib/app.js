@@ -1,0 +1,2 @@
+//global App object
+App = {};

@@ -1,15 +1,3 @@
-createOAuth2Credentials = ->
-  credentials = JSON.parse Assets.getText 'sf-api.json'
-
-  oAuth2 = new jsforce.OAuth2({
-    clientId: credentials.key
-    clientSecret: credentials.secret
-    redirectUri: 'http://localhost:3000/oauth2/sales-force/callback'
-  })
-
-  return oAuth2
-
-
 mapAuthParams = (connection) ->
   authParamsKeys = [
     'accessToken'
@@ -26,6 +14,16 @@ redirect = (response, url) ->
     'Location': url
   })
   response.end()
+
+
+createOAuth2Credentials = ->
+  oAuth2 = new jsforce.OAuth2({
+    clientId: Meteor.settings.private.SalesForce.key
+    clientSecret: Meteor.settings.private.SalesForce.secret
+    redirectUri: 'http://localhost:3000/oauth2/sales-force/callback'
+  })
+
+  return oAuth2
 
 
 oAuth2 = createOAuth2Credentials()
@@ -49,8 +47,8 @@ Router.route 'oauth2/sales-force/callback', ->
     else
       authParams = mapAuthParams conn
       authParams.userId = userInfo.id
-      url = Router.routes['salesForceSample'].url() + '?' + Object.keys(authParams).map((key)-> key + '=' + authParams[key]).join('&')
-      console.log url
-      redirect @response, url
+      url = Router.routes['salesForceSample'].url()
+      query = '?' + Object.keys(authParams).map((key)-> key + '=' + authParams[key]).join('&')
+      redirect @response, url + query
 
 , {where: 'server'}

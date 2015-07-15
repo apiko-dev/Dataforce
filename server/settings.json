@@ -4,6 +4,10 @@
       "username": "golubev.vld@gmail.com",
       "token": "5ydHzQY9N4azJen0JaQzQuOM6Kl7BtBCxiPSsxOx",
       "remoteUri": "https://home50.zendesk.com/api/v2"
+    },
+    "SalesForce": {
+      "key": "3MVG9Rd3qC6oMalXrecmbmnSCdTMQ8svKkhTfwp6uAPVSsbn6b4Ncn_eIfWZrsjqqouwOGWNvPPfg.06WD9jq",
+      "secret": "7042426518495019054"
     }
   }
 }
