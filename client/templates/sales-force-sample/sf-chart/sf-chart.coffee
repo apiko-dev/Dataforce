@@ -1,4 +1,4 @@
-Template.OppChart.onCreated ->
+Template.SalesForceChart.onCreated ->
   @getCredentials = =>
     accessToken: @data.accessToken
     instanceUrl: @data.instanceUrl
@@ -28,7 +28,7 @@ Template.OppChart.onCreated ->
     }).sort (a1, a2) -> a1.data[0] - a2.data[0]
 
 
-Template.OppChart.onRendered ->
+Template.SalesForceChart.onRendered ->
   @initializeChart = (series) =>
     @$(".sf-chart").highcharts
       chart:

@@ -1,18 +1,25 @@
 <template name="SalesForceSample">
     <div class="container">
-        <h3>SalesForce API Sample</h3>
+        <h3>SalesForce</h3>
 
-        <div class="sample-body">
-            <div class="sf-login-panel">
+        <div class="row login-widget">
+            <div class="col-md-12">
                 {{#if accessToken}}
                     User ID: {{userId}}
                 {{else}}
                     <a href="/oauth2/sales-force">SalesForce Login</a>
                 {{/if}}
             </div>
+        </div>
 
+        <div class="row">
             {{#if accessToken}}
-                {{> OppChart}}
+                <div class="col-md-6 col-sm-12">
+                    {{> SalesForceChartEditor}}
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    {{> SalesForceChart}}
+                </div>
             {{/if}}
         </div>
     </div>
