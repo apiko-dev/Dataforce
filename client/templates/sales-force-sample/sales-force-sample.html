@@ -11,7 +11,9 @@
                 {{/if}}
             </div>
 
-            <div class="sf-chart"></div>
+            {{#if accessToken}}
+                {{> OppChart}}
+            {{/if}}
         </div>
     </div>
 </template>
