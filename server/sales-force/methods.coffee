@@ -6,23 +6,23 @@ createSalesForceConnection = (credentials) ->
     }
     accessToken: credentials.accessToken
     instanceUrl: credentials.instanceUrl
-  });
+  })
+
+
+checkCredentialsAndCreateConnection = (credentials) ->
+  check credentials, {
+    accessToken: String
+    instanceUrl: String
+  }
+  return createSalesForceConnection(credentials)
 
 
 Meteor.methods
-  testConnection: (credentials) ->
-    check credentials, {
-      accessToken: String
-      instanceUrl: String
-    }
-
-    connection = createSalesForceConnection(credentials)
-
+  getOpportunities: (credentials) ->
+    connection = checkCredentialsAndCreateConnection(credentials)
     queryResult = Async.runSync (done) ->
-      connection.sobject("Contact").find({FirstName: {$like: 'A%'}}).limit(5).execute done
+      connection.sobject("Opportunity").find({}).sort({CloseDate: -1}).limit(50).execute done
 
-    if queryResult.error
-      console.log queryResult.error
-      return
+    if queryResult.error then throw new Meteor.Error queryResult.error
 
     return queryResult.result
