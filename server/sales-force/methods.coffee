@@ -18,6 +18,19 @@ checkCredentialsAndCreateConnection = (credentials) ->
 
 
 Meteor.methods
+  sfDescribe: (credentials, tableName) ->
+    connection = checkCredentialsAndCreateConnection(credentials)
+    check tableName, String
+
+    queryResult = Async.runSync (done) ->
+      connection.sobject(tableName).describe done
+
+    if queryResult.error then throw new Meteor.Error queryResult.error
+
+    return queryResult.result
+
+
+#demo example method
   getOpportunities: (credentials) ->
     connection = checkCredentialsAndCreateConnection(credentials)
     queryResult = Async.runSync (done) ->

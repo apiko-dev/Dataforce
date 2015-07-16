@@ -7,6 +7,7 @@
             <div class="form-group">
                 <label for="table-dropdown">Table</label>
                 <select id="table-dropdown" class="form-control">
+                    <option value="none">none</option>
                     <option value="Account">Account</option>
                     <option value="Opportunity">Opportunity</option>
                     <option value="Contact">Contact</option>
@@ -17,70 +18,11 @@
                 <p class="help-block">Selected table will be used as data source for chart</p>
             </div>
 
-            <!--data filter-->
-            <fieldset>
-                <legend>Filters</legend>
-
-                <div class="form-group">
-                    <label for="condition-field">Field</label>
-                    <select id="condition-field" class="form-control">
-                        <option value="Status">Status</option>
-                        <option value="Stage">Stage</option>
-                        <option value="Company">Company</option>
-                    </select>
-                </div>
-
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" class="isEqualCondition"> Not equal
-                    </label>
-                </div>
-                <div class="form-group">
-                    <label for="condition-value">Value</label>
-                    <input type="text" id="condition-value" class="form-control" placeholder="Value">
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-success">New condition</button>
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <legend>Axes</legend>
-                <!--metrics picker-->
-                <div class="form-group">
-                    <label for="metrics-field">Metrics field</label>
-                    <select id="metrics-field" class="form-control">
-                        <option value="Status">Status</option>
-                        <option value="Stage">Stage</option>
-                        <option value="Company">Company</option>
-                    </select>
-                </div>
-
-                <!--dimension picker-->
-                <div class="form-group">
-                    <label for="dimension-field">Primary dimension field</label>
-                    <select id="dimension-field" class="form-control">
-                        <option value="Status">Status</option>
-                        <option value="Stage">Stage</option>
-                        <option value="Company">Company</option>
-                    </select>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" class="secondary-dimension" checked="checked"> Secondary dimension
-                    </label>
-                </div>
-                <div class="form-group">
-                    <label for="dimension2-field">Secondary dimension field</label>
-                    <select id="dimension2-field" class="form-control">
-                        <option value="Status">Status</option>
-                        <option value="Stage">Stage</option>
-                        <option value="Company">Company</option>
-                    </select>
-                </div>
-            </fieldset>
-
-            <button class="btn btn-success">Apply</button>
+            {{#if currentTable}}
+                {{> SalesForceChartConfiguration table=currentTable fields=fields}}
+            {{else}}
+                <p>Please, select a table</p>
+            {{/if}}
         </div>
     </div>
 </template>

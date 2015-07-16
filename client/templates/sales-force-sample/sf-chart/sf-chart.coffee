@@ -1,8 +1,4 @@
 Template.SalesForceChart.onCreated ->
-  @getCredentials = =>
-    accessToken: @data.accessToken
-    instanceUrl: @data.instanceUrl
-
   @getAmountByStages = (opportunities)->
     seriesNames = []
     seriesValues = []
@@ -48,6 +44,6 @@ Template.SalesForceChart.onRendered ->
           borderWidth: 0
       series: series
 
-  Meteor.call 'getOpportunities', @getCredentials(), (err, opportunities) =>
+  Meteor.call 'getOpportunities', @findParentTemplate('SalesForceSample').getCredentials(), (err, opportunities) =>
     series = @getAmountByStages(opportunities)
     @initializeChart(series)
