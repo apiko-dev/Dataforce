@@ -17,25 +17,33 @@ checkCredentialsAndCreateConnection = (credentials) ->
   return createSalesForceConnection(credentials)
 
 
+processQueryResult = (query, functionName) ->
+  queryResult = Async.runSync (done) -> query[functionName] done
+  if queryResult.error then throw new Meteor.Error queryResult.error
+  return queryResult.result
+
+
 Meteor.methods
   sfDescribe: (credentials, tableName) ->
     connection = checkCredentialsAndCreateConnection(credentials)
     check tableName, String
 
-    queryResult = Async.runSync (done) ->
-      connection.sobject(tableName).describe done
+    processQueryResult connection.sobject(tableName), 'describe'
 
-    if queryResult.error then throw new Meteor.Error queryResult.error
 
-    return queryResult.result
+  sfGetTableData: (credentials, tableName, filters) ->
+    connection = checkCredentialsAndCreateConnection(credentials)
+    check tableName, String
+    check filters, [{
+      key: String
+      value: String
+      isEqual: Boolean
+    }]
+#todo finish this method
 
 
 #demo example method
   getOpportunities: (credentials) ->
     connection = checkCredentialsAndCreateConnection(credentials)
-    queryResult = Async.runSync (done) ->
-      connection.sobject("Opportunity").find({}).sort({CloseDate: -1}).limit(50).execute done
 
-    if queryResult.error then throw new Meteor.Error queryResult.error
-
-    return queryResult.result
+    processQueryResult connection.sobject("Opportunity").find({}).sort({CloseDate: -1}).limit(50), 'execute'

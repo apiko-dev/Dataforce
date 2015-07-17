@@ -8,7 +8,6 @@ Template.SalesForceChartConfiguration.onCreated ->
 
 
   @updateFilter = (filter) =>
-    console.log filter
     id = filter._id
     delete filter._id
     @filters.update {_id: id}, {$set: filter}
@@ -37,10 +36,9 @@ Template.SalesForceChartConfiguration.events
         dimensions: tmpl.$('#dimension-field').val()
         dimensions2: tmpl.$('#dimension2-field').val()
     }
-
-    console.log 'chart ', chart
-
+    #    console.log 'chart ', chart
     Session.set('sfChart', chart)
 
+
   'click .add-new-condition': (event, tmpl) ->
-    tmpl.filters.insert({})
+    tmpl.filters.insert {}
