@@ -2,27 +2,11 @@
     <!--data filter-->
     <fieldset>
         <legend>Filters</legend>
-
+        {{#each filters}}
+            {{> SalesForceChartDataFilter}}
+        {{/each}}
         <div class="form-group">
-            <label for="condition-field">Field</label>
-            <select id="condition-field" class="form-control">
-                {{#each fields}}
-                    <option value="{{name}}">{{label}}</option>
-                {{/each}}
-            </select>
-        </div>
-
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" class="isEqualCondition"> Not equal
-            </label>
-        </div>
-        <div class="form-group">
-            <label for="condition-value">Value</label>
-            <input type="text" id="condition-value" class="form-control" placeholder="Value">
-        </div>
-        <div class="form-group">
-            <button class="btn btn-success">New condition</button>
+            <button class="btn btn-success add-new-condition">New condition</button>
         </div>
     </fieldset>
 
@@ -33,6 +17,15 @@
             <label for="metrics-field">Metrics field</label>
             <select id="metrics-field" class="form-control">
                 {{#each numberFields}}
+                    <option value="{{name}}">{{label}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="value-function-field">Value function</label>
+            <select id="value-function-field" class="form-control">
+                {{#each valueFunctions}}
                     <option value="{{name}}">{{label}}</option>
                 {{/each}}
             </select>
@@ -62,5 +55,5 @@
         </div>
     </fieldset>
 
-    <button class="btn btn-success">Apply</button>
+    <button class="btn btn-success apply-chart-button">Apply</button>
 </template>
