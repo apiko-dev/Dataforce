@@ -36,7 +36,7 @@ Template.SalesForceChartConfiguration.events
         dimensions: tmpl.$('#dimension-field').val()
         dimensions2: tmpl.$('#dimension2-field').val()
     }
-    #    console.log 'chart ', chart
+
     Session.set('sfChart', chart)
 
 

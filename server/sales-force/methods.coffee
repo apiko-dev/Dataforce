@@ -39,7 +39,11 @@ Meteor.methods
       value: String
       isEqual: Boolean
     }]
-#todo finish this method
+
+    query = {}
+    filters.forEach (filter) -> query[filter.key] = if filter.isEqual then filter.value else {$ne: filter.value}
+
+    processQueryResult connection.sobject(tableName).find(query).limit(100), 'execute'
 
 
 #demo example method
