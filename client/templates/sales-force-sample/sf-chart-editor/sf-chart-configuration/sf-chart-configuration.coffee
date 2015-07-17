@@ -31,7 +31,7 @@ Template.SalesForceChartConfiguration.events
       table: tmpl.data.table
       filters: tmpl.filters.find({}, {fields: {_id: 0}}).fetch() #comming soon...
       valueFunction: tmpl.$('#value-function-field').val()
-      axes:
+      axis:
         metrics: tmpl.$('#metrics-field').val()
         dimensions: tmpl.$('#dimension-field').val()
         dimensions2: tmpl.$('#dimension2-field').val()

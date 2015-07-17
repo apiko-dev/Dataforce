@@ -1,38 +1,39 @@
-Template.SalesForceChart.onCreated ->
-  @getAmountByStages = (opportunities)->
-    seriesNames = []
-    seriesValues = []
+class Series
+  constructor: (@chart, data) ->
+    @names = []
+    @values = []
+    data.forEach (record) =>
+      @_updateValue record[@chart.axis.dimensions], record[@chart.axis.metrics]
 
-    indexOfStage = (stage) ->
-      index = seriesNames.indexOf(stage)
-      if index < 0
-        index = seriesNames.length
-        seriesNames.push stage
-        seriesValues.push(0)
-      return index
+  _indexOfName: (name) ->
+    index = @names.indexOf(name)
+    if index < 0
+      index = @names.length
+      @names.push name
+      @values.push(0)
+    return index
 
-    updateStage = (stage, value) ->
-      index = indexOfStage(stage)
-      seriesValues[index] += value
+  _updateValue: (name, value) ->
+    index = @_indexOfName(name)
+    #value method dispatch
+    @["_#{@chart.valueFunction}"](index, value)
 
-    opportunities.forEach (opp) -> updateStage opp.StageName, opp.Amount
+  _sum: (index, value) -> @values[index] += value
+  _average: (index, value) -> @values[index] += value
+  _multiply: (index, value) -> @values[index] *= value
 
-    #convert to series
-    return seriesNames.map((name, index) -> {
-    name: name,
-    data: [seriesValues[index]]
-    }).sort (a1, a2) -> a1.data[0] - a2.data[0]
+  convertForHighchart: () -> @names.map (name, index) => {name: name, data: [@values[index]]}
 
 
 Template.SalesForceChart.onRendered ->
-  @initializeChart = (series) =>
+  @initializeChart = (chart, series) =>
     @$(".sf-chart").highcharts
       chart:
         type: 'column'
       title:
-        text: 'Opportunities\' amount by status'
+        text: 'Result'
       xAxis:
-        categories: ['Status'],
+        categories: [chart.axis.dimensions],
         crosshair: true
       yAxis:
         min: 0,
@@ -44,6 +45,12 @@ Template.SalesForceChart.onRendered ->
           borderWidth: 0
       series: series
 
-  Meteor.call 'getOpportunities', @findParentTemplate('SalesForceSample').getCredentials(), (err, opportunities) =>
-    series = @getAmountByStages(opportunities)
-    @initializeChart(series)
+  @autorun =>
+    chart = Session.get 'sfChart'
+
+    console.log chart
+
+    if chart
+      Meteor.call 'sfGetTableData', @findParentTemplate('SalesForceSample').getCredentials(), chart.table, chart.filters, (err, tableData) =>
+        series = new Series(chart, tableData)
+        @initializeChart chart, series.convertForHighchart()
