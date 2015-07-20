@@ -8,6 +8,8 @@ Template.SalesForceChartConfiguration.onCreated ->
     delete filter._id
     @filters.update {_id: id}, {$set: filter}
 
+  @isSecondaryDimension = => @$('.secondary-dimension').is(":checked")
+
 
 Template.SalesForceChartConfiguration.helpers
   numberFields: -> @fields.filter (field) -> field.type in ['int', 'double', 'currency', 'percent']
@@ -22,6 +24,9 @@ Template.SalesForceChartConfiguration.helpers
 
 
 Template.SalesForceChartConfiguration.events
+  'change .secondary-dimension': (event, tmpl) ->
+    tmpl.$('.dimension2-section')[if tmpl.isSecondaryDimension() then 'show' else 'hide']()
+
   'click .apply-chart-button': (event, tmpl) ->
     chart = {
       table: tmpl.data.table
@@ -30,7 +35,7 @@ Template.SalesForceChartConfiguration.events
       axis:
         metrics: tmpl.$('#metrics-field').val()
         dimension: tmpl.$('#dimension-field').val()
-        dimension2: tmpl.$('#dimension2-field').val()
+        dimension2: if tmpl.isSecondaryDimension() then tmpl.$('#dimension2-field').val() else null
     }
 
     Session.set('sfChart', chart)

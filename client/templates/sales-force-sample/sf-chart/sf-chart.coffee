@@ -112,7 +112,6 @@ Template.SalesForceChart.onRendered ->
 
     if chart
       Meteor.call 'sfGetTableData', @findParentTemplate('SalesForceSample').getCredentials(), chart.table, chart.filters, (err, tableData) =>
-        console.log tableData
         series = new Series(chart, tableData)
         convertedSeries = series.getConvertedSeriesForHighchart()
         console.log convertedSeries
