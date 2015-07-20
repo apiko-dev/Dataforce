@@ -1,6 +1,6 @@
-CLIENT_ID = "731739422252-19e4u0b1demcma8i837cpcn2p53tiu3s.apps.googleusercontent.com"
-CLIENT_SECRET = "7isvZNmXhxSFaMrUko8UADqA"
-REDIRECT_URL = "http://localhost:3000/"
+CLIENT_ID = "492445934834-1pbljtblmkddmjqv978a81a0vb3j59r6.apps.googleusercontent.com"
+CLIENT_SECRET = "NpuwJp2HB7454YiGET16F5c9"
+REDIRECT_URL = "http://localhost:3000/google-analytics-sample"
 SCOPES = ['openid', 'email', 'profile', 'https://www.googleapis.com/auth/analytics.readonly']
 
 googleapis = Meteor.npmRequire "googleapis"
@@ -16,6 +16,7 @@ Meteor.methods
 
   saveGAToken: (code) ->
     oauth2Client.getToken code, (err, tokens) ->
+      console.log err, tokens
       if not err
         oauth2Client.setCredentials tokens
 
