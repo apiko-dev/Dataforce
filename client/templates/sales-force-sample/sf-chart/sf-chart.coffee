@@ -1,67 +1,109 @@
 class Series
   constructor: (@chart, data) ->
-    @names = []
-    @values = []
-    @counts = []
+    @series = {}
 
-    data.forEach (record) =>
-      @_updateValue record[@chart.axis.dimensions], record[@chart.axis.metrics]
+    getDimension2Value = (entry) =>
+      if @_is2Dimensional() then entry[@chart.axis.dimension2] else @chart.axis.dimension
 
+    data.forEach (entry) =>
+      dimensionValue = entry[@chart.axis.dimension]
+      dimension2Value = getDimension2Value(entry)
+      value = entry[@chart.axis.metrics]
 
-  _indexOfName: (name) ->
-    index = @names.indexOf(name)
-    if index < 0
-      index = @names.length
-      @names.push name
-      @values.push(0)
-    return index
+      @_updateValue(dimension2Value, dimensionValue, value)
 
 
-  _updateValue: (name, value) ->
-    index = @_indexOfName(name)
-    #value method dispatch
-    @["_#{@chart.valueFunction}"](index, value)
+  _is2Dimensional: () -> !!@chart.axis.dimension2
+
+  _isAverageValueFunction: () -> @chart.valueFunction is 'average'
+
+  _getSeriesEntry: (functionArguments) -> @series[functionArguments[0]][functionArguments[1]]
+
+  _updateValue: (dimension2Value, dimensionValue, value) ->
+    unless @series[dimension2Value] then @series[dimension2Value] = {}
+    unless @series[dimension2Value][dimensionValue]
+      @series[dimension2Value][dimensionValue] =
+        value: if @_isAverageValueFunction() then 1 else 0
+
+    #dispatch value function
+    @["_#{@chart.valueFunction}"].apply(@, arguments)
 
 
-  _sum: (index, value) -> @values[index] += value
-  _multiply: (index, value) -> @values[index] *= value
+  _sum: (dimension2Value, dimensionValue, value) ->
+    seriesEntry = @_getSeriesEntry(arguments)
+    seriesEntry.value += value
 
-  _average: (index, value) ->
-    if @counts[index] then @counts[index]++ else @counts[index] = 1
-    @values[index] += value
+  _multiply: (dimension2Value, dimensionValue, value) ->
+    @_getSeriesEntry(arguments).value *= value
 
-  _valueByIndex: (index) ->
-    value = @values[index]
-    count = @counts[index]
-    value = if count then value / count else value
+  _average: (dimension2Value, dimensionValue, value) ->
+    seriesEntry = @_getSeriesEntry(arguments)
+    if seriesEntry.count
+      seriesEntry.count++
+    else
+      seriesEntry.count = 1
+    seriesEntry.value += value
+
+  _getValue: (dimension2Value, dimensionValue) ->
+    seriesEntry = @_getSeriesEntry(arguments)
+    value = if @_isAverageValueFunction() then seriesEntry.value / seriesEntry.count else seriesEntry.value
+    #round value up to 2 digits after dot
     Math.round(value * 100) / 100
 
+  getConvertedSeriesForHighchart: ->
+    categories = []
+    series = []
 
-  convertForHighchart: () -> @names.map (name, index) => {
-  name: name,
-  data: [@_valueByIndex index]
-  }
+    seriesByName = (name) ->
+      result = false
+      for entry in series
+        if entry.name is name then result = entry
+
+      unless result
+        result = {name: name, data: []}
+        series.push result
+      return result
+
+    Object.keys(@series).forEach (dimension2Value) =>
+      Object.keys(@series[dimension2Value]).forEach (dimensionValue) =>
+        value = @_getValue dimension2Value, dimensionValue
+
+        unless dimension2Value in categories then categories.push dimension2Value
+
+        categoryIndex = categories.indexOf(dimension2Value)
+        seriesEntry = seriesByName(dimensionValue)
+        seriesEntry.data[categoryIndex] = value
+
+    #process series data (replace all undefined to 0)
+    series.forEach (seriesEntry) ->
+      for i in [0..categories.length - 1]
+        value = seriesEntry.data[i]
+        seriesEntry.data[i] = unless value then 0 else value
+
+    #return chart data
+    categories: categories
+    series: series
 
 
 Template.SalesForceChart.onRendered ->
-  @initializeChart = (chart, series) =>
+  @initializeChart = (chartData) =>
     @$(".sf-chart").highcharts
       chart:
         type: 'column'
       title:
         text: 'Result'
       xAxis:
-        categories: [chart.axis.dimensions],
+        categories: chartData.categories,
         crosshair: true
       yAxis:
         min: 0,
         title:
-          text: '$'
+          text: ''
       plotOptions:
         column:
           pointPadding: 0.2,
           borderWidth: 0
-      series: series
+      series: chartData.series
 
   @autorun =>
     chart = Session.get 'sfChart'
@@ -70,5 +112,8 @@ Template.SalesForceChart.onRendered ->
 
     if chart
       Meteor.call 'sfGetTableData', @findParentTemplate('SalesForceSample').getCredentials(), chart.table, chart.filters, (err, tableData) =>
+        console.log tableData
         series = new Series(chart, tableData)
-        @initializeChart chart, series.convertForHighchart()
+        convertedSeries = series.getConvertedSeriesForHighchart()
+        console.log convertedSeries
+        @initializeChart convertedSeries

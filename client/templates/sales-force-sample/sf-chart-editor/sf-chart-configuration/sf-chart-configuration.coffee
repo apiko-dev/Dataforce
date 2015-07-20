@@ -1,11 +1,7 @@
 Template.SalesForceChartConfiguration.onCreated ->
   @filters = new Mongo.Collection(null)
 
-  @filters.deny
-    update: -> false
-
   @removeFilter = (filterId) => @filters.remove {_id: filterId}
-
 
   @updateFilter = (filter) =>
     id = filter._id
@@ -33,8 +29,8 @@ Template.SalesForceChartConfiguration.events
       valueFunction: tmpl.$('#value-function-field').val()
       axis:
         metrics: tmpl.$('#metrics-field').val()
-        dimensions: tmpl.$('#dimension-field').val()
-        dimensions2: tmpl.$('#dimension2-field').val()
+        dimension: tmpl.$('#dimension-field').val()
+        dimension2: tmpl.$('#dimension2-field').val()
     }
 
     Session.set('sfChart', chart)
