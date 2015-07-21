@@ -1,92 +1,74 @@
 <template name="googleAnalytics">
-  <h1>Welcome to Meteor!</h1>
+  <div class="container">
+    <h1 class="text-center"><img src="http://fista.iscte-iul.pt/img/workshops/google-analytics.png" width="80px"/>Google Analytics Demo</h1>
 
-  {{> loginButtons}}
-
-  <div class="row">
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-      <br/><br/>
-      <a id="auth-with-ga" class="btn btn-default" href="#"><i class="glyphicon glyphicon-lock"></i> Auth with Google Analytics</a>
-      <br/><br/>
-      <button id="getUAlist" class="btn btn-default">Get accounts list</button>
-      <br/> <br/>
-      <label for="profile-selector">Select a project from a dropdown</label>
-      <br/>
-      <select id="profile-selector">
-        {{#each GAaccounts}}
-          <option value="{{profileId}}">{{name}}</option>
-        {{/each}}
-      </select>
-    </div>
-
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-      <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-          {{> listSelector list=metricsList id="metrics-selector"}}
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="form-group">
+          <a id="auth-with-ga" class="btn btn-default" href="#">
+            <i class="glyphicon glyphicon-lock"></i>
+            Auth with Google Analytics
+          </a>
+          <button id="getUAlist" class="btn btn-default">Get accounts list</button>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="form-group">
+          <label for="profile-selector">Select a project from a dropdown</label>
+          <select id="profile-selector">
+            {{#each GAaccounts}}
+              <option value="{{profileId}}">{{name}}</option>
+            {{/each}}
+          </select>
+        </div>
+        <div class="form-group">
+          {{> listSelector list=metricsList id="metrics-selector"}}
           {{> listSelector list=dimensionsList id="dimensions-selector"}}
         </div>
-      </div>
-      <div class="row">
-        <br/>
-        <br/>
-
-        <label for="more-axis-checkbox" class="text-center btn btn-default">
-          <input id="more-axis-checkbox" type="checkbox" checked="{{addMoreYAxis}}"/>
-          Second axis
-        </label>
-      </div>
-      {{#if addMoreYAxis}}
-        <div class="row">
-          <div class="row">
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-              {{> listSelector list=metricsList id="second-metrics-selector"}}
-            </div>
-          </div>
+        <div class="form-group">
+          <label for="more-axis-checkbox" class="text-center btn btn-default">
+            <input id="more-axis-checkbox" type="checkbox" checked="{{addMoreYAxis}}"/>
+            Second axis
+          </label>
+          {{#if addMoreYAxis}}
+            <span>{{> listSelector list=metricsList id="second-metrics-selector"}}</span>
+          {{/if}}
         </div>
-      {{/if}}
-      <br/>
-      <br/>
-      {{> rangeDatepicker id="gaDatepicker"}}
-      <br/>
-      <br/>
-      <button id="getData" class="btn btn-success">Proceed</button>
-    </div>
+        <div class="form-group">
+          {{> rangeDatepicker id="gaDatepicker"}}
+        </div>
+        <button id="getData" class="btn btn-success">Proceed</button>
+      </div>
 
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-      <strong>Your data is</strong>
-      <br/>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <strong>Your data is</strong>
+        <br/>
 
-      <select id="chart-type-selector">
-        <option value="line">Line</option>
-        <option value="column">Column</option>
-      </select>
-      <br/>
+        <select id="chart-type-selector">
+          <option value="line">Line</option>
+          <option value="column">Column</option>
+        </select>
+        <br/>
 
-      <div id="chart"></div>
-      <br/>
-      <table class="table table-hover">
-        <thead>
-        <tr>
-          <th>metric</th>
-          <th>value</th>
-        </tr>
-        </thead>
-        <tbody>
-        {{#each UAProfileData}}
+        <div id="chart"></div>
+        <br/>
+        <table class="table table-hover">
+          <thead>
           <tr>
-            {{#each .}}
-              <td>{{this}}</td>
-            {{/each}}
+            <th>metric</th>
+            <th>value</th>
           </tr>
-        {{/each}}
-        </tbody>
-      </table>
-      <textarea cols="60" rows="10">{{stringify UAProfileData}}</textarea>
+          </thead>
+          <tbody>
+          {{#each UAProfileData}}
+            <tr>
+              {{#each .}}
+                <td>{{this}}</td>
+              {{/each}}
+            </tr>
+          {{/each}}
+          </tbody>
+        </table>
+        <textarea cols="60" rows="10">{{stringify UAProfileData}}</textarea>
+      </div>
     </div>
   </div>
-
-
-  <button id="debug" class="btn btn-danger btn-lg">ZENDESK API CALL</button>
 </template>

@@ -91,9 +91,6 @@ Template.googleAnalytics.events
     addSecondAxis = t.$(e.target).prop "checked"
     Session.set "addMoreYAxis", addSecondAxis
 
-  'click #debug': (e, t) ->
-    Meteor.call "zendesk"
-
   'click #getData': (e, t) ->
     firstMetric = t.$("#metrics-selector").val()
     secondMetric = if (secondMetric = t.$("#second-metrics-selector").val())? then "," + secondMetric else ""
