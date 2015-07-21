@@ -16,7 +16,7 @@ Router.map ->
     name: 'googleAnalyticsSample'
     action: ->
       if @params.query.code
-        Meteor.call "saveGAToken", @params.query.code, (err, result) ->
+        Meteor.call "GA.saveToken", @params.query.code, (err, result) ->
           Router.go "googleAnalyticsSample"
       @render 'googleAnalytics'
 

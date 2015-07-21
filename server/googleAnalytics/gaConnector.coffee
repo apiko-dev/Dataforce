@@ -9,18 +9,18 @@ OAuth2 = googleapis.auth.OAuth2
 oauth2Client = new OAuth2 CLIENT_ID, CLIENT_SECRET, REDIRECT_URL
 
 Meteor.methods
-  getGAAuthUrl: ->
+  "GA.generateAuthUrl": ->
     oauth2Client.generateAuthUrl
       access_type: "offline"
       scope: SCOPES
 
-  saveGAToken: (code) ->
+  "GA.saveToken": (code) ->
+    check code, String
     oauth2Client.getToken code, (err, tokens) ->
-      console.log err, tokens
       if not err
         oauth2Client.setCredentials tokens
 
-  getGAaccounts: (userId) ->
+  "GA.getAccounts": ->
     profilesListJson = Async.runSync (done) ->
       googleAnalytics.management.profiles.list {
         auth: oauth2Client
@@ -30,12 +30,12 @@ Meteor.methods
         done err, result
 
     if profilesListJson.error is null
-      Async.runSync (done) ->
-        Meteor.call "getProfilesList", profilesListJson, (err, result) ->
-          if not err
-            console.log "Found #{result.length} profiles"
-          else console.error err
-          done err, result
+      _.map profilesListJson.result.items, (el) ->
+        console.log el.accountId
+        accountId: el.accountId
+        profileId: el.id
+        webPropertyId: el.webPropertyId
+        name: if el.websiteUrl.length > 3 then el.websiteUrl else el.webPropertyId
     else
       console.log profilesListJson.error
       {}

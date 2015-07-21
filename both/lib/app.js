@@ -1,2 +1,0 @@
-//global App object
-App = {};
