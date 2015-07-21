@@ -38,9 +38,9 @@ Meteor.methods
         name: if el.websiteUrl.length > 3 then el.websiteUrl else el.webPropertyId
     else
       console.log profilesListJson.error
-      {}
+      []
 
-  "GA.getUAProfileData": (query) ->
+  "GA.getData": (query) ->
     check query,
       profileId: String
       metrics: String
@@ -50,13 +50,12 @@ Meteor.methods
 
     Async.runSync (done) ->
       googleAnalytics.data.ga.get {
-        "auth": oauth2Client
-        "ids": "ga:" + query.profileId
+        auth: oauth2Client
+        ids: "ga:" + query.profileId
         "start-date": query.from
         "end-date": query.to
-        "metrics": query.metrics
-        "dimensions": query.dimensions
+        metrics: query.metrics
+        dimensions: query.dimensions
       }, (err, result) ->
         err and console.log err
-        console.log result
-        done err, result?.rows
+        done err, result

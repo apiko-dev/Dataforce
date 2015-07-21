@@ -1,53 +1,29 @@
 Template.gaChart.onCreated ->
   @chartType = new ReactiveVar "line"
-  @rawData = new ReactiveVar ""
+  @series = new ReactiveVar ""
   @axisNames = new ReactiveVar ""
+  @categories = new ReactiveVar ""
 
 Template.gaChart.onRendered ->
   tpl = @
   Tracker.autorun ->
-    rawData = tpl.rawData.get()
+    series = tpl.series.get()
+    categories = tpl.categories.get()
     chartType = tpl.chartType.get()
     axisNames = tpl.axisNames.get()
 
-    xData = _.map rawData, (el) -> el[0]
-    yData = _.map rawData, (el) -> el[1]
-    yData2 = {}
-
-    seriesData = [
-      {name: axisNames?.y, data: yData}
-    ]
-
-    yAxisConfig = [
-      title:
-        text: axisNames?.y or ""
-      plotLines: [{
-        value: 0
-        width: 1
-        color: '#808080'
-      }]
-    ]
-
-    if hasSecondYAxis = rawData?[0]?[2]
-      yData2 = _.map rawData, (el) -> el[2]
-      seriesData.push {name: axisNames.y2, data: yData2}
-      yAxisConfig.push
-        title:
-          text: axisNames.y2 or ""
-
     # output debug info
-    $("textarea").val("#{xData}\n#{JSON.stringify seriesData}")
+    $("textarea").val("#{categories}\n#{JSON.stringify series}")
 
     initHighCharts = ->
       @.$("#chart").highcharts
         chart:
           type: chartType
         xAxis:
-          categories: xData
+          categories: categories
           title:
             text: axisNames?.x or ""
-        yAxis: yAxisConfig
-        series: seriesData
+        series: series
 
     initHighCharts()
 
@@ -57,8 +33,9 @@ Template.gaChart.events
     Template.instance().chartType.set selectedChartType
 
   'click #getData': (e, t) ->
-    firstMetric = $("#metrics-selector").val()
-    secondMetric = if (secondMetric = $("#second-metrics-selector").val())? then "," + secondMetric else ""
+    metrics = []
+    $("select.metrics-selector").each ->
+      metrics.push $(@).val()
     profileId = $("#profile-selector").val()
     dimensions = $("#dimensions-selector").val()
     fromDate = $("#gaDatepicker input").eq(0).val()
@@ -66,20 +43,14 @@ Template.gaChart.events
 
     chartQuery =
       profileId: profileId
-      metrics: firstMetric + secondMetric
+      metrics: metrics.join ","
       dimensions: dimensions
       from: fromDate
       to: endDate
 
-    console.log chartQuery
-
-    Meteor.call "GA.getUAProfileData", chartQuery, (err, result) ->
-      UAProfileData = _.map result.result, (el) ->
-        el[1] = parseInt el[1]
-        el[2] = parseInt el[2] if el[2]
-        el
-      t.rawData.set UAProfileData
-      t.axisNames.set
-        x: _.find(gaDimensionsList, (el) -> el.key is chartQuery.dimensions).value
-        y: _.find(gaMetricsList, (el) -> el.key is firstMetric).value
-        y2: _.find(gaMetricsList, (el) -> el.key is secondMetric)?.value
+    Meteor.call "GA.getData", chartQuery, (err, result) ->
+      if not err
+        gaAdapter = new App.DataAdapters.GoogleAnalytics chartQuery, result
+        t.axisNames.set gaAdapter.getAxisNames()
+        t.series.set gaAdapter.getSeries()
+        t.categories.set gaAdapter.getCategories()
