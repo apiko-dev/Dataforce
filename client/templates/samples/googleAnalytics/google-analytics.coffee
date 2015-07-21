@@ -36,23 +36,27 @@ Template.googleAnalytics.events
   'click #getData': (e, t) ->
     firstMetric = t.$("#metrics-selector").val()
     secondMetric = if (secondMetric = t.$("#second-metrics-selector").val())? then "," + secondMetric else ""
+    profileId = t.$("#profile-selector").val()
+    dimensions = t.$("#dimensions-selector").val()
+    fromDate = t.$("#gaDatepicker input").eq(0).val
+    endDate = t.$("#gaDatepicker input").eq(1).val()
 
-    query =
-      profileId: t.$("#profile-selector").val()
+    chartQuery =
+      profileId: profileId
       metrics: firstMetric + secondMetric
-      dimensions: t.$("#dimensions-selector").val()
-      from: t.$("#gaDatepicker input").eq(0).val()
-      to: t.$("#gaDatepicker input").eq(1).val()
+      dimensions: dimensions
+      from: fromDate
+      to: endDate
 
-    console.log query
+    console.log chartQuery
 
-    Meteor.call "GA.getUAProfileData", query, (err, result) ->
+    Meteor.call "GA.getUAProfileData", chartQuery, (err, result) ->
       UAProfileData = _.map result.result, (el) ->
         el[1] = parseInt el[1]
         el[2] = parseInt el[2] if el[2]
         el
       t.rawData.set UAProfileData
       t.axisNames.set
-        x: _.find(gaDimensionsList, (el) -> el.key is query.dimensions).value
+        x: _.find(gaDimensionsList, (el) -> el.key is chartQuery.dimensions).value
         y: _.find(gaMetricsList, (el) -> el.key is firstMetric).value
         y2: _.find(gaMetricsList, (el) -> el.key is secondMetric)?.value
