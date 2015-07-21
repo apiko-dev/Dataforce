@@ -1,72 +1,14 @@
-<template name="googleAnalytics">
+<template name="googleAnalyticsSample">
   <div class="container">
     <h1 class="text-center"><img src="http://fista.iscte-iul.pt/img/workshops/google-analytics.png" width="80px"/>Google Analytics Demo</h1>
 
     <div class="row">
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <div class="form-group">
-          <a id="auth-with-ga" class="btn btn-default" href="#">
-            <i class="glyphicon glyphicon-lock"></i>
-            Auth with Google Analytics
-          </a>
-          <button id="getUAlist" class="btn btn-default">Get accounts list</button>
-        </div>
-        <div class="form-group">
-          <label for="profile-selector">Select a project from a dropdown</label>
-          <select id="profile-selector">
-            {{#each GAaccounts}}
-              <option value="{{profileId}}">{{name}}</option>
-            {{/each}}
-          </select>
-        </div>
-        <div class="form-group">
-          {{> listSelector list=metricsList id="metrics-selector"}}
-          {{> listSelector list=dimensionsList id="dimensions-selector"}}
-        </div>
-        <div class="form-group">
-          <label for="more-axis-checkbox" class="text-center btn btn-default">
-            <input id="more-axis-checkbox" type="checkbox" checked="{{addMoreYAxis}}"/>
-            Second axis
-          </label>
-          {{#if addMoreYAxis}}
-            <span>{{> listSelector list=metricsList id="second-metrics-selector"}}</span>
-          {{/if}}
-        </div>
-        <div class="form-group">
-          {{> rangeDatepicker id="gaDatepicker"}}
-        </div>
-        <button id="getData" class="btn btn-success">Proceed</button>
+      <div class="col-sm-12 col-md-6">
+        {{> gaChartConstructor}}
       </div>
 
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <strong>Your data is</strong>
-        <br/>
-
-        <select id="chart-type-selector">
-          <option value="line">Line</option>
-          <option value="column">Column</option>
-        </select>
-        <br/>
-
-        <div id="chart"></div>
-        <br/>
-        <table class="table table-hover">
-          <thead>
-          <tr>
-            <th>metric</th>
-            <th>value</th>
-          </tr>
-          </thead>
-          <tbody>
-          {{#each UAProfileData}}
-            <tr>
-              {{#each .}}
-                <td>{{this}}</td>
-              {{/each}}
-            </tr>
-          {{/each}}
-          </tbody>
-        </table>
+      <div class="col-sm-12 col-md-6">
+        {{> gaChart}}
         <textarea cols="60" rows="10">{{stringify UAProfileData}}</textarea>
       </div>
     </div>
