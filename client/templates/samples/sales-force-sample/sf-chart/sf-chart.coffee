@@ -1,4 +1,4 @@
-class Series
+class SalesForceDataGrouper
   constructor: (@chart, data) ->
     @series = {}
 
@@ -11,8 +11,6 @@ class Series
       value = entry[@chart.axis.metrics]
 
       @_updateValue(dimension2Value, dimensionValue, value)
-
-    console.log @series
 
 
   _is2Dimensional: () -> !!@chart.axis.dimension2
@@ -112,7 +110,6 @@ Template.SalesForceChart.onRendered ->
 
     if chart
       Meteor.call 'sfGetTableData', @findParentTemplate('SalesForceSample').getCredentials(), chart.table, chart.filters, (err, tableData) =>
-        series = new Series(chart, tableData)
+        series = new SalesForceDataGrouper(chart, tableData)
         convertedSeries = series.getConvertedSeriesForHighchart()
-        console.log convertedSeries
         @initializeChart convertedSeries
