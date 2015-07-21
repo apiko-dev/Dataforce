@@ -1,2 +1,5 @@
-To run app use command:
+__To run app use command:__
+
+```
 $ meteor run --settings server/settings.json
+```
