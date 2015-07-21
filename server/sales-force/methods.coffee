@@ -10,7 +10,7 @@ createSalesForceConnection = (credentials) ->
 
 
 checkCredentialsAndCreateConnection = ->
-  #get credentials
+#get credentials
   credentials = ServiceCredentials.findOne {userId: App.temp.defaultUserId}, fields: {salesforce: 1}
 
   return createSalesForceConnection(credentials.salesforce)
@@ -19,7 +19,14 @@ checkCredentialsAndCreateConnection = ->
 processQueryResult = (query, functionName) ->
   queryResult = Async.runSync (done) -> query[functionName] done
   if queryResult.error then throw new Meteor.Error queryResult.error
+
+  console.log queryResult.result
   return queryResult.result
+
+
+FilterModifier = Match.Where (x) ->
+  check(x, String)
+  return x in ['$gt', '$eq', '$lt', '$lte', '$gte', '$ne']
 
 
 Meteor.methods
@@ -33,13 +40,19 @@ Meteor.methods
   sfGetTableData: (tableName, filters) ->
     check tableName, String
     check filters, [{
-      key: String
-      value: String
-      isEqual: Boolean
+      field:
+        name: String
+        value: Match.Any
+      modifier: FilterModifier
     }]
     connection = checkCredentialsAndCreateConnection()
 
     query = {}
-    filters.forEach (filter) -> query[filter.key] = if filter.isEqual then filter.value else {$ne: filter.value}
+    filters.forEach (filter) ->
+      condition = {}
+      condition[filter.modifier] = filter.field.value
+      query[filter.field.name] = condition
+
+    console.log query
 
     processQueryResult connection.sobject(tableName).find(query).limit(100), 'execute'
