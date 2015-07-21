@@ -58,7 +58,7 @@ Template.gaChart.events
 
   'click #getData': (e, t) ->
     firstMetric = $("#metrics-selector").val()
-    secondMetric = if (secondMetric = $("#second-metrics-selector").val())? then "," + secondMetric else ""
+    secondMetric = $("#second-metrics-selector").val() or ""
     profileId = $("#profile-selector").val()
     dimensions = $("#dimensions-selector").val()
     fromDate = $("#gaDatepicker input").eq(0).val()
@@ -66,7 +66,7 @@ Template.gaChart.events
 
     chartQuery =
       profileId: profileId
-      metrics: firstMetric + secondMetric
+      metrics: firstMetric + "," + secondMetric
       dimensions: dimensions
       from: fromDate
       to: endDate
@@ -82,4 +82,4 @@ Template.gaChart.events
       t.axisNames.set
         x: _.find(gaDimensionsList, (el) -> el.key is chartQuery.dimensions).value
         y: _.find(gaMetricsList, (el) -> el.key is firstMetric).value
-        y2: _.find(gaMetricsList, (el) -> el.key is secondMetric)?.value
+        y2: _.find(gaMetricsList, (el) -> el.key is secondMetric).value or ""
