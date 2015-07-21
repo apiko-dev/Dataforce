@@ -18,7 +18,7 @@ Router.map ->
       if @params.query.code
         Meteor.call "GA.saveToken", @params.query.code, (err, result) ->
           Router.go "googleAnalyticsSample"
-      @render 'googleAnalytics'
+      @render 'googleAnalyticsSample'
 
 
   @route '/zendesk-example',
