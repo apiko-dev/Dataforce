@@ -2,5 +2,9 @@
 App = {
   DataAdapters: {},
   DataTransformers: {},
-  DataMisc: {}
+  DataMisc: {},
+  temp: {
+    //temporal constant instead of user id
+    defaultUserId: 'abcdefglkmnoprst'
+  }
 };

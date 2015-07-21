@@ -1,3 +1,7 @@
+rootUrl = process.env.ROOT_URL
+
+postAuthRedirectUrl = () -> Router.routes['salesForceSample'].url()
+
 mapAuthParams = (connection) ->
   authParamsKeys = [
     'accessToken'
@@ -20,7 +24,7 @@ createOAuth2Credentials = ->
   oAuth2 = new jsforce.OAuth2({
     clientId: Meteor.settings.private.SalesForce.key
     clientSecret: Meteor.settings.private.SalesForce.secret
-    redirectUri: 'http://localhost:3000/oauth2/sales-force/callback'
+    redirectUri: "#{rootUrl}oauth2/sales-force/callback"
   })
 
   return oAuth2
@@ -41,14 +45,19 @@ Router.route 'oauth2/sales-force/callback', ->
 
   code = @params.query.code
 
-  conn.authorize code, (err, userInfo) =>
+  authorizeAsync = Meteor.wrapAsync conn.authorize, conn
+
+  authorizeAsync code, (err, userInfo) =>
     if err
       console.error(err)
     else
       authParams = mapAuthParams conn
-      authParams.userId = userInfo.id
-      url = Router.routes['salesForceSample'].url()
-      query = '?' + Object.keys(authParams).map((key)-> key + '=' + authParams[key]).join('&')
-      redirect @response, url + query
+
+      sfServiceCredentials = _.extend {userId: App.temp.defaultUserId}, {salesforce: authParams}
+
+      #save credentials
+      ServiceCredentials.update {userId: App.temp.defaultUserId}, {$set: sfServiceCredentials}, {upsert: true}
+
+      redirect @response, postAuthRedirectUrl()
 
 , {where: 'server'}

@@ -12,11 +12,8 @@ Template.SalesForceChartEditor.events
   'change #table-dropdown': (event, tmpl) ->
     tableName = tmpl.$('#table-dropdown').val()
 
-    #get table meta
-    credentials = tmpl.findParentTemplate('SalesForceSample').getCredentials()
-
     if tableName isnt 'none'
-      Meteor.call 'sfDescribe', credentials, tableName, (err, tableMeta) ->
+      Meteor.call 'sfDescribe', tableName, (err, tableMeta) ->
         fields = tableMeta.fields.map (field) -> {name: field.name, type: field.type, label: field.label}
 
         #prints unique types of table's meta

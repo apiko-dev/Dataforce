@@ -4,23 +4,17 @@
 
         <div class="row login-widget">
             <div class="col-md-12">
-                {{#if accessToken}}
-                    User ID: {{userId}}
-                {{else}}
-                    <a href="{{authUrl}}">SalesForce Login</a>
-                {{/if}}
+                <a href="{{authUrl}}">SalesForce Login</a>
             </div>
         </div>
 
         <div class="row">
-            {{#if accessToken}}
-                <div class="col-md-6 col-sm-12">
-                    {{> SalesForceChartEditor}}
-                </div>
-                <div class="col-md-6 col-sm-12">
-                    {{> SalesForceChart}}
-                </div>
-            {{/if}}
+            <div class="col-md-6 col-sm-12">
+                {{> SalesForceChartEditor}}
+            </div>
+            <div class="col-md-6 col-sm-12">
+                {{> SalesForceChart}}
+            </div>
         </div>
     </div>
 </template>

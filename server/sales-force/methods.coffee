@@ -9,12 +9,11 @@ createSalesForceConnection = (credentials) ->
   })
 
 
-checkCredentialsAndCreateConnection = (credentials) ->
-  check credentials, {
-    accessToken: String
-    instanceUrl: String
-  }
-  return createSalesForceConnection(credentials)
+checkCredentialsAndCreateConnection = ->
+  #get credentials
+  credentials = ServiceCredentials.findOne {userId: App.temp.defaultUserId}, fields: {salesforce: 1}
+
+  return createSalesForceConnection(credentials.salesforce)
 
 
 processQueryResult = (query, functionName) ->
@@ -24,30 +23,23 @@ processQueryResult = (query, functionName) ->
 
 
 Meteor.methods
-  sfDescribe: (credentials, tableName) ->
-    connection = checkCredentialsAndCreateConnection(credentials)
+  sfDescribe: (tableName) ->
     check tableName, String
+    connection = checkCredentialsAndCreateConnection()
 
     processQueryResult connection.sobject(tableName), 'describe'
 
 
-  sfGetTableData: (credentials, tableName, filters) ->
-    connection = checkCredentialsAndCreateConnection(credentials)
+  sfGetTableData: (tableName, filters) ->
     check tableName, String
     check filters, [{
       key: String
       value: String
       isEqual: Boolean
     }]
+    connection = checkCredentialsAndCreateConnection()
 
     query = {}
     filters.forEach (filter) -> query[filter.key] = if filter.isEqual then filter.value else {$ne: filter.value}
 
     processQueryResult connection.sobject(tableName).find(query).limit(100), 'execute'
-
-
-#demo example method
-  getOpportunities: (credentials) ->
-    connection = checkCredentialsAndCreateConnection(credentials)
-
-    processQueryResult connection.sobject("Opportunity").find({}).sort({CloseDate: -1}).limit(50), 'execute'
