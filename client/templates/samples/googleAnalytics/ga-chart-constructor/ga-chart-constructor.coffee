@@ -1,5 +1,6 @@
 Template.gaChartConstructor.onCreated ->
   @gaAccounts = new ReactiveVar []
+  @additionalAxises = new ReactiveVar []
 
 Template.gaChartConstructor.onRendered ->
   initDatepicker = =>
@@ -31,6 +32,9 @@ Template.gaChartConstructor.helpers
   dimensionsList: ->
     gaDimensionsList
 
+  additionalAxises: ->
+    Template.instance().additionalAxises.get()
+
   addMoreYAxis: ->
     Session.get("addMoreYAxis") or false
 
@@ -43,6 +47,5 @@ Template.gaChartConstructor.events
     Meteor.call "GA.getAccounts", (err, result) ->
       t.gaAccounts.set result
 
-  'click #more-axis-checkbox': (e, t) ->
-    addSecondAxis = t.$(e.target).prop "checked"
-    Session.set "addMoreYAxis", addSecondAxis
+  'click #one-more-axis': (e, t) ->
+    t.additionalAxises.set [0..t.additionalAxises.get().length]

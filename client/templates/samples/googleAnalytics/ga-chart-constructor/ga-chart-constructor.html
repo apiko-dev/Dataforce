@@ -15,17 +15,16 @@
     </select>
   </div>
   <div class="form-group">
-    {{> listSelector list=metricsList id="metrics-selector"}}
+    {{> listSelector list=metricsList class="metrics-selector"}}
     {{> listSelector list=dimensionsList id="dimensions-selector"}}
   </div>
   <div class="form-group">
-    <label for="more-axis-checkbox" class="text-center btn btn-default">
-      <input id="more-axis-checkbox" type="checkbox" checked="{{addMoreYAxis}}"/>
-      Second axis
-    </label>
-    {{#if addMoreYAxis}}
-      <span>{{> listSelector list=metricsList id="second-metrics-selector"}}</span>
-    {{/if}}
+    <button id="one-more-axis" class="btn btn-default">
+      Add one more axis
+    </button>
+    {{#each additionalAxises}}
+      {{> listSelector list=metricsList class="metrics-selector"}}
+    {{/each}}
   </div>
   <div class="form-group">
     {{> rangeDatepicker id="gaDatepicker"}}

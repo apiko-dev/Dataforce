@@ -33,9 +33,9 @@ Template.gaChart.events
     Template.instance().chartType.set selectedChartType
 
   'click #getData': (e, t) ->
-    firstMetric = $("#metrics-selector").val()
-    secondMetric = $("#second-metrics-selector").val()
-    allMetrics = if secondMetric then firstMetric + "," + secondMetric else firstMetric
+    metrics = []
+    $("select.metrics-selector").each ->
+      metrics.push $(@).val()
     profileId = $("#profile-selector").val()
     dimensions = $("#dimensions-selector").val()
     fromDate = $("#gaDatepicker input").eq(0).val()
@@ -43,7 +43,7 @@ Template.gaChart.events
 
     chartQuery =
       profileId: profileId
-      metrics: allMetrics
+      metrics: metrics.join ","
       dimensions: dimensions
       from: fromDate
       to: endDate
