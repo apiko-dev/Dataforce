@@ -1,5 +1,5 @@
 class SeriesMerger
-  constructor: () ->
+  constructor: (@chartData1,@chartData2) ->
 
 
 _.extend App.DataMisc, {

@@ -1,5 +1,6 @@
 class SalesForceDataAdapter
-  constructor: () ->
+  authUrl: '/oauth2/sales-force'
+  constructor: (@dataTransformer) ->
 
 
 _.extend App.DataAdapters, {

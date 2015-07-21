@@ -23,6 +23,6 @@ Template.SalesForceChart.onRendered ->
 
     if chart
       Meteor.call 'sfGetTableData', @findParentTemplate('SalesForceSample').getCredentials(), chart.table, chart.filters, (err, tableData) =>
-        series = new App.DataMisc.SalesForceDataGrouper(chart, tableData)
+        series = new App.DataTransformers.SalesForceDataGrouper(chart, tableData)
         convertedSeries = series.getConvertedSeriesForHighchart()
         @initializeChart convertedSeries

@@ -85,6 +85,6 @@ class SalesForceDataGrouper
     series: series
 
 
-_.extend App.DataMisc, {
+_.extend App.DataTransformers, {
   SalesForceDataGrouper: SalesForceDataGrouper
 }

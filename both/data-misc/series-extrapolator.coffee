@@ -1,5 +1,5 @@
 class SeriesExtrapolator
-  constructor: () ->
+  constructor: (@chartData1,@chartData2) ->
 
 
 _.extend App.DataMisc, {
