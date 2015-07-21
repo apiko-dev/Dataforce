@@ -37,15 +37,18 @@ Template.googleAnalytics.onRendered ->
     # output debug info
     $("textarea").val("#{xData}\n#{JSON.stringify seriesData}")
 
-    @.$("#chart").highcharts
-      chart:
-        type: chartType
-      xAxis:
-        categories: xData
-        title:
-          text: axisNames?.x or ""
-      yAxis: yAxisConfig
-      series: seriesData
+    initHighCharts = ->
+      @.$("#chart").highcharts
+        chart:
+          type: chartType
+        xAxis:
+          categories: xData
+          title:
+            text: axisNames?.x or ""
+        yAxis: yAxisConfig
+        series: seriesData
+
+    initHighCharts()
 
   initDatepicker = =>
     @.$('#gaDatepicker').datepicker
