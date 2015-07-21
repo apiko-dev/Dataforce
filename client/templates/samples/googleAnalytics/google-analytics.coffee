@@ -27,7 +27,7 @@ Template.googleAnalytics.events
 
   'click #chart-type-selector': (e, t) ->
     selectedChartType = t.$(e.target).val()
-    Session.set "chartType", selectedChartType
+    Template.instance().chartType.set selectedChartType
 
   'click #more-axis-checkbox': (e, t) ->
     addSecondAxis = t.$(e.target).prop "checked"
@@ -51,8 +51,8 @@ Template.googleAnalytics.events
         el[1] = parseInt el[1]
         el[2] = parseInt el[2] if el[2]
         el
-      Session.set "UAProfileData", UAProfileData
-      Session.set "axisNames",
+      t.rawData.set UAProfileData
+      t.axisNames.set
         x: _.find(gaDimensionsList, (el) -> el.key is query.dimensions).value
         y: _.find(gaMetricsList, (el) -> el.key is firstMetric).value
         y2: _.find(gaMetricsList, (el) -> el.key is secondMetric)?.value

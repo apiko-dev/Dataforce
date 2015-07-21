@@ -1,9 +1,13 @@
 Template.googleAnalytics.onRendered ->
-  Tracker.autorun ->
-    rawData = Session.get "UAProfileData"
+  tpl = @
+  tpl.chartType = new ReactiveVar "line"
+  tpl.rawData = new ReactiveVar ""
+  tpl.axisNames = new ReactiveVar ""
 
-    chartType = Session.get "chartType"
-    axisNames = Session.get "axisNames"
+  Tracker.autorun ->
+    rawData = tpl.rawData.get()
+    chartType = tpl.chartType.get()
+    axisNames = tpl.axisNames.get()
 
     xData = _.map rawData, (el) -> el[0]
     yData = _.map rawData, (el) -> el[1]
