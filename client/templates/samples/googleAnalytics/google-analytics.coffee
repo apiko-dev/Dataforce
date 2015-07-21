@@ -46,7 +46,7 @@ Template.googleAnalytics.events
 
     console.log query
 
-    Meteor.call "getUAProfileData", query, (err, result) ->
+    Meteor.call "GA.getUAProfileData", query, (err, result) ->
       UAProfileData = _.map result.result, (el) ->
         el[1] = parseInt el[1]
         el[2] = parseInt el[2] if el[2]

@@ -1,2 +1,0 @@
-Meteor.methods
-  getProfilesList: (json) ->

@@ -40,10 +40,17 @@ Meteor.methods
       console.log profilesListJson.error
       {}
 
-  getUAProfileData: (query) ->
+  "GA.getUAProfileData": (query) ->
+    check query,
+      profileId: String
+      metrics: String
+      dimensions: String
+      from: String
+      to: String
+
     Async.runSync (done) ->
       googleAnalytics.data.ga.get {
-        auth: oauth2Client
+        "auth": oauth2Client
         "ids": "ga:" + query.profileId
         "start-date": query.from
         "end-date": query.to
