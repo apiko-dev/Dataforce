@@ -31,9 +31,6 @@ Template.gaChartConstructor.helpers
   dimensionsList: ->
     gaDimensionsList
 
-  UAProfileData: ->
-    Session.get "UAProfileData"
-
   addMoreYAxis: ->
     Session.get("addMoreYAxis") or false
 
