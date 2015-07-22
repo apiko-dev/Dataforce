@@ -20,7 +20,6 @@ processQueryResult = (query, functionName) ->
   queryResult = Async.runSync (done) -> query[functionName] done
   if queryResult.error then throw new Meteor.Error queryResult.error
 
-  console.log queryResult.result
   return queryResult.result
 
 

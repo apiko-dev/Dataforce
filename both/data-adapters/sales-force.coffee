@@ -4,6 +4,8 @@ class SalesForceDataAdapter
   ###
   authUrl: '/oauth2/sales-force'
 
+  isNumberType: (type) -> type in ['int', 'double', 'currency', 'percent']
+
   ###
     dataTransformer - any class from data transformer's that can work with table data
   ###
