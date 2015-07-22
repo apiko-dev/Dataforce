@@ -51,4 +51,4 @@ Template.gaChartConstructor.events
     t.additionalAxises.set [0..t.additionalAxises.get().length]
 
   'click .remove-axis': (e, t) ->
-    t.$(e.target).parent().remove()
+    t.$(".remove-axis").parent().remove()
