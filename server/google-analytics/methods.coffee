@@ -9,6 +9,10 @@ OAuth2 = googleapis.auth.OAuth2
 oauth2Client = new OAuth2 CLIENT_ID, CLIENT_SECRET, REDIRECT_URL
 
 Meteor.methods
+  "GA.loadTokens": ->
+    tokens = ServiceCredentials.findOne {userId: App.temp.defaultUserId}, fields: {googleAnalytics: 1}
+    oauth2Client.setCredentials tokens.googleAnalytics
+
   "GA.generateAuthUrl": ->
     oauth2Client.generateAuthUrl
       access_type: "offline"
@@ -16,9 +20,12 @@ Meteor.methods
 
   "GA.saveToken": (code) ->
     check code, String
-    oauth2Client.getToken code, (err, tokens) ->
+    oauth2Client.getToken code, Meteor.bindEnvironment((err, tokens) ->
       if not err
         oauth2Client.setCredentials tokens
+        gaServiceCredentials = _.extend {userId: App.temp.defaultUserId}, {googleAnalytics: tokens}
+        ServiceCredentials.update {userId: App.temp.defaultUserId}, {$set: gaServiceCredentials}, {upsert: true}
+    )
 
   "GA.getAccounts": ->
     profilesListJson = Async.runSync (done) ->
