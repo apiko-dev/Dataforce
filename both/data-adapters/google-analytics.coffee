@@ -1,26 +1,33 @@
 class GoogleAnalyticsDataAdapter
   constructor: (@chartQuery, @json) ->
-    console.log @chartQuery
-    console.log @json
 
-  _axisNames: []
+  @_axisNames: []
+
+  _getXAxisName: ->
+    dimensions = @chartQuery.dimensions
+    dimensionsDescription = _.find(gaDimensionsList, (el) ->
+      el.key is dimensions)?.value or ""
+
+  _getYAxisesNames: ->
+    metricsList = @chartQuery.metrics.split ","
+    axisesCount = metricsList.length
+    yAxisesNames = []
+
+    _(axisesCount).times (i) =>
+      metricsObj = _.find(gaMetricsList, (el) ->
+        el.key is metricsList[i])
+      metricsDescription = metricsObj?.value
+      yAxisesNames.push metricsDescription or ""
+    yAxisesNames
 
   getCategories: ->
     _.map @json.result.rows, (el) ->
       el[0]
 
   getAxisNames: ->
-    allMetrics = @chartQuery.metrics.split ","
-    dimensions = @chartQuery.dimensions
-
     @_axisNames =
-      x: _.find(gaDimensionsList, (el) ->
-        el.key is dimensions).value
-      y: []
-    _(allMetrics.length).times (i) =>
-      @_axisNames.y.push _.find(gaMetricsList, (el) ->
-          el.key is allMetrics[i])?.value or ""
-    @_axisNames
+      x: @_getXAxisName()
+      y: @_getYAxisesNames()
 
   getSeries: ->
     # example series [{data: [119, 56], name: "abc"}, {data: [100, 23], name: "def"}]
