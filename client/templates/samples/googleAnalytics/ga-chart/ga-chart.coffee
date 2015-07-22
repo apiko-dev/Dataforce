@@ -36,6 +36,7 @@ Template.gaChart.events
     metrics = []
     $("select.metrics-selector").each ->
       metrics.push $(@).val()
+    mergeMetrics = $("#merge-metrics").prop("checked") or false
     profileId = $("#profile-selector").val()
     dimensions = $("#dimensions-selector").val()
     fromDate = $("#gaDatepicker input").eq(0).val()
@@ -44,6 +45,7 @@ Template.gaChart.events
     chartQuery =
       profileId: profileId
       metrics: metrics.join ","
+      mergeMetrics: mergeMetrics
       dimensions: dimensions
       from: fromDate
       to: endDate

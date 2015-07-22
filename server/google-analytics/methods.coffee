@@ -44,6 +44,7 @@ Meteor.methods
     check query,
       profileId: String
       metrics: String
+      mergeMetrics: Boolean
       dimensions: String
       from: String
       to: String

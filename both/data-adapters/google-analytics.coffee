@@ -23,7 +23,7 @@ class GoogleAnalyticsDataAdapter
     @_axisNames
 
   getSeries: ->
-    # example series [{data: [119, 56]}, {data: [100, 23]}]
+    # example series [{data: [119, 56], name: "abc"}, {data: [100, 23], name: "def"}]
     series = []
     rows = @json.result.rows
     axisesCount = rows[0].length - 1
@@ -38,7 +38,11 @@ class GoogleAnalyticsDataAdapter
               arr.push parseInt element
           arr
         name: axisNames.y[axisIndex]
-    series
+    if @chartQuery.mergeMetrics
+      seriesMerger = new App.DataMisc.GASeriesMerger series[0].data, series[1].data
+      seriesMerger.getSeries()
+    else
+      series
 
 
 _.extend App.DataAdapters, {
