@@ -14,6 +14,3 @@ _App =
 
 
 _.extend App, _App
-
-
-

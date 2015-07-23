@@ -17,6 +17,14 @@ Router.map ->
     waitOn: -> @subscribe 'userCharts'
     data: -> charts: Charts.find()
 
+  @route '/chart-editor/:chartId',
+    name: 'existingChartEditor',
+    template: 'ChartEditor'
+    waitOn: -> @subscribe 'userChart', @params.chartId
+    data: ->
+      if @params.chartId
+        chart: Charts.findOne {_id: @params.chartId}
+
   @route '/chart-editor',
     name: 'chartEditor',
     template: 'ChartEditor'
