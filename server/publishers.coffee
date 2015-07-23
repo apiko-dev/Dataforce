@@ -1,0 +1,1 @@
+Meteor.publish 'userCharts', -> Charts.find {userId: @userId}
