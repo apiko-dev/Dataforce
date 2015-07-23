@@ -33,14 +33,9 @@ Router.map ->
 
   @route '/zendesk-example',
     name: 'zendeskExample',
-    action: -> @render 'zendesk-example'
+    template: 'zendeskExample'
 
 
   @route '/sales-force-sample',
     name: 'salesForceSample',
     template: 'SalesForceSample'
-    data: ->
-      queryFields = ['accessToken', 'instanceUrl', 'userId']
-      data = {}
-      queryFields.forEach (key) => data[key] = @params.query[key]
-      return data

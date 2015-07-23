@@ -1,31 +1,42 @@
 @import "../../configs.import.less";
 
-.navigation-list {
+.sidebar-container {
   position: fixed;
   display: block;
   top: 0;
   left: 0;
   bottom: 0;
-  list-style-type: none;
-  padding: 10px;
   width: @sidebarWidth;
-  margin-bottom: 0;
+  padding: 10px;
   background: @sidebarBackground;
   z-index: 100;
 
-  li {
+  .app-name {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
     padding: 3px;
+  }
 
-    a {
-      display: block;
-      padding: 10px;
-      color: white;
-      background: @sidebarItemBackground;
-    }
+  .navigation-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
 
-    a:hover {
-      background: @sidebarItemHoverBackground;
-      text-decoration: none;
+    li {
+      padding: 3px;
+
+      a {
+        display: block;
+        padding: 10px;
+        color: white;
+        background: @sidebarItemBackground;
+      }
+
+      a:hover {
+        background: @sidebarItemHoverBackground;
+        text-decoration: none;
+      }
     }
   }
 }
