@@ -8,7 +8,7 @@
   bottom: 0;
   width: @sidebarWidth;
   padding: 10px 0 10px 10px;
-  background: @primaryDark;
+  background: @primaryColor;
   z-index: 100;
 
   .app-name {
@@ -27,7 +27,7 @@
       padding: 3px;
 
       a {
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.33);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
         display: block;
         padding: 10px;
         color: white;
@@ -35,13 +35,13 @@
       }
 
       a:hover {
-        background: @accentColor;
+        background: @primaryDark;
         text-decoration: none;
       }
 
       a.active {
-        background: @lightPrimaryColor;
-        color: @primaryText;
+        background: @accentColor;
+        color: @textIcons;
         text-decoration: none;
       }
     }
