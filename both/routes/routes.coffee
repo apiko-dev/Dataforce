@@ -4,12 +4,20 @@ Router.map ->
 #    loadingTemplate: 'Loading'
 #    notFoundTemplate: 'NotFound'
     yieldTemplates:
-      'SampleNavigation': {to: 'header'}
-  #      'Footer': {to: 'footer'}
+      'SidebarNavigation': {to: 'sidebar'}
+      'Footer': {to: 'footer'}
 
   @route '/',
     name: 'home',
     template: 'Home'
+
+  @route '/dashboard',
+    name: 'dashboard',
+    template: 'Dashboard'
+
+  @route '/chart-editor',
+    name: 'chartEditor',
+    template: 'ChartEditor'
 
 
   @route '/google-analytics-sample',

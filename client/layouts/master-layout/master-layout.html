@@ -1,11 +1,9 @@
 <template name="MasterLayout">
-    <header>
-        {{> yield 'header'}}
-    </header>
+    {{> yield 'sidebar'}}
 
-    {{> yield}}
+    <div class="detail-container">
+        {{> yield}}
+    </div>
 
-    <footer>
-        {{> yield 'footer'}}
-    </footer>
+    {{> yield 'footer'}}
 </template>
