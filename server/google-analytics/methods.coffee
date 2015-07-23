@@ -11,7 +11,8 @@ oauth2Client = new OAuth2 CLIENT_ID, CLIENT_SECRET, REDIRECT_URL
 Meteor.methods
   "GA.loadTokens": ->
     tokens = ServiceCredentials.findOne {userId: App.temp.defaultUserId}, fields: {googleAnalytics: 1}
-    oauth2Client.setCredentials tokens.googleAnalytics
+    if tokens.googleAnalytics
+      oauth2Client.setCredentials tokens.googleAnalytics
 
   "GA.generateAuthUrl": ->
     oauth2Client.generateAuthUrl
