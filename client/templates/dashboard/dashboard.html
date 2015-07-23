@@ -4,14 +4,7 @@
         {{#if hasCharts}}
             <ul class="charts-list">
                 {{#each charts}}
-                    <li>
-                        <i class="fa fa-area-chart chart-icon"></i>
-                        {{name}}
-                        <div class="chart-buttons">
-                            <i class="fa fa-pencil"></i>
-                            <i class="fa fa-trash-o"></i>
-                        </div>
-                    </li>
+                    {{> ChartListItem}}
                 {{/each}}
             </ul>
         {{else}}
