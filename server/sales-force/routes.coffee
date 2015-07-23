@@ -47,16 +47,18 @@ Router.route 'oauth2/sales-force/callback', ->
 
   authorizeAsync = Meteor.wrapAsync conn.authorize, conn
 
+  userId = Meteor.userId()
+
   authorizeAsync code, (err, userInfo) =>
     if err
       console.error(err)
     else
       authParams = mapAuthParams conn
 
-      sfServiceCredentials = _.extend {userId: App.temp.defaultUserId}, {salesforce: authParams}
+      sfServiceCredentials = _.extend {userId: userId}, {salesforce: authParams}
 
       #save credentials
-      ServiceCredentials.update {userId: App.temp.defaultUserId}, {$set: sfServiceCredentials}, {upsert: true}
+      ServiceCredentials.update {userId: userId}, {$set: sfServiceCredentials}, {upsert: true}
 
       redirect @response, postAuthRedirectUrl()
 

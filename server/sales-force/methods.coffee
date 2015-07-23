@@ -9,9 +9,9 @@ createSalesForceConnection = (credentials) ->
   })
 
 
-checkCredentialsAndCreateConnection = ->
+checkCredentialsAndCreateConnection = (userId)->
 #get credentials
-  credentials = ServiceCredentials.findOne {userId: App.temp.defaultUserId}, fields: {salesforce: 1}
+  credentials = ServiceCredentials.findOne {userId: userId}, fields: {salesforce: 1}
 
   return createSalesForceConnection(credentials.salesforce)
 
@@ -31,7 +31,7 @@ FilterModifier = Match.Where (x) ->
 Meteor.methods
   sfDescribe: (tableName) ->
     check tableName, String
-    connection = checkCredentialsAndCreateConnection()
+    connection = checkCredentialsAndCreateConnection(@userId)
 
     processQueryResult connection.sobject(tableName), 'describe'
 
@@ -44,7 +44,7 @@ Meteor.methods
         value: Match.Any
       modifier: FilterModifier
     }]
-    connection = checkCredentialsAndCreateConnection()
+    connection = checkCredentialsAndCreateConnection(@userId)
 
     query = {}
     filters.forEach (filter) ->
