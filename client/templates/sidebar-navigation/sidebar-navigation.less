@@ -7,7 +7,7 @@
   left: 0;
   bottom: 0;
   width: @sidebarWidth;
-  padding: 10px;
+  padding: 10px 0 10px 10px;
   background: @sidebarBackground;
   z-index: 100;
 
@@ -21,7 +21,7 @@
   .navigation-list {
     list-style-type: none;
     padding-left: 0;
-    margin: 0;
+    margin: 0 -10px 0 0;
 
     li {
       padding: 3px;
@@ -36,6 +36,12 @@
 
       a:hover {
         background: @sidebarItemHoverBackground;
+        text-decoration: none;
+      }
+
+      a.active {
+        background: @sidebarItemActiveBackground;
+        color: #212121;
         text-decoration: none;
       }
     }

@@ -79,4 +79,5 @@ url@1.0.4
 webapp@1.2.0
 webapp-hashing@1.0.3
 workman:templating-ext@0.0.3
+zimme:active-route@2.2.0
 zimme:select2-bootstrap3-css@1.4.6
