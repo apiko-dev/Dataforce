@@ -1,0 +1,26 @@
+@import "../../configs.import.less";
+
+.chart-editor-container {
+  .chart-meta {
+    text-align: right;
+    background: @lightGray;
+    padding: 5px;
+
+    .chart-name {
+      font-size: 20px;
+      margin-right: 10px;
+      border: none;
+      color: @secondaryText;
+      padding: 5px;
+      background-color: transparent;
+    }
+
+    .chart-name:focus {
+      outline: 1px solid @primaryColor;
+    }
+
+    .save-chart-button {
+      vertical-align: top;
+    }
+  }
+}
