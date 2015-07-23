@@ -1,3 +1,21 @@
 <template name="Dashboard">
-    <p>Dashboard here</p>
+    <h3>Your charts</h3>
+    <article class="dashboard-content">
+        {{#if hasCharts}}
+            <ul class="charts-list">
+                {{#each charts}}
+                    <li>
+                        <i class="fa fa-area-chart chart-icon"></i>
+                        {{name}}
+                        <div class="chart-buttons">
+                            <i class="fa fa-pencil"></i>
+                            <i class="fa fa-trash-o"></i>
+                        </div>
+                    </li>
+                {{/each}}
+            </ul>
+        {{else}}
+            <p>You have no charts yet</p>
+        {{/if}}
+    </article>
 </template>

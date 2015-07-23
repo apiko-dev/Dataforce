@@ -1,8 +1,8 @@
 Router.map ->
   @configure
     layoutTemplate: 'MasterLayout'
-#    loadingTemplate: 'Loading'
-#    notFoundTemplate: 'NotFound'
+    loadingTemplate: 'Loading'
+    notFoundTemplate: 'NotFound'
     yieldTemplates:
       'SidebarNavigation': {to: 'sidebar'}
       'Footer': {to: 'footer'}
@@ -14,6 +14,8 @@ Router.map ->
   @route '/dashboard',
     name: 'dashboard',
     template: 'Dashboard'
+    waitOn: -> @subscribe 'userCharts'
+    data: -> charts: Charts.find()
 
   @route '/chart-editor',
     name: 'chartEditor',
