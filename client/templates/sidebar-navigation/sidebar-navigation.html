@@ -1,13 +1,23 @@
 <template name="SidebarNavigation">
-    <div class="sidebar-container">
-        <div class="app-name">DataForce</div>
-        <ul class="navigation-list">
+    <div id="sidebar-wrapper" class="sidebar-container">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">DataForce</a>
+            </li>
+
             {{#each samplesRoutes}}
                 <li>
                     <a href="{{pathFor name}}" class="{{isActiveRoute name}}">{{caption}}</a>
                 </li>
             {{/each}}
+
             {{> loginButtons}}
+        </ul>
+
+        <ul class="sidebar-nav bottom-menu">
+            <li>
+                {{> yield 'footer'}}
+            </li>
         </ul>
     </div>
 </template>

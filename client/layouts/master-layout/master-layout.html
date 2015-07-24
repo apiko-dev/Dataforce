@@ -1,9 +1,13 @@
 <template name="MasterLayout">
-    {{> yield 'sidebar'}}
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+            {{> yield 'sidebar'}}
+        </div>
 
-    <div class="detail-container">
-        {{> yield}}
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                {{> yield}}
+            </div>
+        </div>
     </div>
-
-    {{> yield 'footer'}}
 </template>

@@ -1,49 +1,62 @@
 @import "../../configs.import.less";
 
 .sidebar-container {
-  position: fixed;
-  display: block;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: @sidebarWidth;
-  padding: 10px 0 10px 10px;
   background: @primaryColor;
-  z-index: 100;
 
-  .app-name {
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 3px;
-  }
+  .sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 
-  .navigation-list {
-    list-style-type: none;
-    padding-left: 0;
-    margin: 0 -10px 0 0;
+    .sidebar-brand {
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 60px;
+      height: 65px;
+    }
 
     li {
-      padding: 3px;
 
       a {
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
         display: block;
         padding: 10px;
         color: white;
         background: @primaryColor;
+        text-decoration: none;
       }
 
       a:hover {
         background: @primaryDark;
-        text-decoration: none;
       }
 
       a.active {
         background: @accentColor;
         color: @textIcons;
+      }
+
+      a:hover, a:active, a:focus {
         text-decoration: none;
       }
     }
+
+    li:not(.app-name) {
+      a {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+      }
+    }
+  }
+
+  .bottom-menu {
+    top: auto;
+    bottom: 0;
   }
 }
+
+
+
+
+
