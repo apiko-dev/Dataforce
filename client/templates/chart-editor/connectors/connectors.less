@@ -1,0 +1,37 @@
+@import "../../../configs.import.less";
+
+@baseMargin: 10px;
+@tileSize: 60px;
+@tileTextSize: 30px;
+
+.connectors-container {
+  
+  .connector-tile {
+    font-size: @tileTextSize - 5px;
+    text-align: center;
+    color: @primaryText;
+    width: @tileSize;
+    height: @tileSize;
+    padding: (@tileSize - @tileTextSize)/2;
+  }
+
+  .connector-tile:not(:last-child) {
+    margin-bottom: @baseMargin;
+  }
+
+  .connector-tile:hover {
+    background: #9E9E9E;
+  }
+
+  .sales-force-bg {
+    background: @accentColor;
+  }
+
+  .zendesk-bg {
+    background: #8BC34A;
+  }
+
+  .analytics-bg {
+    background: #FF5722;
+  }
+}
