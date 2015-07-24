@@ -1,0 +1,22 @@
+@import "../../configs.import.less";
+
+@panelBorder: 1px solid @dividerColor;
+
+.editor-panel {
+  display: inline-block;
+  vertical-align: top;
+  min-height: 150px;
+  background: @lightGray;
+  border: @panelBorder;
+
+  .panel-caption {
+    padding: 5px;
+    border-bottom: @panelBorder;
+    color: @secondaryText;
+    font-size: 13px;
+  }
+
+  .panel-body {
+    padding: 10px;
+  }
+}
