@@ -5,14 +5,15 @@
 @tileTextSize: 30px;
 
 .connectors-container {
-  
+
   .connector-tile {
     font-size: @tileTextSize - 5px;
     text-align: center;
-    color: @primaryText;
+    color: @secondaryText;
     width: @tileSize;
     height: @tileSize;
     padding: (@tileSize - @tileTextSize)/2;
+    text-shadow: 0 1px 0 white;
   }
 
   .connector-tile:not(:last-child) {
