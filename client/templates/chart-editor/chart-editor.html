@@ -2,14 +2,28 @@
     <h3>Chart editor</h3>
 
     <div class="chart-editor-container">
-        <div class="chart-meta">
-            <input type="text" class="input-control chart-name" placeholder="Chart name" value="{{chart.name}}">
-            <button class="btn btn-success save-chart-button" title="Save"><i class="fa fa-save"></i></button>
+        <div class="row">
+            <div class="col-md-12 ">
+                <div class="chart-meta">
+                    <input type="text" class="input-control chart-name" placeholder="Chart name" value="{{chart.name}}">
+                    <button class="btn btn-success save-chart-button" title="Save"><i class="fa fa-save"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-4 col-sm-2 col-md-2 col-lg-1">
+                {{> Connectors}}
+            </div>
+            <div class="col-xs-8 col-sm-5 col-md-2 col-lg-2">
+                {{> Metrics}}
+            </div>
+            <div class="col-xs-12 col-sm-5 col-md-3 col-lg-2">
+                {{> Curves}}
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-5 col-lg-7">
+                {{> ChartPreview}}
+            </div>
         </div>
     </div>
-
-    {{> Connectors}}
-    {{> Metrics}}
-    {{> Curves}}
-    {{> ChartPreview}}
 </template>
