@@ -1,6 +1,13 @@
 DEBUG = yes
 
 Meteor.methods
+
+  "Zendesk.getJsonData": (chartQuery) ->
+    check chartQuery, {
+      query: String
+    }
+    JSON.parse HTTP.get("http://beta.json-generator.com/api/json/get/Ny3DfoaO").content
+
   getOpenTicketsNumber: ->
     getTicketsByStatus "open"
 
@@ -24,7 +31,6 @@ Meteor.methods
               console.error 'Zendesk error: ', err
               done err, -1
             else
-              console.log res
               done {}, {date: newDate, data: res.length}
       else
         mockJson = JSON.parse HTTP.get("http://beta.json-generator.com/api/json/get/Ny3DfoaO").content
@@ -33,13 +39,13 @@ Meteor.methods
           result:
             date: newDate
             data: _.random(1, 5)
-        console.log fakeDayData
         results.push fakeDayData
 
     _.map results, (el) ->
       [el.result.date, el.result.data]
 
   getSatisfactionRatingForLastWeek: (summaryRating) ->
+    check summaryRating, Boolean
     sevenDaysBefore = moment().subtract(7, "days")
     results = []
     totalTicketsRating = 0
@@ -62,12 +68,10 @@ Meteor.methods
         else summaryDayRating += score
       fakeDayData.data = if DEBUG then _.random(1, 12) + Math.random() else summaryDayRating / mockJson.length
 
-      console.log fakeDayData
       results.push fakeDayData
 
     if summaryRating
       (_.reduce(results, (memo, el) ->
-        console.log memo, el
         return memo + el.data
       , 0) / 7).toFixed 2
     else
@@ -79,7 +83,6 @@ Meteor.methods
     results = []
     _.times 7, ->
       newDate = sevenDaysBefore.add(1, "days").format("YYYY-MM-DD")
-      console.log newDate
       apiCallResult = Async.runSync (done) ->
         Zendesk().search.query "type:ticket status:solved created:#{newDate}", (err, req, res) ->
           if err
@@ -94,7 +97,6 @@ Meteor.methods
 
     results = _.map results, (el) ->
       [el.date, el.data]
-    console.log results
     results
 
 getScoreBySatisfactionRatingName = (name) ->
@@ -103,10 +105,10 @@ getScoreBySatisfactionRatingName = (name) ->
   else 0
 
 getTicketsByStatus = (status, modifier) ->
-  Async.runSync((done) ->
+  Async.runSync (done) ->
     Zendesk().search.query "type:ticket status#{modifier or ":"}#{status}", (err, req, res) ->
       if err
         console.error 'Zendesk error: ', err
-        done err, 0
+        done err, []
       else
-        done err, res.length).result
+        done err, res

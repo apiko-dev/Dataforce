@@ -41,14 +41,18 @@ Template.zendeskExample.helpers
 
 Template.zendeskExample.events
   "click #load-stats": ->
-    Meteor.call "getOpenTicketsNumber", (err, result) ->
-      fillResultSpan ".opened-tickets-ctnr", err, result
-    Meteor.call "getSolvedTicketsNumber", (err, result) ->
-      fillResultSpan ".solved-tickets-ctnr", err, result
-    Meteor.call "getSatisfactionRatingForLastWeek", yes, (err, result) ->
-      fillResultSpan ".satisfaction-rating-ctnr", err, result + "%"
-    Meteor.call "getBacklogItemsNumber", (err, result) ->
-      fillResultSpan ".backlog-ctnr", err, result
+    zendesk = new App.DataAdapters.Zendesk {query: App.DataMisc.ZendeskQueries.OPENED_TICKETS}
+    zendesk.getSeries (result) ->
+      console.log "The result is:   " + result
+
+#    Meteor.call "getOpenTicketsNumber", (err, result) ->
+#      fillResultSpan ".opened-tickets-ctnr", err, result.result
+#    Meteor.call "getSolvedTicketsNumber", (err, result) ->
+#      fillResultSpan ".solved-tickets-ctnr", err, result.result
+#    Meteor.call "getSatisfactionRatingForLastWeek", yes, (err, result) ->
+#      fillResultSpan ".satisfaction-rating-ctnr", err, result.result + "%"
+#    Meteor.call "getBacklogItemsNumber", (err, result) ->
+#      fillResultSpan ".backlog-ctnr", err, result.result
 
   "click .solved-tickets-ctnr": ->
     Meteor.call "getSolvedTicketsForLastWeek", (err, result) ->
