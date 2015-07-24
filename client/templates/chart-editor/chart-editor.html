@@ -3,10 +3,11 @@
 
     <div class="chart-editor-container">
         <div class="chart-meta">
-            <input type="text" class="chart-name" placeholder="Chart name" value="{{chart.name}}">
+            <input type="text" class="input-control chart-name" placeholder="Chart name" value="{{chart.name}}">
             <button class="btn btn-success save-chart-button" title="Save"><i class="fa fa-save"></i></button>
         </div>
     </div>
 
     {{> Connectors}}
+    {{> Metrics}}
 </template>

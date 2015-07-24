@@ -1,0 +1,15 @@
+<template name="Metrics">
+    <div class="editor-panel">
+        <div class="panel-caption">Metrics</div>
+
+        <div class="panel-body metrics-container">
+            <input type="text" class="input-control" placeholder="Search...">
+
+            <ul class="metrics-list-container">
+                {{#each metricMocks}}
+                    {{>MetricItem}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</template>

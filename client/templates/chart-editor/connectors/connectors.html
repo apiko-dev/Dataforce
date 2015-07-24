@@ -3,15 +3,11 @@
         <div class="panel-caption">Connectors</div>
 
         <div class="panel-body connectors-container">
-            <div class="connector-tile sales-force-bg">
-                SF
-            </div>
-            <div class="connector-tile analytics-bg">
-                GA
-            </div>
-            <div class="connector-tile zendesk-bg">
-                ZD
-            </div>
+            {{#each connectors}}
+                <div class="connector-tile {{bgClass}}" title="{{name}}">
+                    {{caption}}
+                </div>
+            {{/each}}
         </div>
     </div>
 </template>
