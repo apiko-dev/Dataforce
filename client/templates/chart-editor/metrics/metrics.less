@@ -1,0 +1,28 @@
+@import "../../../configs.import.less";
+
+.metrics-container {
+
+  .metrics-search-input {
+    margin-bottom: 10px;
+  }
+
+  .metrics-list-container {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+
+    li {
+      color: @primaryText;
+      padding: 5px;
+    }
+
+    li:hover {
+      background: @accentColor;
+    }
+
+    li:not(:last-child) {
+      margin-bottom: 5px;
+      border-bottom: 1px solid @dividerColor;
+    }
+  }
+}
