@@ -1,6 +1,6 @@
 CLIENT_ID = "492445934834-1pbljtblmkddmjqv978a81a0vb3j59r6.apps.googleusercontent.com"
 CLIENT_SECRET = "NpuwJp2HB7454YiGET16F5c9"
-REDIRECT_URL = "http://localhost:3000/google-analytics-sample"
+REDIRECT_URL = "http://localhost:3000/google-analytics-sample/_oauth/google"
 SCOPES = ['openid', 'email', 'profile', 'https://www.googleapis.com/auth/analytics.readonly']
 
 googleapis = Meteor.npmRequire "googleapis"
@@ -22,12 +22,11 @@ Meteor.methods
   "GA.saveToken": (code) ->
     check code, String
     userId = this.userId
-    oauth2Client.getToken code, Meteor.bindEnvironment((err, tokens) ->
+    oauth2Client.getToken code, Meteor.bindEnvironment (err, tokens) ->
       if not err
         oauth2Client.setCredentials tokens
         gaServiceCredentials = _.extend {userId: userId}, {googleAnalytics: tokens}
         ServiceCredentials.update {userId: userId}, {$set: gaServiceCredentials}, {upsert: true}
-    )
 
   "GA.getAccounts": ->
     profilesListJson = Async.runSync (done) ->
@@ -40,7 +39,6 @@ Meteor.methods
 
     if profilesListJson.error is null
       _.map profilesListJson.result.items, (el) ->
-        console.log el.accountId
         accountId: el.accountId
         profileId: el.id
         webPropertyId: el.webPropertyId
