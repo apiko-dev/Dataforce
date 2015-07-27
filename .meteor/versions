@@ -10,7 +10,7 @@ binary-heap@1.0.3
 blaze@2.1.2
 blaze-tools@1.0.3
 boilerplate-generator@1.0.3
-bootswatch:paper@3.3.4_2
+bootswatch:flatly@3.3.4_2
 callback-hook@1.0.3
 check@1.0.5
 coffeescript@1.0.6

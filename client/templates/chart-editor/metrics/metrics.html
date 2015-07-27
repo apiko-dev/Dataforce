@@ -1,15 +1,19 @@
 <template name="Metrics">
-    <div class="editor-panel">
-        <div class="panel-caption">Metrics</div>
+  <div class="editor-panel">
+    <div class="panel-caption">Metrics</div>
 
-        <div class="panel-body metrics-container">
-            <input type="text" class="input-control metrics-search-input" placeholder="Search...">
+    <div class="panel-body metrics-container">
+      <input type="text" class="input-control metrics-search-input" placeholder="Search...">
 
-            <ul class="metrics-list-container">
-                {{#each metricMocks}}
-                    {{>MetricItem}}
-                {{/each}}
-            </ul>
-        </div>
+      <div class="tab-content">
+        {{#each metricMocks}}
+          <ul class="metrics-list-container tab-pane" id="{{connectorName}}">
+            {{#each metrics}}
+              {{> MetricItem}}
+            {{/each}}
+          </ul>
+        {{/each}}
+      </div>
     </div>
+  </div>
 </template>

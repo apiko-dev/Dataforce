@@ -1,13 +1,15 @@
 <template name="Connectors">
-    <div class="editor-panel">
-        <div class="panel-caption">Connectors</div>
+  <div class="editor-panel">
+    <div class="panel-caption">Connectors</div>
 
-        <div class="panel-body connectors-container">
-            {{#each connectors}}
-                <div class="connector-tile {{bgClass}}" title="{{name}}">
-                    {{caption}}
-                </div>
-            {{/each}}
-        </div>
+    <div class="panel-body connectors-container">
+      {{#each connectors}}
+        <a href="#{{caption}}" data-toggle="tab">
+          <div class="connector-tile {{bgClass}}" title="{{name}}">
+            {{caption}}
+          </div>
+        </a>
+      {{/each}}
     </div>
+  </div>
 </template>
