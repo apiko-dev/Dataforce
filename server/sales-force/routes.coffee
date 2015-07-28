@@ -2,10 +2,12 @@ rootUrl = process.env.ROOT_URL
 
 postAuthRedirectUrl = () -> Router.routes['salesForceSample'].url()
 
+
 mapAuthParams = (connection) ->
   authParamsKeys = [
     'accessToken'
     'instanceUrl'
+    'refreshToken'
   ]
 
   params = {}
@@ -20,34 +22,40 @@ redirect = (response, url) ->
   response.end()
 
 
-createOAuth2Credentials = ->
+createOAuth2Credentials = (userId) ->
   oAuth2 = new jsforce.OAuth2({
     clientId: Meteor.settings.private.SalesForce.key
     clientSecret: Meteor.settings.private.SalesForce.secret
-    redirectUri: "#{rootUrl}oauth2/sales-force/callback"
+    redirectUri: "#{rootUrl}oauth2/sales-force/callback?userid=#{userId}"
   })
 
   return oAuth2
 
 
-oAuth2 = createOAuth2Credentials()
+Router.route 'oauth2/sales-force/login/:userId', ->
+  userId = @params['userId']
 
+  redirectUrl = createOAuth2Credentials(userId).getAuthorizationUrl {
+    scope: 'full refresh_token'
+  }
 
-Router.route 'oauth2/sales-force', ->
-  redirectUrl = oAuth2.getAuthorizationUrl {}
   redirect @response, redirectUrl
 
 , {where: 'server'}
 
 
 Router.route 'oauth2/sales-force/callback', ->
-  conn = new jsforce.Connection oauth2: oAuth2
+#todo find way to remove hardcoded value
+#  todo get user id from search of uri
+  userId = 'LiduvK4MQaFkJqMAn'
+
+  console.log 'callback query: ', @params.query
+
+  conn = new jsforce.Connection oauth2: createOAuth2Credentials(userId)
 
   code = @params.query.code
 
   authorizeAsync = Meteor.wrapAsync conn.authorize, conn
-
-  userId = Meteor.userId()
 
   authorizeAsync code, (err, userInfo) =>
     if err

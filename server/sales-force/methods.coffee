@@ -9,7 +9,7 @@ createSalesForceConnection = (credentials) ->
   })
 
 
-checkCredentialsAndCreateConnection = (userId)->
+checkCredentialsAndCreateConnection = (userId) ->
 #get credentials
   credentials = ServiceCredentials.findOne {userId: userId}, fields: {salesforce: 1}
 
