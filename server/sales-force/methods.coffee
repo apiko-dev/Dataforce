@@ -1,19 +1,8 @@
-createSalesForceConnection = (credentials) ->
-  new jsforce.Connection({
-    oauth2: {
-      clientId: Meteor.settings.private.SalesForce.key
-      clientSecret: Meteor.settings.private.SalesForce.secret
-    }
-    accessToken: credentials.accessToken
-    instanceUrl: credentials.instanceUrl
-  })
-
-
 checkCredentialsAndCreateConnection = (userId) ->
 #get credentials
   credentials = ServiceCredentials.findOne {userId: userId}, fields: {salesforce: 1}
 
-  return createSalesForceConnection(credentials.salesforce)
+  return App.Connectors.Salesforce.createConnection(credentials.salesforce)
 
 
 processQueryResult = (query, functionName) ->
@@ -52,6 +41,35 @@ Meteor.methods
       condition[filter.modifier] = filter.field.value
       query[filter.field.name] = condition
 
-    console.log query
-
     processQueryResult connection.sobject(tableName).find(query).limit(100), 'execute'
+
+
+  onSalesForceLogin: (authCode) ->
+    check authCode, String
+
+    userId = Meteor.userId()
+
+    conn = new jsforce.Connection
+      oauth2: App.Connectors.Salesforce.createOAuth2Credentials()
+
+    authorizeAsync = Meteor.wrapAsync conn.authorize, conn
+
+    authorizeAsync authCode, (err, userInfo) =>
+      if err
+        console.error(err)
+      else
+        mapAuthParams = (connection) ->
+          params = {}
+          [
+            'accessToken'
+            'instanceUrl'
+            'refreshToken'
+          ].forEach (key) -> params[key] = connection[key]
+          return params
+
+        authParams = mapAuthParams conn
+
+        sfServiceCredentials = _.extend {userId: userId}, {salesforce: authParams}
+
+        #save credentials
+        ServiceCredentials.update {userId: userId}, {$set: sfServiceCredentials}, {upsert: true}

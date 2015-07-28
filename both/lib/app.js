@@ -1,6 +1,7 @@
 //global application's scope
 App = {
   DataAdapters: {},
+  Connectors: {},
   DataTransformers: {},
   DataMisc: {},
   checkers: {

@@ -39,17 +39,24 @@ Router.map ->
     name: 'chartEditor',
     template: 'ChartEditor'
 
+  @route 'oauth2/sales-force/callback',
+    name: 'salesForceCallback'
+    template: 'AuthSuccess'
+    data: ->
+      Meteor.call 'onSalesForceLogin', @params.query.code, App.handleError()
+      serviceName: 'SalesForce'
+
+#  =====  SAMPLES  ====
 
   @route '/google-analytics-sample',
     name: 'googleAnalyticsSample'
     template: 'googleAnalyticsSample'
 
-
   @route '/zendesk-example',
     name: 'zendeskExample',
     template: 'zendeskExample'
 
-
   @route '/sales-force-sample',
     name: 'salesForceSample',
     template: 'SalesForceSample'
+

@@ -2,7 +2,7 @@ class SalesForceDataAdapter
   ###
     SF auth URL for OAuth2.0
   ###
-  getAuthUrl: (userId) -> "/oauth2/sales-force/login/#{userId}"
+  getAuthUrl: -> "/oauth2/sales-force/login"
 
   isNumberType: (type) -> type in ['int', 'double', 'currency', 'percent']
 
