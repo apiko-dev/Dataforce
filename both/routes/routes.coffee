@@ -45,8 +45,10 @@ Router.map ->
     data: ->
       Meteor.call 'onSalesForceLogin', @params.query.code, App.handleError()
       serviceName: 'SalesForce'
+    onAfterAction: -> Meteor.setTimeout (-> window.close()), 1000
 
-#  =====  SAMPLES  ====
+
+  #  =====  SAMPLES  ====
 
   @route '/google-analytics-sample',
     name: 'googleAnalyticsSample'
