@@ -1,66 +1,75 @@
 @import "../../configs.import.less";
 
 .sidebar-container {
-  background: @primaryColor;
+  background: @primaryDark;
 
   .sidebar-nav {
     position: absolute;
-    top: 0;
     width: 250px;
     margin: 0;
     padding: 0;
     list-style: none;
 
-    .sidebar-brand {
-      color: white;
-      font-size: 20px;
-      font-weight: bold;
-      line-height: 60px;
-      height: 65px;
+    &:not(.bottom-menu) {
+      top: 0;
+
+      .sidebar-brand {
+        font-size: 25px;
+        font-weight: bold;
+        line-height: 50px;
+      }
+
+      li {
+        margin-bottom: 3px;
+
+        a {
+          display: block;
+          padding: 10px;
+          color: white;
+          text-decoration: none;
+          background: @primaryColor;
+
+          &:hover {
+            background: @primaryDark;
+          }
+
+          &.active {
+            background: @primaryDark;
+            color: @accentColor;
+          }
+
+          &:hover,
+          &:active,
+          &:focus {
+            text-decoration: none;
+          }
+        }
+
+        &:not(:first-child) {
+
+        }
+
+        &.sidebar-brand a {
+          background: @accentColor;
+          color: @primaryColor;
+        }
+
+        &#login-dropdown-list {
+          .dropdown-menu {
+            min-width: 250px;
+            width: 250px;
+          }
+        }
+      }
+
     }
 
-    li {
-
-      a {
-        display: block;
-        padding: 10px;
-        color: white;
-        background: @primaryColor;
-        text-decoration: none;
-      }
-
-      a:hover {
-        background: @primaryDark;
-      }
-
-      a.active {
-        background: @accentColor;
-        color: @textIcons;
-      }
-
-      a:hover, a:active, a:focus {
-        text-decoration: none;
-      }
-    }
-
-    li:not(.app-name) {
-      a {
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-      }
-    }
-
-    li#login-dropdown-list {
-      .dropdown-menu {
-        min-width: 250px;
-        width: 250px;
-      }
+    &.bottom-menu {
+      top: auto;
+      bottom: 0;
     }
   }
 
-  .bottom-menu {
-    top: auto;
-    bottom: 0;
-  }
 }
 
 
