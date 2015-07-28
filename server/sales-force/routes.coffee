@@ -26,7 +26,7 @@ createOAuth2Credentials = (userId) ->
   oAuth2 = new jsforce.OAuth2({
     clientId: Meteor.settings.private.SalesForce.key
     clientSecret: Meteor.settings.private.SalesForce.secret
-    redirectUri: "#{rootUrl}oauth2/sales-force/callback?userid=#{userId}"
+    redirectUri: "#{rootUrl}oauth2/sales-force/callback"
   })
 
   return oAuth2
