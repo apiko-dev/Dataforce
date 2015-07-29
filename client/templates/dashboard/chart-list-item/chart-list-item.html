@@ -1,10 +1,18 @@
 <template name="ChartListItem">
-    <li>
-        <i class="fa fa-area-chart chart-icon"></i>
-        {{name}}
-        <div class="chart-buttons">
-            <i class="fa fa-pencil edit-chart-button"></i>
-            <i class="fa fa-trash-o remove-chart-button"></i>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h6 class="panel-title">
+                <i class="fa fa-area-chart chart-icon"></i>
+                {{name}}
+                <div class="chart-buttons">
+                    <i class="fa fa-pencil edit-chart-button"></i>
+                    <i class="fa fa-trash-o remove-chart-button"></i>
+                </div>
+            </h6>
         </div>
-    </li>
+
+        <div class="panel-body">
+            Chart will be here
+        </div>
+    </div>
 </template>

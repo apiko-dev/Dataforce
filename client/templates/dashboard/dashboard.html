@@ -1,16 +1,15 @@
 <template name="Dashboard">
-  <article class="dashboard-content">
-    {{#if hasCharts}}
-      <div class="panel-body">
-        <ul class="charts-list panel panel-default">
-          <div class="panel-heading"><strong>Your charts</strong></div>
-          {{#each charts}}
-            {{> ChartListItem}}
-          {{/each}}
-        </ul>
-      </div>
-    {{else}}
-      <p>You have no charts yet</p>
-    {{/if}}
-  </article>
+    <article class="dashboard-content">
+        {{#if hasCharts}}
+            <h4>Your charts</h4>
+
+            <div class="charts-list">
+                {{#each charts}}
+                    {{> ChartListItem}}
+                {{/each}}
+            </div>
+        {{else}}
+            <p>You have no charts yet</p>
+        {{/if}}
+    </article>
 </template>
