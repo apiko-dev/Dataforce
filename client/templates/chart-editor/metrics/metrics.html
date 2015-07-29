@@ -6,7 +6,9 @@
             {{#each metricMocks}}
                 <ul class="metrics-list-container tab-pane" id="{{connectorName}}">
                     {{#each metrics}}
-                        {{> MetricItem}}
+                        {{#if isMatchSearch name}}
+                            {{> MetricItem}}
+                        {{/if}}
                     {{/each}}
                 </ul>
             {{/each}}

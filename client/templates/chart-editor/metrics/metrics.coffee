@@ -1,4 +1,20 @@
+Template.Metrics.onCreated ->
+  @searchPhrase = new ReactiveVar('')
+
+
+Template.Metrics.events
+  'keyup .metrics-search-input': (event, tmpl) ->
+    text = tmpl.$('.metrics-search-input').val()
+    tmpl.searchPhrase.set text
+
 Template.Metrics.helpers
+#search stuff
+  isMatchSearch: (target) ->
+    searchPhrase = Template.instance().searchPhrase.get().toLowerCase()
+    if searchPhrase.length > 0 then target.toLowerCase().indexOf(searchPhrase) > -1 else true
+
+
+#todo: this stuff should be moved away from source code
   metricMocks: -> [
     {
       connectorName: "SF"
