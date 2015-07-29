@@ -1,24 +1,17 @@
 @import "../../configs.import.less";
 
 .chart-editor-container {
-  div[class^="col-"] {
-    padding: 0;
-  }
 
-  .chart-meta {
-    text-align: right;
-    background: @lightGray;
+  .chart-meta-info {
     padding: 5px;
     margin-bottom: 5px;
+    background: @primaryColor;
 
-    .chart-name {
-      font-size: 20px;
-      margin-right: 10px;
-      padding: 5px;
+    .chart-title {
+      color: @primaryText;
+      margin: 5px;
+      padding: 0;
     }
 
-    .save-chart-button {
-      vertical-align: top;
-    }
   }
 }

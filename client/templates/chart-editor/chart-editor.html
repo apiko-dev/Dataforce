@@ -1,13 +1,15 @@
 <template name="ChartEditor">
-    <h3>Chart editor</h3>
 
     <div class="chart-editor-container">
-        <div class="row">
-            <div class="col-md-12 ">
-                <div class="chart-meta">
-                    <input type="text" class="input-control chart-name" placeholder="Chart name" value="{{chart.name}}">
-                    <button class="btn btn-success save-chart-button" title="Save"><i class="fa fa-save"></i></button>
-                </div>
+        <div class="row chart-meta-info">
+            <div class="col-xs-12 col-sm-5 col-md-6">
+                <h4 class="chart-title">Chart editor</h4>
+            </div>
+            <div class="col-xs-9 col-sm-5 col-md-5">
+                <input type="text" class="form-control chart-name" placeholder="Chart name" value="{{chart.name}}">
+            </div>
+            <div class="col-xs-3 col-sm-2 col-md-1">
+                <button class="btn btn-success save-chart-button" title="Save"><i class="fa fa-save"></i></button>
             </div>
         </div>
 
