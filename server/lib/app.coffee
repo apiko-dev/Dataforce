@@ -23,15 +23,15 @@ _App = {
         field:
           name: String
           value: Match.Any
-        modifier: FilterModifier
+        modifier: _App.checkers.FilterModifier
       return true
 
 
     Chart: Match.Where (x) ->
       check x,
         table: String
-        filters: [Filter]
-        valueFunction: ValueFunction
+        filters: [_App.checkers.Filter]
+        valueFunction: _App.checkers.ValueFunction
         axis:
           metrics: String
           dimension: String
