@@ -4,10 +4,9 @@ App = {
   Connectors: {},
   DataTransformers: {},
   DataMisc: {},
-  checkers: {
-    MongoId: Match.Where(function (id) {
-      check(id, String);
-      return /[0-9a-zA-Z]{17}/.test(id);
-    })
+  SalesForce: {
+    isNumberType: function (type) {
+      return type === 'int' || type === 'double' || type === 'currency' || type === 'percent';
+    }
   }
 };

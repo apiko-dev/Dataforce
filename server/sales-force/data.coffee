@@ -12,11 +12,6 @@ processQueryResult = (query, functionName) ->
   return queryResult.result
 
 
-FilterModifier = Match.Where (x) ->
-  check(x, String)
-  return x in ['$gt', '$eq', '$lt', '$lte', '$gte', '$ne']
-
-
 Meteor.methods
   sfDescribe: (tableName) ->
     check tableName, String
@@ -27,12 +22,7 @@ Meteor.methods
 
   sfGetTableData: (tableName, filters) ->
     check tableName, String
-    check filters, [{
-      field:
-        name: String
-        value: Match.Any
-      modifier: FilterModifier
-    }]
+    check filters, [App.checkers.Filter]
     connection = checkCredentialsAndCreateConnection(@userId)
 
     query = {}
@@ -42,3 +32,14 @@ Meteor.methods
       query[filter.field.name] = condition
 
     processQueryResult connection.sobject(tableName).find(query).limit(100), 'execute'
+
+
+  sfGetSeriesForChart: (chart) ->
+    check chart, App.checkers.Chart
+
+    transformer = App.DataTransformers.SalesForceDataGrouper
+
+    tableData = Meteor.call 'sfGetTableData', chart.table, chart.filters
+    series = new transformer(chart, tableData)
+    convertedSeries = series.getConvertedSeriesForHighchart()
+    return convertedSeries
