@@ -47,7 +47,7 @@ Meteor.methods
       console.log profilesListJson.error
       []
 
-  "GA.getData": (query) ->
+  "GA.getSeries": (query) ->
     check query,
       profileId: String
       metrics: String
@@ -56,7 +56,7 @@ Meteor.methods
       from: String
       to: String
 
-    Async.runSync (done) ->
+    rawJson = Async.runSync (done) ->
       googleAnalytics.data.ga.get {
         auth: oauth2Client
         ids: "ga:" + query.profileId
@@ -67,3 +67,6 @@ Meteor.methods
       }, (err, result) ->
         err and console.log err
         done err, result
+
+    dataAdapter = new App.DataAdapters.GoogleAnalytics query, rawJson
+    dataAdapter.getSeries()

@@ -2,25 +2,22 @@ Template.gaChart.onCreated ->
   @chartType = new ReactiveVar "line"
   @series = new ReactiveVar ""
   @axisNames = new ReactiveVar ""
-  @categories = new ReactiveVar ""
 
 Template.gaChart.onRendered ->
   tpl = @
   Tracker.autorun ->
     series = tpl.series.get()
-    categories = tpl.categories.get()
     chartType = tpl.chartType.get()
     axisNames = tpl.axisNames.get()
 
     # output debug info
-    $("textarea").val("#{categories}\n#{JSON.stringify series}")
+    $("textarea").val JSON.stringify series
 
     initHighCharts = ->
       @.$("#chart").highcharts
         chart:
           type: chartType
         xAxis:
-          categories: categories
           title:
             text: axisNames?.x or ""
         series: series
@@ -50,9 +47,6 @@ Template.gaChart.events
       from: fromDate
       to: endDate
 
-    Meteor.call "GA.getData", chartQuery, (err, result) ->
+    Meteor.call "GA.getSeries", chartQuery, (err, result) ->
       if not err
-        gaAdapter = new App.DataAdapters.GoogleAnalytics chartQuery, result
-        t.axisNames.set gaAdapter.getAxisNames()
-        t.series.set gaAdapter.getSeries()
-        t.categories.set gaAdapter.getCategories()
+        t.series.set result

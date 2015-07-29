@@ -1,5 +1,6 @@
 class GoogleAnalyticsDataAdapter
   constructor: (@chartQuery, @json) ->
+    @setAxisNames()
 
   @_axisNames: []
 
@@ -13,11 +14,7 @@ class GoogleAnalyticsDataAdapter
     axisesCount = metricsList.length
     yAxisesNames = (_.find(gaMetricsList, (metric) -> metric.key is metricsList[i])?.value or "" for i in [0..axisesCount])
 
-  getCategories: ->
-    _.map @json.result.rows, (el) ->
-      el[0]
-
-  getAxisNames: ->
+  setAxisNames: ->
     @_axisNames =
       x: @_getXAxisName()
       y: @_getYAxisesNames()
@@ -32,7 +29,7 @@ class GoogleAnalyticsDataAdapter
     series = ({
     data: _.map rows, (row) -> (parseInt element for element, index in row when index is (axisIndex + 1))
     name: axisNames.y[axisIndex]
-    } for axisIndex in [0..axisesCount])
+    } for axisIndex in [0..(axisesCount - 1)])
 
     if @chartQuery.mergeMetrics
       seriesMerger = new App.DataMisc.GASeriesMerger series[0].data, series[1].data
