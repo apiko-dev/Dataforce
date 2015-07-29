@@ -1,0 +1,978 @@
+[
+  {
+    "id": "ga:userType",
+    "name": "User Type"
+  },
+  {
+    "id": "ga:sessionCount",
+    "name": "Count of Sessions"
+  },
+  {
+    "id": "ga:daysSinceLastSession",
+    "name": "Days Since Last Session"
+  },
+  {
+    "id": "ga:userDefinedValue",
+    "name": "User Defined Value"
+  },
+  {
+    "id": "ga:visitorType",
+    "name": "User Type"
+  },
+  {
+    "id": "ga:visitCount",
+    "name": "Count of Sessions"
+  },
+  {
+    "id": "ga:daysSinceLastVisit",
+    "name": "Days Since Last Session"
+  },
+  {
+    "id": "ga:sessionDurationBucket",
+    "name": "Session Duration"
+  },
+  {
+    "id": "ga:visitLength",
+    "name": "Session Duration"
+  },
+  {
+    "id": "ga:referralPath",
+    "name": "Referral Path"
+  },
+  {
+    "id": "ga:fullReferrer",
+    "name": "Full Referrer"
+  },
+  {
+    "id": "ga:campaign",
+    "name": "Campaign"
+  },
+  {
+    "id": "ga:source",
+    "name": "Source"
+  },
+  {
+    "id": "ga:medium",
+    "name": "Medium"
+  },
+  {
+    "id": "ga:sourceMedium",
+    "name": "Source / Medium"
+  },
+  {
+    "id": "ga:keyword",
+    "name": "Keyword"
+  },
+  {
+    "id": "ga:adContent",
+    "name": "Ad Content"
+  },
+  {
+    "id": "ga:socialNetwork",
+    "name": "Social Network"
+  },
+  {
+    "id": "ga:hasSocialSourceReferral",
+    "name": "Social Source Referral"
+  },
+  {
+    "id": "ga:campaignCode",
+    "name": "Campaign Code"
+  },
+  {
+    "id": "ga:adGroup",
+    "name": "Ad Group"
+  },
+  {
+    "id": "ga:adSlot",
+    "name": "Ad Slot"
+  },
+  {
+    "id": "ga:adSlotPosition",
+    "name": "Ad Slot Position"
+  },
+  {
+    "id": "ga:adDistributionNetwork",
+    "name": "Ad Distribution Network"
+  },
+  {
+    "id": "ga:adMatchType",
+    "name": "Query Match Type"
+  },
+  {
+    "id": "ga:adKeywordMatchType",
+    "name": "Keyword Match Type"
+  },
+  {
+    "id": "ga:adMatchedQuery",
+    "name": "Matched Search Query"
+  },
+  {
+    "id": "ga:adPlacementDomain",
+    "name": "Placement Domain"
+  },
+  {
+    "id": "ga:adPlacementUrl",
+    "name": "Placement URL"
+  },
+  {
+    "id": "ga:adFormat",
+    "name": "Ad Format"
+  },
+  {
+    "id": "ga:adTargetingType",
+    "name": "Targeting Type"
+  },
+  {
+    "id": "ga:adTargetingOption",
+    "name": "Placement Type"
+  },
+  {
+    "id": "ga:adDisplayUrl",
+    "name": "Display URL"
+  },
+  {
+    "id": "ga:adDestinationUrl",
+    "name": "Destination URL"
+  },
+  {
+    "id": "ga:adwordsCustomerID",
+    "name": "AdWords Customer ID"
+  },
+  {
+    "id": "ga:adwordsCampaignID",
+    "name": "AdWords Campaign ID"
+  },
+  {
+    "id": "ga:adwordsAdGroupID",
+    "name": "AdWords Ad Group ID"
+  },
+  {
+    "id": "ga:adwordsCreativeID",
+    "name": "AdWords Creative ID"
+  },
+  {
+    "id": "ga:adwordsCriteriaID",
+    "name": "AdWords Criteria ID"
+  },
+  {
+    "id": "ga:adQueryWordCount",
+    "name": "Query Word Count"
+  },
+  {
+    "id": "ga:isTrueViewVideoAd",
+    "name": "TrueView Video Ad"
+  },
+  {
+    "id": "ga:goalCompletionLocation",
+    "name": "Goal Completion Location"
+  },
+  {
+    "id": "ga:goalPreviousStep1",
+    "name": "Goal Previous Step - 1"
+  },
+  {
+    "id": "ga:goalPreviousStep2",
+    "name": "Goal Previous Step - 2"
+  },
+  {
+    "id": "ga:goalPreviousStep3",
+    "name": "Goal Previous Step - 3"
+  },
+  {
+    "id": "ga:browser",
+    "name": "Browser"
+  },
+  {
+    "id": "ga:browserVersion",
+    "name": "Browser Version"
+  },
+  {
+    "id": "ga:operatingSystem",
+    "name": "Operating System"
+  },
+  {
+    "id": "ga:operatingSystemVersion",
+    "name": "Operating System Version"
+  },
+  {
+    "id": "ga:mobileDeviceBranding",
+    "name": "Mobile Device Branding"
+  },
+  {
+    "id": "ga:mobileDeviceModel",
+    "name": "Mobile Device Model"
+  },
+  {
+    "id": "ga:mobileInputSelector",
+    "name": "Mobile Input Selector"
+  },
+  {
+    "id": "ga:mobileDeviceInfo",
+    "name": "Mobile Device Info"
+  },
+  {
+    "id": "ga:mobileDeviceMarketingName",
+    "name": "Mobile Device Marketing Name"
+  },
+  {
+    "id": "ga:deviceCategory",
+    "name": "Device Category"
+  },
+  {
+    "id": "ga:dataSource",
+    "name": "Data Source"
+  },
+  {
+    "id": "ga:isMobile",
+    "name": "Mobile (Including Tablet)"
+  },
+  {
+    "id": "ga:isTablet",
+    "name": "Tablet"
+  },
+  {
+    "id": "ga:continent",
+    "name": "Continent"
+  },
+  {
+    "id": "ga:subContinent",
+    "name": "Sub Continent"
+  },
+  {
+    "id": "ga:country",
+    "name": "Country"
+  },
+  {
+    "id": "ga:region",
+    "name": "Region"
+  },
+  {
+    "id": "ga:metro",
+    "name": "Metro"
+  },
+  {
+    "id": "ga:city",
+    "name": "City"
+  },
+  {
+    "id": "ga:latitude",
+    "name": "Latitude"
+  },
+  {
+    "id": "ga:longitude",
+    "name": "Longitude"
+  },
+  {
+    "id": "ga:networkDomain",
+    "name": "Network Domain"
+  },
+  {
+    "id": "ga:networkLocation",
+    "name": "Service Provider"
+  },
+  {
+    "id": "ga:cityId",
+    "name": "City ID"
+  },
+  {
+    "id": "ga:countryIsoCode",
+    "name": "Country ISO Code"
+  },
+  {
+    "id": "ga:regionId",
+    "name": "Region ID"
+  },
+  {
+    "id": "ga:regionIsoCode",
+    "name": "Region ISO Code"
+  },
+  {
+    "id": "ga:subContinentCode",
+    "name": "Sub Continent Code"
+  },
+  {
+    "id": "ga:flashVersion",
+    "name": "Flash Version"
+  },
+  {
+    "id": "ga:javaEnabled",
+    "name": "Java Support"
+  },
+  {
+    "id": "ga:language",
+    "name": "Language"
+  },
+  {
+    "id": "ga:screenColors",
+    "name": "Screen Colors"
+  },
+  {
+    "id": "ga:sourcePropertyDisplayName",
+    "name": "Source Property Display Name"
+  },
+  {
+    "id": "ga:sourcePropertyTrackingId",
+    "name": "Source Property Tracking ID"
+  },
+  {
+    "id": "ga:screenResolution",
+    "name": "Screen Resolution"
+  },
+  {
+    "id": "ga:socialActivityEndorsingUrl",
+    "name": "Endorsing URL"
+  },
+  {
+    "id": "ga:socialActivityDisplayName",
+    "name": "Display Name"
+  },
+  {
+    "id": "ga:socialActivityPost",
+    "name": "Social Activity Post"
+  },
+  {
+    "id": "ga:socialActivityTimestamp",
+    "name": "Social Activity Timestamp"
+  },
+  {
+    "id": "ga:socialActivityUserHandle",
+    "name": "Social User Handle"
+  },
+  {
+    "id": "ga:socialActivityUserPhotoUrl",
+    "name": "User Photo URL"
+  },
+  {
+    "id": "ga:socialActivityUserProfileUrl",
+    "name": "User Profile URL"
+  },
+  {
+    "id": "ga:socialActivityContentUrl",
+    "name": "Shared URL"
+  },
+  {
+    "id": "ga:socialActivityTagsSummary",
+    "name": "Social Tags Summary"
+  },
+  {
+    "id": "ga:socialActivityAction",
+    "name": "Originating Social Action"
+  },
+  {
+    "id": "ga:socialActivityNetworkAction",
+    "name": "Social Network and Action"
+  },
+  {
+    "id": "ga:hostname",
+    "name": "Hostname"
+  },
+  {
+    "id": "ga:pagePath",
+    "name": "Page"
+  },
+  {
+    "id": "ga:pagePathLevel1",
+    "name": "Page path level 1"
+  },
+  {
+    "id": "ga:pagePathLevel2",
+    "name": "Page path level 2"
+  },
+  {
+    "id": "ga:pagePathLevel3",
+    "name": "Page path level 3"
+  },
+  {
+    "id": "ga:pagePathLevel4",
+    "name": "Page path level 4"
+  },
+  {
+    "id": "ga:pageTitle",
+    "name": "Page Title"
+  },
+  {
+    "id": "ga:landingPagePath",
+    "name": "Landing Page"
+  },
+  {
+    "id": "ga:secondPagePath",
+    "name": "Second Page"
+  },
+  {
+    "id": "ga:exitPagePath",
+    "name": "Exit Page"
+  },
+  {
+    "id": "ga:previousPagePath",
+    "name": "Previous Page Path"
+  },
+  {
+    "id": "ga:nextPagePath",
+    "name": "Next Page Path"
+  },
+  {
+    "id": "ga:pageDepth",
+    "name": "Page Depth"
+  },
+  {
+    "id": "ga:landingContentGroupXX",
+    "name": "Landing Page Group XX"
+  },
+  {
+    "id": "ga:previousContentGroupXX",
+    "name": "Previous Page Group XX"
+  },
+  {
+    "id": "ga:contentGroupXX",
+    "name": "Page Group XX"
+  },
+  {
+    "id": "ga:nextContentGroupXX",
+    "name": "Next Page Group XX"
+  },
+  {
+    "id": "ga:searchUsed",
+    "name": "Site Search Status"
+  },
+  {
+    "id": "ga:searchKeyword",
+    "name": "Search Term"
+  },
+  {
+    "id": "ga:searchKeywordRefinement",
+    "name": "Refined Keyword"
+  },
+  {
+    "id": "ga:searchCategory",
+    "name": "Site Search Category"
+  },
+  {
+    "id": "ga:searchStartPage",
+    "name": "Start Page"
+  },
+  {
+    "id": "ga:searchDestinationPage",
+    "name": "Destination Page"
+  },
+  {
+    "id": "ga:searchAfterDestinationPage",
+    "name": "Search Destination Page"
+  },
+  {
+    "id": "ga:appInstallerId",
+    "name": "App Installer ID"
+  },
+  {
+    "id": "ga:appVersion",
+    "name": "App Version"
+  },
+  {
+    "id": "ga:appName",
+    "name": "App Name"
+  },
+  {
+    "id": "ga:appId",
+    "name": "App ID"
+  },
+  {
+    "id": "ga:screenName",
+    "name": "Screen Name"
+  },
+  {
+    "id": "ga:screenDepth",
+    "name": "Screen Depth"
+  },
+  {
+    "id": "ga:landingScreenName",
+    "name": "Landing Screen"
+  },
+  {
+    "id": "ga:exitScreenName",
+    "name": "Exit Screen"
+  },
+  {
+    "id": "ga:eventCategory",
+    "name": "Event Category"
+  },
+  {
+    "id": "ga:eventAction",
+    "name": "Event Action"
+  },
+  {
+    "id": "ga:eventLabel",
+    "name": "Event Label"
+  },
+  {
+    "id": "ga:transactionId",
+    "name": "Transaction ID"
+  },
+  {
+    "id": "ga:affiliation",
+    "name": "Affiliation"
+  },
+  {
+    "id": "ga:sessionsToTransaction",
+    "name": "Sessions to Transaction"
+  },
+  {
+    "id": "ga:daysToTransaction",
+    "name": "Days to Transaction"
+  },
+  {
+    "id": "ga:productSku",
+    "name": "Product SKU"
+  },
+  {
+    "id": "ga:productName",
+    "name": "Product"
+  },
+  {
+    "id": "ga:productCategory",
+    "name": "Product Category"
+  },
+  {
+    "id": "ga:currencyCode",
+    "name": "Currency Code"
+  },
+  {
+    "id": "ga:checkoutOptions",
+    "name": "Checkout Options"
+  },
+  {
+    "id": "ga:internalPromotionCreative",
+    "name": "Internal Promotion Creative"
+  },
+  {
+    "id": "ga:internalPromotionId",
+    "name": "Internal Promotion ID"
+  },
+  {
+    "id": "ga:internalPromotionName",
+    "name": "Internal Promotion Name"
+  },
+  {
+    "id": "ga:internalPromotionPosition",
+    "name": "Internal Promotion Position"
+  },
+  {
+    "id": "ga:orderCouponCode",
+    "name": "Order Coupon Code"
+  },
+  {
+    "id": "ga:productBrand",
+    "name": "Product Brand"
+  },
+  {
+    "id": "ga:productCategoryHierarchy",
+    "name": "Product Category (Enhanced Ecommerce)"
+  },
+  {
+    "id": "ga:productCategoryLevelXX",
+    "name": "Product Category Level XX"
+  },
+  {
+    "id": "ga:productCouponCode",
+    "name": "Product Coupon Code"
+  },
+  {
+    "id": "ga:productListName",
+    "name": "Product List Name"
+  },
+  {
+    "id": "ga:productListPosition",
+    "name": "Product List Position"
+  },
+  {
+    "id": "ga:productVariant",
+    "name": "Product Variant"
+  },
+  {
+    "id": "ga:shoppingStage",
+    "name": "Shopping Stage"
+  },
+  {
+    "id": "ga:visitsToTransaction",
+    "name": "Sessions to Transaction"
+  },
+  {
+    "id": "ga:socialInteractionNetwork",
+    "name": "Social Source"
+  },
+  {
+    "id": "ga:socialInteractionAction",
+    "name": "Social Action"
+  },
+  {
+    "id": "ga:socialInteractionNetworkAction",
+    "name": "Social Source and Action"
+  },
+  {
+    "id": "ga:socialInteractionTarget",
+    "name": "Social Entity"
+  },
+  {
+    "id": "ga:socialEngagementType",
+    "name": "Social Type"
+  },
+  {
+    "id": "ga:userTimingCategory",
+    "name": "Timing Category"
+  },
+  {
+    "id": "ga:userTimingLabel",
+    "name": "Timing Label"
+  },
+  {
+    "id": "ga:userTimingVariable",
+    "name": "Timing Variable"
+  },
+  {
+    "id": "ga:exceptionDescription",
+    "name": "Exception Description"
+  },
+  {
+    "id": "ga:experimentId",
+    "name": "Experiment ID"
+  },
+  {
+    "id": "ga:experimentVariant",
+    "name": "Variation"
+  },
+  {
+    "id": "ga:dimensionXX",
+    "name": "Custom Dimension XX"
+  },
+  {
+    "id": "ga:customVarNameXX",
+    "name": "Custom Variable (Key XX)"
+  },
+  {
+    "id": "ga:customVarValueXX",
+    "name": "Custom Variable (Value XX)"
+  },
+  {
+    "id": "ga:date",
+    "name": "Date"
+  },
+  {
+    "id": "ga:year",
+    "name": "Year"
+  },
+  {
+    "id": "ga:month",
+    "name": "Month of the year"
+  },
+  {
+    "id": "ga:week",
+    "name": "Week of the Year"
+  },
+  {
+    "id": "ga:day",
+    "name": "Day of the month"
+  },
+  {
+    "id": "ga:hour",
+    "name": "Hour"
+  },
+  {
+    "id": "ga:minute",
+    "name": "Minute"
+  },
+  {
+    "id": "ga:nthMonth",
+    "name": "Month Index"
+  },
+  {
+    "id": "ga:nthWeek",
+    "name": "Week Index"
+  },
+  {
+    "id": "ga:nthDay",
+    "name": "Day Index"
+  },
+  {
+    "id": "ga:nthMinute",
+    "name": "Minute Index"
+  },
+  {
+    "id": "ga:dayOfWeek",
+    "name": "Day of Week"
+  },
+  {
+    "id": "ga:dayOfWeekName",
+    "name": "Day of Week Name"
+  },
+  {
+    "id": "ga:dateHour",
+    "name": "Hour of Day"
+  },
+  {
+    "id": "ga:yearMonth",
+    "name": "Month of Year"
+  },
+  {
+    "id": "ga:yearWeek",
+    "name": "Week of Year"
+  },
+  {
+    "id": "ga:isoWeek",
+    "name": "ISO Week of the Year"
+  },
+  {
+    "id": "ga:isoYear",
+    "name": "ISO Year"
+  },
+  {
+    "id": "ga:isoYearIsoWeek",
+    "name": "ISO Week of ISO Year"
+  },
+  {
+    "id": "ga:nthHour",
+    "name": "Hour Index"
+  },
+  {
+    "id": "ga:dcmClickAd",
+    "name": "DFA Ad (GA Model)"
+  },
+  {
+    "id": "ga:dcmClickAdId",
+    "name": "DFA Ad ID (GA Model)"
+  },
+  {
+    "id": "ga:dcmClickAdType",
+    "name": "DFA Ad Type (GA Model)"
+  },
+  {
+    "id": "ga:dcmClickAdTypeId",
+    "name": "DFA Ad Type ID"
+  },
+  {
+    "id": "ga:dcmClickAdvertiser",
+    "name": "DFA Advertiser (GA Model)"
+  },
+  {
+    "id": "ga:dcmClickAdvertiserId",
+    "name": "DFA Advertiser ID (GA Model)"
+  },
+  {
+    "id": "ga:dcmClickCampaign",
+    "name": "DFA Campaign (GA Model)"
+  },
+  {
+    "id": "ga:dcmClickCampaignId",
+    "name": "DFA Campaign ID (GA Model)"
+  },
+  {
+    "id": "ga:dcmClickCreativeId",
+    "name": "DFA Creative ID (GA Model)"
+  },
+  {
+    "id": "ga:dcmClickCreative",
+    "name": "DFA Creative (GA Model)"
+  },
+  {
+    "id": "ga:dcmClickRenderingId",
+    "name": "DFA Rendering ID (GA Model)"
+  },
+  {
+    "id": "ga:dcmClickCreativeType",
+    "name": "DFA Creative Type (GA Model)"
+  },
+  {
+    "id": "ga:dcmClickCreativeTypeId",
+    "name": "DFA Creative Type ID (GA Model)"
+  },
+  {
+    "id": "ga:dcmClickCreativeVersion",
+    "name": "DFA Creative Version (GA Model)"
+  },
+  {
+    "id": "ga:dcmClickSite",
+    "name": "DFA Site (GA Model)"
+  },
+  {
+    "id": "ga:dcmClickSiteId",
+    "name": "DFA Site ID (GA Model)"
+  },
+  {
+    "id": "ga:dcmClickSitePlacement",
+    "name": "DFA Placement (GA Model)"
+  },
+  {
+    "id": "ga:dcmClickSitePlacementId",
+    "name": "DFA Placement ID (GA Model)"
+  },
+  {
+    "id": "ga:dcmClickSpotId",
+    "name": "DFA Floodlight Configuration ID (GA Model)"
+  },
+  {
+    "id": "ga:dcmFloodlightActivity",
+    "name": "DFA Activity"
+  },
+  {
+    "id": "ga:dcmFloodlightActivityAndGroup",
+    "name": "DFA Activity and Group"
+  },
+  {
+    "id": "ga:dcmFloodlightActivityGroup",
+    "name": "DFA Activity Group"
+  },
+  {
+    "id": "ga:dcmFloodlightActivityGroupId",
+    "name": "DFA Activity Group ID"
+  },
+  {
+    "id": "ga:dcmFloodlightActivityId",
+    "name": "DFA Activity ID"
+  },
+  {
+    "id": "ga:dcmFloodlightAdvertiserId",
+    "name": "DFA Advertiser ID"
+  },
+  {
+    "id": "ga:dcmFloodlightSpotId",
+    "name": "DFA Floodlight Configuration ID"
+  },
+  {
+    "id": "ga:dcmLastEventAd",
+    "name": "DFA Ad"
+  },
+  {
+    "id": "ga:dcmLastEventAdId",
+    "name": "DFA Ad ID (DFA Model)"
+  },
+  {
+    "id": "ga:dcmLastEventAdType",
+    "name": "DFA Ad Type (DFA Model)"
+  },
+  {
+    "id": "ga:dcmLastEventAdTypeId",
+    "name": "DFA Ad Type ID (DFA Model)"
+  },
+  {
+    "id": "ga:dcmLastEventAdvertiser",
+    "name": "DFA Advertiser (DFA Model)"
+  },
+  {
+    "id": "ga:dcmLastEventAdvertiserId",
+    "name": "DFA Advertiser ID (DFA Model)"
+  },
+  {
+    "id": "ga:dcmLastEventAttributionType",
+    "name": "DFA Attribution Type (DFA Model)"
+  },
+  {
+    "id": "ga:dcmLastEventCampaign",
+    "name": "DFA Campaign (DFA Model)"
+  },
+  {
+    "id": "ga:dcmLastEventCampaignId",
+    "name": "DFA Campaign ID (DFA Model)"
+  },
+  {
+    "id": "ga:dcmLastEventCreativeId",
+    "name": "DFA Creative ID (DFA Model)"
+  },
+  {
+    "id": "ga:dcmLastEventCreative",
+    "name": "DFA Creative (DFA Model)"
+  },
+  {
+    "id": "ga:dcmLastEventRenderingId",
+    "name": "DFA Rendering ID (DFA Model)"
+  },
+  {
+    "id": "ga:dcmLastEventCreativeType",
+    "name": "DFA Creative Type (DFA Model)"
+  },
+  {
+    "id": "ga:dcmLastEventCreativeTypeId",
+    "name": "DFA Creative Type ID (DFA Model)"
+  },
+  {
+    "id": "ga:dcmLastEventCreativeVersion",
+    "name": "DFA Creative Version (DFA Model)"
+  },
+  {
+    "id": "ga:dcmLastEventSite",
+    "name": "DFA Site (DFA Model)"
+  },
+  {
+    "id": "ga:dcmLastEventSiteId",
+    "name": "DFA Site ID (DFA Model)"
+  },
+  {
+    "id": "ga:dcmLastEventSitePlacement",
+    "name": "DFA Placement (DFA Model)"
+  },
+  {
+    "id": "ga:dcmLastEventSitePlacementId",
+    "name": "DFA Placement ID (DFA Model)"
+  },
+  {
+    "id": "ga:dcmLastEventSpotId",
+    "name": "DFA Floodlight Configuration ID (DFA Model)"
+  },
+  {
+    "id": "ga:userAgeBracket",
+    "name": "Age"
+  },
+  {
+    "id": "ga:userGender",
+    "name": "Gender"
+  },
+  {
+    "id": "ga:interestOtherCategory",
+    "name": "Other Category"
+  },
+  {
+    "id": "ga:interestAffinityCategory",
+    "name": "Affinity Category (reach)"
+  },
+  {
+    "id": "ga:interestInMarketCategory",
+    "name": "In-Market Segment"
+  },
+  {
+    "id": "ga:visitorAgeBracket",
+    "name": "Age"
+  },
+  {
+    "id": "ga:visitorGender",
+    "name": "Gender"
+  },
+  {
+    "id": "ga:channelGrouping",
+    "name": "Default Channel Grouping"
+  },
+  {
+    "id": "ga:correlationModelId",
+    "name": "Correlation Model ID"
+  },
+  {
+    "id": "ga:queryProductId",
+    "name": "Queried Product ID"
+  },
+  {
+    "id": "ga:queryProductName",
+    "name": "Queried Product Name"
+  },
+  {
+    "id": "ga:queryProductVariation",
+    "name": "Queried Product Variation"
+  },
+  {
+    "id": "ga:relatedProductId",
+    "name": "Related Product ID"
+  },
+  {
+    "id": "ga:relatedProductName",
+    "name": "Related Product Name"
+  },
+  {
+    "id": "ga:relatedProductVariation",
+    "name": "Related Product Variation"
+  }
+]

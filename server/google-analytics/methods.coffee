@@ -28,6 +28,12 @@ Meteor.methods
         gaServiceCredentials = _.extend {userId: userId}, {googleAnalytics: tokens}
         ServiceCredentials.update {userId: userId}, {$set: gaServiceCredentials}, {upsert: true}
 
+  "getGaDimensionsList": ->
+    JSON.parse Assets.getText "ga/ga-dimensions-list.json"
+
+  "getGaMetricsList": ->
+    JSON.parse Assets.getText "ga/ga-metrics-list.json"
+
   "GA.getAccounts": ->
     profilesListJson = Async.runSync (done) ->
       googleAnalytics.management.profiles.list {

@@ -5,11 +5,13 @@ class GoogleAnalyticsDataAdapter
   @_axisNames: []
 
   _getXAxisName: ->
+    gaDimensionsList = JSON.parse Assets.getText "ga/ga-dimensions-list.json"
     dimensions = @chartQuery.dimensions
     _.find(gaDimensionsList, (dimension) ->
       dimension.key is dimensions)?.value or ""
 
   _getYAxisesNames: ->
+    gaMetricsList = JSON.parse Assets.getText "ga/ga-metrics-list.json"
     metricsList = @chartQuery.metrics.split ","
     axisesCount = metricsList.length
     yAxisesNames = (_.find(gaMetricsList, (metric) -> metric.key is metricsList[i])?.value or "" for i in [0..axisesCount])
