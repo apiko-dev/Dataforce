@@ -12,7 +12,7 @@ Template.SalesForceChartConfiguration.onCreated ->
 
 
 Template.SalesForceChartConfiguration.helpers
-  numberFields: -> @fields.filter (field) -> App.DataAdapters.SalesForce::isNumberType field.type
+  numberFields: -> @fields.filter (field) -> App.SalesForce.isNumberType field.type
 
   filters: -> Template.instance().filters.find({})
 

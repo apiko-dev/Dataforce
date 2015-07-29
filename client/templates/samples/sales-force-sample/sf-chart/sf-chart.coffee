@@ -22,6 +22,5 @@ Template.SalesForceChart.onRendered ->
     chart = Session.get 'sfChart'
 
     if chart
-      transformer = App.DataTransformers.SalesForceDataGrouper
-      dataAdapter = new App.DataAdapters.SalesForce(transformer)
-      dataAdapter.getHighchartSeries chart, (series) => @initializeChart(series)
+      Meteor.call 'sfGetSeriesForChart', chart, (err, series) =>
+        @initializeChart(series)

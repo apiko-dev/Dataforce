@@ -34,7 +34,7 @@ Template.SalesForceChartDataFilter.events
 
     fieldValue = tmpl.$('.condition-value').val()
     #find out if we need convert field value to number
-    isNumberField = selectedField and App.DataAdapters.SalesForce::isNumberType selectedField.type
+    isNumberField = selectedField and App.SalesForce.isNumberType selectedField.type
 
     tmpl.isSelectedFieldNumber.set isNumberField
 
