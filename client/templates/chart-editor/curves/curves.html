@@ -1,5 +1,9 @@
 <template name="Curves">
     {{#EditorPanel title="Curves"}}
-        curves list goes here
+        <ul class="curves-list-container tab-pane" id="{{type}}">
+            {{#each curvesList}}
+                {{> ChartType}}
+            {{/each}}
+        </ul>
     {{/EditorPanel}}
 </template>
