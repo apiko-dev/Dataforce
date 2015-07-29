@@ -1,20 +1,18 @@
 <template name="SalesForceSample">
-    <div class="container">
-        <h3>SalesForce</h3>
+    <h4>SalesForce</h4>
 
-        <div class="row login-widget">
-            <div class="col-md-12">
-                <a href="{{authUrl}}" target="_blank">SalesForce Login</a>
-            </div>
+    <div class="row login-widget">
+        <div class="col-md-12">
+            <a href="{{authUrl}}" target="_blank">SalesForce Login</a>
         </div>
+    </div>
 
-        <div class="row">
-            <div class="col-md-6 col-sm-12">
-                {{> SalesForceChartEditor}}
-            </div>
-            <div class="col-md-6 col-sm-12">
-                {{> SalesForceChart}}
-            </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            {{> SalesForceChartEditor}}
+        </div>
+        <div class="col-md-6 col-sm-12">
+            {{> SalesForceChart}}
         </div>
     </div>
 </template>
