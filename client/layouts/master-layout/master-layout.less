@@ -66,3 +66,49 @@
     margin-right: 0;
   }
 }
+
+//==== toggle visibility button ====
+
+#wrapper {
+  .toggle-visibility-button {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 20px;
+    height: 30px;
+    border-radius: 0 5px 5px 0;
+    background-color: @accentColor;
+    z-index: 1000;
+    overflow: hidden;
+  }
+
+  .visible {
+    display: inline-block;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  &.toggled .toggle-visibility-button {
+    color: white;
+
+    &:hover {
+      color: @primaryColor;
+    }
+
+    .hide-sidebar-icon {
+      .hidden;
+    }
+  }
+
+  &:not(.toggled) .toggle-visibility-button:hover {
+    color: white;
+
+    .hide-sidebar-icon {
+      .visible;
+    }
+  }
+}
