@@ -1,6 +1,4 @@
-isOwner = (userId, doc) ->
-
-  userId and doc.userId is userId
+isOwner = (userId, doc) -> userId and doc.userId is userId
 
 Charts.allow
   insert: isOwner

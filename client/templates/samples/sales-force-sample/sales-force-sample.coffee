@@ -2,5 +2,4 @@ Template.SalesForceSample.onCreated ->
 
 
 Template.SalesForceSample.helpers
-  authUrl: ->
-    App.DataAdapters.SalesForce::getAuthUrl()
+  authUrl: -> Meteor.settings.public.SalesForce.authUrl
