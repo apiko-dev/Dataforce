@@ -30,7 +30,7 @@ Template.SalesForceChartConfiguration.events
   'click .apply-chart-button': (event, tmpl) ->
     chart = {
       table: tmpl.data.table
-      filters: tmpl.filters.find({}, {fields: {_id: 0}}).fetch() #comming soon...
+      filters: tmpl.filters.find({}, {fields: {_id: 0}}).fetch()
       valueFunction: tmpl.$('#value-function-field').val()
       axis:
         metrics: tmpl.$('#metrics-field').val()
