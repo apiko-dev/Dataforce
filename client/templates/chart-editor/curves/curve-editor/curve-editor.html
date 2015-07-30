@@ -1,0 +1,9 @@
+<template name="CurveEditor">
+    {{> Connectors}}
+    {{> Metrics}}
+    <ul class="curves-list-container tab-pane" id="{{type}}">
+        {{#each curvesList}}
+            {{> ChartType}}
+        {{/each}}
+    </ul>
+</template>

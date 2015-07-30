@@ -1,17 +1,16 @@
 Template.Curves.onCreated ->
   @curveCreating = new ReactiveVar false
+  @newCurves = new ReactiveVar []
 
 Template.Curves.helpers
   curveCreating: ->
     Template.instance().curveCreating.get()
 
-  curvesList: [
-    {caption: "Line", type: "line"}
-    {caption: "Column", type: "line"}
-    {caption: "Area", type: "area"}
-    {caption: "Pie", type: "pie"}
-  ]
+  newCurves: ->
+    Template.instance().newCurves.get()
 
 Template.Curves.events
   "click #new-curve": (e, t) ->
     t.curveCreating.set true
+    t.newCurves.get().push 0
+    t.newCurves.set t.newCurves.get()
