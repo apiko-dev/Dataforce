@@ -1,11 +1,18 @@
 <template name="Curves">
     {{#EditorPanel title="Curves"}}
-        {{> Connectors}}
-        {{> Metrics}}
-        <ul class="curves-list-container tab-pane" id="{{type}}">
-            {{#each curvesList}}
-                {{> ChartType}}
-            {{/each}}
-        </ul>
+        {{#if curveCreating}}
+            {{> Connectors}}
+            {{> Metrics}}
+            <ul class="curves-list-container tab-pane" id="{{type}}">
+                {{#each curvesList}}
+                    {{> ChartType}}
+                {{/each}}
+            </ul>
+        {{else}}
+            <button class="btn btn-hg btn-primary fullwidth" id="new-curve">
+                <span class="glyphicon glyphicon-plus"></span>
+                Add new curve
+            </button>
+        {{/if}}
     {{/EditorPanel}}
 </template>
