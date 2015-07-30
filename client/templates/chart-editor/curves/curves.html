@@ -1,5 +1,7 @@
 <template name="Curves">
     {{#EditorPanel title="Curves"}}
+        {{> Connectors}}
+        {{> Metrics}}
         <ul class="curves-list-container tab-pane" id="{{type}}">
             {{#each curvesList}}
                 {{> ChartType}}
