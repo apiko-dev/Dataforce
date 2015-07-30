@@ -1,4 +1,7 @@
 <template name="CurveEditor">
+    {{#Spoiler}}
+        <h3 class="do-not-stop-propagate">New curve</h3>
+    {{else}}
     {{#CurvePanel title="New curve"}}
         {{> Connectors}}
         {{> Metrics}}
@@ -9,4 +12,5 @@
         </ul>
         <hr/>
     {{/CurvePanel}}
+    {{/Spoiler}}
 </template>
