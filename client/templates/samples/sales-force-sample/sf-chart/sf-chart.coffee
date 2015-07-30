@@ -7,7 +7,7 @@ Template.SalesForceChart.onRendered ->
         text: 'Result'
       xAxis:
         categories: chartData.categories,
-        crosshair: true
+        crosshairs: true
       yAxis:
         min: 0,
         title:

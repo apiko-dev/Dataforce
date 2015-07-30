@@ -24,5 +24,4 @@ Template.Metrics.helpers
   metricMocks: ->
     gaMetricsList = ReactiveMethod.call "getGaMetricsList"
     if gaMetricsList then Template.instance().mockMetrics.push {connectorName: "GA", metrics: gaMetricsList}
-    console.log Template.instance().mockMetrics
     Template.instance().mockMetrics
