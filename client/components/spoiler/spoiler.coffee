@@ -2,7 +2,6 @@ Template.Spoiler.events
   'click .expand-button': (event, tmpl) ->
     setHeight = (height) -> tmpl.$('.spoiler-details').css({height: height})
     height = tmpl.$('.spoiler-details').css('height')
-    console.log 'height: ', height
 
     detailsHeight = if tmpl.data?.detailsHeight then tmpl.data?.detailsHeight else ''
 
