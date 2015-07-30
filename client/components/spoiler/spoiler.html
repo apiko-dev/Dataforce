@@ -1,0 +1,17 @@
+<template name="Spoiler">
+    <div class="spoiler">
+        <div class="spoiler-head">
+            <div class="content-wrapper">
+                {{> Template.contentBlock}}
+            </div>
+            <div class="expand-button">
+                <div class="icon-wrapper">
+                    <i class="fa fa-chevron-down expand-icon"></i>
+                </div>
+            </div>
+        </div>
+        <div class="spoiler-details">
+            {{> Template.elseBlock}}
+        </div>
+    </div>
+</template>

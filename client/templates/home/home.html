@@ -27,16 +27,15 @@
         </div>
 
 
-        <select class="form-control select select-primary select-block mbl">
-            <optgroup label="Profile">
-                <option value="0">My Profile</option>
-                <option value="1">My Friends</option>
-            </optgroup>
-            <optgroup label="System">
-                <option value="2">Messages</option>
-                <option value="3">My Settings</option>
-                <option value="4">Logout</option>
-            </optgroup>
-        </select>
+        <h4>Spoiler usage example</h4>
+        {{#Spoiler detailsHeight=100}}
+            <p>some data here</p>
+        {{else}}
+            <div style="padding: 10px">
+                <p>details are here</p>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, maxime!</p>
+            </div>
+        {{/Spoiler}}
     </article>
 </template>
