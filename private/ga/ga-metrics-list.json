@@ -1,0 +1,770 @@
+[
+  {
+    "id": "ga:users",
+    "name": "Users"
+  },
+  {
+    "id": "ga:newUsers",
+    "name": "New Users"
+  },
+  {
+    "id": "ga:percentNewSessions",
+    "name": "% New Sessions"
+  },
+  {
+    "id": "ga:sessionsPerUser",
+    "name": "Number of Sessions per User"
+  },
+  {
+    "id": "ga:visitors",
+    "name": "Users"
+  },
+  {
+    "id": "ga:newVisits",
+    "name": "New Users"
+  },
+  {
+    "id": "ga:percentNewVisits",
+    "name": "% New Sessions"
+  },
+  {
+    "id": "ga:sessions",
+    "name": "Sessions"
+  },
+  {
+    "id": "ga:bounces",
+    "name": "Bounces"
+  },
+  {
+    "id": "ga:bounceRate",
+    "name": "Bounce Rate"
+  },
+  {
+    "id": "ga:sessionDuration",
+    "name": "Session Duration"
+  },
+  {
+    "id": "ga:avgSessionDuration",
+    "name": "Avg. Session Duration"
+  },
+  {
+    "id": "ga:hits",
+    "name": "Hits"
+  },
+  {
+    "id": "ga:visits",
+    "name": "Sessions"
+  },
+  {
+    "id": "ga:entranceBounceRate",
+    "name": "Bounce Rate"
+  },
+  {
+    "id": "ga:visitBounceRate",
+    "name": "Bounce Rate"
+  },
+  {
+    "id": "ga:timeOnSite",
+    "name": "Session Duration"
+  },
+  {
+    "id": "ga:avgTimeOnSite",
+    "name": "Avg. Session Duration"
+  },
+  {
+    "id": "ga:organicSearches",
+    "name": "Organic Searches"
+  },
+  {
+    "id": "ga:impressions",
+    "name": "Impressions"
+  },
+  {
+    "id": "ga:adClicks",
+    "name": "Clicks"
+  },
+  {
+    "id": "ga:adCost",
+    "name": "Cost"
+  },
+  {
+    "id": "ga:CPM",
+    "name": "CPM"
+  },
+  {
+    "id": "ga:CPC",
+    "name": "CPC"
+  },
+  {
+    "id": "ga:CTR",
+    "name": "CTR"
+  },
+  {
+    "id": "ga:costPerTransaction",
+    "name": "Cost per Transaction"
+  },
+  {
+    "id": "ga:costPerGoalConversion",
+    "name": "Cost per Goal Conversion"
+  },
+  {
+    "id": "ga:costPerConversion",
+    "name": "Cost per Conversion"
+  },
+  {
+    "id": "ga:RPC",
+    "name": "RPC"
+  },
+  {
+    "id": "ga:ROAS",
+    "name": "ROAS"
+  },
+  {
+    "id": "ga:ROI",
+    "name": "ROI"
+  },
+  {
+    "id": "ga:margin",
+    "name": "Margin"
+  },
+  {
+    "id": "ga:goalXXStarts",
+    "name": "Goal XX Starts"
+  },
+  {
+    "id": "ga:goalStartsAll",
+    "name": "Goal Starts"
+  },
+  {
+    "id": "ga:goalXXCompletions",
+    "name": "Goal XX Completions"
+  },
+  {
+    "id": "ga:goalCompletionsAll",
+    "name": "Goal Completions"
+  },
+  {
+    "id": "ga:goalXXValue",
+    "name": "Goal XX Value"
+  },
+  {
+    "id": "ga:goalValueAll",
+    "name": "Goal Value"
+  },
+  {
+    "id": "ga:goalValuePerSession",
+    "name": "Per Session Goal Value"
+  },
+  {
+    "id": "ga:goalXXConversionRate",
+    "name": "Goal XX Conversion Rate"
+  },
+  {
+    "id": "ga:goalConversionRateAll",
+    "name": "Goal Conversion Rate"
+  },
+  {
+    "id": "ga:goalXXAbandons",
+    "name": "Goal XX Abandoned Funnels"
+  },
+  {
+    "id": "ga:goalAbandonsAll",
+    "name": "Abandoned Funnels"
+  },
+  {
+    "id": "ga:goalXXAbandonRate",
+    "name": "Goal XX Abandonment Rate"
+  },
+  {
+    "id": "ga:goalAbandonRateAll",
+    "name": "Total Abandonment Rate"
+  },
+  {
+    "id": "ga:goalValuePerVisit",
+    "name": "Per Session Goal Value"
+  },
+  {
+    "id": "ga:socialActivities",
+    "name": "Data Hub Activities"
+  },
+  {
+    "id": "ga:pageValue",
+    "name": "Page Value"
+  },
+  {
+    "id": "ga:entrances",
+    "name": "Entrances"
+  },
+  {
+    "id": "ga:entranceRate",
+    "name": "Entrances / Pageviews"
+  },
+  {
+    "id": "ga:pageviews",
+    "name": "Pageviews"
+  },
+  {
+    "id": "ga:pageviewsPerSession",
+    "name": "Pages / Session"
+  },
+  {
+    "id": "ga:uniquePageviews",
+    "name": "Unique Pageviews"
+  },
+  {
+    "id": "ga:timeOnPage",
+    "name": "Time on Page"
+  },
+  {
+    "id": "ga:avgTimeOnPage",
+    "name": "Avg. Time on Page"
+  },
+  {
+    "id": "ga:exits",
+    "name": "Exits"
+  },
+  {
+    "id": "ga:exitRate",
+    "name": "% Exit"
+  },
+  {
+    "id": "ga:pageviewsPerVisit",
+    "name": "Pages / Session"
+  },
+  {
+    "id": "ga:contentGroupUniqueViewsXX",
+    "name": "Unique Views XX"
+  },
+  {
+    "id": "ga:searchResultViews",
+    "name": "Results Pageviews"
+  },
+  {
+    "id": "ga:searchUniques",
+    "name": "Total Unique Searches"
+  },
+  {
+    "id": "ga:avgSearchResultViews",
+    "name": "Results Pageviews / Search"
+  },
+  {
+    "id": "ga:searchSessions",
+    "name": "Sessions with Search"
+  },
+  {
+    "id": "ga:percentSessionsWithSearch",
+    "name": "% Sessions with Search"
+  },
+  {
+    "id": "ga:searchDepth",
+    "name": "Search Depth"
+  },
+  {
+    "id": "ga:avgSearchDepth",
+    "name": "Average Search Depth"
+  },
+  {
+    "id": "ga:searchRefinements",
+    "name": "Search Refinements"
+  },
+  {
+    "id": "ga:percentSearchRefinements",
+    "name": "% Search Refinements"
+  },
+  {
+    "id": "ga:searchDuration",
+    "name": "Time after Search"
+  },
+  {
+    "id": "ga:avgSearchDuration",
+    "name": "Time after Search"
+  },
+  {
+    "id": "ga:searchExits",
+    "name": "Search Exits"
+  },
+  {
+    "id": "ga:searchExitRate",
+    "name": "% Search Exits"
+  },
+  {
+    "id": "ga:searchGoalXXConversionRate",
+    "name": "Site Search Goal XX Conversion Rate"
+  },
+  {
+    "id": "ga:searchGoalConversionRateAll",
+    "name": "Site Search Goal Conversion Rate"
+  },
+  {
+    "id": "ga:goalValueAllPerSearch",
+    "name": "Per Search Goal Value"
+  },
+  {
+    "id": "ga:searchVisits",
+    "name": "Sessions with Search"
+  },
+  {
+    "id": "ga:percentVisitsWithSearch",
+    "name": "% Sessions with Search"
+  },
+  {
+    "id": "ga:pageLoadTime",
+    "name": "Page Load Time (ms)"
+  },
+  {
+    "id": "ga:pageLoadSample",
+    "name": "Page Load Sample"
+  },
+  {
+    "id": "ga:avgPageLoadTime",
+    "name": "Avg. Page Load Time (sec)"
+  },
+  {
+    "id": "ga:domainLookupTime",
+    "name": "Domain Lookup Time (ms)"
+  },
+  {
+    "id": "ga:avgDomainLookupTime",
+    "name": "Avg. Domain Lookup Time (sec)"
+  },
+  {
+    "id": "ga:pageDownloadTime",
+    "name": "Page Download Time (ms)"
+  },
+  {
+    "id": "ga:avgPageDownloadTime",
+    "name": "Avg. Page Download Time (sec)"
+  },
+  {
+    "id": "ga:redirectionTime",
+    "name": "Redirection Time (ms)"
+  },
+  {
+    "id": "ga:avgRedirectionTime",
+    "name": "Avg. Redirection Time (sec)"
+  },
+  {
+    "id": "ga:serverConnectionTime",
+    "name": "Server Connection Time (ms)"
+  },
+  {
+    "id": "ga:avgServerConnectionTime",
+    "name": "Avg. Server Connection Time (sec)"
+  },
+  {
+    "id": "ga:serverResponseTime",
+    "name": "Server Response Time (ms)"
+  },
+  {
+    "id": "ga:avgServerResponseTime",
+    "name": "Avg. Server Response Time (sec)"
+  },
+  {
+    "id": "ga:speedMetricsSample",
+    "name": "Speed Metrics Sample"
+  },
+  {
+    "id": "ga:domInteractiveTime",
+    "name": "Document Interactive Time (ms)"
+  },
+  {
+    "id": "ga:avgDomInteractiveTime",
+    "name": "Avg. Document Interactive Time (sec)"
+  },
+  {
+    "id": "ga:domContentLoadedTime",
+    "name": "Document Content Loaded Time (ms)"
+  },
+  {
+    "id": "ga:avgDomContentLoadedTime",
+    "name": "Avg. Document Content Loaded Time (sec)"
+  },
+  {
+    "id": "ga:domLatencyMetricsSample",
+    "name": "DOM Latency Metrics Sample"
+  },
+  {
+    "id": "ga:screenviews",
+    "name": "Screen Views"
+  },
+  {
+    "id": "ga:uniqueScreenviews",
+    "name": "Unique Screen Views"
+  },
+  {
+    "id": "ga:screenviewsPerSession",
+    "name": "Screens / Session"
+  },
+  {
+    "id": "ga:timeOnScreen",
+    "name": "Time on Screen"
+  },
+  {
+    "id": "ga:avgScreenviewDuration",
+    "name": "Avg. Time on Screen"
+  },
+  {
+    "id": "ga:appviews",
+    "name": "Screen Views"
+  },
+  {
+    "id": "ga:uniqueAppviews",
+    "name": "Unique Screen Views"
+  },
+  {
+    "id": "ga:appviewsPerVisit",
+    "name": "Screens / Session"
+  },
+  {
+    "id": "ga:totalEvents",
+    "name": "Total Events"
+  },
+  {
+    "id": "ga:uniqueEvents",
+    "name": "Unique Events"
+  },
+  {
+    "id": "ga:eventValue",
+    "name": "Event Value"
+  },
+  {
+    "id": "ga:avgEventValue",
+    "name": "Avg. Value"
+  },
+  {
+    "id": "ga:sessionsWithEvent",
+    "name": "Sessions with Event"
+  },
+  {
+    "id": "ga:eventsPerSessionWithEvent",
+    "name": "Events / Session with Event"
+  },
+  {
+    "id": "ga:visitsWithEvent",
+    "name": "Sessions with Event"
+  },
+  {
+    "id": "ga:eventsPerVisitWithEvent",
+    "name": "Events / Session with Event"
+  },
+  {
+    "id": "ga:transactions",
+    "name": "Transactions"
+  },
+  {
+    "id": "ga:transactionsPerSession",
+    "name": "Ecommerce Conversion Rate"
+  },
+  {
+    "id": "ga:transactionRevenue",
+    "name": "Revenue"
+  },
+  {
+    "id": "ga:revenuePerTransaction",
+    "name": "Average Order Value"
+  },
+  {
+    "id": "ga:transactionRevenuePerSession",
+    "name": "Per Session Value"
+  },
+  {
+    "id": "ga:transactionShipping",
+    "name": "Shipping"
+  },
+  {
+    "id": "ga:transactionTax",
+    "name": "Tax"
+  },
+  {
+    "id": "ga:totalValue",
+    "name": "Total Value"
+  },
+  {
+    "id": "ga:itemQuantity",
+    "name": "Quantity"
+  },
+  {
+    "id": "ga:uniquePurchases",
+    "name": "Unique Purchases"
+  },
+  {
+    "id": "ga:revenuePerItem",
+    "name": "Average Price"
+  },
+  {
+    "id": "ga:itemRevenue",
+    "name": "Product Revenue"
+  },
+  {
+    "id": "ga:itemsPerPurchase",
+    "name": "Average QTY"
+  },
+  {
+    "id": "ga:localTransactionRevenue",
+    "name": "Local Revenue"
+  },
+  {
+    "id": "ga:localTransactionShipping",
+    "name": "Local Shipping"
+  },
+  {
+    "id": "ga:localTransactionTax",
+    "name": "Local Tax"
+  },
+  {
+    "id": "ga:localItemRevenue",
+    "name": "Local Product Revenue"
+  },
+  {
+    "id": "ga:buyToDetailRate",
+    "name": "Buy-to-Detail Rate"
+  },
+  {
+    "id": "ga:cartToDetailRate",
+    "name": "Cart-to-Detail Rate"
+  },
+  {
+    "id": "ga:internalPromotionCTR",
+    "name": "Internal Promotion CTR"
+  },
+  {
+    "id": "ga:internalPromotionClicks",
+    "name": "Internal Promotion Clicks"
+  },
+  {
+    "id": "ga:internalPromotionViews",
+    "name": "Internal Promotion Views"
+  },
+  {
+    "id": "ga:localProductRefundAmount",
+    "name": "Local Product Refund Amount"
+  },
+  {
+    "id": "ga:localRefundAmount",
+    "name": "Local Refund Amount"
+  },
+  {
+    "id": "ga:productAddsToCart",
+    "name": "Product Adds To Cart"
+  },
+  {
+    "id": "ga:productCheckouts",
+    "name": "Product Checkouts"
+  },
+  {
+    "id": "ga:productDetailViews",
+    "name": "Product Detail Views"
+  },
+  {
+    "id": "ga:productListCTR",
+    "name": "Product List CTR"
+  },
+  {
+    "id": "ga:productListClicks",
+    "name": "Product List Clicks"
+  },
+  {
+    "id": "ga:productListViews",
+    "name": "Product List Views"
+  },
+  {
+    "id": "ga:productRefundAmount",
+    "name": "Product Refund Amount"
+  },
+  {
+    "id": "ga:productRefunds",
+    "name": "Product Refunds"
+  },
+  {
+    "id": "ga:productRemovesFromCart",
+    "name": "Product Removes From Cart"
+  },
+  {
+    "id": "ga:productRevenuePerPurchase",
+    "name": "Product Revenue per Purchase"
+  },
+  {
+    "id": "ga:quantityAddedToCart",
+    "name": "Quantity Added To Cart"
+  },
+  {
+    "id": "ga:quantityCheckedOut",
+    "name": "Quantity Checked Out"
+  },
+  {
+    "id": "ga:quantityRefunded",
+    "name": "Quantity Refunded"
+  },
+  {
+    "id": "ga:quantityRemovedFromCart",
+    "name": "Quantity Removed From Cart"
+  },
+  {
+    "id": "ga:refundAmount",
+    "name": "Refund Amount"
+  },
+  {
+    "id": "ga:revenuePerUser",
+    "name": "Revenue per User"
+  },
+  {
+    "id": "ga:totalRefunds",
+    "name": "Refunds"
+  },
+  {
+    "id": "ga:transactionsPerUser",
+    "name": "Transactions per User"
+  },
+  {
+    "id": "ga:transactionsPerVisit",
+    "name": "Ecommerce Conversion Rate"
+  },
+  {
+    "id": "ga:transactionRevenuePerVisit",
+    "name": "Per Session Value"
+  },
+  {
+    "id": "ga:socialInteractions",
+    "name": "Social Actions"
+  },
+  {
+    "id": "ga:uniqueSocialInteractions",
+    "name": "Unique Social Actions"
+  },
+  {
+    "id": "ga:socialInteractionsPerSession",
+    "name": "Actions Per Social Session"
+  },
+  {
+    "id": "ga:socialInteractionsPerVisit",
+    "name": "Actions Per Social Session"
+  },
+  {
+    "id": "ga:userTimingValue",
+    "name": "User Timing (ms)"
+  },
+  {
+    "id": "ga:userTimingSample",
+    "name": "User Timing Sample"
+  },
+  {
+    "id": "ga:avgUserTimingValue",
+    "name": "Avg. User Timing (sec)"
+  },
+  {
+    "id": "ga:exceptions",
+    "name": "Exceptions"
+  },
+  {
+    "id": "ga:exceptionsPerScreenview",
+    "name": "Exceptions / Screen"
+  },
+  {
+    "id": "ga:fatalExceptions",
+    "name": "Crashes"
+  },
+  {
+    "id": "ga:fatalExceptionsPerScreenview",
+    "name": "Crashes / Screen"
+  },
+  {
+    "id": "ga:metricXX",
+    "name": "Custom Metric XX Value"
+  },
+  {
+    "id": "ga:dcmFloodlightQuantity",
+    "name": "DFA Conversions"
+  },
+  {
+    "id": "ga:dcmFloodlightRevenue",
+    "name": "DFA Revenue"
+  },
+  {
+    "id": "ga:dcmCPC",
+    "name": "DFA CPC"
+  },
+  {
+    "id": "ga:dcmCTR",
+    "name": "DFA CTR"
+  },
+  {
+    "id": "ga:dcmClicks",
+    "name": "DFA Clicks"
+  },
+  {
+    "id": "ga:dcmCost",
+    "name": "DFA Cost"
+  },
+  {
+    "id": "ga:dcmImpressions",
+    "name": "DFA Impressions"
+  },
+  {
+    "id": "ga:dcmROAS",
+    "name": "DFA ROAS"
+  },
+  {
+    "id": "ga:dcmRPC",
+    "name": "DFA RPC"
+  },
+  {
+    "id": "ga:dcmMargin",
+    "name": "DFA Margin"
+  },
+  {
+    "id": "ga:dcmROI",
+    "name": "DFA ROI"
+  },
+  {
+    "id": "ga:adsenseRevenue",
+    "name": "AdSense Revenue"
+  },
+  {
+    "id": "ga:adsenseAdUnitsViewed",
+    "name": "AdSense Ad Units Viewed"
+  },
+  {
+    "id": "ga:adsenseAdsViewed",
+    "name": "AdSense Impressions"
+  },
+  {
+    "id": "ga:adsenseAdsClicks",
+    "name": "AdSense Ads Clicked"
+  },
+  {
+    "id": "ga:adsensePageImpressions",
+    "name": "AdSense Page Impressions"
+  },
+  {
+    "id": "ga:adsenseCTR",
+    "name": "AdSense CTR"
+  },
+  {
+    "id": "ga:adsenseECPM",
+    "name": "AdSense eCPM"
+  },
+  {
+    "id": "ga:adsenseExits",
+    "name": "AdSense Exits"
+  },
+  {
+    "id": "ga:adsenseViewableImpressionPercent",
+    "name": "AdSense Viewable Impression %"
+  },
+  {
+    "id": "ga:adsenseCoverage",
+    "name": "AdSense Coverage"
+  },
+  {
+    "id": "ga:correlationScore",
+    "name": "Correlation Score"
+  },
+  {
+    "id": "ga:queryProductQuantity",
+    "name": "Queried Product Quantity"
+  },
+  {
+    "id": "ga:relatedProductQuantity",
+    "name": "Related Product Quantity"
+  }
+]

@@ -28,6 +28,12 @@ Meteor.methods
         gaServiceCredentials = _.extend {userId: userId}, {googleAnalytics: tokens}
         ServiceCredentials.update {userId: userId}, {$set: gaServiceCredentials}, {upsert: true}
 
+  "getGaDimensionsList": ->
+    JSON.parse Assets.getText "ga/ga-dimensions-list.json"
+
+  "getGaMetricsList": ->
+    JSON.parse Assets.getText "ga/ga-metrics-list.json"
+
   "GA.getAccounts": ->
     profilesListJson = Async.runSync (done) ->
       googleAnalytics.management.profiles.list {
@@ -47,7 +53,7 @@ Meteor.methods
       console.log profilesListJson.error
       []
 
-  "GA.getData": (query) ->
+  "GA.getSeries": (query) ->
     check query,
       profileId: String
       metrics: String
@@ -56,7 +62,7 @@ Meteor.methods
       from: String
       to: String
 
-    Async.runSync (done) ->
+    rawJson = Async.runSync (done) ->
       googleAnalytics.data.ga.get {
         auth: oauth2Client
         ids: "ga:" + query.profileId
@@ -67,3 +73,6 @@ Meteor.methods
       }, (err, result) ->
         err and console.log err
         done err, result
+
+    dataAdapter = new App.DataAdapters.GoogleAnalytics query, rawJson
+    dataAdapter.getSeries()
