@@ -7,6 +7,7 @@ Template.Metrics.events
     text = tmpl.$('.metrics-search-input').val()
     tmpl.searchPhrase.set text
 
+
 Template.Metrics.helpers
 #search stuff
   isMatchSearch: (target) ->
