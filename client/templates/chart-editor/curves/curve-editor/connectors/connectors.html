@@ -1,13 +1,13 @@
 <template name="Connectors">
-    {{#EditorPanel title="Connectors"}}
-        <div class="connector-tiles">
+    <div class="connector-tiles">
+        <ul class="nav nav-tabs">
             {{#each connectors}}
-                <a href="#{{caption}}" data-toggle="tab" class="connector-tile">
-                    <button class="btn btn-hg btn-default {{bgClass}}" title="{{name}}">
+                <li role="presentation" class="">
+                    <a href="#{{caption}}" data-toggle="tab" class="connector-tile {{bgClass}}">
                         {{caption}}
-                    </button>
-                </a>
+                    </a>
+                </li>
             {{/each}}
-        </div>
-    {{/EditorPanel}}
+        </ul>
+    </div>
 </template>
