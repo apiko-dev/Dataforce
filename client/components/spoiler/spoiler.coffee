@@ -1,5 +1,9 @@
+Template.Spoiler.onRendered ->
+  @$('.content-wrapper *').click (e) -> e.stopPropagation()
+
+
 Template.Spoiler.events
-  'click .expand-button': (event, tmpl) ->
+  'click .spoiler-head': (event, tmpl) ->
     setHeight = (height) -> tmpl.$('.spoiler-details').css({height: height})
     height = tmpl.$('.spoiler-details').css('height')
 
