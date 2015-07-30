@@ -1,6 +1,6 @@
 <template name="CurveEditor">
     {{#Spoiler}}
-        <h3 class="do-not-stop-propagate">New curve</h3>
+        <input class="form-control no-borders curve-title" type="text" value="New curve"/>
     {{else}}
     {{#CurvePanel title="New curve"}}
         {{> Connectors}}
@@ -10,7 +10,6 @@
                 {{> ChartType}}
             {{/each}}
         </ul>
-        <hr/>
     {{/CurvePanel}}
     {{/Spoiler}}
 </template>
