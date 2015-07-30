@@ -1,5 +1,5 @@
 Template.Spoiler.onRendered ->
-  @$('.content-wrapper *').click (e) -> e.stopPropagation()
+  @$('.content-wrapper *').not(".do-not-stop-propagate").click (e) -> e.stopPropagation()
 
 
 Template.Spoiler.events
