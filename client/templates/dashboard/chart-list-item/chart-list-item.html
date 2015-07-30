@@ -1,18 +1,18 @@
 <template name="ChartListItem">
     <div class="chart-item">
-    {{#Spoiler opened=true}}
-        <div class="heading">
+        {{#Spoiler opened=true}}
+            <div class="heading">
                 <i class="fa fa-area-chart chart-icon"></i>
                 {{name}}
                 <span class="chart-buttons">
                     <i class="fa fa-pencil edit-chart-button"></i>
                     <i class="fa fa-trash-o remove-chart-button"></i>
                 </span>
-        </div>
-    {{else}}
-        <div class="details">
-            Chart will be here
-        </div>
-    {{/Spoiler}}
+            </div>
+        {{else}}
+            <div class="details">
+                {{> ChartDisplay}}
+            </div>
+        {{/Spoiler}}
     </div>
 </template>
