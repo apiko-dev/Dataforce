@@ -8,16 +8,9 @@ class GASeriesMerger
     return [[27,40],[22,45],[24,42],[10,63],[11,57]]
   ###
   getSeries: ->
-    App.DataMisc.SeriesDataWrapper.wrap _.sortBy(_chunk(_.flatten(_.zip(@series1, @series2)), 2), (el) -> el[0])
+    App.DataMisc.SeriesDataWrapper.wrap _.sortBy(App.Functions._chunk(_.flatten(_.zip(@series1, @series2)), 2), (el) -> el[0])
 
 
 _.extend App.DataMisc, {
   GASeriesMerger: GASeriesMerger
 }
-
-
-_chunk = (collection, chunkSize) ->
-  if !collection or _.isNaN(parseInt(chunkSize, 10))
-    return []
-  _.toArray _.groupBy collection, (iterator, index) ->
-    Math.floor index / parseInt(chunkSize, 10)
