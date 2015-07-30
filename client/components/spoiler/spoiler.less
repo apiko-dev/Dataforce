@@ -2,20 +2,23 @@
 
 .spoiler {
   background-color: @primaryBackground;
+  cursor: pointer;
 
   .spoiler-panel {
     background-color: @secondaryBackground;
     position: relative;
 
-    @expendButtonWidth: 30px;
+    @expandButtonWidth: 30px;
+
     .content-wrapper {
-      margin-right: @expendButtonWidth;
+      margin-right: @expandButtonWidth;
+      cursor: default;
     }
 
     .expand-button {
       display: block;
       position: absolute;
-      width: @expendButtonWidth;
+      width: @expandButtonWidth;
       right: 0;
       top: 0;
       bottom: 0;
