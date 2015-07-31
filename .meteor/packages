@@ -28,15 +28,13 @@ momentjs:moment
 workman:templating-ext
 
 fortawesome:fontawesome
-twbs:bootstrap
 rajit:bootstrap3-datepicker
 maazalik:highcharts
 zimme:active-route
 sacha:spin
 
 
-natestrauser:select2
-zimme:select2-bootstrap3-css
 jss:flat-ui
 simple:reactive-method
 aldeed:template-extension
+twbs:bootstrap

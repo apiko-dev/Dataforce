@@ -1,7 +1,10 @@
 <template name="listSelector">
-  <select id="{{id}}" class="{{class}}">
-    {{#each list}}
-      <option value="{{id}}">{{name}}</option>
-    {{/each}}
-  </select>
+    <label for="{{id}}">
+        {{lable}}
+        <select id="{{id}}" class="{{class}} select-primary select-block mbl">
+            {{#each list}}
+                <option value="{{id}}">{{name}}</option>
+            {{/each}}
+        </select>
+    </label>
 </template>
