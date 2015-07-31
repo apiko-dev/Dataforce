@@ -1,15 +1,14 @@
 <template name="CurveEditor">
     {{#Spoiler}}
+        <span class="glyphicon glyphicon-signal curve-icon"></span>
         <input class="form-control no-borders curve-title" type="text" value="New curve"/>
     {{else}}
-    {{#CurvePanel }}
-        {{> Connectors}}
-        {{> Metrics}}
-        <ul class="curves-list-container tab-pane" id="{{type}}">
-            {{#each curvesList}}
-                {{> ChartType}}
-            {{/each}}
-        </ul>
-    {{/CurvePanel}}
+        {{> AxisChooser}}
+        <div class="btn-group curve-type-chooser" role="group" aria-label="Curve types">
+            <button type="button" class="btn btn-info"><i class="fa fa-line-chart"></i> Line</button>
+            <button type="button" class="btn btn-info"><i class="fa fa-bar-chart"></i> Column</button>
+            <button type="button" class="btn btn-info"><i class="fa fa-area-chart"></i> Area</button>
+            <button type="button" class="btn btn-info"><i class="fa fa-pie-chart"></i> Pie</button>
+        </div>
     {{/Spoiler}}
 </template>

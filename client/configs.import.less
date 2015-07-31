@@ -18,6 +18,14 @@
   box-shadow: 0 2px 0 rgba(217, 219, 221, .5);
 }
 
+.transition (@property, @time) {
+  -webkit-transition: @property @time;
+  -moz-transition: @property @time;
+  -ms-transition: @property @time;
+  -o-transition: @property @time;
+  transition: @property @time;
+}
+
 @defaultIndent: 10px;
 
 @lameRed: #e74c3c;
