@@ -1,0 +1,26 @@
+@import "../../../../../configs.import.less";
+
+.axis-chooser-wrapper {
+  width: 100%;
+  padding: 15px;
+
+  .axis-chooser {
+    background-color: @dividerColor;
+    border: 1px dashed grey;
+    float: left;
+    font-family: "Times New Roman", serif;
+    font-size: 5rem;
+    font-style: oblique;
+    text-align: center;
+    width: 50%;
+    padding: 15%;
+    .transition(background-color, .2s);
+
+    &:hover {
+      background-color: @borderColor;
+    }
+    &:first-child {
+      border-right: none;
+    }
+  }
+}
