@@ -1,41 +1,43 @@
 <template name="gaChartConstructor">
-  <div class="form-group">
-    <a id="auth-with-ga" class="btn btn-default" href="#">
-      <i class="glyphicon glyphicon-lock"></i>
-      Auth with Google Analytics
-    </a>
-    <button id="getUAlist" class="btn btn-default">Get accounts list</button>
-  </div>
-  <div class="form-group">
-    <label for="profile-selector">Select a project from a dropdown</label>
-    <select id="profile-selector">
-      {{#each GAaccounts}}
-        <option value="{{profileId}}">{{name}}</option>
-      {{/each}}
-    </select>
-  </div>
-  <div class="form-group">
-    {{> listSelector list=metricsList class="metrics-selector"}}
-    {{> listSelector list=dimensionsList id="dimensions-selector"}}
-  </div>
-  <div class="form-group">
-    <button id="one-more-axis" class="btn btn-default">
-      Add one more axis
-    </button>
-    {{#if additionalAxises}}
-    <label for="merge-metrics">
-      Merge 2 metrics
-      <input type="checkbox" id="merge-metrics"/>
-    </label>
-    {{/if}}
-    {{#each additionalAxises}}
-      <div>
-        {{> listSelector list=metricsList class="metrics-selector"}}
-        <button class="btn btn-default remove-axis"><i class="fa fa-trash-o"></i></button>
-      </div>
-    {{/each}}
-  </div>
-  <div class="form-group">
-    {{> rangeDatepicker id="gaDatepicker"}}
-  </div>
+    <div class="form-group">
+        <a id="auth-with-ga" class="btn btn-default" href="#">
+            <i class="glyphicon glyphicon-lock"></i>
+            Auth with Google Analytics
+        </a>
+        <button id="getUAlist" class="btn btn-default">Get accounts list</button>
+    </div>
+    <div class="form-group">
+        <label for="profile-selector">
+            Select a project from a dropdown
+            <select id="profile-selector" class="select-primary select-block mbl">
+                {{#each GAaccounts}}
+                    <option value="{{profileId}}">{{name}}</option>
+                {{/each}}
+            </select>
+        </label>
+    </div>
+    <div class="form-group">
+        {{> listSelector list=metricsList class="metrics-selector" lable="X axis"}}
+        {{> listSelector list=dimensionsList id="dimensions-selector" lable="Y axis"}}
+    </div>
+    <div class="form-group">
+        <button id="one-more-axis" class="btn btn-default">
+            Add one more axis
+        </button>
+        {{#if additionalAxises}}
+            <label for="merge-metrics">
+                Merge 2 metrics
+                <input type="checkbox" id="merge-metrics"/>
+            </label>
+        {{/if}}
+        {{#each additionalAxises}}
+            <div>
+                {{> listSelector list=metricsList class="metrics-selector" lable="Y axis"}}
+                <button class="btn btn-default remove-axis"><i class="fa fa-trash-o"></i></button>
+            </div>
+        {{/each}}
+    </div>
+    <div class="form-group">
+        {{> rangeDatepicker id="gaDatepicker"}}
+    </div>
 </template>
