@@ -1,3 +1,4 @@
+#todo this should be moved into settings.json
 CLIENT_ID = "492445934834-1pbljtblmkddmjqv978a81a0vb3j59r6.apps.googleusercontent.com"
 CLIENT_SECRET = "NpuwJp2HB7454YiGET16F5c9"
 REDIRECT_URL = "http://localhost:3000/google-analytics-sample/_oauth/google"

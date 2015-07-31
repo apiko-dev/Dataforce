@@ -1,13 +1,14 @@
 <template name="CurvePanel">
     <div class="panel panel-default">
+
         {{#if title}}
-        <div class="panel-heading">
-            <h6 class="panel-title">
-                {{title}}
-                <span class="glyphicon glyphicon-remove remove-curve"
-                      title="Remove curve" data-toggle="tooltip" data-placement="bottom"></span>
-            </h6>
-        </div>
+            <div class="panel-heading">
+                <h6 class="panel-title">
+                    {{title}}
+                    <span class="glyphicon glyphicon-remove remove-curve"
+                          title="Remove curve" data-toggle="tooltip" data-placement="bottom"></span>
+                </h6>
+            </div>
         {{/if}}
 
         <div class="panel-body">
