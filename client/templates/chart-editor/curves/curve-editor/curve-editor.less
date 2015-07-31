@@ -1,15 +1,19 @@
 @import "../../../../configs.import.less";
 
+.curve-editor-wrapper {
+  padding: 15px;
+
+  .part {
+    margin-bottom: 15px;
+  }
+}
+
 .curve-title {
   width: 30%;
-}
 
-.no-borders {
-  border: none;
-}
-
-.curve-title:focus {
-  .dotted-bottom-border;
+  &:focus {
+    .dotted-bottom-border;
+  }
 }
 
 .curve-icon {
@@ -17,16 +21,6 @@
   padding: 10px;
 }
 
-.curve-type-chooser {
-  padding: 15px;
-  width: 100%;
-
-  .btn {
-    border-right: 1px solid rgba(0, 0, 0, 0.2);
-    width: 25%;
-
-    &:last-child {
-      border: none;
-    }
-  }
+.no-borders {
+  border: none;
 }
