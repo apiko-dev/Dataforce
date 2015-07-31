@@ -10,11 +10,6 @@ Template.Metrics.onCreated ->
       {name: 'Opportunities'}
     ]
 
-Template.Metrics.events
-  'keyup .metrics-search-input': (event, tmpl) ->
-    text = tmpl.$('.metrics-search-input').val()
-    tmpl.searchPhrase.set text
-
 
 Template.Metrics.helpers
 #search stuff
@@ -26,3 +21,9 @@ Template.Metrics.helpers
     gaMetricsList = ReactiveMethod.call "getGaMetricsList"
     if gaMetricsList then Template.instance().mockMetrics.push {connectorName: "GA", metrics: gaMetricsList}
     Template.instance().mockMetrics
+
+
+Template.Metrics.events
+  'keyup .metrics-search-input': (event, tmpl) ->
+    text = tmpl.$('.metrics-search-input').val()
+    tmpl.searchPhrase.set text

@@ -1,18 +1,18 @@
-.charts-list {
-  font-size: 18px;
-  list-style-type: none;
-  padding-left: 0;
+@import "../../configs.import.less";
 
-  .panel {
-    margin-bottom: 10px;
+.chart-item {
+  color: @primaryText;
+
+  .heading {
+    font-size: 18px;
+    padding: @defaultIndent;
 
     .chart-buttons {
-      display: inline-block;
       float: right;
-      i {
-        margin-right: 10px;
-        cursor: pointer;
-      }
     }
+  }
+
+  .details {
+    padding: @defaultIndent;
   }
 }
