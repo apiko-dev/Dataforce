@@ -25,7 +25,7 @@ Template.ChartEditor.helpers
     tmpl = Template.instance()
 
     context: {}
-    windowClass: 'dragable-medium'
+    windowClass: 'dragable-big'
     backdrop: true
     onInitialize: (instance) ->
       tmpl.chartSourcePicker = instance

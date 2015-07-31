@@ -1,0 +1,19 @@
+@import "../../../configs.import.less";
+
+.entity-picker-wrapper {
+  transition: opacity 0.5s;
+  border: @border;
+  background: white;
+  opacity: .8;
+  //width: 400px;
+  //height: 300px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  &.hidden {
+    opacity: 0;
+  }
+}
