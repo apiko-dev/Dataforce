@@ -1,23 +1,14 @@
 <template name="SourcePicker">
-    <div class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Chart source picker</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body">
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save</button>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
+    <div class="dragable-window-header">
+        Source picker {{> DragableWindowCloseButton}}
     </div>
-    <!-- /.modal -->
+    <div class="dragable-window-body">
+        {{#with context}}
+            
+        {{/with}}
+    </div>
+    <div class="dragable-window-footer">
+        <button class="btn btn-default btn-sm">Cancel</button>
+        <button class="btn btn-success btn-sm">Save</button>
+    </div>
 </template>

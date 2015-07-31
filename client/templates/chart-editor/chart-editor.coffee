@@ -16,7 +16,20 @@ Template.ChartEditor.onCreated ->
       Charts.insert chart, App.handleError (chartId) =>
         @subscribe 'userChart', chartId,
           onReady: => @chart.set Charts.findOne {_id: chartId}
+
           onStop: App.handleError()
+
+
+Template.ChartEditor.helpers
+  sourcePickerModalConfig: ->
+    tmpl = Template.instance()
+
+    context: {}
+    windowClass: 'dragable-medium'
+    backdrop: true
+    onInitialize: (instance) ->
+      tmpl.chartSourcePicker = instance
+
 
 Template.ChartEditor.events
   'click .save-chart-button': (event, tmpl) ->
@@ -24,5 +37,8 @@ Template.ChartEditor.events
 
   'keyup .chart-name': (event, tmpl) ->
     tmpl.saveChart() if event.which is 13 #pressed enter
+
+  'click .show-picker': (event, tmpl) ->
+    tmpl.chartSourcePicker.show()
 
 
