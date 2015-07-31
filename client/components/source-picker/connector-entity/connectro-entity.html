@@ -1,0 +1,12 @@
+<template name="ConnectorEntity">
+    <div class="entity-picker-wrapper {{#unless visible}}hidden{{/unless}}">
+        <div class="picker-caption">Please, choose entity of {{name}}</div>
+        <ul class="connector-entities">
+            {{#each entities}}
+                <li>
+                    {{name}}
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</template>

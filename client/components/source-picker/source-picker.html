@@ -2,9 +2,15 @@
     <div class="dragable-window-header">
         Source picker {{> DragableWindowCloseButton}}
     </div>
-    <div class="dragable-window-body">
+    <div class="dragable-window-body source-picker-body">
         {{#with context}}
-            
+            {{> ConnectorFilter}}
+            <!--search-->
+            <div class="search-input-wrapper simple-panel">
+                <input type="text" class="form-control search-metric-input" placeholder="Search">
+            </div>
+
+            {{> ConnectorEntity visible=true}}
         {{/with}}
     </div>
     <div class="dragable-window-footer">
