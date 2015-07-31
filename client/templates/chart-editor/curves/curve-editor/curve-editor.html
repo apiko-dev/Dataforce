@@ -1,9 +1,17 @@
 <template name="CurveEditor">
-    {{#Spoiler}}
-        <span class="glyphicon glyphicon-signal curve-icon"></span>
-        <input class="form-control no-borders curve-title" type="text" value="New curve"/>
-    {{else}}
-        {{> AxisChooser}}
-        {{> CurveTypeChooser}}
-    {{/Spoiler}}
+    <div class="curve-wrapper">
+        {{#Spoiler}}
+            <span class="glyphicon glyphicon-signal curve-icon"></span>
+            <input class="form-control no-borders curve-title" type="text" value="New curve"/>
+        {{else}}
+            <div class="curve-editor-wrapper">
+                {{> AxisChooser}}
+                {{> CurveTypeChooser}}
+                <div class="part">
+                    <button class="btn btn-danger remove-curve">Delete</button>
+                    <button class="btn btn-success pull-right">Save curve</button>
+                </div>
+            </div>
+        {{/Spoiler}}
+    </div>
 </template>

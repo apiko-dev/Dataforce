@@ -1,18 +1,26 @@
 @import "../../../../configs.import.less";
 
+.curve-editor-wrapper {
+  padding: 15px;
+
+  .part {
+    margin-bottom: 15px;
+  }
+}
+
 .curve-title {
   width: 30%;
-}
 
-.no-borders {
-  border: none;
-}
-
-.curve-title:focus {
-  .dotted-bottom-border;
+  &:focus {
+    .dotted-bottom-border;
+  }
 }
 
 .curve-icon {
   float: left;
   padding: 10px;
+}
+
+.no-borders {
+  border: none;
 }
