@@ -1,9 +1,8 @@
-Template.CurvePanel.onRendered ->
+Template.RemoveCurveCross.onRendered ->
   @panel = @$(".panel")
   $('[data-toggle="tooltip"]').tooltip()
 
-Template.CurvePanel.events
-#todo: @vlad, please follow next naming convention event handler's params should be named as 'event' and 'tmpl'
+Template.RemoveCurveCross.events
   "click .remove-curve": (event, tmpl) ->
     tmpl.panel.slideUp 500, -> tmpl.panel.remove()
 
