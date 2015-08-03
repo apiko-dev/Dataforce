@@ -1,7 +1,10 @@
+Template.ConnectorFilter.onCreated ->
+  @subscribe('authStatus')
+
+
 Template.ConnectorFilter.helpers
-#todo: this should be moved into database
   connectors: -> [
-    {_id: 'SF', name: 'SalesForce', caption: 'SF', style: 'info'}
-    {_id: 'GA', name: 'Google Analytics', caption: 'GA', style: 'danger'}
-    {_id: 'ZD', name: 'Zendesk', caption: 'ZD', style: 'success'}
-  ]
+    {name: ConnectorNames.Salesforce, caption: 'SF', style: 'info'}
+    {name: ConnectorNames.GoogleAnalytics, caption: 'GA', style: 'danger'}
+    {name: ConnectorNames.Zendesk, caption: 'ZD', style: 'success'}
+  ].filter (conn) -> !!Connectors.findOne {name: conn.name} #show only services user logged in
