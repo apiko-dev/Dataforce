@@ -1,7 +1,8 @@
 <template name="Metrics">
-    <ul class="metrics-list">
-        {{#each metrics}}
-            {{> MetricsItem}}
-        {{/each}}
-    </ul>
+    <div class="metrics-list-wrapper">
+        {{#with ConnectorNames}}
+            {{> MetricsConnector name=Salesforce method='sfDescribe'}}
+            {{> MetricsConnector name=GoogleAnalytics method=''}}
+        {{/with}}
+    </div>
 </template>

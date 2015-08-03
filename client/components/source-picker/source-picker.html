@@ -12,7 +12,9 @@
 
             {{> ConnectorEntity connectorName=connectorName visible=showConnectorEntityPicker}}
 
-            {{> Metrics}}
+            <div class="metrics-wrapper">
+                {{> Metrics}}
+            </div>
         {{/with}}
     </div>
     <div class="dragable-window-footer">

@@ -7,7 +7,7 @@ checkCredentialsAndCreateConnection = (userId) ->
 
 processQueryResult = (query, functionName) ->
   queryResult = Async.runSync (done) -> query[functionName] done
-  if queryResult.error then throw new Meteor.Error queryResult.error
+  if queryResult.error then throw queryResult.error
 
   return queryResult.result
 
@@ -15,9 +15,12 @@ processQueryResult = (query, functionName) ->
 Meteor.methods
   sfDescribe: (tableName) ->
     check tableName, String
+
+    console.log tableName
     connection = checkCredentialsAndCreateConnection(@userId)
 
-    processQueryResult connection.sobject(tableName), 'describe'
+    tableMeta = processQueryResult connection.sobject(tableName), 'describe'
+    tableMeta.fields.map (field) -> {name: field.name, type: field.type, label: field.label}
 
 
   sfGetTableData: (tableName, filters) ->

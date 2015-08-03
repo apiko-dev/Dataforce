@@ -1,1746 +1,1746 @@
 [
   {
-    "id": "ga:userType",
-    "name": "User Type"
+    "name": "ga:userType",
+    "label": "User Type"
   },
   {
-    "id": "ga:sessionCount",
-    "name": "Count of Sessions"
+    "name": "ga:sessionCount",
+    "label": "Count of Sessions"
   },
   {
-    "id": "ga:daysSinceLastSession",
-    "name": "Days Since Last Session"
+    "name": "ga:daysSinceLastSession",
+    "label": "Days Since Last Session"
   },
   {
-    "id": "ga:userDefinedValue",
-    "name": "User Defined Value"
+    "name": "ga:userDefinedValue",
+    "label": "User Defined Value"
   },
   {
-    "id": "ga:visitorType",
-    "name": "User Type"
+    "name": "ga:visitorType",
+    "label": "User Type"
   },
   {
-    "id": "ga:visitCount",
-    "name": "Count of Sessions"
+    "name": "ga:visitCount",
+    "label": "Count of Sessions"
   },
   {
-    "id": "ga:daysSinceLastVisit",
-    "name": "Days Since Last Session"
+    "name": "ga:daysSinceLastVisit",
+    "label": "Days Since Last Session"
   },
   {
-    "id": "ga:sessionDurationBucket",
-    "name": "Session Duration"
+    "name": "ga:sessionDurationBucket",
+    "label": "Session Duration"
   },
   {
-    "id": "ga:visitLength",
-    "name": "Session Duration"
+    "name": "ga:visitLength",
+    "label": "Session Duration"
   },
   {
-    "id": "ga:referralPath",
-    "name": "Referral Path"
+    "name": "ga:referralPath",
+    "label": "Referral Path"
   },
   {
-    "id": "ga:fullReferrer",
-    "name": "Full Referrer"
+    "name": "ga:fullReferrer",
+    "label": "Full Referrer"
   },
   {
-    "id": "ga:campaign",
-    "name": "Campaign"
+    "name": "ga:campaign",
+    "label": "Campaign"
   },
   {
-    "id": "ga:source",
-    "name": "Source"
+    "name": "ga:source",
+    "label": "Source"
   },
   {
-    "id": "ga:medium",
-    "name": "Medium"
+    "name": "ga:medium",
+    "label": "Medium"
   },
   {
-    "id": "ga:sourceMedium",
-    "name": "Source / Medium"
+    "name": "ga:sourceMedium",
+    "label": "Source / Medium"
   },
   {
-    "id": "ga:keyword",
-    "name": "Keyword"
+    "name": "ga:keyword",
+    "label": "Keyword"
   },
   {
-    "id": "ga:adContent",
-    "name": "Ad Content"
+    "name": "ga:adContent",
+    "label": "Ad Content"
   },
   {
-    "id": "ga:socialNetwork",
-    "name": "Social Network"
+    "name": "ga:socialNetwork",
+    "label": "Social Network"
   },
   {
-    "id": "ga:hasSocialSourceReferral",
-    "name": "Social Source Referral"
+    "name": "ga:hasSocialSourceReferral",
+    "label": "Social Source Referral"
   },
   {
-    "id": "ga:campaignCode",
-    "name": "Campaign Code"
+    "name": "ga:campaignCode",
+    "label": "Campaign Code"
   },
   {
-    "id": "ga:adGroup",
-    "name": "Ad Group"
+    "name": "ga:adGroup",
+    "label": "Ad Group"
   },
   {
-    "id": "ga:adSlot",
-    "name": "Ad Slot"
+    "name": "ga:adSlot",
+    "label": "Ad Slot"
   },
   {
-    "id": "ga:adSlotPosition",
-    "name": "Ad Slot Position"
+    "name": "ga:adSlotPosition",
+    "label": "Ad Slot Position"
   },
   {
-    "id": "ga:adDistributionNetwork",
-    "name": "Ad Distribution Network"
+    "name": "ga:adDistributionNetwork",
+    "label": "Ad Distribution Network"
   },
   {
-    "id": "ga:adMatchType",
-    "name": "Query Match Type"
+    "name": "ga:adMatchType",
+    "label": "Query Match Type"
   },
   {
-    "id": "ga:adKeywordMatchType",
-    "name": "Keyword Match Type"
+    "name": "ga:adKeywordMatchType",
+    "label": "Keyword Match Type"
   },
   {
-    "id": "ga:adMatchedQuery",
-    "name": "Matched Search Query"
+    "name": "ga:adMatchedQuery",
+    "label": "Matched Search Query"
   },
   {
-    "id": "ga:adPlacementDomain",
-    "name": "Placement Domain"
+    "name": "ga:adPlacementDomain",
+    "label": "Placement Domain"
   },
   {
-    "id": "ga:adPlacementUrl",
-    "name": "Placement URL"
+    "name": "ga:adPlacementUrl",
+    "label": "Placement URL"
   },
   {
-    "id": "ga:adFormat",
-    "name": "Ad Format"
+    "name": "ga:adFormat",
+    "label": "Ad Format"
   },
   {
-    "id": "ga:adTargetingType",
-    "name": "Targeting Type"
+    "name": "ga:adTargetingType",
+    "label": "Targeting Type"
   },
   {
-    "id": "ga:adTargetingOption",
-    "name": "Placement Type"
+    "name": "ga:adTargetingOption",
+    "label": "Placement Type"
   },
   {
-    "id": "ga:adDisplayUrl",
-    "name": "Display URL"
+    "name": "ga:adDisplayUrl",
+    "label": "Display URL"
   },
   {
-    "id": "ga:adDestinationUrl",
-    "name": "Destination URL"
+    "name": "ga:adDestinationUrl",
+    "label": "Destination URL"
   },
   {
-    "id": "ga:adwordsCustomerID",
-    "name": "AdWords Customer ID"
+    "name": "ga:adwordsCustomerID",
+    "label": "AdWords Customer ID"
   },
   {
-    "id": "ga:adwordsCampaignID",
-    "name": "AdWords Campaign ID"
+    "name": "ga:adwordsCampaignID",
+    "label": "AdWords Campaign ID"
   },
   {
-    "id": "ga:adwordsAdGroupID",
-    "name": "AdWords Ad Group ID"
+    "name": "ga:adwordsAdGroupID",
+    "label": "AdWords Ad Group ID"
   },
   {
-    "id": "ga:adwordsCreativeID",
-    "name": "AdWords Creative ID"
+    "name": "ga:adwordsCreativeID",
+    "label": "AdWords Creative ID"
   },
   {
-    "id": "ga:adwordsCriteriaID",
-    "name": "AdWords Criteria ID"
+    "name": "ga:adwordsCriteriaID",
+    "label": "AdWords Criteria ID"
   },
   {
-    "id": "ga:adQueryWordCount",
-    "name": "Query Word Count"
+    "name": "ga:adQueryWordCount",
+    "label": "Query Word Count"
   },
   {
-    "id": "ga:isTrueViewVideoAd",
-    "name": "TrueView Video Ad"
+    "name": "ga:isTrueViewVideoAd",
+    "label": "TrueView Video Ad"
   },
   {
-    "id": "ga:goalCompletionLocation",
-    "name": "Goal Completion Location"
+    "name": "ga:goalCompletionLocation",
+    "label": "Goal Completion Location"
   },
   {
-    "id": "ga:goalPreviousStep1",
-    "name": "Goal Previous Step - 1"
+    "name": "ga:goalPreviousStep1",
+    "label": "Goal Previous Step - 1"
   },
   {
-    "id": "ga:goalPreviousStep2",
-    "name": "Goal Previous Step - 2"
+    "name": "ga:goalPreviousStep2",
+    "label": "Goal Previous Step - 2"
   },
   {
-    "id": "ga:goalPreviousStep3",
-    "name": "Goal Previous Step - 3"
+    "name": "ga:goalPreviousStep3",
+    "label": "Goal Previous Step - 3"
   },
   {
-    "id": "ga:browser",
-    "name": "Browser"
+    "name": "ga:browser",
+    "label": "Browser"
   },
   {
-    "id": "ga:browserVersion",
-    "name": "Browser Version"
+    "name": "ga:browserVersion",
+    "label": "Browser Version"
   },
   {
-    "id": "ga:operatingSystem",
-    "name": "Operating System"
+    "name": "ga:operatingSystem",
+    "label": "Operating System"
   },
   {
-    "id": "ga:operatingSystemVersion",
-    "name": "Operating System Version"
+    "name": "ga:operatingSystemVersion",
+    "label": "Operating System Version"
   },
   {
-    "id": "ga:mobileDeviceBranding",
-    "name": "Mobile Device Branding"
+    "name": "ga:mobileDeviceBranding",
+    "label": "Mobile Device Branding"
   },
   {
-    "id": "ga:mobileDeviceModel",
-    "name": "Mobile Device Model"
+    "name": "ga:mobileDeviceModel",
+    "label": "Mobile Device Model"
   },
   {
-    "id": "ga:mobileInputSelector",
-    "name": "Mobile Input Selector"
+    "name": "ga:mobileInputSelector",
+    "label": "Mobile Input Selector"
   },
   {
-    "id": "ga:mobileDeviceInfo",
-    "name": "Mobile Device Info"
+    "name": "ga:mobileDeviceInfo",
+    "label": "Mobile Device Info"
   },
   {
-    "id": "ga:mobileDeviceMarketingName",
-    "name": "Mobile Device Marketing Name"
+    "name": "ga:mobileDeviceMarketingName",
+    "label": "Mobile Device Marketing Name"
   },
   {
-    "id": "ga:deviceCategory",
-    "name": "Device Category"
+    "name": "ga:deviceCategory",
+    "label": "Device Category"
   },
   {
-    "id": "ga:dataSource",
-    "name": "Data Source"
+    "name": "ga:dataSource",
+    "label": "Data Source"
   },
   {
-    "id": "ga:isMobile",
-    "name": "Mobile (Including Tablet)"
+    "name": "ga:isMobile",
+    "label": "Mobile (Including Tablet)"
   },
   {
-    "id": "ga:isTablet",
-    "name": "Tablet"
+    "name": "ga:isTablet",
+    "label": "Tablet"
   },
   {
-    "id": "ga:continent",
-    "name": "Continent"
+    "name": "ga:continent",
+    "label": "Continent"
   },
   {
-    "id": "ga:subContinent",
-    "name": "Sub Continent"
+    "name": "ga:subContinent",
+    "label": "Sub Continent"
   },
   {
-    "id": "ga:country",
-    "name": "Country"
+    "name": "ga:country",
+    "label": "Country"
   },
   {
-    "id": "ga:region",
-    "name": "Region"
+    "name": "ga:region",
+    "label": "Region"
   },
   {
-    "id": "ga:metro",
-    "name": "Metro"
+    "name": "ga:metro",
+    "label": "Metro"
   },
   {
-    "id": "ga:city",
-    "name": "City"
+    "name": "ga:city",
+    "label": "City"
   },
   {
-    "id": "ga:latitude",
-    "name": "Latitude"
+    "name": "ga:latitude",
+    "label": "Latitude"
   },
   {
-    "id": "ga:longitude",
-    "name": "Longitude"
+    "name": "ga:longitude",
+    "label": "Longitude"
   },
   {
-    "id": "ga:networkDomain",
-    "name": "Network Domain"
+    "name": "ga:networkDomain",
+    "label": "Network Domain"
   },
   {
-    "id": "ga:networkLocation",
-    "name": "Service Provider"
+    "name": "ga:networkLocation",
+    "label": "Service Provider"
   },
   {
-    "id": "ga:cityId",
-    "name": "City ID"
+    "name": "ga:cityId",
+    "label": "City ID"
   },
   {
-    "id": "ga:countryIsoCode",
-    "name": "Country ISO Code"
+    "name": "ga:countryIsoCode",
+    "label": "Country ISO Code"
   },
   {
-    "id": "ga:regionId",
-    "name": "Region ID"
+    "name": "ga:regionId",
+    "label": "Region ID"
   },
   {
-    "id": "ga:regionIsoCode",
-    "name": "Region ISO Code"
+    "name": "ga:regionIsoCode",
+    "label": "Region ISO Code"
   },
   {
-    "id": "ga:subContinentCode",
-    "name": "Sub Continent Code"
+    "name": "ga:subContinentCode",
+    "label": "Sub Continent Code"
   },
   {
-    "id": "ga:flashVersion",
-    "name": "Flash Version"
+    "name": "ga:flashVersion",
+    "label": "Flash Version"
   },
   {
-    "id": "ga:javaEnabled",
-    "name": "Java Support"
+    "name": "ga:javaEnabled",
+    "label": "Java Support"
   },
   {
-    "id": "ga:language",
-    "name": "Language"
+    "name": "ga:language",
+    "label": "Language"
   },
   {
-    "id": "ga:screenColors",
-    "name": "Screen Colors"
+    "name": "ga:screenColors",
+    "label": "Screen Colors"
   },
   {
-    "id": "ga:sourcePropertyDisplayName",
-    "name": "Source Property Display Name"
+    "name": "ga:sourcePropertyDisplayName",
+    "label": "Source Property Display Name"
   },
   {
-    "id": "ga:sourcePropertyTrackingId",
-    "name": "Source Property Tracking ID"
+    "name": "ga:sourcePropertyTrackingId",
+    "label": "Source Property Tracking ID"
   },
   {
-    "id": "ga:screenResolution",
-    "name": "Screen Resolution"
+    "name": "ga:screenResolution",
+    "label": "Screen Resolution"
   },
   {
-    "id": "ga:socialActivityEndorsingUrl",
-    "name": "Endorsing URL"
+    "name": "ga:socialActivityEndorsingUrl",
+    "label": "Endorsing URL"
   },
   {
-    "id": "ga:socialActivityDisplayName",
-    "name": "Display Name"
+    "name": "ga:socialActivityDisplayName",
+    "label": "Display Name"
   },
   {
-    "id": "ga:socialActivityPost",
-    "name": "Social Activity Post"
+    "name": "ga:socialActivityPost",
+    "label": "Social Activity Post"
   },
   {
-    "id": "ga:socialActivityTimestamp",
-    "name": "Social Activity Timestamp"
+    "name": "ga:socialActivityTimestamp",
+    "label": "Social Activity Timestamp"
   },
   {
-    "id": "ga:socialActivityUserHandle",
-    "name": "Social User Handle"
+    "name": "ga:socialActivityUserHandle",
+    "label": "Social User Handle"
   },
   {
-    "id": "ga:socialActivityUserPhotoUrl",
-    "name": "User Photo URL"
+    "name": "ga:socialActivityUserPhotoUrl",
+    "label": "User Photo URL"
   },
   {
-    "id": "ga:socialActivityUserProfileUrl",
-    "name": "User Profile URL"
+    "name": "ga:socialActivityUserProfileUrl",
+    "label": "User Profile URL"
   },
   {
-    "id": "ga:socialActivityContentUrl",
-    "name": "Shared URL"
+    "name": "ga:socialActivityContentUrl",
+    "label": "Shared URL"
   },
   {
-    "id": "ga:socialActivityTagsSummary",
-    "name": "Social Tags Summary"
+    "name": "ga:socialActivityTagsSummary",
+    "label": "Social Tags Summary"
   },
   {
-    "id": "ga:socialActivityAction",
-    "name": "Originating Social Action"
+    "name": "ga:socialActivityAction",
+    "label": "Originating Social Action"
   },
   {
-    "id": "ga:socialActivityNetworkAction",
-    "name": "Social Network and Action"
+    "name": "ga:socialActivityNetworkAction",
+    "label": "Social Network and Action"
   },
   {
-    "id": "ga:hostname",
-    "name": "Hostname"
+    "name": "ga:hostname",
+    "label": "Hostname"
   },
   {
-    "id": "ga:pagePath",
-    "name": "Page"
+    "name": "ga:pagePath",
+    "label": "Page"
   },
   {
-    "id": "ga:pagePathLevel1",
-    "name": "Page path level 1"
+    "name": "ga:pagePathLevel1",
+    "label": "Page path level 1"
   },
   {
-    "id": "ga:pagePathLevel2",
-    "name": "Page path level 2"
+    "name": "ga:pagePathLevel2",
+    "label": "Page path level 2"
   },
   {
-    "id": "ga:pagePathLevel3",
-    "name": "Page path level 3"
+    "name": "ga:pagePathLevel3",
+    "label": "Page path level 3"
   },
   {
-    "id": "ga:pagePathLevel4",
-    "name": "Page path level 4"
+    "name": "ga:pagePathLevel4",
+    "label": "Page path level 4"
   },
   {
-    "id": "ga:pageTitle",
-    "name": "Page Title"
+    "name": "ga:pageTitle",
+    "label": "Page Title"
   },
   {
-    "id": "ga:landingPagePath",
-    "name": "Landing Page"
+    "name": "ga:landingPagePath",
+    "label": "Landing Page"
   },
   {
-    "id": "ga:secondPagePath",
-    "name": "Second Page"
+    "name": "ga:secondPagePath",
+    "label": "Second Page"
   },
   {
-    "id": "ga:exitPagePath",
-    "name": "Exit Page"
+    "name": "ga:exitPagePath",
+    "label": "Exit Page"
   },
   {
-    "id": "ga:previousPagePath",
-    "name": "Previous Page Path"
+    "name": "ga:previousPagePath",
+    "label": "Previous Page Path"
   },
   {
-    "id": "ga:nextPagePath",
-    "name": "Next Page Path"
+    "name": "ga:nextPagePath",
+    "label": "Next Page Path"
   },
   {
-    "id": "ga:pageDepth",
-    "name": "Page Depth"
+    "name": "ga:pageDepth",
+    "label": "Page Depth"
   },
   {
-    "id": "ga:landingContentGroupXX",
-    "name": "Landing Page Group XX"
+    "name": "ga:landingContentGroupXX",
+    "label": "Landing Page Group XX"
   },
   {
-    "id": "ga:previousContentGroupXX",
-    "name": "Previous Page Group XX"
+    "name": "ga:previousContentGroupXX",
+    "label": "Previous Page Group XX"
   },
   {
-    "id": "ga:contentGroupXX",
-    "name": "Page Group XX"
+    "name": "ga:contentGroupXX",
+    "label": "Page Group XX"
   },
   {
-    "id": "ga:nextContentGroupXX",
-    "name": "Next Page Group XX"
+    "name": "ga:nextContentGroupXX",
+    "label": "Next Page Group XX"
   },
   {
-    "id": "ga:searchUsed",
-    "name": "Site Search Status"
+    "name": "ga:searchUsed",
+    "label": "Site Search Status"
   },
   {
-    "id": "ga:searchKeyword",
-    "name": "Search Term"
+    "name": "ga:searchKeyword",
+    "label": "Search Term"
   },
   {
-    "id": "ga:searchKeywordRefinement",
-    "name": "Refined Keyword"
+    "name": "ga:searchKeywordRefinement",
+    "label": "Refined Keyword"
   },
   {
-    "id": "ga:searchCategory",
-    "name": "Site Search Category"
+    "name": "ga:searchCategory",
+    "label": "Site Search Category"
   },
   {
-    "id": "ga:searchStartPage",
-    "name": "Start Page"
+    "name": "ga:searchStartPage",
+    "label": "Start Page"
   },
   {
-    "id": "ga:searchDestinationPage",
-    "name": "Destination Page"
+    "name": "ga:searchDestinationPage",
+    "label": "Destination Page"
   },
   {
-    "id": "ga:searchAfterDestinationPage",
-    "name": "Search Destination Page"
+    "name": "ga:searchAfterDestinationPage",
+    "label": "Search Destination Page"
   },
   {
-    "id": "ga:appInstallerId",
-    "name": "App Installer ID"
+    "name": "ga:appInstallerId",
+    "label": "App Installer ID"
   },
   {
-    "id": "ga:appVersion",
-    "name": "App Version"
+    "name": "ga:appVersion",
+    "label": "App Version"
   },
   {
-    "id": "ga:appName",
-    "name": "App Name"
+    "name": "ga:appName",
+    "label": "App Name"
   },
   {
-    "id": "ga:appId",
-    "name": "App ID"
+    "name": "ga:appId",
+    "label": "App ID"
   },
   {
-    "id": "ga:screenName",
-    "name": "Screen Name"
+    "name": "ga:screenName",
+    "label": "Screen Name"
   },
   {
-    "id": "ga:screenDepth",
-    "name": "Screen Depth"
+    "name": "ga:screenDepth",
+    "label": "Screen Depth"
   },
   {
-    "id": "ga:landingScreenName",
-    "name": "Landing Screen"
+    "name": "ga:landingScreenName",
+    "label": "Landing Screen"
   },
   {
-    "id": "ga:exitScreenName",
-    "name": "Exit Screen"
+    "name": "ga:exitScreenName",
+    "label": "Exit Screen"
   },
   {
-    "id": "ga:eventCategory",
-    "name": "Event Category"
+    "name": "ga:eventCategory",
+    "label": "Event Category"
   },
   {
-    "id": "ga:eventAction",
-    "name": "Event Action"
+    "name": "ga:eventAction",
+    "label": "Event Action"
   },
   {
-    "id": "ga:eventLabel",
-    "name": "Event Label"
+    "name": "ga:eventLabel",
+    "label": "Event Label"
   },
   {
-    "id": "ga:transactionId",
-    "name": "Transaction ID"
+    "name": "ga:transactionId",
+    "label": "Transaction ID"
   },
   {
-    "id": "ga:affiliation",
-    "name": "Affiliation"
+    "name": "ga:affiliation",
+    "label": "Affiliation"
   },
   {
-    "id": "ga:sessionsToTransaction",
-    "name": "Sessions to Transaction"
+    "name": "ga:sessionsToTransaction",
+    "label": "Sessions to Transaction"
   },
   {
-    "id": "ga:daysToTransaction",
-    "name": "Days to Transaction"
+    "name": "ga:daysToTransaction",
+    "label": "Days to Transaction"
   },
   {
-    "id": "ga:productSku",
-    "name": "Product SKU"
+    "name": "ga:productSku",
+    "label": "Product SKU"
   },
   {
-    "id": "ga:productName",
-    "name": "Product"
+    "name": "ga:productName",
+    "label": "Product"
   },
   {
-    "id": "ga:productCategory",
-    "name": "Product Category"
+    "name": "ga:productCategory",
+    "label": "Product Category"
   },
   {
-    "id": "ga:currencyCode",
-    "name": "Currency Code"
+    "name": "ga:currencyCode",
+    "label": "Currency Code"
   },
   {
-    "id": "ga:checkoutOptions",
-    "name": "Checkout Options"
+    "name": "ga:checkoutOptions",
+    "label": "Checkout Options"
   },
   {
-    "id": "ga:internalPromotionCreative",
-    "name": "Internal Promotion Creative"
+    "name": "ga:internalPromotionCreative",
+    "label": "Internal Promotion Creative"
   },
   {
-    "id": "ga:internalPromotionId",
-    "name": "Internal Promotion ID"
+    "name": "ga:internalPromotionId",
+    "label": "Internal Promotion ID"
   },
   {
-    "id": "ga:internalPromotionName",
-    "name": "Internal Promotion Name"
+    "name": "ga:internalPromotionName",
+    "label": "Internal Promotion Name"
   },
   {
-    "id": "ga:internalPromotionPosition",
-    "name": "Internal Promotion Position"
+    "name": "ga:internalPromotionPosition",
+    "label": "Internal Promotion Position"
   },
   {
-    "id": "ga:orderCouponCode",
-    "name": "Order Coupon Code"
+    "name": "ga:orderCouponCode",
+    "label": "Order Coupon Code"
   },
   {
-    "id": "ga:productBrand",
-    "name": "Product Brand"
+    "name": "ga:productBrand",
+    "label": "Product Brand"
   },
   {
-    "id": "ga:productCategoryHierarchy",
-    "name": "Product Category (Enhanced Ecommerce)"
+    "name": "ga:productCategoryHierarchy",
+    "label": "Product Category (Enhanced Ecommerce)"
   },
   {
-    "id": "ga:productCategoryLevelXX",
-    "name": "Product Category Level XX"
+    "name": "ga:productCategoryLevelXX",
+    "label": "Product Category Level XX"
   },
   {
-    "id": "ga:productCouponCode",
-    "name": "Product Coupon Code"
+    "name": "ga:productCouponCode",
+    "label": "Product Coupon Code"
   },
   {
-    "id": "ga:productListName",
-    "name": "Product List Name"
+    "name": "ga:productListName",
+    "label": "Product List Name"
   },
   {
-    "id": "ga:productListPosition",
-    "name": "Product List Position"
+    "name": "ga:productListPosition",
+    "label": "Product List Position"
   },
   {
-    "id": "ga:productVariant",
-    "name": "Product Variant"
+    "name": "ga:productVariant",
+    "label": "Product Variant"
   },
   {
-    "id": "ga:shoppingStage",
-    "name": "Shopping Stage"
+    "name": "ga:shoppingStage",
+    "label": "Shopping Stage"
   },
   {
-    "id": "ga:visitsToTransaction",
-    "name": "Sessions to Transaction"
+    "name": "ga:visitsToTransaction",
+    "label": "Sessions to Transaction"
   },
   {
-    "id": "ga:socialInteractionNetwork",
-    "name": "Social Source"
+    "name": "ga:socialInteractionNetwork",
+    "label": "Social Source"
   },
   {
-    "id": "ga:socialInteractionAction",
-    "name": "Social Action"
+    "name": "ga:socialInteractionAction",
+    "label": "Social Action"
   },
   {
-    "id": "ga:socialInteractionNetworkAction",
-    "name": "Social Source and Action"
+    "name": "ga:socialInteractionNetworkAction",
+    "label": "Social Source and Action"
   },
   {
-    "id": "ga:socialInteractionTarget",
-    "name": "Social Entity"
+    "name": "ga:socialInteractionTarget",
+    "label": "Social Entity"
   },
   {
-    "id": "ga:socialEngagementType",
-    "name": "Social Type"
+    "name": "ga:socialEngagementType",
+    "label": "Social Type"
   },
   {
-    "id": "ga:userTimingCategory",
-    "name": "Timing Category"
+    "name": "ga:userTimingCategory",
+    "label": "Timing Category"
   },
   {
-    "id": "ga:userTimingLabel",
-    "name": "Timing Label"
+    "name": "ga:userTimingLabel",
+    "label": "Timing Label"
   },
   {
-    "id": "ga:userTimingVariable",
-    "name": "Timing Variable"
+    "name": "ga:userTimingVariable",
+    "label": "Timing Variable"
   },
   {
-    "id": "ga:exceptionDescription",
-    "name": "Exception Description"
+    "name": "ga:exceptionDescription",
+    "label": "Exception Description"
   },
   {
-    "id": "ga:experimentId",
-    "name": "Experiment ID"
+    "name": "ga:experimentId",
+    "label": "Experiment ID"
   },
   {
-    "id": "ga:experimentVariant",
-    "name": "Variation"
+    "name": "ga:experimentVariant",
+    "label": "Variation"
   },
   {
-    "id": "ga:dimensionXX",
-    "name": "Custom Dimension XX"
+    "name": "ga:dimensionXX",
+    "label": "Custom Dimension XX"
   },
   {
-    "id": "ga:customVarNameXX",
-    "name": "Custom Variable (Key XX)"
+    "name": "ga:customVarNameXX",
+    "label": "Custom Variable (Key XX)"
   },
   {
-    "id": "ga:customVarValueXX",
-    "name": "Custom Variable (Value XX)"
+    "name": "ga:customVarValueXX",
+    "label": "Custom Variable (Value XX)"
   },
   {
-    "id": "ga:date",
-    "name": "Date"
+    "name": "ga:date",
+    "label": "Date"
   },
   {
-    "id": "ga:year",
-    "name": "Year"
+    "name": "ga:year",
+    "label": "Year"
   },
   {
-    "id": "ga:month",
-    "name": "Month of the year"
+    "name": "ga:month",
+    "label": "Month of the year"
   },
   {
-    "id": "ga:week",
-    "name": "Week of the Year"
+    "name": "ga:week",
+    "label": "Week of the Year"
   },
   {
-    "id": "ga:day",
-    "name": "Day of the month"
+    "name": "ga:day",
+    "label": "Day of the month"
   },
   {
-    "id": "ga:hour",
-    "name": "Hour"
+    "name": "ga:hour",
+    "label": "Hour"
   },
   {
-    "id": "ga:minute",
-    "name": "Minute"
+    "name": "ga:minute",
+    "label": "Minute"
   },
   {
-    "id": "ga:nthMonth",
-    "name": "Month Index"
+    "name": "ga:nthMonth",
+    "label": "Month Index"
   },
   {
-    "id": "ga:nthWeek",
-    "name": "Week Index"
+    "name": "ga:nthWeek",
+    "label": "Week Index"
   },
   {
-    "id": "ga:nthDay",
-    "name": "Day Index"
+    "name": "ga:nthDay",
+    "label": "Day Index"
   },
   {
-    "id": "ga:nthMinute",
-    "name": "Minute Index"
+    "name": "ga:nthMinute",
+    "label": "Minute Index"
   },
   {
-    "id": "ga:dayOfWeek",
-    "name": "Day of Week"
+    "name": "ga:dayOfWeek",
+    "label": "Day of Week"
   },
   {
-    "id": "ga:dayOfWeekName",
-    "name": "Day of Week Name"
+    "name": "ga:dayOfWeekName",
+    "label": "Day of Week Name"
   },
   {
-    "id": "ga:dateHour",
-    "name": "Hour of Day"
+    "name": "ga:dateHour",
+    "label": "Hour of Day"
   },
   {
-    "id": "ga:yearMonth",
-    "name": "Month of Year"
+    "name": "ga:yearMonth",
+    "label": "Month of Year"
   },
   {
-    "id": "ga:yearWeek",
-    "name": "Week of Year"
+    "name": "ga:yearWeek",
+    "label": "Week of Year"
   },
   {
-    "id": "ga:isoWeek",
-    "name": "ISO Week of the Year"
+    "name": "ga:isoWeek",
+    "label": "ISO Week of the Year"
   },
   {
-    "id": "ga:isoYear",
-    "name": "ISO Year"
+    "name": "ga:isoYear",
+    "label": "ISO Year"
   },
   {
-    "id": "ga:isoYearIsoWeek",
-    "name": "ISO Week of ISO Year"
+    "name": "ga:isoYearIsoWeek",
+    "label": "ISO Week of ISO Year"
   },
   {
-    "id": "ga:nthHour",
-    "name": "Hour Index"
+    "name": "ga:nthHour",
+    "label": "Hour Index"
   },
   {
-    "id": "ga:dcmClickAd",
-    "name": "DFA Ad (GA Model)"
+    "name": "ga:dcmClickAd",
+    "label": "DFA Ad (GA Model)"
   },
   {
-    "id": "ga:dcmClickAdId",
-    "name": "DFA Ad ID (GA Model)"
+    "name": "ga:dcmClickAdId",
+    "label": "DFA Ad ID (GA Model)"
   },
   {
-    "id": "ga:dcmClickAdType",
-    "name": "DFA Ad Type (GA Model)"
+    "name": "ga:dcmClickAdType",
+    "label": "DFA Ad Type (GA Model)"
   },
   {
-    "id": "ga:dcmClickAdTypeId",
-    "name": "DFA Ad Type ID"
+    "name": "ga:dcmClickAdTypeId",
+    "label": "DFA Ad Type ID"
   },
   {
-    "id": "ga:dcmClickAdvertiser",
-    "name": "DFA Advertiser (GA Model)"
+    "name": "ga:dcmClickAdvertiser",
+    "label": "DFA Advertiser (GA Model)"
   },
   {
-    "id": "ga:dcmClickAdvertiserId",
-    "name": "DFA Advertiser ID (GA Model)"
+    "name": "ga:dcmClickAdvertiserId",
+    "label": "DFA Advertiser ID (GA Model)"
   },
   {
-    "id": "ga:dcmClickCampaign",
-    "name": "DFA Campaign (GA Model)"
+    "name": "ga:dcmClickCampaign",
+    "label": "DFA Campaign (GA Model)"
   },
   {
-    "id": "ga:dcmClickCampaignId",
-    "name": "DFA Campaign ID (GA Model)"
+    "name": "ga:dcmClickCampaignId",
+    "label": "DFA Campaign ID (GA Model)"
   },
   {
-    "id": "ga:dcmClickCreativeId",
-    "name": "DFA Creative ID (GA Model)"
+    "name": "ga:dcmClickCreativeId",
+    "label": "DFA Creative ID (GA Model)"
   },
   {
-    "id": "ga:dcmClickCreative",
-    "name": "DFA Creative (GA Model)"
+    "name": "ga:dcmClickCreative",
+    "label": "DFA Creative (GA Model)"
   },
   {
-    "id": "ga:dcmClickRenderingId",
-    "name": "DFA Rendering ID (GA Model)"
+    "name": "ga:dcmClickRenderingId",
+    "label": "DFA Rendering ID (GA Model)"
   },
   {
-    "id": "ga:dcmClickCreativeType",
-    "name": "DFA Creative Type (GA Model)"
+    "name": "ga:dcmClickCreativeType",
+    "label": "DFA Creative Type (GA Model)"
   },
   {
-    "id": "ga:dcmClickCreativeTypeId",
-    "name": "DFA Creative Type ID (GA Model)"
+    "name": "ga:dcmClickCreativeTypeId",
+    "label": "DFA Creative Type ID (GA Model)"
   },
   {
-    "id": "ga:dcmClickCreativeVersion",
-    "name": "DFA Creative Version (GA Model)"
+    "name": "ga:dcmClickCreativeVersion",
+    "label": "DFA Creative Version (GA Model)"
   },
   {
-    "id": "ga:dcmClickSite",
-    "name": "DFA Site (GA Model)"
+    "name": "ga:dcmClickSite",
+    "label": "DFA Site (GA Model)"
   },
   {
-    "id": "ga:dcmClickSiteId",
-    "name": "DFA Site ID (GA Model)"
+    "name": "ga:dcmClickSiteId",
+    "label": "DFA Site ID (GA Model)"
   },
   {
-    "id": "ga:dcmClickSitePlacement",
-    "name": "DFA Placement (GA Model)"
+    "name": "ga:dcmClickSitePlacement",
+    "label": "DFA Placement (GA Model)"
   },
   {
-    "id": "ga:dcmClickSitePlacementId",
-    "name": "DFA Placement ID (GA Model)"
+    "name": "ga:dcmClickSitePlacementId",
+    "label": "DFA Placement ID (GA Model)"
   },
   {
-    "id": "ga:dcmClickSpotId",
-    "name": "DFA Floodlight Configuration ID (GA Model)"
+    "name": "ga:dcmClickSpotId",
+    "label": "DFA Floodlight Configuration ID (GA Model)"
   },
   {
-    "id": "ga:dcmFloodlightActivity",
-    "name": "DFA Activity"
+    "name": "ga:dcmFloodlightActivity",
+    "label": "DFA Activity"
   },
   {
-    "id": "ga:dcmFloodlightActivityAndGroup",
-    "name": "DFA Activity and Group"
+    "name": "ga:dcmFloodlightActivityAndGroup",
+    "label": "DFA Activity and Group"
   },
   {
-    "id": "ga:dcmFloodlightActivityGroup",
-    "name": "DFA Activity Group"
+    "name": "ga:dcmFloodlightActivityGroup",
+    "label": "DFA Activity Group"
   },
   {
-    "id": "ga:dcmFloodlightActivityGroupId",
-    "name": "DFA Activity Group ID"
+    "name": "ga:dcmFloodlightActivityGroupId",
+    "label": "DFA Activity Group ID"
   },
   {
-    "id": "ga:dcmFloodlightActivityId",
-    "name": "DFA Activity ID"
+    "name": "ga:dcmFloodlightActivityId",
+    "label": "DFA Activity ID"
   },
   {
-    "id": "ga:dcmFloodlightAdvertiserId",
-    "name": "DFA Advertiser ID"
+    "name": "ga:dcmFloodlightAdvertiserId",
+    "label": "DFA Advertiser ID"
   },
   {
-    "id": "ga:dcmFloodlightSpotId",
-    "name": "DFA Floodlight Configuration ID"
+    "name": "ga:dcmFloodlightSpotId",
+    "label": "DFA Floodlight Configuration ID"
   },
   {
-    "id": "ga:dcmLastEventAd",
-    "name": "DFA Ad"
+    "name": "ga:dcmLastEventAd",
+    "label": "DFA Ad"
   },
   {
-    "id": "ga:dcmLastEventAdId",
-    "name": "DFA Ad ID (DFA Model)"
+    "name": "ga:dcmLastEventAdId",
+    "label": "DFA Ad ID (DFA Model)"
   },
   {
-    "id": "ga:dcmLastEventAdType",
-    "name": "DFA Ad Type (DFA Model)"
+    "name": "ga:dcmLastEventAdType",
+    "label": "DFA Ad Type (DFA Model)"
   },
   {
-    "id": "ga:dcmLastEventAdTypeId",
-    "name": "DFA Ad Type ID (DFA Model)"
+    "name": "ga:dcmLastEventAdTypeId",
+    "label": "DFA Ad Type ID (DFA Model)"
   },
   {
-    "id": "ga:dcmLastEventAdvertiser",
-    "name": "DFA Advertiser (DFA Model)"
+    "name": "ga:dcmLastEventAdvertiser",
+    "label": "DFA Advertiser (DFA Model)"
   },
   {
-    "id": "ga:dcmLastEventAdvertiserId",
-    "name": "DFA Advertiser ID (DFA Model)"
+    "name": "ga:dcmLastEventAdvertiserId",
+    "label": "DFA Advertiser ID (DFA Model)"
   },
   {
-    "id": "ga:dcmLastEventAttributionType",
-    "name": "DFA Attribution Type (DFA Model)"
+    "name": "ga:dcmLastEventAttributionType",
+    "label": "DFA Attribution Type (DFA Model)"
   },
   {
-    "id": "ga:dcmLastEventCampaign",
-    "name": "DFA Campaign (DFA Model)"
+    "name": "ga:dcmLastEventCampaign",
+    "label": "DFA Campaign (DFA Model)"
   },
   {
-    "id": "ga:dcmLastEventCampaignId",
-    "name": "DFA Campaign ID (DFA Model)"
+    "name": "ga:dcmLastEventCampaignId",
+    "label": "DFA Campaign ID (DFA Model)"
   },
   {
-    "id": "ga:dcmLastEventCreativeId",
-    "name": "DFA Creative ID (DFA Model)"
+    "name": "ga:dcmLastEventCreativeId",
+    "label": "DFA Creative ID (DFA Model)"
   },
   {
-    "id": "ga:dcmLastEventCreative",
-    "name": "DFA Creative (DFA Model)"
+    "name": "ga:dcmLastEventCreative",
+    "label": "DFA Creative (DFA Model)"
   },
   {
-    "id": "ga:dcmLastEventRenderingId",
-    "name": "DFA Rendering ID (DFA Model)"
+    "name": "ga:dcmLastEventRenderingId",
+    "label": "DFA Rendering ID (DFA Model)"
   },
   {
-    "id": "ga:dcmLastEventCreativeType",
-    "name": "DFA Creative Type (DFA Model)"
+    "name": "ga:dcmLastEventCreativeType",
+    "label": "DFA Creative Type (DFA Model)"
   },
   {
-    "id": "ga:dcmLastEventCreativeTypeId",
-    "name": "DFA Creative Type ID (DFA Model)"
+    "name": "ga:dcmLastEventCreativeTypeId",
+    "label": "DFA Creative Type ID (DFA Model)"
   },
   {
-    "id": "ga:dcmLastEventCreativeVersion",
-    "name": "DFA Creative Version (DFA Model)"
+    "name": "ga:dcmLastEventCreativeVersion",
+    "label": "DFA Creative Version (DFA Model)"
   },
   {
-    "id": "ga:dcmLastEventSite",
-    "name": "DFA Site (DFA Model)"
+    "name": "ga:dcmLastEventSite",
+    "label": "DFA Site (DFA Model)"
   },
   {
-    "id": "ga:dcmLastEventSiteId",
-    "name": "DFA Site ID (DFA Model)"
+    "name": "ga:dcmLastEventSiteId",
+    "label": "DFA Site ID (DFA Model)"
   },
   {
-    "id": "ga:dcmLastEventSitePlacement",
-    "name": "DFA Placement (DFA Model)"
+    "name": "ga:dcmLastEventSitePlacement",
+    "label": "DFA Placement (DFA Model)"
   },
   {
-    "id": "ga:dcmLastEventSitePlacementId",
-    "name": "DFA Placement ID (DFA Model)"
+    "name": "ga:dcmLastEventSitePlacementId",
+    "label": "DFA Placement ID (DFA Model)"
   },
   {
-    "id": "ga:dcmLastEventSpotId",
-    "name": "DFA Floodlight Configuration ID (DFA Model)"
+    "name": "ga:dcmLastEventSpotId",
+    "label": "DFA Floodlight Configuration ID (DFA Model)"
   },
   {
-    "id": "ga:userAgeBracket",
-    "name": "Age"
+    "name": "ga:userAgeBracket",
+    "label": "Age"
   },
   {
-    "id": "ga:userGender",
-    "name": "Gender"
+    "name": "ga:userGender",
+    "label": "Gender"
   },
   {
-    "id": "ga:interestOtherCategory",
-    "name": "Other Category"
+    "name": "ga:interestOtherCategory",
+    "label": "Other Category"
   },
   {
-    "id": "ga:interestAffinityCategory",
-    "name": "Affinity Category (reach)"
+    "name": "ga:interestAffinityCategory",
+    "label": "Affinity Category (reach)"
   },
   {
-    "id": "ga:interestInMarketCategory",
-    "name": "In-Market Segment"
+    "name": "ga:interestInMarketCategory",
+    "label": "In-Market Segment"
   },
   {
-    "id": "ga:visitorAgeBracket",
-    "name": "Age"
+    "name": "ga:visitorAgeBracket",
+    "label": "Age"
   },
   {
-    "id": "ga:visitorGender",
-    "name": "Gender"
+    "name": "ga:visitorGender",
+    "label": "Gender"
   },
   {
-    "id": "ga:channelGrouping",
-    "name": "Default Channel Grouping"
+    "name": "ga:channelGrouping",
+    "label": "Default Channel Grouping"
   },
   {
-    "id": "ga:correlationModelId",
-    "name": "Correlation Model ID"
+    "name": "ga:correlationModelId",
+    "label": "Correlation Model ID"
   },
   {
-    "id": "ga:queryProductId",
-    "name": "Queried Product ID"
+    "name": "ga:queryProductId",
+    "label": "Queried Product ID"
   },
   {
-    "id": "ga:queryProductName",
-    "name": "Queried Product Name"
+    "name": "ga:queryProductName",
+    "label": "Queried Product Name"
   },
   {
-    "id": "ga:queryProductVariation",
-    "name": "Queried Product Variation"
+    "name": "ga:queryProductVariation",
+    "label": "Queried Product Variation"
   },
   {
-    "id": "ga:relatedProductId",
-    "name": "Related Product ID"
+    "name": "ga:relatedProductId",
+    "label": "Related Product ID"
   },
   {
-    "id": "ga:relatedProductName",
-    "name": "Related Product Name"
+    "name": "ga:relatedProductName",
+    "label": "Related Product Name"
   },
   {
-    "id": "ga:relatedProductVariation",
-    "name": "Related Product Variation"
+    "name": "ga:relatedProductVariation",
+    "label": "Related Product Variation"
   },
   {
-    "id": "ga:users",
-    "name": "Users"
+    "name": "ga:users",
+    "label": "Users"
   },
   {
-    "id": "ga:newUsers",
-    "name": "New Users"
+    "name": "ga:newUsers",
+    "label": "New Users"
   },
   {
-    "id": "ga:percentNewSessions",
-    "name": "% New Sessions"
+    "name": "ga:percentNewSessions",
+    "label": "% New Sessions"
   },
   {
-    "id": "ga:sessionsPerUser",
-    "name": "Number of Sessions per User"
+    "name": "ga:sessionsPerUser",
+    "label": "Number of Sessions per User"
   },
   {
-    "id": "ga:visitors",
-    "name": "Users"
+    "name": "ga:visitors",
+    "label": "Users"
   },
   {
-    "id": "ga:newVisits",
-    "name": "New Users"
+    "name": "ga:newVisits",
+    "label": "New Users"
   },
   {
-    "id": "ga:percentNewVisits",
-    "name": "% New Sessions"
+    "name": "ga:percentNewVisits",
+    "label": "% New Sessions"
   },
   {
-    "id": "ga:sessions",
-    "name": "Sessions"
+    "name": "ga:sessions",
+    "label": "Sessions"
   },
   {
-    "id": "ga:bounces",
-    "name": "Bounces"
+    "name": "ga:bounces",
+    "label": "Bounces"
   },
   {
-    "id": "ga:bounceRate",
-    "name": "Bounce Rate"
+    "name": "ga:bounceRate",
+    "label": "Bounce Rate"
   },
   {
-    "id": "ga:sessionDuration",
-    "name": "Session Duration"
+    "name": "ga:sessionDuration",
+    "label": "Session Duration"
   },
   {
-    "id": "ga:avgSessionDuration",
-    "name": "Avg. Session Duration"
+    "name": "ga:avgSessionDuration",
+    "label": "Avg. Session Duration"
   },
   {
-    "id": "ga:hits",
-    "name": "Hits"
+    "name": "ga:hits",
+    "label": "Hits"
   },
   {
-    "id": "ga:visits",
-    "name": "Sessions"
+    "name": "ga:visits",
+    "label": "Sessions"
   },
   {
-    "id": "ga:entranceBounceRate",
-    "name": "Bounce Rate"
+    "name": "ga:entranceBounceRate",
+    "label": "Bounce Rate"
   },
   {
-    "id": "ga:visitBounceRate",
-    "name": "Bounce Rate"
+    "name": "ga:visitBounceRate",
+    "label": "Bounce Rate"
   },
   {
-    "id": "ga:timeOnSite",
-    "name": "Session Duration"
+    "name": "ga:timeOnSite",
+    "label": "Session Duration"
   },
   {
-    "id": "ga:avgTimeOnSite",
-    "name": "Avg. Session Duration"
+    "name": "ga:avgTimeOnSite",
+    "label": "Avg. Session Duration"
   },
   {
-    "id": "ga:organicSearches",
-    "name": "Organic Searches"
+    "name": "ga:organicSearches",
+    "label": "Organic Searches"
   },
   {
-    "id": "ga:impressions",
-    "name": "Impressions"
+    "name": "ga:impressions",
+    "label": "Impressions"
   },
   {
-    "id": "ga:adClicks",
-    "name": "Clicks"
+    "name": "ga:adClicks",
+    "label": "Clicks"
   },
   {
-    "id": "ga:adCost",
-    "name": "Cost"
+    "name": "ga:adCost",
+    "label": "Cost"
   },
   {
-    "id": "ga:CPM",
-    "name": "CPM"
+    "name": "ga:CPM",
+    "label": "CPM"
   },
   {
-    "id": "ga:CPC",
-    "name": "CPC"
+    "name": "ga:CPC",
+    "label": "CPC"
   },
   {
-    "id": "ga:CTR",
-    "name": "CTR"
+    "name": "ga:CTR",
+    "label": "CTR"
   },
   {
-    "id": "ga:costPerTransaction",
-    "name": "Cost per Transaction"
+    "name": "ga:costPerTransaction",
+    "label": "Cost per Transaction"
   },
   {
-    "id": "ga:costPerGoalConversion",
-    "name": "Cost per Goal Conversion"
+    "name": "ga:costPerGoalConversion",
+    "label": "Cost per Goal Conversion"
   },
   {
-    "id": "ga:costPerConversion",
-    "name": "Cost per Conversion"
+    "name": "ga:costPerConversion",
+    "label": "Cost per Conversion"
   },
   {
-    "id": "ga:RPC",
-    "name": "RPC"
+    "name": "ga:RPC",
+    "label": "RPC"
   },
   {
-    "id": "ga:ROAS",
-    "name": "ROAS"
+    "name": "ga:ROAS",
+    "label": "ROAS"
   },
   {
-    "id": "ga:ROI",
-    "name": "ROI"
+    "name": "ga:ROI",
+    "label": "ROI"
   },
   {
-    "id": "ga:margin",
-    "name": "Margin"
+    "name": "ga:margin",
+    "label": "Margin"
   },
   {
-    "id": "ga:goalXXStarts",
-    "name": "Goal XX Starts"
+    "name": "ga:goalXXStarts",
+    "label": "Goal XX Starts"
   },
   {
-    "id": "ga:goalStartsAll",
-    "name": "Goal Starts"
+    "name": "ga:goalStartsAll",
+    "label": "Goal Starts"
   },
   {
-    "id": "ga:goalXXCompletions",
-    "name": "Goal XX Completions"
+    "name": "ga:goalXXCompletions",
+    "label": "Goal XX Completions"
   },
   {
-    "id": "ga:goalCompletionsAll",
-    "name": "Goal Completions"
+    "name": "ga:goalCompletionsAll",
+    "label": "Goal Completions"
   },
   {
-    "id": "ga:goalXXValue",
-    "name": "Goal XX Value"
+    "name": "ga:goalXXValue",
+    "label": "Goal XX Value"
   },
   {
-    "id": "ga:goalValueAll",
-    "name": "Goal Value"
+    "name": "ga:goalValueAll",
+    "label": "Goal Value"
   },
   {
-    "id": "ga:goalValuePerSession",
-    "name": "Per Session Goal Value"
+    "name": "ga:goalValuePerSession",
+    "label": "Per Session Goal Value"
   },
   {
-    "id": "ga:goalXXConversionRate",
-    "name": "Goal XX Conversion Rate"
+    "name": "ga:goalXXConversionRate",
+    "label": "Goal XX Conversion Rate"
   },
   {
-    "id": "ga:goalConversionRateAll",
-    "name": "Goal Conversion Rate"
+    "name": "ga:goalConversionRateAll",
+    "label": "Goal Conversion Rate"
   },
   {
-    "id": "ga:goalXXAbandons",
-    "name": "Goal XX Abandoned Funnels"
+    "name": "ga:goalXXAbandons",
+    "label": "Goal XX Abandoned Funnels"
   },
   {
-    "id": "ga:goalAbandonsAll",
-    "name": "Abandoned Funnels"
+    "name": "ga:goalAbandonsAll",
+    "label": "Abandoned Funnels"
   },
   {
-    "id": "ga:goalXXAbandonRate",
-    "name": "Goal XX Abandonment Rate"
+    "name": "ga:goalXXAbandonRate",
+    "label": "Goal XX Abandonment Rate"
   },
   {
-    "id": "ga:goalAbandonRateAll",
-    "name": "Total Abandonment Rate"
+    "name": "ga:goalAbandonRateAll",
+    "label": "Total Abandonment Rate"
   },
   {
-    "id": "ga:goalValuePerVisit",
-    "name": "Per Session Goal Value"
+    "name": "ga:goalValuePerVisit",
+    "label": "Per Session Goal Value"
   },
   {
-    "id": "ga:socialActivities",
-    "name": "Data Hub Activities"
+    "name": "ga:socialActivities",
+    "label": "Data Hub Activities"
   },
   {
-    "id": "ga:pageValue",
-    "name": "Page Value"
+    "name": "ga:pageValue",
+    "label": "Page Value"
   },
   {
-    "id": "ga:entrances",
-    "name": "Entrances"
+    "name": "ga:entrances",
+    "label": "Entrances"
   },
   {
-    "id": "ga:entranceRate",
-    "name": "Entrances / Pageviews"
+    "name": "ga:entranceRate",
+    "label": "Entrances / Pageviews"
   },
   {
-    "id": "ga:pageviews",
-    "name": "Pageviews"
+    "name": "ga:pageviews",
+    "label": "Pageviews"
   },
   {
-    "id": "ga:pageviewsPerSession",
-    "name": "Pages / Session"
+    "name": "ga:pageviewsPerSession",
+    "label": "Pages / Session"
   },
   {
-    "id": "ga:uniquePageviews",
-    "name": "Unique Pageviews"
+    "name": "ga:uniquePageviews",
+    "label": "Unique Pageviews"
   },
   {
-    "id": "ga:timeOnPage",
-    "name": "Time on Page"
+    "name": "ga:timeOnPage",
+    "label": "Time on Page"
   },
   {
-    "id": "ga:avgTimeOnPage",
-    "name": "Avg. Time on Page"
+    "name": "ga:avgTimeOnPage",
+    "label": "Avg. Time on Page"
   },
   {
-    "id": "ga:exits",
-    "name": "Exits"
+    "name": "ga:exits",
+    "label": "Exits"
   },
   {
-    "id": "ga:exitRate",
-    "name": "% Exit"
+    "name": "ga:exitRate",
+    "label": "% Exit"
   },
   {
-    "id": "ga:pageviewsPerVisit",
-    "name": "Pages / Session"
+    "name": "ga:pageviewsPerVisit",
+    "label": "Pages / Session"
   },
   {
-    "id": "ga:contentGroupUniqueViewsXX",
-    "name": "Unique Views XX"
+    "name": "ga:contentGroupUniqueViewsXX",
+    "label": "Unique Views XX"
   },
   {
-    "id": "ga:searchResultViews",
-    "name": "Results Pageviews"
+    "name": "ga:searchResultViews",
+    "label": "Results Pageviews"
   },
   {
-    "id": "ga:searchUniques",
-    "name": "Total Unique Searches"
+    "name": "ga:searchUniques",
+    "label": "Total Unique Searches"
   },
   {
-    "id": "ga:avgSearchResultViews",
-    "name": "Results Pageviews / Search"
+    "name": "ga:avgSearchResultViews",
+    "label": "Results Pageviews / Search"
   },
   {
-    "id": "ga:searchSessions",
-    "name": "Sessions with Search"
+    "name": "ga:searchSessions",
+    "label": "Sessions with Search"
   },
   {
-    "id": "ga:percentSessionsWithSearch",
-    "name": "% Sessions with Search"
+    "name": "ga:percentSessionsWithSearch",
+    "label": "% Sessions with Search"
   },
   {
-    "id": "ga:searchDepth",
-    "name": "Search Depth"
+    "name": "ga:searchDepth",
+    "label": "Search Depth"
   },
   {
-    "id": "ga:avgSearchDepth",
-    "name": "Average Search Depth"
+    "name": "ga:avgSearchDepth",
+    "label": "Average Search Depth"
   },
   {
-    "id": "ga:searchRefinements",
-    "name": "Search Refinements"
+    "name": "ga:searchRefinements",
+    "label": "Search Refinements"
   },
   {
-    "id": "ga:percentSearchRefinements",
-    "name": "% Search Refinements"
+    "name": "ga:percentSearchRefinements",
+    "label": "% Search Refinements"
   },
   {
-    "id": "ga:searchDuration",
-    "name": "Time after Search"
+    "name": "ga:searchDuration",
+    "label": "Time after Search"
   },
   {
-    "id": "ga:avgSearchDuration",
-    "name": "Time after Search"
+    "name": "ga:avgSearchDuration",
+    "label": "Time after Search"
   },
   {
-    "id": "ga:searchExits",
-    "name": "Search Exits"
+    "name": "ga:searchExits",
+    "label": "Search Exits"
   },
   {
-    "id": "ga:searchExitRate",
-    "name": "% Search Exits"
+    "name": "ga:searchExitRate",
+    "label": "% Search Exits"
   },
   {
-    "id": "ga:searchGoalXXConversionRate",
-    "name": "Site Search Goal XX Conversion Rate"
+    "name": "ga:searchGoalXXConversionRate",
+    "label": "Site Search Goal XX Conversion Rate"
   },
   {
-    "id": "ga:searchGoalConversionRateAll",
-    "name": "Site Search Goal Conversion Rate"
+    "name": "ga:searchGoalConversionRateAll",
+    "label": "Site Search Goal Conversion Rate"
   },
   {
-    "id": "ga:goalValueAllPerSearch",
-    "name": "Per Search Goal Value"
+    "name": "ga:goalValueAllPerSearch",
+    "label": "Per Search Goal Value"
   },
   {
-    "id": "ga:searchVisits",
-    "name": "Sessions with Search"
+    "name": "ga:searchVisits",
+    "label": "Sessions with Search"
   },
   {
-    "id": "ga:percentVisitsWithSearch",
-    "name": "% Sessions with Search"
+    "name": "ga:percentVisitsWithSearch",
+    "label": "% Sessions with Search"
   },
   {
-    "id": "ga:pageLoadTime",
-    "name": "Page Load Time (ms)"
+    "name": "ga:pageLoadTime",
+    "label": "Page Load Time (ms)"
   },
   {
-    "id": "ga:pageLoadSample",
-    "name": "Page Load Sample"
+    "name": "ga:pageLoadSample",
+    "label": "Page Load Sample"
   },
   {
-    "id": "ga:avgPageLoadTime",
-    "name": "Avg. Page Load Time (sec)"
+    "name": "ga:avgPageLoadTime",
+    "label": "Avg. Page Load Time (sec)"
   },
   {
-    "id": "ga:domainLookupTime",
-    "name": "Domain Lookup Time (ms)"
+    "name": "ga:domainLookupTime",
+    "label": "Domain Lookup Time (ms)"
   },
   {
-    "id": "ga:avgDomainLookupTime",
-    "name": "Avg. Domain Lookup Time (sec)"
+    "name": "ga:avgDomainLookupTime",
+    "label": "Avg. Domain Lookup Time (sec)"
   },
   {
-    "id": "ga:pageDownloadTime",
-    "name": "Page Download Time (ms)"
+    "name": "ga:pageDownloadTime",
+    "label": "Page Download Time (ms)"
   },
   {
-    "id": "ga:avgPageDownloadTime",
-    "name": "Avg. Page Download Time (sec)"
+    "name": "ga:avgPageDownloadTime",
+    "label": "Avg. Page Download Time (sec)"
   },
   {
-    "id": "ga:redirectionTime",
-    "name": "Redirection Time (ms)"
+    "name": "ga:redirectionTime",
+    "label": "Redirection Time (ms)"
   },
   {
-    "id": "ga:avgRedirectionTime",
-    "name": "Avg. Redirection Time (sec)"
+    "name": "ga:avgRedirectionTime",
+    "label": "Avg. Redirection Time (sec)"
   },
   {
-    "id": "ga:serverConnectionTime",
-    "name": "Server Connection Time (ms)"
+    "name": "ga:serverConnectionTime",
+    "label": "Server Connection Time (ms)"
   },
   {
-    "id": "ga:avgServerConnectionTime",
-    "name": "Avg. Server Connection Time (sec)"
+    "name": "ga:avgServerConnectionTime",
+    "label": "Avg. Server Connection Time (sec)"
   },
   {
-    "id": "ga:serverResponseTime",
-    "name": "Server Response Time (ms)"
+    "name": "ga:serverResponseTime",
+    "label": "Server Response Time (ms)"
   },
   {
-    "id": "ga:avgServerResponseTime",
-    "name": "Avg. Server Response Time (sec)"
+    "name": "ga:avgServerResponseTime",
+    "label": "Avg. Server Response Time (sec)"
   },
   {
-    "id": "ga:speedMetricsSample",
-    "name": "Speed Metrics Sample"
+    "name": "ga:speedMetricsSample",
+    "label": "Speed Metrics Sample"
   },
   {
-    "id": "ga:domInteractiveTime",
-    "name": "Document Interactive Time (ms)"
+    "name": "ga:domInteractiveTime",
+    "label": "Document Interactive Time (ms)"
   },
   {
-    "id": "ga:avgDomInteractiveTime",
-    "name": "Avg. Document Interactive Time (sec)"
+    "name": "ga:avgDomInteractiveTime",
+    "label": "Avg. Document Interactive Time (sec)"
   },
   {
-    "id": "ga:domContentLoadedTime",
-    "name": "Document Content Loaded Time (ms)"
+    "name": "ga:domContentLoadedTime",
+    "label": "Document Content Loaded Time (ms)"
   },
   {
-    "id": "ga:avgDomContentLoadedTime",
-    "name": "Avg. Document Content Loaded Time (sec)"
+    "name": "ga:avgDomContentLoadedTime",
+    "label": "Avg. Document Content Loaded Time (sec)"
   },
   {
-    "id": "ga:domLatencyMetricsSample",
-    "name": "DOM Latency Metrics Sample"
+    "name": "ga:domLatencyMetricsSample",
+    "label": "DOM Latency Metrics Sample"
   },
   {
-    "id": "ga:screenviews",
-    "name": "Screen Views"
+    "name": "ga:screenviews",
+    "label": "Screen Views"
   },
   {
-    "id": "ga:uniqueScreenviews",
-    "name": "Unique Screen Views"
+    "name": "ga:uniqueScreenviews",
+    "label": "Unique Screen Views"
   },
   {
-    "id": "ga:screenviewsPerSession",
-    "name": "Screens / Session"
+    "name": "ga:screenviewsPerSession",
+    "label": "Screens / Session"
   },
   {
-    "id": "ga:timeOnScreen",
-    "name": "Time on Screen"
+    "name": "ga:timeOnScreen",
+    "label": "Time on Screen"
   },
   {
-    "id": "ga:avgScreenviewDuration",
-    "name": "Avg. Time on Screen"
+    "name": "ga:avgScreenviewDuration",
+    "label": "Avg. Time on Screen"
   },
   {
-    "id": "ga:appviews",
-    "name": "Screen Views"
+    "name": "ga:appviews",
+    "label": "Screen Views"
   },
   {
-    "id": "ga:uniqueAppviews",
-    "name": "Unique Screen Views"
+    "name": "ga:uniqueAppviews",
+    "label": "Unique Screen Views"
   },
   {
-    "id": "ga:appviewsPerVisit",
-    "name": "Screens / Session"
+    "name": "ga:appviewsPerVisit",
+    "label": "Screens / Session"
   },
   {
-    "id": "ga:totalEvents",
-    "name": "Total Events"
+    "name": "ga:totalEvents",
+    "label": "Total Events"
   },
   {
-    "id": "ga:uniqueEvents",
-    "name": "Unique Events"
+    "name": "ga:uniqueEvents",
+    "label": "Unique Events"
   },
   {
-    "id": "ga:eventValue",
-    "name": "Event Value"
+    "name": "ga:eventValue",
+    "label": "Event Value"
   },
   {
-    "id": "ga:avgEventValue",
-    "name": "Avg. Value"
+    "name": "ga:avgEventValue",
+    "label": "Avg. Value"
   },
   {
-    "id": "ga:sessionsWithEvent",
-    "name": "Sessions with Event"
+    "name": "ga:sessionsWithEvent",
+    "label": "Sessions with Event"
   },
   {
-    "id": "ga:eventsPerSessionWithEvent",
-    "name": "Events / Session with Event"
+    "name": "ga:eventsPerSessionWithEvent",
+    "label": "Events / Session with Event"
   },
   {
-    "id": "ga:visitsWithEvent",
-    "name": "Sessions with Event"
+    "name": "ga:visitsWithEvent",
+    "label": "Sessions with Event"
   },
   {
-    "id": "ga:eventsPerVisitWithEvent",
-    "name": "Events / Session with Event"
+    "name": "ga:eventsPerVisitWithEvent",
+    "label": "Events / Session with Event"
   },
   {
-    "id": "ga:transactions",
-    "name": "Transactions"
+    "name": "ga:transactions",
+    "label": "Transactions"
   },
   {
-    "id": "ga:transactionsPerSession",
-    "name": "Ecommerce Conversion Rate"
+    "name": "ga:transactionsPerSession",
+    "label": "Ecommerce Conversion Rate"
   },
   {
-    "id": "ga:transactionRevenue",
-    "name": "Revenue"
+    "name": "ga:transactionRevenue",
+    "label": "Revenue"
   },
   {
-    "id": "ga:revenuePerTransaction",
-    "name": "Average Order Value"
+    "name": "ga:revenuePerTransaction",
+    "label": "Average Order Value"
   },
   {
-    "id": "ga:transactionRevenuePerSession",
-    "name": "Per Session Value"
+    "name": "ga:transactionRevenuePerSession",
+    "label": "Per Session Value"
   },
   {
-    "id": "ga:transactionShipping",
-    "name": "Shipping"
+    "name": "ga:transactionShipping",
+    "label": "Shipping"
   },
   {
-    "id": "ga:transactionTax",
-    "name": "Tax"
+    "name": "ga:transactionTax",
+    "label": "Tax"
   },
   {
-    "id": "ga:totalValue",
-    "name": "Total Value"
+    "name": "ga:totalValue",
+    "label": "Total Value"
   },
   {
-    "id": "ga:itemQuantity",
-    "name": "Quantity"
+    "name": "ga:itemQuantity",
+    "label": "Quantity"
   },
   {
-    "id": "ga:uniquePurchases",
-    "name": "Unique Purchases"
+    "name": "ga:uniquePurchases",
+    "label": "Unique Purchases"
   },
   {
-    "id": "ga:revenuePerItem",
-    "name": "Average Price"
+    "name": "ga:revenuePerItem",
+    "label": "Average Price"
   },
   {
-    "id": "ga:itemRevenue",
-    "name": "Product Revenue"
+    "name": "ga:itemRevenue",
+    "label": "Product Revenue"
   },
   {
-    "id": "ga:itemsPerPurchase",
-    "name": "Average QTY"
+    "name": "ga:itemsPerPurchase",
+    "label": "Average QTY"
   },
   {
-    "id": "ga:localTransactionRevenue",
-    "name": "Local Revenue"
+    "name": "ga:localTransactionRevenue",
+    "label": "Local Revenue"
   },
   {
-    "id": "ga:localTransactionShipping",
-    "name": "Local Shipping"
+    "name": "ga:localTransactionShipping",
+    "label": "Local Shipping"
   },
   {
-    "id": "ga:localTransactionTax",
-    "name": "Local Tax"
+    "name": "ga:localTransactionTax",
+    "label": "Local Tax"
   },
   {
-    "id": "ga:localItemRevenue",
-    "name": "Local Product Revenue"
+    "name": "ga:localItemRevenue",
+    "label": "Local Product Revenue"
   },
   {
-    "id": "ga:buyToDetailRate",
-    "name": "Buy-to-Detail Rate"
+    "name": "ga:buyToDetailRate",
+    "label": "Buy-to-Detail Rate"
   },
   {
-    "id": "ga:cartToDetailRate",
-    "name": "Cart-to-Detail Rate"
+    "name": "ga:cartToDetailRate",
+    "label": "Cart-to-Detail Rate"
   },
   {
-    "id": "ga:internalPromotionCTR",
-    "name": "Internal Promotion CTR"
+    "name": "ga:internalPromotionCTR",
+    "label": "Internal Promotion CTR"
   },
   {
-    "id": "ga:internalPromotionClicks",
-    "name": "Internal Promotion Clicks"
+    "name": "ga:internalPromotionClicks",
+    "label": "Internal Promotion Clicks"
   },
   {
-    "id": "ga:internalPromotionViews",
-    "name": "Internal Promotion Views"
+    "name": "ga:internalPromotionViews",
+    "label": "Internal Promotion Views"
   },
   {
-    "id": "ga:localProductRefundAmount",
-    "name": "Local Product Refund Amount"
+    "name": "ga:localProductRefundAmount",
+    "label": "Local Product Refund Amount"
   },
   {
-    "id": "ga:localRefundAmount",
-    "name": "Local Refund Amount"
+    "name": "ga:localRefundAmount",
+    "label": "Local Refund Amount"
   },
   {
-    "id": "ga:productAddsToCart",
-    "name": "Product Adds To Cart"
+    "name": "ga:productAddsToCart",
+    "label": "Product Adds To Cart"
   },
   {
-    "id": "ga:productCheckouts",
-    "name": "Product Checkouts"
+    "name": "ga:productCheckouts",
+    "label": "Product Checkouts"
   },
   {
-    "id": "ga:productDetailViews",
-    "name": "Product Detail Views"
+    "name": "ga:productDetailViews",
+    "label": "Product Detail Views"
   },
   {
-    "id": "ga:productListCTR",
-    "name": "Product List CTR"
+    "name": "ga:productListCTR",
+    "label": "Product List CTR"
   },
   {
-    "id": "ga:productListClicks",
-    "name": "Product List Clicks"
+    "name": "ga:productListClicks",
+    "label": "Product List Clicks"
   },
   {
-    "id": "ga:productListViews",
-    "name": "Product List Views"
+    "name": "ga:productListViews",
+    "label": "Product List Views"
   },
   {
-    "id": "ga:productRefundAmount",
-    "name": "Product Refund Amount"
+    "name": "ga:productRefundAmount",
+    "label": "Product Refund Amount"
   },
   {
-    "id": "ga:productRefunds",
-    "name": "Product Refunds"
+    "name": "ga:productRefunds",
+    "label": "Product Refunds"
   },
   {
-    "id": "ga:productRemovesFromCart",
-    "name": "Product Removes From Cart"
+    "name": "ga:productRemovesFromCart",
+    "label": "Product Removes From Cart"
   },
   {
-    "id": "ga:productRevenuePerPurchase",
-    "name": "Product Revenue per Purchase"
+    "name": "ga:productRevenuePerPurchase",
+    "label": "Product Revenue per Purchase"
   },
   {
-    "id": "ga:quantityAddedToCart",
-    "name": "Quantity Added To Cart"
+    "name": "ga:quantityAddedToCart",
+    "label": "Quantity Added To Cart"
   },
   {
-    "id": "ga:quantityCheckedOut",
-    "name": "Quantity Checked Out"
+    "name": "ga:quantityCheckedOut",
+    "label": "Quantity Checked Out"
   },
   {
-    "id": "ga:quantityRefunded",
-    "name": "Quantity Refunded"
+    "name": "ga:quantityRefunded",
+    "label": "Quantity Refunded"
   },
   {
-    "id": "ga:quantityRemovedFromCart",
-    "name": "Quantity Removed From Cart"
+    "name": "ga:quantityRemovedFromCart",
+    "label": "Quantity Removed From Cart"
   },
   {
-    "id": "ga:refundAmount",
-    "name": "Refund Amount"
+    "name": "ga:refundAmount",
+    "label": "Refund Amount"
   },
   {
-    "id": "ga:revenuePerUser",
-    "name": "Revenue per User"
+    "name": "ga:revenuePerUser",
+    "label": "Revenue per User"
   },
   {
-    "id": "ga:totalRefunds",
-    "name": "Refunds"
+    "name": "ga:totalRefunds",
+    "label": "Refunds"
   },
   {
-    "id": "ga:transactionsPerUser",
-    "name": "Transactions per User"
+    "name": "ga:transactionsPerUser",
+    "label": "Transactions per User"
   },
   {
-    "id": "ga:transactionsPerVisit",
-    "name": "Ecommerce Conversion Rate"
+    "name": "ga:transactionsPerVisit",
+    "label": "Ecommerce Conversion Rate"
   },
   {
-    "id": "ga:transactionRevenuePerVisit",
-    "name": "Per Session Value"
+    "name": "ga:transactionRevenuePerVisit",
+    "label": "Per Session Value"
   },
   {
-    "id": "ga:socialInteractions",
-    "name": "Social Actions"
+    "name": "ga:socialInteractions",
+    "label": "Social Actions"
   },
   {
-    "id": "ga:uniqueSocialInteractions",
-    "name": "Unique Social Actions"
+    "name": "ga:uniqueSocialInteractions",
+    "label": "Unique Social Actions"
   },
   {
-    "id": "ga:socialInteractionsPerSession",
-    "name": "Actions Per Social Session"
+    "name": "ga:socialInteractionsPerSession",
+    "label": "Actions Per Social Session"
   },
   {
-    "id": "ga:socialInteractionsPerVisit",
-    "name": "Actions Per Social Session"
+    "name": "ga:socialInteractionsPerVisit",
+    "label": "Actions Per Social Session"
   },
   {
-    "id": "ga:userTimingValue",
-    "name": "User Timing (ms)"
+    "name": "ga:userTimingValue",
+    "label": "User Timing (ms)"
   },
   {
-    "id": "ga:userTimingSample",
-    "name": "User Timing Sample"
+    "name": "ga:userTimingSample",
+    "label": "User Timing Sample"
   },
   {
-    "id": "ga:avgUserTimingValue",
-    "name": "Avg. User Timing (sec)"
+    "name": "ga:avgUserTimingValue",
+    "label": "Avg. User Timing (sec)"
   },
   {
-    "id": "ga:exceptions",
-    "name": "Exceptions"
+    "name": "ga:exceptions",
+    "label": "Exceptions"
   },
   {
-    "id": "ga:exceptionsPerScreenview",
-    "name": "Exceptions / Screen"
+    "name": "ga:exceptionsPerScreenview",
+    "label": "Exceptions / Screen"
   },
   {
-    "id": "ga:fatalExceptions",
-    "name": "Crashes"
+    "name": "ga:fatalExceptions",
+    "label": "Crashes"
   },
   {
-    "id": "ga:fatalExceptionsPerScreenview",
-    "name": "Crashes / Screen"
+    "name": "ga:fatalExceptionsPerScreenview",
+    "label": "Crashes / Screen"
   },
   {
-    "id": "ga:metricXX",
-    "name": "Custom Metric XX Value"
+    "name": "ga:metricXX",
+    "label": "Custom Metric XX Value"
   },
   {
-    "id": "ga:dcmFloodlightQuantity",
-    "name": "DFA Conversions"
+    "name": "ga:dcmFloodlightQuantity",
+    "label": "DFA Conversions"
   },
   {
-    "id": "ga:dcmFloodlightRevenue",
-    "name": "DFA Revenue"
+    "name": "ga:dcmFloodlightRevenue",
+    "label": "DFA Revenue"
   },
   {
-    "id": "ga:dcmCPC",
-    "name": "DFA CPC"
+    "name": "ga:dcmCPC",
+    "label": "DFA CPC"
   },
   {
-    "id": "ga:dcmCTR",
-    "name": "DFA CTR"
+    "name": "ga:dcmCTR",
+    "label": "DFA CTR"
   },
   {
-    "id": "ga:dcmClicks",
-    "name": "DFA Clicks"
+    "name": "ga:dcmClicks",
+    "label": "DFA Clicks"
   },
   {
-    "id": "ga:dcmCost",
-    "name": "DFA Cost"
+    "name": "ga:dcmCost",
+    "label": "DFA Cost"
   },
   {
-    "id": "ga:dcmImpressions",
-    "name": "DFA Impressions"
+    "name": "ga:dcmImpressions",
+    "label": "DFA Impressions"
   },
   {
-    "id": "ga:dcmROAS",
-    "name": "DFA ROAS"
+    "name": "ga:dcmROAS",
+    "label": "DFA ROAS"
   },
   {
-    "id": "ga:dcmRPC",
-    "name": "DFA RPC"
+    "name": "ga:dcmRPC",
+    "label": "DFA RPC"
   },
   {
-    "id": "ga:dcmMargin",
-    "name": "DFA Margin"
+    "name": "ga:dcmMargin",
+    "label": "DFA Margin"
   },
   {
-    "id": "ga:dcmROI",
-    "name": "DFA ROI"
+    "name": "ga:dcmROI",
+    "label": "DFA ROI"
   },
   {
-    "id": "ga:adsenseRevenue",
-    "name": "AdSense Revenue"
+    "name": "ga:adsenseRevenue",
+    "label": "AdSense Revenue"
   },
   {
-    "id": "ga:adsenseAdUnitsViewed",
-    "name": "AdSense Ad Units Viewed"
+    "name": "ga:adsenseAdUnitsViewed",
+    "label": "AdSense Ad Units Viewed"
   },
   {
-    "id": "ga:adsenseAdsViewed",
-    "name": "AdSense Impressions"
+    "name": "ga:adsenseAdsViewed",
+    "label": "AdSense Impressions"
   },
   {
-    "id": "ga:adsenseAdsClicks",
-    "name": "AdSense Ads Clicked"
+    "name": "ga:adsenseAdsClicks",
+    "label": "AdSense Ads Clicked"
   },
   {
-    "id": "ga:adsensePageImpressions",
-    "name": "AdSense Page Impressions"
+    "name": "ga:adsensePageImpressions",
+    "label": "AdSense Page Impressions"
   },
   {
-    "id": "ga:adsenseCTR",
-    "name": "AdSense CTR"
+    "name": "ga:adsenseCTR",
+    "label": "AdSense CTR"
   },
   {
-    "id": "ga:adsenseECPM",
-    "name": "AdSense eCPM"
+    "name": "ga:adsenseECPM",
+    "label": "AdSense eCPM"
   },
   {
-    "id": "ga:adsenseExits",
-    "name": "AdSense Exits"
+    "name": "ga:adsenseExits",
+    "label": "AdSense Exits"
   },
   {
-    "id": "ga:adsenseViewableImpressionPercent",
-    "name": "AdSense Viewable Impression %"
+    "name": "ga:adsenseViewableImpressionPercent",
+    "label": "AdSense Viewable Impression %"
   },
   {
-    "id": "ga:adsenseCoverage",
-    "name": "AdSense Coverage"
+    "name": "ga:adsenseCoverage",
+    "label": "AdSense Coverage"
   },
   {
-    "id": "ga:correlationScore",
-    "name": "Correlation Score"
+    "name": "ga:correlationScore",
+    "label": "Correlation Score"
   },
   {
-    "id": "ga:queryProductQuantity",
-    "name": "Queried Product Quantity"
+    "name": "ga:queryProductQuantity",
+    "label": "Queried Product Quantity"
   },
   {
-    "id": "ga:relatedProductQuantity",
-    "name": "Related Product Quantity"
+    "name": "ga:relatedProductQuantity",
+    "label": "Related Product Quantity"
   }
 ]

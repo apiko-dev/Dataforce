@@ -13,14 +13,12 @@ Template.SalesForceChartEditor.events
     tableName = tmpl.$('#table-dropdown').val()
 
     if tableName isnt 'none'
-      Meteor.call 'sfDescribe', tableName, (err, tableMeta) ->
-        fields = tableMeta.fields.map (field) -> {name: field.name, type: field.type, label: field.label}
+      Meteor.call 'sfDescribe', tableName, App.handleError (fields) ->
 
-        #prints unique types of table's meta
-        #types = []
-        #tableMeta.fields.forEach (field) -> unless field.type in types then types.push(field.type)
-        #console.log types.join(', ')
-
+#prints unique types of table's meta
+#types = []
+#tableMeta.fields.forEach (field) -> unless field.type in types then types.push(field.type)
+#console.log types.join(', ')
         tmpl.fields.set fields
         tmpl.currentTable.set tableName
     else
