@@ -10,7 +10,9 @@ _App =
         onSuccess(res) if onSuccess
 
 #Displays error
-  onError: (err) -> alert err
+  onError: (err) ->
+    console.log 'Error handled\n', err
+    alert err
 
 
 _.extend App, _App

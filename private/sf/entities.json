@@ -1,6 +1,19 @@
 [
-  {"name": "Users"},
-  {"name": "Accounts"},
-  {"name": "Campaigns"},
-  {"name": "Opportunities"}
+  {
+    "name": "Account",
+    "label": "Users"
+  },
+  {
+    "name": "Opportunity",
+    "label": "Accounts"
+  },
+  {
+    "name": "Contact",
+    "label": "Campaigns"
+  },
+  {
+    "name": "Lead",
+    "label": "Opportunities"
+  }
 ]
+

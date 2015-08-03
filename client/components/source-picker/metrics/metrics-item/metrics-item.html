@@ -1,9 +1,8 @@
 <template name="MetricsItem">
     <li>
-        <label class="radio" for="radio1">
-            <input type="radio" name="optionsRadios1" value="" id="radio1" data-toggle="radio" class="custom-radio">
-            {{name}}
+        <label class="radio" for="{{id}}">
+            <input type="radio" name="metricRadio" value="{{name}}" id="{{id}}" data-toggle="radio">
+            {{name}} ({{type}})
         </label>
-
     </li>
 </template>
