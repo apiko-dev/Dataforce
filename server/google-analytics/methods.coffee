@@ -1,40 +1,19 @@
-#todo @vlad this should be moved into settings.json
-CLIENT_ID = "492445934834-1pbljtblmkddmjqv978a81a0vb3j59r6.apps.googleusercontent.com"
-CLIENT_SECRET = "NpuwJp2HB7454YiGET16F5c9"
-REDIRECT_URL = "http://localhost:3000/google-analytics-sample/_oauth/google"
-SCOPES = ['openid', 'email', 'profile', 'https://www.googleapis.com/auth/analytics.readonly']
-
+SETTINGS = Meteor.settings.private.GoogleAnalytics
 
 googleapis = Meteor.npmRequire "googleapis"
 googleAnalytics = googleapis.analytics "v3"
 OAuth2 = googleapis.auth.OAuth2
-oauth2Client = new OAuth2 CLIENT_ID, CLIENT_SECRET, REDIRECT_URL
-
+oauth2Client = new OAuth2 SETTINGS.CLIENT_ID, SETTINGS.CLIENT_SECRET, SETTINGS.REDIRECT_URL
 
 Meteor.methods
+  "GA.getDimensionsList": -> JSON.parse Assets.getText "ga/ga-dimensions-list.json"
+
+  "GA.getMetricsList": -> JSON.parse Assets.getText "ga/ga-metrics-list.json"
+
   "GA.loadTokens": ->
     connector = Connectors.findOne {userId: @userId, name: ConnectorNames.GoogleAnalytics}
     if connector
       oauth2Client.setCredentials connector.tokens
-
-  "GA.generateAuthUrl": ->
-    oauth2Client.generateAuthUrl
-      access_type: "offline"
-      scope: SCOPES
-
-  "GA.saveToken": (code) ->
-    check code, String
-    userId = @userId
-    oauth2Client.getToken code, Meteor.bindEnvironment (err, tokens) ->
-      if not err
-        oauth2Client.setCredentials tokens
-        gaServiceCredentials = _.extend {userId: userId}, {tokens: tokens}
-        ServiceCredentials.update {
-          userId: userId,
-          name: ConnectorNames.GoogleAnalytics
-        }, {$set: gaServiceCredentials}, {upsert: true}
-
-  "GA.getMetricsList": -> JSON.parse Assets.getText "ga/ga-all-metrics.json"
 
   "GA.getAccounts": ->
     profilesListJson = Async.runSync (done) ->
