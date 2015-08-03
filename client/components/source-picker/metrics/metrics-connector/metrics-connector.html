@@ -1,0 +1,8 @@
+<template name="MetricsConnector">
+    <div class="metrics-list-title">{{name}}</div>
+    <ul class="metrics-list">
+        {{#each metrics}}
+            {{> MetricsItem}}
+        {{/each}}
+    </ul>
+</template>

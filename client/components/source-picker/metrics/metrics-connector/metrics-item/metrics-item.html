@@ -1,0 +1,10 @@
+<template name="MetricsItem">
+    <li>
+        <label class="radio" for="{{name}}">
+            <input type="radio" name="metricRadio" value="{{name}}" id="{{name}}" data-toggle="radio">
+            <div class="metric-info">
+                {{label}} <span class="metrics-type">{{type}}</span>
+            </div>
+        </label>
+    </li>
+</template>
