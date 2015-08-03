@@ -17,3 +17,10 @@ Template.SourcePicker.helpers
   showConnectorEntityPicker: -> Template.instance().showConnectorEntityPicker.get()
   connectorName: -> Template.instance().entityPickerConnectorName.get()
 
+Template.SourcePicker.events
+  'click .save-button': (event, tmpl) ->
+    metric = tmpl.$('[name="metricRadio"]').val()
+    console.log 'metric:', tmpl.$('[name="metricRadio"]').val()
+
+  'change.radiocheck [name="metricRadio"]': (event, tmpl, value) ->
+    console.log 'change', event, value

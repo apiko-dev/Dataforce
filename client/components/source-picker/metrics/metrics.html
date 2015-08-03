@@ -2,7 +2,7 @@
     <div class="metrics-list-wrapper">
         {{#with ConnectorNames}}
             {{> MetricsConnector name=Salesforce method='sfDescribe'}}
-            {{> MetricsConnector name=GoogleAnalytics method=''}}
+            {{> MetricsConnector name=GoogleAnalytics method='GA.getMetricsList'}}
         {{/with}}
     </div>
 </template>

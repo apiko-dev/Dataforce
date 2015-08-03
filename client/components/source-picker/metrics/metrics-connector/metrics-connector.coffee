@@ -1,3 +1,4 @@
+#future: add metrics' caching
 Template.MetricsConnector.onCreated ->
   @metrics = new ReactiveVar(false)
   @autorun =>

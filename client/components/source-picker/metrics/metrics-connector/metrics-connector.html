@@ -1,8 +1,10 @@
 <template name="MetricsConnector">
-    <div class="metrics-list-title">{{name}}</div>
-    <ul class="metrics-list">
-        {{#each metrics}}
-            {{> MetricsItem}}
-        {{/each}}
-    </ul>
+    {{#if config.enabled}}
+        <div class="metrics-list-title">{{name}}</div>
+        <ul class="metrics-list" data-connector="{{name}}" data-entity="config.entity">
+            {{#each metrics}}
+                {{> MetricsItem}}
+            {{/each}}
+        </ul>
+    {{/if}}
 </template>
