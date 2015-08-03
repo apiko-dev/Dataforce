@@ -43,7 +43,10 @@ Meteor.methods
 
         authParams = mapAuthParams conn
 
-        sfServiceCredentials = _.extend {userId: userId}, {salesforce: authParams}
+        sfServiceCredentials = _.extend {userId: userId}, {tokens: authParams}
 
         #save credentials
-        ServiceCredentials.update {userId: userId}, {$set: sfServiceCredentials}, {upsert: true}
+        Connectors.update {
+          userId: userId,
+          name: ConnectorNames.Salesforce
+        }, {$set: sfServiceCredentials}, {upsert: true}

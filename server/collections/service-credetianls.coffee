@@ -1,6 +1,6 @@
 deny = -> true
 
-ServiceCredentials.deny
+Connectors.deny
   insert: deny
   update: deny
   remove: deny

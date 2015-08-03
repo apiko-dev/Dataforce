@@ -11,3 +11,9 @@ App = {
     }
   }
 };
+
+ConnectorNames = {
+  GoogleAnalytics: 'Google Analytics',
+  Salesforce: 'Salesforce',
+  Zendesk: 'Zendesk'
+};

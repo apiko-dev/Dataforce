@@ -1,2 +1,2 @@
-ServiceCredentials = new Mongo.Collection('service_credentials');
+Connectors = new Mongo.Collection('connectors');
 Charts = new Mongo.Collection('charts');
