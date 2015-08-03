@@ -15,5 +15,6 @@ Template.CurveEditor.events
 
     newCurves = tmpl.get "newCurves"
     Meteor.setTimeout ->
+      # todo: rewrite considering removing the specific curve, not last
       newCurves.set App.Functions._withoutLast newCurves.get()
     , 510

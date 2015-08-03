@@ -2,7 +2,7 @@ Template.ChartEditor.onCreated ->
   @chart = new ReactiveVar(@data and @data.chart)
 
   @saveChart = =>
-#extract chart info
+    #extract chart info
     chart = {
       userId: Meteor.userId(),
       name: @$('.chart-name').val()
@@ -38,7 +38,5 @@ Template.ChartEditor.events
   'keyup .chart-name': (event, tmpl) ->
     tmpl.saveChart() if event.which is 13 #pressed enter
 
-  'click .show-picker': (event, tmpl) ->
+  'click .show-picker, click .axis-chooser': (event, tmpl) ->
     tmpl.chartSourcePicker.show()
-
-
