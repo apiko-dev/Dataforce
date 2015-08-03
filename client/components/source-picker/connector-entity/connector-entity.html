@@ -1,12 +1,14 @@
 <template name="ConnectorEntity">
     <div class="entity-picker-wrapper {{#unless visible}}hidden{{/unless}}">
-        <div class="picker-caption">Please, choose entity of {{name}}</div>
+        <div class="picker-caption">Please, choose entity for {{connector.name}}</div>
         <ul class="connector-entities">
             {{#each entities}}
-                <li>
+                <li class="entity-item" data-entity="{{name}}">
                     {{name}}
                 </li>
             {{/each}}
         </ul>
+
+        <button class="btn btn-default cancel-button">Cancel</button>
     </div>
 </template>
