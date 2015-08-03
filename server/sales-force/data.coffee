@@ -1,8 +1,8 @@
 checkCredentialsAndCreateConnection = (userId) ->
 #get credentials
-  credentials = ServiceCredentials.findOne {userId: userId}, fields: {salesforce: 1}
+  credentials = Connectors.findOne {userId: userId, name: ConnectorNames.Salesforce}
 
-  return App.Connectors.Salesforce.createConnection(credentials.salesforce)
+  return App.Connectors.Salesforce.createConnection(credentials.tokens)
 
 
 processQueryResult = (query, functionName) ->

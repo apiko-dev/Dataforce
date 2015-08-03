@@ -39,6 +39,10 @@ Router.map ->
     name: 'chartEditor',
     template: 'ChartEditor'
 
+  @route '/connectors',
+    name: 'connectors',
+    template: 'Connectors'
+
   @route 'oauth2/sales-force/callback',
     name: 'salesForceCallback'
     template: 'AuthSuccess'
