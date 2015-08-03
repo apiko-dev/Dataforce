@@ -11,16 +11,6 @@ Router.map ->
     name: 'home',
     template: 'Home'
 
-  @route '/google-analytics-sample/_oauth/google',
-    name: 'gaOAuth'
-    action: ->
-      if @params.query.code
-        Meteor.call "GA.saveToken", @params.query.code, (err, result) ->
-          Router.go "googleAnalyticsSample"
-      else
-        Meteor.call "GA.loadTokens", (err, result) ->
-          Router.go "googleAnalyticsSample"
-
   @route '/dashboard',
     name: 'dashboard',
     template: 'Dashboard'
@@ -57,6 +47,15 @@ Router.map ->
   @route '/google-analytics-sample',
     name: 'googleAnalyticsSample'
     template: 'googleAnalyticsSample'
+    onAfterAction: ->
+      Meteor.call "GA.loadTokens"
+
+  @route '/google-analytics-sample/_oauth/google',
+    name: 'gaOAuth'
+    action: ->
+      if @params.query.code
+        Meteor.call "GA.saveToken", @params.query.code, (err, result) ->
+          Router.go "googleAnalyticsSample"
 
   @route '/zendesk-example',
     name: 'zendeskExample',

@@ -8,6 +8,12 @@
     "SalesForce": {
       "key": "3MVG9Rd3qC6oMalXrecmbmnSCdTMQ8svKkhTfwp6uAPVSsbn6b4Ncn_eIfWZrsjqqouwOGWNvPPfg.06WD9jq",
       "secret": "7042426518495019054"
+    },
+    "GoogleAnalytics": {
+      "CLIENT_ID": "492445934834-1pbljtblmkddmjqv978a81a0vb3j59r6.apps.googleusercontent.com",
+      "CLIENT_SECRET": "NpuwJp2HB7454YiGET16F5c9",
+      "REDIRECT_URL": "http://localhost:3000/google-analytics-sample/_oauth/google",
+      "SCOPES": ["openid", "email", "profile", "https://www.googleapis.com/auth/analytics.readonly"]
     }
   },
   "public":{

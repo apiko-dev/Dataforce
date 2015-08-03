@@ -27,10 +27,10 @@ Template.gaChartConstructor.helpers
     Template.instance().gaAccounts.get()
 
   metricsList: ->
-    ReactiveMethod.call "getGaMetricsList"
+    ReactiveMethod.call "GA.getMetricsList"
 
   dimensionsList: ->
-    ReactiveMethod.call "getGaDimensionsList"
+    ReactiveMethod.call "GA.getDimensionsList"
 
   additionalAxises: ->
     Template.instance().additionalAxises.get()
