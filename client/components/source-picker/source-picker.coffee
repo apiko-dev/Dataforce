@@ -1,16 +1,19 @@
 Template.SourcePicker.onCreated ->
-  @showConnectorEntityPicker = new ReactiveVar(false)
+  @showConnectorEntityPicker = new ReactiveVar false
+  @entityPickerConnectorName = new ReactiveVar false
 
   @setEntityPickerVisibility = (visibility) => @showConnectorEntityPicker.set visibility
-  @setConnectorEntity = (connector, entity) =>
-    @setEntityPickerVisibility(false)
-    console.log 'connector config', connector, entity
 
-  @showEntityPickerFor = (connector) =>
-    Session.set('currentConnector', connector)
-    @setEntityPickerVisibility(true)
+  @setConnectorEntity = (connectorName, entity) =>
+    @setEntityPickerVisibility(false)
+    Session.set connectorName, {entity: entity, enabled: true}
+
+  @showEntityPickerFor = (connectorName) =>
+    @entityPickerConnectorName.set connectorName
+    @setEntityPickerVisibility true
 
 
 Template.SourcePicker.helpers
   showConnectorEntityPicker: -> Template.instance().showConnectorEntityPicker.get()
+  connectorName: -> Template.instance().entityPickerConnectorName.get()
 

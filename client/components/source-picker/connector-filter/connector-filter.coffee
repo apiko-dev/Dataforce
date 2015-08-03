@@ -7,4 +7,4 @@ Template.ConnectorFilter.helpers
     {name: ConnectorNames.Salesforce, caption: 'SF', style: 'info'}
     {name: ConnectorNames.GoogleAnalytics, caption: 'GA', style: 'danger'}
     {name: ConnectorNames.Zendesk, caption: 'ZD', style: 'success'}
-  ].filter (conn) -> !!Connectors.findOne {name: conn.name} #show only services user logged in
+  ].filter (connector) -> !!Connectors.findOne {name: connector.name} #show only services user logged in
