@@ -18,8 +18,21 @@
     &:hover {
       background-color: @borderColor;
     }
+
     &:first-child {
       border-right: none;
+    }
+
+    .connector-logo {
+      position: absolute;
+      width: 100px;
+      opacity: 0;
+      margin-left: -38px;
+      -webkit-filter: blur(2px);
+      -moz-filter: blur(2px);
+      -o-filter: blur(2px);
+      -ms-filter: blur(2px);
+      filter: blur(2px);
     }
   }
 }
