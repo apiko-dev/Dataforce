@@ -4,14 +4,31 @@
   transition: opacity 0.5s;
   border: @border;
   background: white;
-  opacity: .8;
-  //width: 400px;
-  //height: 300px;
+  opacity: .95;
+  padding: 10px;
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
+  overflow-y: auto;
+
+  .connector-entities {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: 14px;
+
+    .entity-item {
+      padding: 5px;
+      margin-bottom: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background: @accentColor;
+        color: white;
+      }
+    }
+  }
 
   &.hidden {
     opacity: 0;

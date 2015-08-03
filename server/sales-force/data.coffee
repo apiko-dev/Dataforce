@@ -43,3 +43,5 @@ Meteor.methods
     series = new transformer(chart, tableData)
     convertedSeries = series.getConvertedSeriesForHighchart()
     return convertedSeries
+
+  sfGetConnectorEntries: () -> JSON.parse Assets.getText('sf/entities.json')
