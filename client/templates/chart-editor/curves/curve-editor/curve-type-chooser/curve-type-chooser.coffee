@@ -1,3 +1,9 @@
 Template.CurveTypeChooser.events
   'click .curve-type-chooser .btn': (event, tmpl) ->
-    chosenCurveType = tmpl.$(event.target).data 'type'
+    buttonObject = tmpl.$(event.target)
+    otherButtons = tmpl.$('.curve-type-chooser .btn')
+
+    chosenCurveType = buttonObject.data 'type'
+
+    otherButtons.removeClass "pressed"
+    buttonObject.addClass "pressed"
