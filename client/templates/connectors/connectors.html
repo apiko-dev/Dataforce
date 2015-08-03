@@ -1,0 +1,15 @@
+<template name="Connectors">
+    <div class="row app-view-header">
+        <div class="col-md-12">
+            <h4 class="app-view-title">Connectors</h4>
+        </div>
+    </div>
+
+    <ul class="row connectors-list">
+        {{#each availableConnectors}}
+            <li class="connector-item">
+                <a href="{{authUrl}}" target="_blank">{{name}}</a>
+            </li>
+        {{/each}}
+    </ul>
+</template>
