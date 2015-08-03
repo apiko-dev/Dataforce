@@ -10,7 +10,9 @@
                 <input type="text" class="form-control search-metric-input" placeholder="Search">
             </div>
 
-            {{> ConnectorEntity visible=showConnectorEntityPicker}}
+            {{> ConnectorEntity connectorName=connectorName visible=showConnectorEntityPicker}}
+
+            {{> Metrics}}
         {{/with}}
     </div>
     <div class="dragable-window-footer">

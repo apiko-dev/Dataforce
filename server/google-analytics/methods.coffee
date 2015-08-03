@@ -34,11 +34,7 @@ Meteor.methods
           name: ConnectorNames.GoogleAnalytics
         }, {$set: gaServiceCredentials}, {upsert: true}
 
-  "getGaDimensionsList": ->
-    JSON.parse Assets.getText "ga/ga-dimensions-list.json"
-
-  "getGaMetricsList": ->
-    JSON.parse Assets.getText "ga/ga-metrics-list.json"
+  "GA.getMetricsList": -> JSON.parse Assets.getText "ga/ga-all-metrics.json"
 
   "GA.getAccounts": ->
     profilesListJson = Async.runSync (done) ->
