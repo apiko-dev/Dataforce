@@ -3,6 +3,5 @@ Template.googleAnalyticsSample.helpers
     JSON.stringify obj
 
 Template.googleAnalyticsSample.events
-  "click #ga-logout": (event, tmpl) ->
-    console.log "loggin out from google analytics"
-    Meteor.call "GA.logout"
+  "click #ga-logout": -> Meteor.call "GA.logout"
+  "click #ga-get-auth-state": -> Tracker.autorun -> console.log ReactiveMethod.call "GA.isAuthenticated"

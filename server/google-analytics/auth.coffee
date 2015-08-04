@@ -11,6 +11,9 @@ Meteor.methods
       access_type: "offline"
       scope: SETTINGS.SCOPES
 
+  "GA.isAuthenticated": ->
+    not _.isEqual oauth2Client.credentials, {}
+
   "GA.saveToken": (code) ->
     check code, String
     userId = @userId
@@ -28,10 +31,12 @@ Meteor.methods
   "GA.logout": ->
     userId = @userId
     gaConnector = Connectors.findOne {userId: @userId, name: ConnectorNames.GoogleAnalytics}
-    tokenToRevoke = gaConnector.tokens.access_token
+    tokenToRevoke = gaConnector?.tokens?.access_token
 
     if tokenToRevoke
       HTTP.get("https://accounts.google.com/o/oauth2/revoke?token=#{tokenToRevoke}").content
+
+      oauth2Client.setCredentials {}
 
       Connectors.remove {
         userId: userId
