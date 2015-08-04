@@ -22,7 +22,6 @@ Template.SourcePicker.events
   'click .cancel-button': (event, tmpl) ->
     tmpl.data.instance.hide()
 
-
   'click .save-button': (event, tmpl) ->
     metric = tmpl.$('[name="metricRadio"]').val()
     console.log 'metric:', tmpl.$('[name="metricRadio"]').val()

@@ -16,4 +16,33 @@ App.Connectors.Salesforce = {
       }
       accessToken: credentials.accessToken
       instanceUrl: credentials.instanceUrl
+
+
+  getConnectorByUserId: (userId) -> Connectors.findOne {userId: userId, name: ConnectorNames.Salesforce}
+
+
+  refreshToken: (userId) ->
+    connector = @getConnectorByUserId userId
+    oAuth2 = @createOAuth2Credentials()
+    syncRes = Async.runSync (done) -> oAuth2.refreshToken connector.tokens.refreshToken, done
+
+    if syncRes.error
+#todo remove this message after successful token refresh
+      console.log 'ERROR WHILE REFRESHING TOKEN.'
+      throw syncRes.error
+    else
+      Connectors.update {userId: userId, name: ConnectorNames.Salesforce}, {$set: {tokens: syncRes.result}}
+      console.log 'SALESFORCE REFRESH_TOKEN UPDATED'
+      console.log @getConnectorByUserId(userId)
+
+
+  revokeToken: (userId) ->
+#    todo: check this method
+    connector = @getConnectorByUserId userId
+    oAuth2 = @createOAuth2Credentials()
+    oAuth2.revokeToken connector.tokens.accessToken, Meteor.bindEnvironment (err, res) ->
+      console.log 'ERROR WHILE REVOKING TOKEN'
+      throw err
+      Connectors.remove {_id: connector._id}
+
 }
