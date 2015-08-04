@@ -1,20 +1,17 @@
 <template name="googleAnalyticsSample">
-  <div class="container">
-    <h1 class="text-center">Google Analytics Demo</h1>
+    <div class="container">
+        <h1 class="text-center">Google Analytics Demo</h1>
 
-    {{#if currentUser}}
         <div class="row">
-          <div class="col-sm-12 col-md-6">
-            {{> gaChartConstructor}}
-            <textarea cols="60" rows="10"></textarea>
-          </div>
+            <div class="col-sm-12 col-md-6">
+                {{> gaChartConstructor}}
+                <textarea cols="60" rows="10"></textarea>
+            </div>
 
-          <div class="col-sm-12 col-md-6">
-            {{> gaChart}}
-          </div>
+            <div class="col-sm-12 col-md-6">
+                {{> gaChart}}
+            </div>
         </div>
-      {{else}}
-      <h3>Sign in please</h3>
-      {{/if}}
-  </div>
+        <button class="btn btn-danger" id="ga-logout">Log out</button>
+    </div>
 </template>
