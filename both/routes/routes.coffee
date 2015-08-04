@@ -48,14 +48,14 @@ Router.map ->
     name: 'googleAnalyticsSample'
     template: 'googleAnalyticsSample'
     onAfterAction: ->
-      Meteor.call "GA.loadTokens"
+      Meteor.call 'GA.loadTokens'
 
   @route '/google-analytics-sample/_oauth/google',
     name: 'gaOAuth'
     action: ->
       if @params.query.code
-        Meteor.call "GA.saveToken", @params.query.code, (err, result) ->
-          Router.go "googleAnalyticsSample"
+        Meteor.call 'GA.saveToken', @params.query.code, (err, result) ->
+          Router.go 'connectors'
 
   @route '/zendesk-example',
     name: 'zendeskExample',
