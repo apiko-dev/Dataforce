@@ -2,6 +2,8 @@ checkCredentialsAndCreateConnection = (userId) ->
 #get credentials
   credentials = App.Connectors.Salesforce.getConnectorByUserId userId
 
+  unless credentials then throw new Meteor.Error('500', 'You are not authenticated in Salesforce on "Connectors" page')
+
   return App.Connectors.Salesforce.createConnection(credentials.tokens)
 
 
@@ -32,7 +34,7 @@ Meteor.methods
     connection = checkCredentialsAndCreateConnection(@userId)
 
     tableMeta = processQueryResult connection.sobject(tableName), 'describe', @userId
-    tableMeta.fields.map (field) -> {name: field.name, type: field.type, label: field.label}
+    tableMeta.fields?.map (field) -> {name: field.name, type: field.type, label: field.label}
 
 
   sfGetTableData: (tableName, filters) ->

@@ -31,7 +31,9 @@ App.Connectors.Salesforce = {
       console.log 'ERROR WHILE REFRESHING TOKEN.'
       throw syncRes.error
     else
-      Connectors.update {userId: userId, name: ConnectorNames.Salesforce}, {$set: {tokens: syncRes.result}}
+      accessToken = syncRes.result.access_token
+      console.log 'result', syncRes.result
+      Connectors.update {userId: userId, name: ConnectorNames.Salesforce}, {$set: {'tokens.accessToken': accessToken}}
       console.log 'SALESFORCE REFRESH_TOKEN UPDATED'
       console.log @getConnectorByUserId(userId)
 
@@ -41,8 +43,10 @@ App.Connectors.Salesforce = {
     connector = @getConnectorByUserId userId
     oAuth2 = @createOAuth2Credentials()
     oAuth2.revokeToken connector.tokens.accessToken, Meteor.bindEnvironment (err, res) ->
-      console.log 'ERROR WHILE REVOKING TOKEN'
-      throw err
-      Connectors.remove {_id: connector._id}
+      if err
+        console.log 'ERROR WHILE REVOKING TOKEN'
+        console.log err
+      else
+        Connectors.remove {_id: connector._id}
 
 }
