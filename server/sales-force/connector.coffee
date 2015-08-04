@@ -40,7 +40,9 @@ App.Connectors.Salesforce = {
 #    todo: check this method
     connector = @getConnectorByUserId userId
     oAuth2 = @createOAuth2Credentials()
-    oAuth2.revokeToken connector.tokens.accessToken, Meteor.bindEnvironment () ->
+    oAuth2.revokeToken connector.tokens.accessToken, Meteor.bindEnvironment (err, res) ->
+      console.log 'ERROR WHILE REVOKING TOKEN'
+      throw err
       Connectors.remove {_id: connector._id}
 
 }
