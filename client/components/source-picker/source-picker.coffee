@@ -1,7 +1,6 @@
 Template.SourcePicker.onCreated ->
   @showConnectorEntityPicker = new ReactiveVar false
   @entityPickerConnectorName = new ReactiveVar false
-  @modalResult = new ReactiveVar {filterBy: [], orderBy: null}
 
   @setEntityPickerVisibility = (visibility) => @showConnectorEntityPicker.set visibility
 
@@ -17,6 +16,11 @@ Template.SourcePicker.onCreated ->
   @clearSearch = -> Session.set('searchQuery', '')
   @clearSearch()
 
+  @autorun =>
+    data = Template.currentData()
+    axisVar = data.context.axis
+    if axisVar and not axisVar.get() then axisVar.set {filterBy: [], orderBy: null}
+
 
 Template.SourcePicker.helpers
   showConnectorEntityPicker: -> Template.instance().showConnectorEntityPicker.get()
@@ -28,20 +32,22 @@ Template.SourcePicker.events
     tmpl.data.instance.hide()
     tmpl.clearSearch()
 
+
   'click .save-button': (event, tmpl) ->
-    clearSearch()
-    metric = tmpl.$('[name="metricRadio"]').val()
-    console.log 'metric:', tmpl.$('[name="metricRadio"]').val()
+    tmpl.clearSearch()
+    tmpl.data.instance.hide()
+
 
   'change.radiocheck [name="metricRadio"]': (event, tmpl, value) ->
     target = tmpl.$(event.target)
     metricsList = target.closest('.metrics-list')
-    console.log target, metricsList
+
+    fieldName = tmpl.$('input:radio[name=metricRadio]:checked').val()
 
     axis =
-      fieldName: tmpl.$('[name="metricRadio"]').val()
+      fieldName: fieldName
       connectorId: metricsList.attr('data-connector')
       entityName: metricsList.attr('data-entity')
 
-    prevAxis = tmpl.modalResult.get()
-    tmpl.modalResult.set _.extend prevAxis, axis
+    axisVar = tmpl.data.context.axis
+    axisVar.set _.extend axisVar.get(), axis
