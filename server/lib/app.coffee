@@ -42,3 +42,8 @@ _App = {
 
 _.extend App, _App
 
+#IntercomSettings.userInfo = (user, info) ->
+#  # add properties to the info object, for instance:
+#  if user.services.google
+#    info.email = user.services.google.email
+#    info['name'] = user.services.google.given_name + ' ' + user.services.google.family_name
