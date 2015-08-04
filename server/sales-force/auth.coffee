@@ -50,3 +50,7 @@ Meteor.methods
           userId: userId,
           name: ConnectorNames.Salesforce
         }, {$set: sfServiceCredentials}, {upsert: true}
+
+
+  sfRevokeAccess: () ->
+    App.Connectors.Salesforce.revokeToken @userId
