@@ -17,7 +17,6 @@ Meteor.methods
   "GA.loadTokens": ->
     gaConnector = Connectors.findOne {userId: @userId, name: ConnectorNames.GoogleAnalytics}
     if gaConnector
-      console.log gaConnector.tokens
       oauth2Client.setCredentials gaConnector.tokens
 
   "GA.getAccounts": ->
@@ -35,10 +34,9 @@ Meteor.methods
         name: el.id
 #        webPropertyId: el.webPropertyId
         label: if el.websiteUrl.length > 3 then el.websiteUrl.replace "http://", "" else el.webPropertyId
-      console.log arr
       arr
     else
-      console.log profilesListJson.error
+      handleError profilesListJson.error
       []
 
   "GA.getSeries": (query) ->
@@ -59,7 +57,7 @@ Meteor.methods
         metrics: query.metrics
         dimensions: query.dimensions
       }, (err, result) ->
-        err and console.log err
+        handleError err
         done err, result
 
     dataAdapter = new App.DataAdapters.GoogleAnalytics query, rawJson
