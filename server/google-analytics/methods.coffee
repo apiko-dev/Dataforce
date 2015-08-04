@@ -6,6 +6,8 @@ OAuth2 = googleapis.auth.OAuth2
 oauth2Client = new OAuth2 SETTINGS.CLIENT_ID, SETTINGS.CLIENT_SECRET, SETTINGS.REDIRECT_URL
 
 Meteor.methods
+  "GA.getAllMetrics": -> JSON.parse Assets.getText "ga/ga-all-metrics.json"
+
   "GA.getDimensionsList": -> JSON.parse Assets.getText "ga/ga-dimensions-list.json"
 
   "GA.getMetricsList": -> JSON.parse Assets.getText "ga/ga-metrics-list.json"
