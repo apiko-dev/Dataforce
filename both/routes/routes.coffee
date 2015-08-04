@@ -47,8 +47,6 @@ Router.map ->
   @route '/google-analytics-sample',
     name: 'googleAnalyticsSample'
     template: 'googleAnalyticsSample'
-    onAfterAction: ->
-      Meteor.call 'GA.loadTokens'
 
   @route '/google-analytics-sample/_oauth/google',
     name: 'gaOAuth'
@@ -65,3 +63,5 @@ Router.map ->
     name: 'salesForceSample',
     template: 'SalesForceSample'
 
+Router.onAfterAction ->
+  Meteor.call 'GA.loadTokens'

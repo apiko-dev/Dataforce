@@ -15,6 +15,7 @@ Template.ConnectorEntity.helpers
     if @connectorName is ConnectorNames.Salesforce
       tmpl.sfEntries.get()
     else if @connectorName is ConnectorNames.GoogleAnalytics
+      console.log ReactiveMethod.call "GA.getAccounts"
       ReactiveMethod.call "GA.getAccounts"
     else []
 
