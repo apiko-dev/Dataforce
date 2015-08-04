@@ -1,7 +1,7 @@
 <template name="MetricsConnector">
     {{#if config.enabled}}
         <div class="metrics-list-title">{{name}}</div>
-        <ul class="metrics-list" data-connector="{{name}}" data-entity="config.entity">
+        <ul class="metrics-list" data-connector="{{name}}" data-entity="{{config.entity}}">
             {{#each metrics}}
                 {{#if matchSearchQuery label}}
                     {{> MetricsItem}}
