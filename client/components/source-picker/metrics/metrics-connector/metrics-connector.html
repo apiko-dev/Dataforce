@@ -3,7 +3,9 @@
         <div class="metrics-list-title">{{name}}</div>
         <ul class="metrics-list" data-connector="{{name}}" data-entity="config.entity">
             {{#each metrics}}
-                {{> MetricsItem}}
+                {{#if matchSearchQuery label}}
+                    {{> MetricsItem}}
+                {{/if}}
             {{/each}}
         </ul>
     {{/if}}

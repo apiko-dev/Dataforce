@@ -3,9 +3,11 @@
         <div class="picker-caption">Please, choose entity for {{connectorName}}</div>
         <ul class="connector-entities">
             {{#each entities}}
-                <li class="entity-item" data-entity="{{name}}">
-                    {{label}}
-                </li>
+                {{#if matchSearchQuery label}}
+                    <li class="entity-item" data-entity="{{name}}">
+                        {{label}}
+                    </li>
+                {{/if}}
             {{/each}}
         </ul>
 

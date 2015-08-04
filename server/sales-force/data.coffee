@@ -62,3 +62,9 @@ Meteor.methods
     return convertedSeries
 
   sfGetConnectorEntries: () -> JSON.parse Assets.getText('sf/entities.json')
+
+#    connection = checkCredentialsAndCreateConnection(@userId)
+#    sfMeta = processQueryResult connection, 'describeGlobal', @userId
+#    return sfMeta.sobjects.map (sobj) -> {label: sobj.label, name: sobj.name}
+
+

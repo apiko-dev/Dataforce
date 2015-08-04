@@ -1,14 +1,12 @@
 <template name="SourcePicker">
     <div class="dragable-window-header">
-        Source picker {{> DragableWindowCloseButton}}
+        Source picker
+        {{> SearchWidget}}
+        {{> DragableWindowCloseButton}}
     </div>
     <div class="dragable-window-body source-picker-body">
         {{#with context}}
             {{> ConnectorFilter}}
-            <!--search-->
-            <div class="search-input-wrapper simple-panel">
-                <input type="text" class="form-control search-metric-input" placeholder="Search">
-            </div>
 
             {{> ConnectorEntity connectorName=connectorName visible=showConnectorEntityPicker}}
 

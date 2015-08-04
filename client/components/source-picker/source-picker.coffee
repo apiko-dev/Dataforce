@@ -9,8 +9,11 @@ Template.SourcePicker.onCreated ->
     Session.set connectorName, {entity: entity, enabled: true}
 
   @showEntityPickerFor = (connectorName) =>
+    Session.set('searchQuery', '')
     @entityPickerConnectorName.set connectorName
     @setEntityPickerVisibility true
+
+  Session.set('searchQuery', '')
 
 
 Template.SourcePicker.helpers

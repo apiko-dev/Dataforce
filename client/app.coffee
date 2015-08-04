@@ -14,5 +14,15 @@ _App =
     console.log 'Error handled\n', err
     alert err
 
+#global app helpers
+  helpers:
+    matchSearchQuery: (targetStr) ->
+      searchQuery = Session.get('searchQuery')
+      searchQuery is '' or targetStr.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1
+
+
+#register global helpers
+for helperName of _App.helpers
+  Template.registerHelper helperName, _App.helpers[helperName]
 
 _.extend App, _App

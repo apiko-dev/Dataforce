@@ -1,19 +1,1106 @@
 [
   {
-    "name": "Account",
-    "label": "Users"
+    "label": "Accepted Event Relation",
+    "name": "AcceptedEventRelation"
   },
   {
-    "name": "Opportunity",
-    "label": "Accounts"
+    "label": "Account",
+    "name": "Account"
   },
   {
-    "name": "Contact",
-    "label": "Campaigns"
+    "label": "Account Clean Info",
+    "name": "AccountCleanInfo"
   },
   {
-    "name": "Lead",
-    "label": "Opportunities"
+    "label": "Account Contact Role",
+    "name": "AccountContactRole"
+  },
+  {
+    "label": "Account Feed",
+    "name": "AccountFeed"
+  },
+  {
+    "label": "Account History",
+    "name": "AccountHistory"
+  },
+  {
+    "label": "Account Partner",
+    "name": "AccountPartner"
+  },
+  {
+    "label": "Account Share",
+    "name": "AccountShare"
+  },
+  {
+    "label": "Action Link Group Template",
+    "name": "ActionLinkGroupTemplate"
+  },
+  {
+    "label": "Action Link Template",
+    "name": "ActionLinkTemplate"
+  },
+  {
+    "label": "Activity History",
+    "name": "ActivityHistory"
+  },
+  {
+    "label": "Additional Directory Number",
+    "name": "AdditionalNumber"
+  },
+  {
+    "label": "Aggregate Result",
+    "name": "AggregateResult"
+  },
+  {
+    "label": "Announcement",
+    "name": "Announcement"
+  },
+  {
+    "label": "Apex Class",
+    "name": "ApexClass"
+  },
+  {
+    "label": "Visualforce Component",
+    "name": "ApexComponent"
+  },
+  {
+    "label": "Apex Debug Log",
+    "name": "ApexLog"
+  },
+  {
+    "label": "Visualforce Page",
+    "name": "ApexPage"
+  },
+  {
+    "label": "Apex Test Queue Item",
+    "name": "ApexTestQueueItem"
+  },
+  {
+    "label": "Apex Test Result",
+    "name": "ApexTestResult"
+  },
+  {
+    "label": "Apex Trigger",
+    "name": "ApexTrigger"
+  },
+  {
+    "label": "AppMenuItem",
+    "name": "AppMenuItem"
+  },
+  {
+    "label": "Asset",
+    "name": "Asset"
+  },
+  {
+    "label": "Asset Feed",
+    "name": "AssetFeed"
+  },
+  {
+    "label": "Asset History",
+    "name": "AssetHistory"
+  },
+  {
+    "label": "Asset Share",
+    "name": "AssetShare"
+  },
+  {
+    "label": "Assignment Rule",
+    "name": "AssignmentRule"
+  },
+  {
+    "label": "Apex Job",
+    "name": "AsyncApexJob"
+  },
+  {
+    "label": "Attached Content Document",
+    "name": "AttachedContentDocument"
+  },
+  {
+    "label": "Attachment",
+    "name": "Attachment"
+  },
+  {
+    "label": "Lightning Component Definition",
+    "name": "AuraDefinition"
+  },
+  {
+    "label": "Lightning Component Bundle",
+    "name": "AuraDefinitionBundle"
+  },
+  {
+    "label": "Authentication Configuration",
+    "name": "AuthConfig"
+  },
+  {
+    "label": "Authentication Configuration Auth. Provider",
+    "name": "AuthConfigProviders"
+  },
+  {
+    "label": "Auth. Provider",
+    "name": "AuthProvider"
+  },
+  {
+    "label": "Auth Session",
+    "name": "AuthSession"
+  },
+  {
+    "label": "Letterhead",
+    "name": "BrandTemplate"
+  },
+  {
+    "label": "Business Hours",
+    "name": "BusinessHours"
+  },
+  {
+    "label": "Business Process",
+    "name": "BusinessProcess"
+  },
+  {
+    "label": "Call Center",
+    "name": "CallCenter"
+  },
+  {
+    "label": "Campaign",
+    "name": "Campaign"
+  },
+  {
+    "label": "Campaign Feed",
+    "name": "CampaignFeed"
+  },
+  {
+    "label": "Campaign Member",
+    "name": "CampaignMember"
+  },
+  {
+    "label": "Campaign Member Status",
+    "name": "CampaignMemberStatus"
+  },
+  {
+    "label": "Campaign Share",
+    "name": "CampaignShare"
+  },
+  {
+    "label": "Case",
+    "name": "Case"
+  },
+  {
+    "label": "Case Comment",
+    "name": "CaseComment"
+  },
+  {
+    "label": "Case Contact Role",
+    "name": "CaseContactRole"
+  },
+  {
+    "label": "Case Feed",
+    "name": "CaseFeed"
+  },
+  {
+    "label": "Case History",
+    "name": "CaseHistory"
+  },
+  {
+    "label": "Case Share",
+    "name": "CaseShare"
+  },
+  {
+    "label": "Case Solution",
+    "name": "CaseSolution"
+  },
+  {
+    "label": "Case Status Value",
+    "name": "CaseStatus"
+  },
+  {
+    "label": "Case Team Member",
+    "name": "CaseTeamMember"
+  },
+  {
+    "label": "Case Team Member Role",
+    "name": "CaseTeamRole"
+  },
+  {
+    "label": "Predefined Case Team",
+    "name": "CaseTeamTemplate"
+  },
+  {
+    "label": "Predefined Case Team Member",
+    "name": "CaseTeamTemplateMember"
+  },
+  {
+    "label": "Predefined Case Team Record",
+    "name": "CaseTeamTemplateRecord"
+  },
+  {
+    "label": "Category Data",
+    "name": "CategoryData"
+  },
+  {
+    "label": "Category Node",
+    "name": "CategoryNode"
+  },
+  {
+    "label": "Chatter Activity",
+    "name": "ChatterActivity"
+  },
+  {
+    "label": "Client Browser",
+    "name": "ClientBrowser"
+  },
+  {
+    "label": "Group",
+    "name": "CollaborationGroup"
+  },
+  {
+    "label": "Group Feed",
+    "name": "CollaborationGroupFeed"
+  },
+  {
+    "label": "Group Member",
+    "name": "CollaborationGroupMember"
+  },
+  {
+    "label": "Group Member Request",
+    "name": "CollaborationGroupMemberRequest"
+  },
+  {
+    "label": "Group Record",
+    "name": "CollaborationGroupRecord"
+  },
+  {
+    "label": "Chatter Invitation",
+    "name": "CollaborationInvitation"
+  },
+  {
+    "label": "Note, Attachment, Google Doc And File",
+    "name": "CombinedAttachment"
+  },
+  {
+    "label": "Zone",
+    "name": "Community"
+  },
+  {
+    "label": "Connected App",
+    "name": "ConnectedApplication"
+  },
+  {
+    "label": "Contact",
+    "name": "Contact"
+  },
+  {
+    "label": "Contact Clean Info",
+    "name": "ContactCleanInfo"
+  },
+  {
+    "label": "Contact Feed",
+    "name": "ContactFeed"
+  },
+  {
+    "label": "Contact History",
+    "name": "ContactHistory"
+  },
+  {
+    "label": "Contact Share",
+    "name": "ContactShare"
+  },
+  {
+    "label": "Content Delivery",
+    "name": "ContentDistribution"
+  },
+  {
+    "label": "Content Delivery View",
+    "name": "ContentDistributionView"
+  },
+  {
+    "label": "Content Document",
+    "name": "ContentDocument"
+  },
+  {
+    "label": "ContentDocument Feed",
+    "name": "ContentDocumentFeed"
+  },
+  {
+    "label": "Content Document History",
+    "name": "ContentDocumentHistory"
+  },
+  {
+    "label": "Content Document Link",
+    "name": "ContentDocumentLink"
+  },
+  {
+    "label": "Content Version",
+    "name": "ContentVersion"
+  },
+  {
+    "label": "Content Version History",
+    "name": "ContentVersionHistory"
+  },
+  {
+    "label": "Library",
+    "name": "ContentWorkspace"
+  },
+  {
+    "label": "Library Document",
+    "name": "ContentWorkspaceDoc"
+  },
+  {
+    "label": "Contract",
+    "name": "Contract"
+  },
+  {
+    "label": "Contract Contact Role",
+    "name": "ContractContactRole"
+  },
+  {
+    "label": "Contract Feed",
+    "name": "ContractFeed"
+  },
+  {
+    "label": "Contract History",
+    "name": "ContractHistory"
+  },
+  {
+    "label": "Contract Status Value",
+    "name": "ContractStatus"
+  },
+  {
+    "label": "CORS Whitelist Origin",
+    "name": "CorsWhitelistEntry"
+  },
+  {
+    "label": "Cron Job",
+    "name": "CronJobDetail"
+  },
+  {
+    "label": "Scheduled Jobs",
+    "name": "CronTrigger"
+  },
+  {
+    "label": "Crypto Key Derivation Data",
+    "name": "CryptoKeyDerivationData"
+  },
+  {
+    "label": "Custom Object Usage By User License Metric",
+    "name": "CustomObjectUserLicenseMetrics"
+  },
+  {
+    "label": "Custom Permission",
+    "name": "CustomPermission"
+  },
+  {
+    "label": "Custom Permission Dependency",
+    "name": "CustomPermissionDependency"
+  },
+  {
+    "label": "D&B Company",
+    "name": "DandBCompany"
+  },
+  {
+    "label": "Dashboard",
+    "name": "Dashboard"
+  },
+  {
+    "label": "Dashboard Component",
+    "name": "DashboardComponent"
+  },
+  {
+    "label": "Dashboard Component Feed",
+    "name": "DashboardComponentFeed"
+  },
+  {
+    "label": "Dashboard Feed",
+    "name": "DashboardFeed"
+  },
+  {
+    "label": "Data.com Company",
+    "name": "DatacloudCompany"
+  },
+  {
+    "label": "Data.com Contact",
+    "name": "DatacloudContact"
+  },
+  {
+    "label": "D&B Company",
+    "name": "DatacloudDandBCompany"
+  },
+  {
+    "label": "Data.com Owned Entity",
+    "name": "DatacloudOwnedEntity"
+  },
+  {
+    "label": "Data.com Usage",
+    "name": "DatacloudPurchaseUsage"
+  },
+  {
+    "label": "Data.com Social Handle",
+    "name": "DatacloudSocialHandle"
+  },
+  {
+    "label": "Datacloud Social Profile",
+    "name": "DcSocialProfile"
+  },
+  {
+    "label": "Datacloud Social Profile Handle",
+    "name": "DcSocialProfileHandle"
+  },
+  {
+    "label": "Declined Event Relation",
+    "name": "DeclinedEventRelation"
+  },
+  {
+    "label": "Document",
+    "name": "Document"
+  },
+  {
+    "label": "Document Entity Map",
+    "name": "DocumentAttachmentMap"
+  },
+  {
+    "label": "Domain",
+    "name": "Domain"
+  },
+  {
+    "label": "Custom URL",
+    "name": "DomainSite"
+  },
+  {
+    "label": "Duplicate Record Item",
+    "name": "DuplicateRecordItem"
+  },
+  {
+    "label": "Duplicate Record Set",
+    "name": "DuplicateRecordSet"
+  },
+  {
+    "label": "Duplicate Rule",
+    "name": "DuplicateRule"
+  },
+  {
+    "label": "Email Domain Key",
+    "name": "EmailDomainKey"
+  },
+  {
+    "label": "Email Services Address",
+    "name": "EmailServicesAddress"
+  },
+  {
+    "label": "Email Service",
+    "name": "EmailServicesFunction"
+  },
+  {
+    "label": "Email Status",
+    "name": "EmailStatus"
+  },
+  {
+    "label": "Email Template",
+    "name": "EmailTemplate"
+  },
+  {
+    "label": "Entity Definition",
+    "name": "EntityDefinition"
+  },
+  {
+    "label": "Entity Subscription",
+    "name": "EntitySubscription"
+  },
+  {
+    "label": "Event",
+    "name": "Event"
+  },
+  {
+    "label": "Event Feed",
+    "name": "EventFeed"
+  },
+  {
+    "label": "Event Log File",
+    "name": "EventLogFile"
+  },
+  {
+    "label": "Event Relation",
+    "name": "EventRelation"
+  },
+  {
+    "label": "External Data Source",
+    "name": "ExternalDataSource"
+  },
+  {
+    "label": "External Data User Authentication",
+    "name": "ExternalDataUserAuth"
+  },
+  {
+    "label": "Feed Comment",
+    "name": "FeedComment"
+  },
+  {
+    "label": "Feed Item",
+    "name": "FeedItem"
+  },
+  {
+    "label": "Feed Like",
+    "name": "FeedLike"
+  },
+  {
+    "label": "Feed Poll Choice",
+    "name": "FeedPollChoice"
+  },
+  {
+    "label": "Feed Poll Vote",
+    "name": "FeedPollVote"
+  },
+  {
+    "label": "Feed Tracked Change",
+    "name": "FeedTrackedChange"
+  },
+  {
+    "label": "Field Definition",
+    "name": "FieldDefinition"
+  },
+  {
+    "label": "Field Permissions",
+    "name": "FieldPermissions"
+  },
+  {
+    "label": "Fiscal Year Settings",
+    "name": "FiscalYearSettings"
+  },
+  {
+    "label": "Flow Interview",
+    "name": "FlowInterview"
+  },
+  {
+    "label": "Folder",
+    "name": "Folder"
+  },
+  {
+    "label": "Forecast Share",
+    "name": "ForecastShare"
+  },
+  {
+    "label": "Setting Granted By License",
+    "name": "GrantedByLicense"
+  },
+  {
+    "label": "Group",
+    "name": "Group"
+  },
+  {
+    "label": "Group Member",
+    "name": "GroupMember"
+  },
+  {
+    "label": "Hashtag Definition",
+    "name": "HashtagDefinition"
+  },
+  {
+    "label": "Holiday",
+    "name": "Holiday"
+  },
+  {
+    "label": "Idea",
+    "name": "Idea"
+  },
+  {
+    "label": "Idea Comment",
+    "name": "IdeaComment"
+  },
+  {
+    "label": "Installed Mobile App",
+    "name": "InstalledMobileApp"
+  },
+  {
+    "label": "Knowledgeable User",
+    "name": "KnowledgeableUser"
+  },
+  {
+    "label": "Lead",
+    "name": "Lead"
+  },
+  {
+    "label": "Lead Clean Info",
+    "name": "LeadCleanInfo"
+  },
+  {
+    "label": "Lead Feed",
+    "name": "LeadFeed"
+  },
+  {
+    "label": "Lead History",
+    "name": "LeadHistory"
+  },
+  {
+    "label": "Lead Share",
+    "name": "LeadShare"
+  },
+  {
+    "label": "Lead Status Value",
+    "name": "LeadStatus"
+  },
+  {
+    "label": "List View",
+    "name": "ListView"
+  },
+  {
+    "label": "List View Chart",
+    "name": "ListViewChart"
+  },
+  {
+    "label": "List View Chart Instance",
+    "name": "ListViewChartInstance"
+  },
+  {
+    "label": "Login History",
+    "name": "LoginHistory"
+  },
+  {
+    "label": "Login IP",
+    "name": "LoginIp"
+  },
+  {
+    "label": "Lookups from Activity",
+    "name": "LookedUpFromActivity"
+  },
+  {
+    "label": "Macro",
+    "name": "Macro"
+  },
+  {
+    "label": "Macro History",
+    "name": "MacroHistory"
+  },
+  {
+    "label": "Macro Share",
+    "name": "MacroShare"
+  },
+  {
+    "label": "Mail Merge Template",
+    "name": "MailmergeTemplate"
+  },
+  {
+    "label": "Matching Rule",
+    "name": "MatchingRule"
+  },
+  {
+    "label": "Matching Rule Item",
+    "name": "MatchingRuleItem"
+  },
+  {
+    "label": "Mobile Device Registrar",
+    "name": "MobileDeviceRegistrar"
+  },
+  {
+    "label": "Name",
+    "name": "Name"
+  },
+  {
+    "label": "Named Credential",
+    "name": "NamedCredential"
+  },
+  {
+    "label": "Note",
+    "name": "Note"
+  },
+  {
+    "label": "Note and Attachment",
+    "name": "NoteAndAttachment"
+  },
+  {
+    "label": "Oauth Token",
+    "name": "OauthToken"
+  },
+  {
+    "label": "Object Permissions",
+    "name": "ObjectPermissions"
+  },
+  {
+    "label": "Open Activity",
+    "name": "OpenActivity"
+  },
+  {
+    "label": "Opportunity",
+    "name": "Opportunity"
+  },
+  {
+    "label": "Opportunity: Competitor",
+    "name": "OpportunityCompetitor"
+  },
+  {
+    "label": "Opportunity Contact Role",
+    "name": "OpportunityContactRole"
+  },
+  {
+    "label": "Opportunity Feed",
+    "name": "OpportunityFeed"
+  },
+  {
+    "label": "Opportunity Field History",
+    "name": "OpportunityFieldHistory"
+  },
+  {
+    "label": "Opportunity History",
+    "name": "OpportunityHistory"
+  },
+  {
+    "label": "Opportunity Product",
+    "name": "OpportunityLineItem"
+  },
+  {
+    "label": "Opportunity Partner",
+    "name": "OpportunityPartner"
+  },
+  {
+    "label": "Opportunity Share",
+    "name": "OpportunityShare"
+  },
+  {
+    "label": "Opportunity Stage",
+    "name": "OpportunityStage"
+  },
+  {
+    "label": "Order",
+    "name": "Order"
+  },
+  {
+    "label": "Order Feed",
+    "name": "OrderFeed"
+  },
+  {
+    "label": "Order History",
+    "name": "OrderHistory"
+  },
+  {
+    "label": "Order Product",
+    "name": "OrderItem"
+  },
+  {
+    "label": "Order Product Feed",
+    "name": "OrderItemFeed"
+  },
+  {
+    "label": "Order Product History",
+    "name": "OrderItemHistory"
+  },
+  {
+    "label": "Order Share",
+    "name": "OrderShare"
+  },
+  {
+    "label": "Organization-wide From Email Address",
+    "name": "OrgWideEmailAddress"
+  },
+  {
+    "label": "Organization",
+    "name": "Organization"
+  },
+  {
+    "label": "User Owned File",
+    "name": "OwnedContentDocument"
+  },
+  {
+    "label": "Package License",
+    "name": "PackageLicense"
+  },
+  {
+    "label": "Partner",
+    "name": "Partner"
+  },
+  {
+    "label": "Partner Role Value",
+    "name": "PartnerRole"
+  },
+  {
+    "label": "Period",
+    "name": "Period"
+  },
+  {
+    "label": "Permission Set",
+    "name": "PermissionSet"
+  },
+  {
+    "label": "Permission Set Assignment",
+    "name": "PermissionSetAssignment"
+  },
+  {
+    "label": "Permission Set License",
+    "name": "PermissionSetLicense"
+  },
+  {
+    "label": "Permission Set License Assignment",
+    "name": "PermissionSetLicenseAssign"
+  },
+  {
+    "label": "Platform Action",
+    "name": "PlatformAction"
+  },
+  {
+    "label": "Price Book",
+    "name": "Pricebook2"
+  },
+  {
+    "label": "Price Book History",
+    "name": "Pricebook2History"
+  },
+  {
+    "label": "Price Book Entry",
+    "name": "PricebookEntry"
+  },
+  {
+    "label": "Process Definition",
+    "name": "ProcessDefinition"
+  },
+  {
+    "label": "Process Instance",
+    "name": "ProcessInstance"
+  },
+  {
+    "label": "Process Instance History",
+    "name": "ProcessInstanceHistory"
+  },
+  {
+    "label": "Process Instance Node",
+    "name": "ProcessInstanceNode"
+  },
+  {
+    "label": "Process Instance Step",
+    "name": "ProcessInstanceStep"
+  },
+  {
+    "label": "Approval Request",
+    "name": "ProcessInstanceWorkitem"
+  },
+  {
+    "label": "Process Node",
+    "name": "ProcessNode"
+  },
+  {
+    "label": "Product",
+    "name": "Product2"
+  },
+  {
+    "label": "Product Feed",
+    "name": "Product2Feed"
+  },
+  {
+    "label": "Product History",
+    "name": "Product2History"
+  },
+  {
+    "label": "Profile",
+    "name": "Profile"
+  },
+  {
+    "label": "Push Topic",
+    "name": "PushTopic"
+  },
+  {
+    "label": "Queue Sobject",
+    "name": "QueueSobject"
+  },
+  {
+    "label": "Recently Viewed",
+    "name": "RecentlyViewed"
+  },
+  {
+    "label": "Record Type",
+    "name": "RecordType"
+  },
+  {
+    "label": "Report",
+    "name": "Report"
+  },
+  {
+    "label": "Report Feed",
+    "name": "ReportFeed"
+  },
+  {
+    "label": "SAML Single Sign-On Setting",
+    "name": "SamlSsoConfig"
+  },
+  {
+    "label": "Custom S-Control",
+    "name": "Scontrol"
+  },
+  {
+    "label": "Promoted Search Term",
+    "name": "SearchPromotionRule"
+  },
+  {
+    "label": "Secure Agent",
+    "name": "SecureAgent"
+  },
+  {
+    "label": "Secure Agent Plugin",
+    "name": "SecureAgentPlugin"
+  },
+  {
+    "label": "Secure Agent Plugin Property",
+    "name": "SecureAgentPluginProperty"
+  },
+  {
+    "label": "Setup Entity Access",
+    "name": "SetupEntityAccess"
+  },
+  {
+    "label": "Site",
+    "name": "Site"
+  },
+  {
+    "label": "Site",
+    "name": "SiteFeed"
+  },
+  {
+    "label": "Site History",
+    "name": "SiteHistory"
+  },
+  {
+    "label": "Solution",
+    "name": "Solution"
+  },
+  {
+    "label": "Solution Feed",
+    "name": "SolutionFeed"
+  },
+  {
+    "label": "Solution History",
+    "name": "SolutionHistory"
+  },
+  {
+    "label": "Solution Status Value",
+    "name": "SolutionStatus"
+  },
+  {
+    "label": "Static Resource",
+    "name": "StaticResource"
+  },
+  {
+    "label": "Streaming Channel",
+    "name": "StreamingChannel"
+  },
+  {
+    "label": "Streaming Channel Share",
+    "name": "StreamingChannelShare"
+  },
+  {
+    "label": "Task",
+    "name": "Task"
+  },
+  {
+    "label": "Task Feed",
+    "name": "TaskFeed"
+  },
+  {
+    "label": "Task Priority Value",
+    "name": "TaskPriority"
+  },
+  {
+    "label": "Task Status Value",
+    "name": "TaskStatus"
+  },
+  {
+    "label": "Tenant Secret",
+    "name": "TenantSecret"
+  },
+  {
+    "label": "Tenant Usage Entitlement",
+    "name": "TenantUsageEntitlement"
+  },
+  {
+    "label": "Third Party Account Link",
+    "name": "ThirdPartyAccountLink"
+  },
+  {
+    "label": "Topic",
+    "name": "Topic"
+  },
+  {
+    "label": "Record",
+    "name": "TopicAssignment"
+  },
+  {
+    "label": "Topic Feed",
+    "name": "TopicFeed"
+  },
+  {
+    "label": "Undecided Event Relation",
+    "name": "UndecidedEventRelation"
+  },
+  {
+    "label": "User",
+    "name": "User"
+  },
+  {
+    "label": "User Feed",
+    "name": "UserFeed"
+  },
+  {
+    "label": "User License",
+    "name": "UserLicense"
+  },
+  {
+    "label": "User List View",
+    "name": "UserListView"
+  },
+  {
+    "label": "User List View Criteria",
+    "name": "UserListViewCriterion"
+  },
+  {
+    "label": "User Login",
+    "name": "UserLogin"
+  },
+  {
+    "label": "User Package License",
+    "name": "UserPackageLicense"
+  },
+  {
+    "label": "User Preference",
+    "name": "UserPreference"
+  },
+  {
+    "label": "User Provisioning Account",
+    "name": "UserProvAccount"
+  },
+  {
+    "label": "User Provisioning Account Staging",
+    "name": "UserProvAccountStaging"
+  },
+  {
+    "label": "User Provisioning Mock Target",
+    "name": "UserProvMockTarget"
+  },
+  {
+    "label": "User Provisioning Config",
+    "name": "UserProvisioningConfig"
+  },
+  {
+    "label": "User Provisioning Log",
+    "name": "UserProvisioningLog"
+  },
+  {
+    "label": "User Provisioning Request",
+    "name": "UserProvisioningRequest"
+  },
+  {
+    "label": "User Provisioning Request Share",
+    "name": "UserProvisioningRequestShare"
+  },
+  {
+    "label": "User Record Access",
+    "name": "UserRecordAccess"
+  },
+  {
+    "label": "Role",
+    "name": "UserRole"
+  },
+  {
+    "label": "User Share",
+    "name": "UserShare"
+  },
+  {
+    "label": "Vote",
+    "name": "Vote"
+  },
+  {
+    "label": "Custom Button or Link",
+    "name": "WebLink"
   }
 ]
-

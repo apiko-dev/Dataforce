@@ -1,8 +1,11 @@
 Template.ConnectorEntity.onCreated ->
   @sourcePickerTemplate = @findParentTemplate('SourcePicker')
 
+  @resetSearch = -> Session.set('searchQuery', '')
+
   @sfEntries = new ReactiveVar(false)
-  Meteor.call 'sfGetConnectorEntries', App.handleError (entries) => @sfEntries.set entries
+  Meteor.call 'sfGetConnectorEntries', App.handleError (entries) =>
+    @sfEntries.set entries
 
 
 Template.ConnectorEntity.helpers
@@ -20,7 +23,9 @@ Template.ConnectorEntity.helpers
 Template.ConnectorEntity.events
   'click .cancel-button': (event, tmpl) ->
     tmpl.sourcePickerTemplate.setEntityPickerVisibility(false)
+    tmpl.resetSearch()
 
   'click .entity-item': (event, tmpl) ->
     entity = $(event.target).attr('data-entity')
     tmpl.sourcePickerTemplate.setConnectorEntity tmpl.data.connectorName, entity
+    tmpl.resetSearch()
