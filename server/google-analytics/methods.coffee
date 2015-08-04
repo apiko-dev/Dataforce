@@ -11,9 +11,9 @@ Meteor.methods
   "GA.getMetricsList": -> JSON.parse Assets.getText "ga/ga-metrics-list.json"
 
   "GA.loadTokens": ->
-    connector = Connectors.findOne {userId: @userId, name: ConnectorNames.GoogleAnalytics}
-    if connector
-      oauth2Client.setCredentials connector.tokens
+    gaConnector = Connectors.findOne {userId: @userId, name: ConnectorNames.GoogleAnalytics}
+    if gaConnector
+      oauth2Client.setCredentials gaConnector.tokens
 
   "GA.getAccounts": ->
     profilesListJson = Async.runSync (done) ->

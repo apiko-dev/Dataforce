@@ -19,9 +19,20 @@ Meteor.methods
         oauth2Client.setCredentials tokens
         gaServiceCredentials = _.extend {userId: userId}, {tokens: tokens}
 
-        console.log gaServiceCredentials
-
         Connectors.update {
           userId: userId,
           name: ConnectorNames.GoogleAnalytics
         }, {$set: gaServiceCredentials}, {upsert: true}
+
+  "GA.logout": ->
+    userId = @userId
+    gaConnector = Connectors.findOne {userId: @userId, name: ConnectorNames.GoogleAnalytics}
+    tokenToRevoke = gaConnector.tokens.access_token
+
+    if tokenToRevoke
+      HTTP.get("https://accounts.google.com/o/oauth2/revoke?token=#{tokenToRevoke}").content
+
+      Connectors.remove {
+        userId: userId
+        name: ConnectorNames.GoogleAnalytics
+      }
