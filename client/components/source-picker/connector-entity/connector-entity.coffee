@@ -15,8 +15,7 @@ Template.ConnectorEntity.helpers
     if @connectorName is ConnectorNames.Salesforce
       tmpl.sfEntries.get()
     else if @connectorName is ConnectorNames.GoogleAnalytics
-#    todo: add google analytics accounts list support
-      []
+      ReactiveMethod.call "GA.getAccounts"
     else []
 
 

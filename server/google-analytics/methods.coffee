@@ -28,10 +28,10 @@ Meteor.methods
 
     if profilesListJson.error is null
       _.map profilesListJson.result.items, (el) ->
-        accountId: el.accountId
-        profileId: el.id
-        webPropertyId: el.webPropertyId
-        name: if el.websiteUrl.length > 3 then el.websiteUrl else el.webPropertyId
+#        accountId: el.accountId
+        name: el.id
+#        webPropertyId: el.webPropertyId
+        label: if el.websiteUrl.length > 3 then el.websiteUrl else el.webPropertyId
     else
       console.log profilesListJson.error
       []
