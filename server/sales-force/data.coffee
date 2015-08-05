@@ -7,10 +7,20 @@ checkCredentialsAndCreateConnection = (userId) ->
   return App.Connectors.Salesforce.createConnection(credentials.tokens)
 
 
-processQueryResult = (query, functionName, userId) ->
+###
+  Runs query synchronously
+
+  @params:
+  constructQueryFunc - function that receives connection instance and returns query ready for execution
+  runQueryFuncName  - name of function that executes query instance
+  userId - ID of current user
+###
+runSyncQuery = (userId, runQueryFuncName, constructQueryFunc) ->
   executeQuery = ->
-    queryResult = Async.runSync (done) -> query[functionName] done
+    connection = checkCredentialsAndCreateConnection(userId)
+    queryResult = Async.runSync (done) -> constructQueryFunc(connection)[runQueryFuncName](done)
     if queryResult.error
+#todo remove this after bug fixing
       console.log queryResult.error.name
 
       if queryResult.error.name is 'invalid_grant' #we need to refresh token
@@ -31,16 +41,14 @@ Meteor.methods
   sfDescribe: (tableName) ->
     check tableName, String
 
-    connection = checkCredentialsAndCreateConnection(@userId)
+    tableMeta = runSyncQuery @userId, 'describe', (conn) -> conn.sobject(tableName)
 
-    tableMeta = processQueryResult connection.sobject(tableName), 'describe', @userId
     tableMeta.fields?.map (field) -> {name: field.name, type: field.type, label: field.label}
 
 
   sfGetTableData: (tableName, filters) ->
     check tableName, String
     check filters, [App.checkers.Filter]
-    connection = checkCredentialsAndCreateConnection(@userId)
 
     query = {}
     filters.forEach (filter) ->
@@ -48,7 +56,7 @@ Meteor.methods
       condition[filter.modifier] = filter.field.value
       query[filter.field.name] = condition
 
-    processQueryResult connection.sobject(tableName).find(query).limit(100), 'execute', @userId
+    runSyncQuery @userId, 'execute', (conn) -> conn.sobject(tableName).find(query).limit(100)
 
 
   sfGetSeriesForChart: (chart) ->
@@ -62,9 +70,5 @@ Meteor.methods
     return convertedSeries
 
   sfGetConnectorEntries: () -> JSON.parse Assets.getText('sf/entities.json')
-
-#    connection = checkCredentialsAndCreateConnection(@userId)
-#    sfMeta = processQueryResult connection, 'describeGlobal', @userId
-#    return sfMeta.sobjects.map (sobj) -> {label: sobj.label, name: sobj.name}
 
 

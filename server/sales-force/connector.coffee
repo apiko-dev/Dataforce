@@ -27,13 +27,12 @@ App.Connectors.Salesforce = {
     syncRes = Async.runSync (done) -> oAuth2.refreshToken connector.tokens.refreshToken, done
 
     if syncRes.error
-#todo remove this message after successful token refresh
-      console.log 'ERROR WHILE REFRESHING TOKEN.'
       throw syncRes.error
     else
       accessToken = syncRes.result.access_token
-      console.log 'result', syncRes.result
       Connectors.update {userId: userId, name: ConnectorNames.Salesforce}, {$set: {'tokens.accessToken': accessToken}}
+      #      todo remove it after fixing bug
+      console.log 'server respond: ', syncRes.result
       console.log 'SALESFORCE REFRESH_TOKEN UPDATED'
       console.log @getConnectorByUserId(userId)
 
