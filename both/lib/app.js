@@ -11,8 +11,6 @@ App = {
     }
   },
   checkAdmin: function () {
-    console.log('check admin ', Meteor.user().role);
-    console.log(Meteor.user().role === 'admin');
     return Meteor.user().role === 'admin';
   }
 };
