@@ -1,98 +1,12 @@
 <template name="Home">
     <h3>DataForce</h3>
 
-    <p>Home page content</p>
+    <p>Analytic Platform</p>
 
-
-    <article>
-        <h4>buttons</h4>
-        <button class="btn btn-success">success</button>
-        <button class="btn btn-warning">warning</button>
-        <button class="btn btn-primary">primary</button>
-        <button class="btn btn-default">default</button>
-        <button class="btn btn-danger">danger</button>
-
-        <hr/>
-        <h4>select</h4>
-
-        <div class="btn-group fix-dropdown">
-            <button class="btn btn-inverse dropdown-toggle" type="button" data-toggle="dropdown">
-                Large button <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-inverse" role="menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-            </ul>
+    {{#unless currentUser}}
+        <div class="alert alert-info" role="alert">
+            <i class="fa fa-info-circle"></i>
+            Please, log in or sign up using invite we send you
         </div>
-
-        <hr/>
-        <h4>Controls usage example</h4>
-
-        <select class="form-control select select-primary select-block mbl">
-            <optgroup label="Profile">
-                <option value="0">My Profile</option>
-                <option value="1">My Friends</option>
-            </optgroup>
-            <optgroup label="System">
-                <option value="2">Messages</option>
-                <option value="3">My Settings</option>
-                <option value="4">Logout</option>
-            </optgroup>
-        </select>
-
-        <hr/>
-        <select multiple="multiple" class="form-control multiselect multiselect-info">
-            <option value="0">1</option>
-            <option value="1" selected>2</option>
-            <option value="2" selected>3</option>
-            <option value="3" selected>4</option>
-            <option value="4">5</option>
-        </select>
-
-        <hr/>
-
-        <label class="radio" for="radio1">
-            <input type="radio" name="optionsRadios1" value="" id="radio1" data-toggle="radio" class="custom-radio">
-            Radio button
-        </label>
-        <label class="radio" for="radio2">
-            <input type="radio" name="optionsRadios1" value="" id="radio2" data-toggle="radio" checked="checked"
-                   class="custom-radio">
-            Radio button
-        </label>
-        <label class="radio" for="radio3">
-            <input type="radio" name="optionsRadios1" value="" id="radio3" data-toggle="radio" disabled=""
-                   class="custom-radio">
-            Radio button
-        </label>
-        <label class="radio" for="radio4">
-            <input type="radio" name="optionsRadios1" value="" id="radio4" data-toggle="radio" disabled=""
-                   class="custom-radio">
-            Radio button
-        </label>
-
-        <hr/>
-
-        <h4>Spoiler usage example</h4>
-        {{#Spoiler opened=true}} <p>some data here</p>{{else}}
-            <div style="padding: 10px"><p>details are here</p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, maxime!</p></div>{{/Spoiler}}
-        {{#Spoiler}} <p>some data here</p>{{else}}
-            <div style="padding: 10px"><p>details are here</p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, maxime!</p></div>{{/Spoiler}}
-        {{#Spoiler}} <p>some data here</p>{{else}}
-            <div style="padding: 10px"><p>details are here</p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, maxime!</p></div>{{/Spoiler}}
-        {{#Spoiler}} <p>some data here</p>{{else}}
-            <div style="padding: 10px"><p>details are here</p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, maxime!</p></div>{{/Spoiler}}
-
-    </article>
+    {{/unless}}
 </template>

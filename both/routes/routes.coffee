@@ -1,6 +1,4 @@
 Router.map ->
-  requireLogin = -> !!Meteor.userId()
-
   @configure
     layoutTemplate: 'MasterLayout'
     loadingTemplate: 'Loading'
@@ -44,7 +42,7 @@ Router.map ->
     onAfterAction: -> Meteor.setTimeout (-> window.close()), 1000
 
 
-  #  =====  SAMPLES  ====
+  #  =====  SAMPLES (redundant, should be removed in future)  ====
 
   @route '/google-analytics-sample',
     name: 'googleAnalyticsSample'
@@ -65,5 +63,20 @@ Router.map ->
     name: 'salesForceSample',
     template: 'SalesForceSample'
 
+
+# =================================================
+
+checkUserLoggedIn = ->
+  if not Meteor.loggingIn() and not Meteor.user()
+    Router.go '/'
+  else
+    @next()
+
+# not signed users can visit only home page
+Router.onBeforeAction checkUserLoggedIn, except: ['home']
+
+# ==================================================
+
+#todo: @vlad, It doesn't supposed to be here
 Router.onAfterAction ->
   Meteor.call 'GA.loadTokens'
