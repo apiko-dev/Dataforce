@@ -1,6 +1,6 @@
 .meteor/local
 .idea/
 superbi-2.iml
-private/sf-credentials.json
+dataforce.iml
 packages/npm-container/.npm
 server/lib/debug.js

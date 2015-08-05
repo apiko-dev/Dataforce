@@ -1,0 +1,26 @@
+{
+  "_id": "7fWPeHF7qYNieFta8",
+  "createdAt": "2015-08-05T14:03:03.104Z",
+  "services": {
+    "password": {
+      "bcrypt": "$2a$10$h2OaGeECNTyBHdcp.WtXLeTdWA7K6DwL6/THzHYXJ8jHMPjIT99DS"
+    },
+    "resume": {
+      "loginTokens": [
+        {
+          "when": "2015-08-05T14:03:03.107Z",
+          "hashedToken": "jwRxYPYWBMorCFVltIjflgNmL++VtrTJUyhI60bQTGU="
+        }
+      ]
+    }
+  },
+  "role": "admin",
+  "emails": [
+    {
+      "address": "admin@getdataforce.com",
+      "verified": true
+    }
+  ],
+  "profile": {
+  }
+}

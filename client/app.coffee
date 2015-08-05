@@ -20,6 +20,8 @@ _App =
       searchQuery = Session.get('searchQuery')
       searchQuery is '' or targetStr.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1
 
+  checkAdmin: -> Meteor.user().role is 'admin'
+
 
 #register global helpers
 for helperName of _App.helpers

@@ -6,4 +6,4 @@ navigationMenuItems = [
 ]
 
 Template.SidebarNavigation.helpers
-  samplesRoutes: -> if Meteor.user() then navigationMenuItems else navigationMenuItems.filter (item) -> not item.requireLogin
+  samplesRoutes: -> if Meteor.user() and App.checkAdmin() then navigationMenuItems else navigationMenuItems.filter (item) -> not item.requireLogin
