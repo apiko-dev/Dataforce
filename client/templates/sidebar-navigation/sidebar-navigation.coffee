@@ -6,4 +6,5 @@ navigationMenuItems = [
 ]
 
 Template.SidebarNavigation.helpers
+#todo remove after adding invites
   samplesRoutes: -> if Meteor.user() and App.checkAdmin() then navigationMenuItems else navigationMenuItems.filter (item) -> not item.requireLogin

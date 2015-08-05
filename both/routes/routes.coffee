@@ -68,7 +68,7 @@ Router.map ->
 
 checkUserLoggedIn = ->
 #todo: remove admin check after invites will be added
-  if not Meteor.loggingIn() and (not Meteor.user() or App.checkAdmin())
+  if not Meteor.loggingIn() and (not Meteor.user() or not App.checkAdmin())
     Router.go '/'
   else
     @next()
