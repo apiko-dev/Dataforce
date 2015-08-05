@@ -31,10 +31,6 @@ App.Connectors.Salesforce = {
     else
       accessToken = syncRes.result.access_token
       Connectors.update {userId: userId, name: ConnectorNames.Salesforce}, {$set: {'tokens.accessToken': accessToken}}
-      #      todo remove it after fixing bug
-      console.log 'server respond: ', syncRes.result
-      console.log 'SALESFORCE REFRESH_TOKEN UPDATED'
-      console.log @getConnectorByUserId(userId)
 
 
   revokeToken: (userId) ->

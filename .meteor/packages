@@ -40,3 +40,4 @@ aldeed:template-extension
 twbs:bootstrap
 jss:dragable-window
 percolate:intercom
+force-ssl

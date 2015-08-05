@@ -1,4 +1,6 @@
 Router.map ->
+  requireLogin = -> !!Meteor.userId()
+
   @configure
     layoutTemplate: 'MasterLayout'
     loadingTemplate: 'Loading'

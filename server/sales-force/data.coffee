@@ -20,9 +20,6 @@ runSyncQuery = (userId, runQueryFuncName, constructQueryFunc) ->
     connection = checkCredentialsAndCreateConnection(userId)
     queryResult = Async.runSync (done) -> constructQueryFunc(connection)[runQueryFuncName](done)
     if queryResult.error
-#todo remove this after bug fixing
-      console.log queryResult.error.name
-
       if queryResult.error.name is 'invalid_grant' #we need to refresh token
         App.Connectors.Salesforce.refreshToken(userId)
         return false
