@@ -1,0 +1,18 @@
+.medium-shadow {
+  box-shadow: 0 2px 0 rgba(217, 219, 221, .5);
+}
+
+.transition (@property, @time) {
+  -webkit-transition: @property @time;
+  -moz-transition: @property @time;
+  -ms-transition: @property @time;
+  -o-transition: @property @time;
+  transition: @property @time;
+}
+
+.dotted-bottom-border {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 33%, rgba(255, 255, 255, 0) 0%);
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: 3px 1px;
+}

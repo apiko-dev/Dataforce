@@ -1,3 +1,6 @@
+//Put here ONLY global variables
+//any global styles put into `app.less` file
+
 //dimensions
 @sidebarWidth: 270px;
 
@@ -13,27 +16,11 @@
 @dividerColor: #E8ECF0;
 @borderColor: #CFD6DC;
 
+@lameRed: #e74c3c;
+
+//misc
 @border: 1px solid @borderColor;
-
-.medium-shadow {
-  box-shadow: 0 2px 0 rgba(217, 219, 221, .5);
-}
-
-.transition (@property, @time) {
-  -webkit-transition: @property @time;
-  -moz-transition: @property @time;
-  -ms-transition: @property @time;
-  -o-transition: @property @time;
-  transition: @property @time;
-}
 
 @defaultIndent: 10px;
 
-@lameRed: #e74c3c;
-
-.dotted-bottom-border {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 33%, rgba(255, 255, 255, 0) 0%);
-  background-position: bottom;
-  background-repeat: repeat-x;
-  background-size: 3px 1px;
-}
+@import "mixins.import.less";
