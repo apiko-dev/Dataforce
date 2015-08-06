@@ -7,14 +7,13 @@ redirect = (response, url) ->
   response.end()
 
 
-Router.route SF_AUTH_URL, ->
-  redirectUrl = App.Connectors.Salesforce.createOAuth2Credentials().getAuthorizationUrl {
-    scope: 'full refresh_token'
-  }
-
-  redirect @response, redirectUrl
-
-, {where: 'server'}
+Router.route SF_AUTH_URL,
+  where: 'server'
+  action: ->
+    redirectUrl = App.Connectors.Salesforce.createOAuth2Credentials().getAuthorizationUrl {
+      scope: 'full refresh_token'
+    }
+    redirect @response, redirectUrl
 
 
 Meteor.methods
