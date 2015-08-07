@@ -20,6 +20,11 @@
                     <label for="inputPasswordRepeat">Repeat password</label>
                     <input type="password" class="form-control" id="inputPasswordRepeat" placeholder="Repeat password">
                 </div>
+                {{#if errorMessage}}
+                    <div class="alert alert-danger" role="alert">
+                        <i class="fa fa-minus-circle"></i> {{errorMessage}}
+                    </div>
+                {{/if}}
                 <button type="submit" class="btn btn-success pull-right sign-up-button">Sign Up</button>
             </form>
         </div>

@@ -1,12 +1,12 @@
 <template name="Home">
-    <h3>DataForce</h3>
+    <h3>DataForce Alpha</h3>
 
     <p>Analytic Platform</p>
 
     {{#unless currentUser}}
         <div class="alert alert-info" role="alert">
             <i class="fa fa-info-circle"></i>
-            Please, log in or sign up using invite we send you
+            Please, <a href="{{pathFor route='signIn'}}">log in</a> or sign up using invite we send you
         </div>
     {{/unless}}
 </template>

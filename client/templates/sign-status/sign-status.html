@@ -1,6 +1,6 @@
 <template name="SignStatus">
     {{#if currentUser}}
-        <li>
+        <li title="Logout">
             <a href="#" class="logout-button">{{currentUser.emails.[0].address}}</a>
         </li>
     {{else}}

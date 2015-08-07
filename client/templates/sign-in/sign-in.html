@@ -12,6 +12,11 @@
                     <label for="passwordInput">Password</label>
                     <input type="password" class="form-control" id="passwordInput" placeholder="Password">
                 </div>
+                {{#if errorMessage}}
+                    <div class="alert alert-danger" role="alert">
+                        <i class="fa fa-minus-circle"></i> {{errorMessage}}
+                    </div>
+                {{/if}}
                 <button type="submit" class="btn btn-success pull-right sign-in-button">Login</button>
             </form>
         </div>
