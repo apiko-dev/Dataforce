@@ -11,6 +11,16 @@ Router.map ->
     name: 'home',
     template: 'Home'
 
+  @route '/sign-up/:inviteId',
+    name: 'signUp',
+    template: 'SignUp'
+    data: ->
+      inviteId: @params.inviteId
+
+  @route '/sign-in',
+    name: 'signIn',
+    template: 'SignIn'
+
   @route '/dashboard',
     name: 'dashboard',
     template: 'Dashboard'
@@ -69,7 +79,7 @@ Router.map ->
 checkUserLoggedIn = ->
   if Meteor.isServer
     return @next() #this check doesn't make sense on server side
-  
+
   #todo: remove admin check after invites will be added
   if not Meteor.loggingIn() and not (Meteor.user() and App.checkAdmin())
     Router.go '/'
@@ -77,7 +87,7 @@ checkUserLoggedIn = ->
     @next()
 
 # not signed users can visit only home page
-Router.onBeforeAction checkUserLoggedIn, except: ['home']
+Router.onBeforeAction checkUserLoggedIn, except: ['home', 'signIn', 'signUp']
 
 # ==================================================
 

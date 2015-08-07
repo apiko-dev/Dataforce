@@ -6,14 +6,16 @@
 
 meteor-platform
 audit-argument-checks
+force-ssl
 reactive-var
 coffeescript
 less
 npm-container
 service-configuration
+
+accounts-ui
 accounts-password
 accounts-google
-ian:accounts-ui-bootstrap-3
 
 meteorhacks:npm
 meteorhacks:async
@@ -40,4 +42,3 @@ aldeed:template-extension
 twbs:bootstrap
 jss:dragable-window
 percolate:intercom
-force-ssl

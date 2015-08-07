@@ -1,0 +1,27 @@
+<template name="SignUp">
+    <div class="row">
+        <div class="col-sm-offset-3 col-sm-6 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4">
+            <h3 class="sign-from-title">Sign Up</h3>
+
+            <form class="sign-up-form">
+                <div class="form-group">
+                    <label for="inviteCode">Invite code</label>
+                    <input type="text" class="form-control" id="inviteCode" value="{{inviteId}}" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail">Email address</label>
+                    <input type="email" class="form-control" id="inputEmail" value="{{email}}" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="inputPasswordRepeat">Repeat password</label>
+                    <input type="password" class="form-control" id="inputPasswordRepeat" placeholder="Repeat password">
+                </div>
+                <button type="submit" class="btn btn-success pull-right sign-up-button">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</template>
