@@ -1,3 +1,19 @@
 <template name="Invites">
-    Invites will be here
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Email</th>
+            <th>Expire date</th>
+            <th>InviteId</th>
+            <th>-</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {{#each invites}}
+            {{> Invite}}
+        {{/each}}
+        {{> CreateInvite}}
+        </tbody>
+    </table>
 </template>

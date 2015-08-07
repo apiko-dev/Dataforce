@@ -1,5 +1,5 @@
 navigationMenuItems = [
-  {name: 'home', caption: 'Home', roles: ['all']}
+  {name: 'home', caption: 'Home', roles: false}
   {name: 'dashboard', caption: 'Dashboard', roles: ['tester', 'admin']}
   {name: 'chartEditor', caption: 'Chart Editor', roles: ['tester', 'admin']}
   {name: 'connectors', caption: 'Connectors', roles: ['tester', 'admin']}
@@ -7,7 +7,5 @@ navigationMenuItems = [
 ]
 
 Template.SidebarNavigation.helpers
-#todo remove after adding invites
   samplesRoutes: ->
-    navigationMenuItems.filter (item) -> true
-#       Meteor.user()
+    navigationMenuItems.filter (item) -> !item.roles or Roles.userIsInRole Meteor.userId(), item.roles

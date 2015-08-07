@@ -4,6 +4,7 @@ accounts-oauth@1.1.5
 accounts-password@1.1.1
 accounts-ui@1.1.5
 accounts-ui-unstyled@1.1.7
+alanning:roles@1.2.13
 aldeed:template-extension@3.4.3
 audit-argument-checks@1.0.3
 autoupdate@1.2.1

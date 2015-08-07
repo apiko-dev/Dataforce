@@ -1,9 +1,17 @@
 Template.SignUp.onCreated ->
   @errorMessage = new ReactiveVar(false)
+  @email = new ReactiveVar()
 
+  Meteor.call 'getEmailByInviteId', @data.inviteId, (err, email) =>
+    if err
+      @errorMessage.set err.toString()
+    else
+      @email.set email
 
+      
 Template.SignUp.helpers
   errorMessage: -> Template.instance().errorMessage.get()
+  email: -> Template.instance().email.get()
 
 
 Template.SignUp.events

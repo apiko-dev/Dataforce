@@ -84,8 +84,7 @@ checkUserLoggedIn = ->
   if Meteor.isServer
     return @next() #this check doesn't make sense on server side
 
-  #todo: remove admin check after invites will be added
-  if not Meteor.loggingIn() and not (Meteor.user() and App.checkAdmin())
+  if not Meteor.loggingIn() and not Meteor.user()
     Router.go '/'
   else
     @next()

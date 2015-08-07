@@ -14,7 +14,6 @@
       ]
     }
   },
-  "role": "admin",
   "emails": [
     {
       "address": "admin@getdataforce.com",

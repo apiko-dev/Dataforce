@@ -10,8 +10,9 @@ App = {
       return type === 'int' || type === 'double' || type === 'currency' || type === 'percent';
     }
   },
-  checkAdmin: function () {
-    return Meteor.user().role === 'admin';
+  isAdmin: function (userId) {
+    userId = userId || Meteor.userId();
+    return Roles.userIsInRole(userId, ['admin']);
   }
 };
 
