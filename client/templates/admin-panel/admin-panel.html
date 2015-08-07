@@ -1,0 +1,29 @@
+<template name="AdminPanel">
+    <div class="row app-view-header">
+        <div class="col-md-12">
+            <h4 class="app-view-title">Admin Panel</h4>
+        </div>
+    </div>
+
+    <div class="panel-wrapper">
+
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+                <a href="#invites" aria-controls="invites" role="tab" data-toggle="tab">Invites</a>
+            </li>
+            <li role="presentation">
+                <a href="#feedbacks" aria-controls="feedbacks" role="tab" data-toggle="tab">Feedbacks</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="invites">
+                {{> Invites}}
+            </div>
+            <div role="tabpanel" class="tab-pane" id="feedbacks">
+                {{> Feedbacks}}
+            </div>
+        </div>
+
+    </div>
+</template>

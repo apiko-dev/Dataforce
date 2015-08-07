@@ -1,10 +1,13 @@
 navigationMenuItems = [
-  {name: 'home', caption: 'Home'}
-  {name: 'dashboard', caption: 'Dashboard', requireLogin: true}
-  {name: 'chartEditor', caption: 'Chart Editor', requireLogin: true}
-  {name: 'connectors', caption: 'Connectors', requireLogin: true}
+  {name: 'home', caption: 'Home', roles: ['all']}
+  {name: 'dashboard', caption: 'Dashboard', roles: ['tester', 'admin']}
+  {name: 'chartEditor', caption: 'Chart Editor', roles: ['tester', 'admin']}
+  {name: 'connectors', caption: 'Connectors', roles: ['tester', 'admin']}
+  {name: 'adminPanel', caption: 'Admin Panel', roles: ['admin']}
 ]
 
 Template.SidebarNavigation.helpers
 #todo remove after adding invites
-  samplesRoutes: -> if Meteor.user() and App.checkAdmin() then navigationMenuItems else navigationMenuItems.filter (item) -> not item.requireLogin
+  samplesRoutes: ->
+    navigationMenuItems.filter (item) -> true
+#       Meteor.user()

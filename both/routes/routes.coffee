@@ -51,6 +51,10 @@ Router.map ->
       serviceName: 'SalesForce'
     onAfterAction: -> Meteor.setTimeout (-> window.close()), 1000
 
+  @route '/admin-panel',
+    name: 'adminPanel'
+    template: 'AdminPanel'
+
 
   #  =====  SAMPLES (redundant, should be removed in future)  ====
 
