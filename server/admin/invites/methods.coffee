@@ -1,4 +1,25 @@
 Meteor.methods
+  sendInviteViaEmail: (invite) ->
+    check invite, {
+#todo put email check here
+      email: String,
+      expireDate: Date
+    }
+
+    #check user permission
+    if Roles.userIsInRole @userId, 'admin'
+      inviteId = Invites.insert invite
+      if invite
+        Email.send
+          to: invite.email
+          from: "Dataforce Support <support@demo.getdataforce.com>"
+          subject: "Welcome to the Dataforce Alpha!"
+          html: Handlebars.templates['invite-email'](
+            urlWithToken: "#{process.env.ROOT_URL}sign-up/#{inviteId}"
+          )
+      else throw new Meteor.Error '404', 'Invite not found'
+
+
   getEmailByInviteId: (inviteId) ->
     check inviteId, App.checkers.MongoId
     invite = Invites.findOne({_id: inviteId})
