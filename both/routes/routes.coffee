@@ -57,6 +57,7 @@ Router.map ->
       if @params.query.code
         Meteor.call 'GA.saveToken', @params.query.code, (err, result) ->
           Router.go 'connectors'
+    onAfterAction: -> Meteor.setTimeout (-> window.close()), 1000
 
   @route '/admin-panel',
     name: 'adminPanel'
