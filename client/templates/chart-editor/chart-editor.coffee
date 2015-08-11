@@ -1,5 +1,11 @@
 Template.ChartEditor.onCreated ->
   @chart = new ReactiveVar(@data and @data.chart)
+  @axisX = new ReactiveVar {}
+  @axisY = new ReactiveVar {}
+
+  tmpl = Template.instance()
+  Tracker.autorun ->
+    console.log tmpl.axisX
 
   @saveChart = =>
 #extract chart info
@@ -38,6 +44,8 @@ Template.ChartEditor.events
     tmpl.saveChart() if event.which is 13 #pressed enter
 
   'click .axis-chooser': (event, tmpl) ->
-#    todo replace stub with real axis reactive var
-    axisStub = new ReactiveVar(null)
-    tmpl.chartSourcePicker.show({axis: axisStub})
+    chosenAxis = tmpl.$(event.target).data 'axis'
+    if chosenAxis is 'x'
+      tmpl.chartSourcePicker.show axis: tmpl.axisX
+    else
+      tmpl.chartSourcePicker.show axis: tmpl.axisY
