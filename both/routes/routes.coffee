@@ -93,7 +93,3 @@ checkUserLoggedIn = ->
 Router.onBeforeAction checkUserLoggedIn, except: ['home', 'signIn', 'signUp']
 
 # ==================================================
-
-#todo: @vlad, It doesn't supposed to be here
-Router.onAfterAction ->
-  Meteor.call 'GA.loadTokens'
