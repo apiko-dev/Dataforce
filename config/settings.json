@@ -23,7 +23,7 @@
   },
   "public": {
     "SalesForce": {"authUrl": "/oauth2/sales-force/login"},
-    "intercom": {"id": "tid67mwq"}
+    "intercom": {"id": "treqpye1"}
   },
-  "intercom": {"secret": "4666cda83e326066c0ac399e7e9989f5c0f228eb"}
+  "intercom": {"secret": "768a117287a00ad37f458ebc92695380d655e56b"}
 }
