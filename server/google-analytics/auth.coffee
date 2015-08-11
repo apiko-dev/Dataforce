@@ -34,7 +34,8 @@ Meteor.methods
     tokenToRevoke = gaConnector?.tokens?.access_token
 
     if tokenToRevoke
-      HTTP.get("https://accounts.google.com/o/oauth2/revoke?token=#{tokenToRevoke}").content
+      try
+        HTTP.get("https://accounts.google.com/o/oauth2/revoke?token=#{tokenToRevoke}").content
 
       oauth2Client.setCredentials {}
 

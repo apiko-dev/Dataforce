@@ -3,7 +3,7 @@ SETTINGS = Meteor.settings.private.GoogleAnalytics
 googleapis = Meteor.npmRequire "googleapis"
 googleAnalytics = googleapis.analytics "v3"
 OAuth2 = googleapis.auth.OAuth2
-oauth2Client = new OAuth2 SETTINGS.CLIENT_ID, SETTINGS.CLIENT_SECRET, SETTINGS.REDIRECT_URL
+oauth2Client = new OAuth2 SETTINGS.CLIENT_ID, SETTINGS.CLIENT_SECRET, "#{process.env.ROOT_URL}#{SETTINGS.REDIRECT_URL}"
 
 Meteor.methods
   "GA.getAllMetrics": (any) ->
