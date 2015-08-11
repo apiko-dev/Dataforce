@@ -3,3 +3,8 @@ Meteor.publish 'invites', () ->
     return Invites.find({})
   else
     @stop()
+
+
+#  if Roles.userIsInRole(@userId, ['tester'])
+#    console.log 'should be checked'
+    

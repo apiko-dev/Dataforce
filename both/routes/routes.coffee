@@ -79,18 +79,32 @@ Router.map ->
 
 
 # =================================================
+routePermissionDefaultAction = (context, isEnabled) ->
+  if Meteor.isServer
+    return context.next() #this check doesn't make sense on server side
+
+  if isEnabled
+    context.next()
+  else
+    Router.go '/'
+
 
 checkUserLoggedIn = ->
-  if Meteor.isServer
-    return @next() #this check doesn't make sense on server side
+  routePermissionDefaultAction @, Meteor.loggingIn() or Meteor.user()
 
-  if not Meteor.loggingIn() and not Meteor.user()
-    Router.go '/'
-  else
-    @next()
+
+requireAdmin = ->
+  routePermissionDefaultAction @, Roles.userIsInRole Meteor.userId(), ['admin']
+
+
+requireTester = ->
+  routePermissionDefaultAction @, Roles.userIsInRole Meteor.userId(), ['tester', 'admin']
+
 
 # not signed users can visit only home page
 Router.onBeforeAction checkUserLoggedIn, except: ['home', 'signIn', 'signUp']
+Router.onBeforeAction requireTester, except: ['home', 'signIn', 'signUp']
+Router.onBeforeAction requireAdmin, only: ['adminPanel']
 
 # ==================================================
 

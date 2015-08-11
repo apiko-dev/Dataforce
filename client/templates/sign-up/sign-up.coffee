@@ -8,7 +8,7 @@ Template.SignUp.onCreated ->
     else
       @email.set email
 
-      
+
 Template.SignUp.helpers
   errorMessage: -> Template.instance().errorMessage.get()
   email: -> Template.instance().email.get()
@@ -25,13 +25,15 @@ Template.SignUp.events
       return
 
     if password.length < 8
-      tmpl.errorMessage.set 'Password length should be 8 letters or more'
+      tmpl.errorMessage.set 'Password\'s length should be 8 letters or more'
       return
 
-    Accounts.createUser {
+    user = {
       email: tmpl.$('#inputEmail').val()
       password: password
-    }, (error) ->
+    }
+
+    Meteor.call 'createUserByInvite', user, (error) ->
       if error
         tmpl.errorMessage.set error.reason
       else
