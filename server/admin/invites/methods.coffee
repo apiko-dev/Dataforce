@@ -11,9 +11,8 @@ Meteor.methods
       password: String
     }
 
-    getInvite = (userEmail) -> Invites.findOne {email: userEmail}
     validateInvite = (userEmail) ->
-      invite = getInvite(userEmail)
+      invite = Invites.findOne {email: userEmail}
       currentTime = new Date().getTime()
       isInviteValid = invite and currentTime < invite.expireDate.getTime()
       if isInviteValid then invite else false
