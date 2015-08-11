@@ -14,8 +14,6 @@ Template.CreateInvite.events
       email: tmpl.$('.invite-email-input').val()
       expireDate: tmpl.expireDateInput.datepicker 'getDate'
 
-    Invites.insert createdInvite
-
-    #clear fields
-    tmpl.$('.invite-email-input').val('')
-    tmpl.resetExpireDate()
+    Meteor.call 'sendInviteViaEmail', createdInvite, App.handleError () ->
+      tmpl.$('.invite-email-input').val('') #clear fields
+      tmpl.resetExpireDate()
