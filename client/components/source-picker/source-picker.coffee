@@ -1,4 +1,5 @@
 Template.SourcePicker.onCreated ->
+  analytics.track 'Opened Source Picker'
   @showConnectorEntityPicker = new ReactiveVar false
   @entityPickerConnectorName = new ReactiveVar false
 
@@ -36,7 +37,6 @@ Template.SourcePicker.events
   'click .save-button': (event, tmpl) ->
     tmpl.clearSearch()
     tmpl.data.instance.hide()
-
 
   'change.radiocheck [name="metricRadio"]': (event, tmpl, value) ->
     target = tmpl.$(event.target)
