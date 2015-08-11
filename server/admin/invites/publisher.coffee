@@ -7,4 +7,3 @@ Meteor.publish 'invites', () ->
 
 #  if Roles.userIsInRole(@userId, ['tester'])
 #    console.log 'should be checked'
-    
