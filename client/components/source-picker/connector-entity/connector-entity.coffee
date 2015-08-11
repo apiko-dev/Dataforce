@@ -3,19 +3,13 @@ Template.ConnectorEntity.onCreated ->
 
   @resetSearch = -> Session.set('searchQuery', '')
 
-  @sfEntries = new ReactiveVar(false)
-  Meteor.call 'sfGetConnectorEntries', App.handleError (entries) =>
-    @sfEntries.set entries
-
 
 Template.ConnectorEntity.helpers
   entities: ->
-    tmpl = Template.instance()
-
     if @connectorName is ConnectorNames.Salesforce
-      tmpl.sfEntries.get()
+      ReactiveMethod.call 'sfGetConnectorEntries'
     else if @connectorName is ConnectorNames.GoogleAnalytics
-      ReactiveMethod.call "GA.getAccounts"
+      ReactiveMethod.call 'GA.getAccounts'
     else []
 
 

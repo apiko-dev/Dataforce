@@ -50,4 +50,9 @@ Template.SourcePicker.events
       entityName: metricsList.attr('data-entity')
 
     axisVar = tmpl.data.context.axis
+    axisType = axisVar.get().type
     axisVar.set _.extend axisVar.get(), axis
+    if axisType is 'x'
+      Session.set 'axisVarX', axisVar.get()
+    else
+      Session.set 'axisVarY', axisVar.get()

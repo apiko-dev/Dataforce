@@ -26,7 +26,8 @@ Meteor.methods
           userId: userId,
           name: ConnectorNames.GoogleAnalytics
         }, {$set: gaServiceCredentials}, {upsert: true}
-      else handleError err
+      else
+        console.log err
 
   "GA.logout": ->
     userId = @userId
