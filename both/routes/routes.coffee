@@ -107,7 +107,3 @@ Router.onBeforeAction requireTester, except: ['home', 'signIn', 'signUp']
 Router.onBeforeAction requireAdmin, only: ['adminPanel']
 
 # ==================================================
-
-#todo: @vlad, It doesn't supposed to be here
-Router.onAfterAction ->
-  Meteor.call 'GA.loadTokens'
