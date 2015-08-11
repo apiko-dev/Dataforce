@@ -51,6 +51,13 @@ Router.map ->
       serviceName: 'SalesForce'
     onAfterAction: -> Meteor.setTimeout (-> window.close()), 1000
 
+  @route '/google-analytics-sample/_oauth/google',
+    name: 'gaOAuth'
+    action: ->
+      if @params.query.code
+        Meteor.call 'GA.saveToken', @params.query.code, (err, result) ->
+          Router.go 'connectors'
+
   @route '/admin-panel',
     name: 'adminPanel'
     template: 'AdminPanel'
@@ -61,13 +68,6 @@ Router.map ->
   @route '/google-analytics-sample',
     name: 'googleAnalyticsSample'
     template: 'googleAnalyticsSample'
-
-  @route '/google-analytics-sample/_oauth/google',
-    name: 'gaOAuth'
-    action: ->
-      if @params.query.code
-        Meteor.call 'GA.saveToken', @params.query.code, (err, result) ->
-          Router.go 'connectors'
 
   @route '/zendesk-example',
     name: 'zendeskExample',
