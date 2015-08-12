@@ -1,5 +1,7 @@
-Template.SourcePicker.onCreated ->
+Template.SourcePicker.onRendered ->
   analytics.track 'Opened Source Picker'
+
+Template.SourcePicker.onCreated ->
   @showConnectorEntityPicker = new ReactiveVar false
   @entityPickerConnectorName = new ReactiveVar false
 
