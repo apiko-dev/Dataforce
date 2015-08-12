@@ -1,6 +1,7 @@
 Template.ChartEditor.onRendered ->
+  userId = Meteor.userId()
   Charts.insert
-    userId: Meteor.userId()
+    userId: userId
     name: ''
 
 Template.ChartEditor.onCreated ->

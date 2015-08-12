@@ -1,4 +1,4 @@
-Meteor.publish 'userCharts', -> Charts.find {userId: @userId}
+Meteor.publish 'userCharts', -> Charts.find(userId: @userId)
 
 Meteor.publish 'userCurves', -> Curves.find(userId: @userId)
 
