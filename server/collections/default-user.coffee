@@ -8,8 +8,3 @@ addAdminUser = ->
 Meteor.startup ->
   if Meteor.users.find().count() is 0
     addAdminUser()
-  else
-    defaultUser = Meteor.users.find({_id: '7fWPeHF7qYNieFta8'})
-    if defaultUser.role is 'admin' #old database version
-      Meteor.users.remove({})
-      addAdminUser()
