@@ -20,4 +20,6 @@ Template.CurveEditor.events
     , 510
 
   'click .save-curve': (event, tmpl) ->
-    analytics.track 'Save new curve'
+    analytics.track 'Save new curve', {
+      curveName: tmpl.$('.curve-title').val()
+    }
