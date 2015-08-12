@@ -1,3 +1,8 @@
+Template.ChartEditor.onRendered ->
+  Charts.insert
+    userId: Meteor.userId()
+    name: ''
+
 Template.ChartEditor.onCreated ->
   @chart = new ReactiveVar(@data and @data.chart)
   @axisX = new ReactiveVar {type: 'x'}
