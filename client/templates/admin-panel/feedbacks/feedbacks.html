@@ -1,3 +1,7 @@
 <template name="Feedbacks">
-    Feedbacks will be here
+    <div class="feedbacks">
+        {{#each feedbacks}}
+            {{> Feedback}}
+        {{/each}}
+    </div>
 </template>
