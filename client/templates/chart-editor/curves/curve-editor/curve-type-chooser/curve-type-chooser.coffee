@@ -1,3 +1,6 @@
+Template.CurveTypeChooser.onRendered ->
+  @$('.curve-type-chooser .btn').eq(0).addClass 'pressed'
+
 Template.CurveTypeChooser.events
   'click .curve-type-chooser .btn': (event, tmpl) ->
     buttonObject = tmpl.$(event.target)

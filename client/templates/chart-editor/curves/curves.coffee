@@ -11,9 +11,7 @@ Template.Curves.helpers
 
 Template.Curves.events
   'click #new-curve': (event, tmpl) ->
-    analytics.track 'Created new curve', {
-      curveName: tmpl.$('.curve-title').val()
-    }
+    analytics.track 'Created new curve'
     tmpl.curveCreating.set true
     tmpl.newCurves.get().push 0
     tmpl.newCurves.set tmpl.newCurves.get()
