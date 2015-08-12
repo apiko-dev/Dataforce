@@ -14,7 +14,9 @@
             {{> SignStatus}}
         </ul>
 
-        {{> FeedbackWidget}}
+        {{#if currentUser}}
+            {{> FeedbackWidget}}
+        {{/if}}
 
         <ul class="sidebar-nav bottom-menu">
             <li>
