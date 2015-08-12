@@ -1,10 +1,15 @@
 Template.ChartEditor.onRendered ->
   userId = Meteor.userId()
-  Charts.insert
+  createdChartId = Charts.insert
     userId: userId
     name: ''
 
+  window.onbeforeunload = (e) ->
+    Charts.remove _id: createdChartId
+    if false then ''
+
 Template.ChartEditor.onCreated ->
+
   @chart = new ReactiveVar(@data and @data.chart)
   @axisX = new ReactiveVar {type: 'x'}
   @axisY = new ReactiveVar {type: 'y'}
