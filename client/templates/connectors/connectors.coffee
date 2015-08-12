@@ -25,3 +25,8 @@ Template.Connectors.events
     revokeMethod = tmpl.$(event.target).attr('data-logout-method')
     if confirm('Are you sure?\nAll your charts related to this connector will be deleted.')
       Meteor.call revokeMethod, App.handleError()
+
+  'click .connect-connector': (event, tmpl) ->
+    analytics.track 'Connected connector', {
+      connectorName: tmpl.$(event.target).text()
+    }

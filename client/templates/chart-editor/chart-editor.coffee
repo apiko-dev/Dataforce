@@ -37,6 +37,9 @@ Template.ChartEditor.helpers
 Template.ChartEditor.events
   'click .save-chart-button': (event, tmpl) ->
     tmpl.saveChart()
+    analytics.track 'Saved new chart', {
+      chartName: tmpl.$('.chart-name').val()
+    }
 
   'keyup .chart-name': (event, tmpl) ->
     tmpl.saveChart() if event.which is 13 #pressed enter
