@@ -1,11 +1,10 @@
 @import "../../../../../configs.import.less";
 
 .axis-chooser-wrapper {
-  margin-bottom: @defaultIndent;
-
   .axis-chooser {
-    background-color: @primaryBackground;
     .transition(background-color, .2s);
+
+    background-color: @primaryBackground;
     border: 2px dashed @secondaryText;
     border-radius: 5px;
     color: @secondaryText;
@@ -13,6 +12,7 @@
     font-size: 5rem;
     font-style: oblique;
     text-align: center;
+    word-break: break-all;
 
     &:hover {
       color: @primaryText;

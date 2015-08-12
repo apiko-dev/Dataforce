@@ -1,10 +1,18 @@
 @import "../../../../configs.import.less";
 
-.curve-editor-wrapper {
-  padding: 15px;
+@indentPartial: @defaultIndent*1.5;
 
-  .part {
-    margin-bottom: 15px;
+.curve-editor-wrapper {
+  padding: @indentPartial;
+
+  .editor-row {
+    &:not(:last-child) {
+      margin-bottom: @indentPartial;
+    }
+  }
+
+  .bottom-buttons {
+    text-align: right;
   }
 }
 
