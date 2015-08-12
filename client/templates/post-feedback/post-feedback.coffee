@@ -4,10 +4,11 @@ Template.PostFeedback.onRendered ->
 
 
 Template.PostFeedback.events
-#  'click .show-dialog-button': (event, tmpl) ->
-
   'click .post-feedback-button': (event, tmpl) ->
     feedbackMessage = tmpl.feedbackInput.val()
     Meteor.call 'postFeedback', feedbackMessage, App.handleError () ->
       tmpl.feedbackInput.val('')
       tmpl.closeModal()
+
+  'shown.bs.modal #postFeedbackModal': (event, tmpl) ->
+    tmpl.feedbackInput.focus()

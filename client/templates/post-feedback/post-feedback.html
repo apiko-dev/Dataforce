@@ -1,45 +1,27 @@
 <template name="PostFeedback">
-    <div class="feedback-widget-wrapper">
-
-        <div class="feedback-widget">
-            <strong>We're in Alpha</strong>
-
-            <p>
-                Some features may not yet work properly.
-                We encourage your feedback on what you like and what you dislike.
-            </p>
-            <button class="btn btn-default btn-xs send-feedback-btn" data-toggle="modal"
-                    data-target="#postFeedbackModal">Send feedback
-            </button>
-        </div>
-
-
-        <div class="modal fade" id="postFeedbackModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Send Feedback</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="message">Your message</label>
+    <div class="modal fade" id="postFeedbackModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Send Feedback</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="message">Your message</label>
                         <textarea style="min-height: 150px;" class="form-control feedback-message-input"
                                   id="message"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-success post-feedback-button">Send</button>
                     </div>
                 </div>
-                <!-- /.modal-content -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success post-feedback-button">Send</button>
+                </div>
             </div>
-            <!-- /.modal-dialog -->
+            <!-- /.modal-content -->
         </div>
-        <!-- /.modal -->
+        <!-- /.modal-dialog -->
     </div>
+    <!-- /.modal -->
 </template>
