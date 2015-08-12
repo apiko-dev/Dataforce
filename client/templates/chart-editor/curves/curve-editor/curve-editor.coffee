@@ -1,5 +1,5 @@
 Template.CurveEditor.onRendered ->
-  @editor = @$(".curve-wrapper")
+  @editor = @$('.curve-wrapper')
 
 Template.CurveEditor.helpers
   curvesList: [
@@ -10,7 +10,7 @@ Template.CurveEditor.helpers
   ]
 
 Template.CurveEditor.events
-  "click .remove-curve": (event, tmpl) ->
+  'click .remove-curve': (event, tmpl) ->
     tmpl.editor.slideUp 500, -> tmpl.editor.remove()
 
     newCurves = tmpl.get "newCurves"
@@ -18,3 +18,6 @@ Template.CurveEditor.events
       # todo: rewrite considering removing the specific curve, not last
       newCurves.set App.Functions._withoutLast newCurves.get()
     , 510
+
+  'click .save-curve': (event, tmpl) ->
+    analytics.track 'Save new curve'
