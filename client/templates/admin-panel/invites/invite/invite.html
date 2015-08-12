@@ -1,6 +1,6 @@
 <template name="Invite">
-    <tr class="view-invite-row {{#if accountCreated}}account-created{{/if}}">
-        <td>{{email}}</td>
+    <tr class="view-invite-row">
+        <td>{{email}} {{#if accountCreated}}<i class="fa fa-check" title="This user is signed up"></i>{{/if}}</td>
         <td>
             <input type="text" class="form-control expire-date-input">
         </td>
