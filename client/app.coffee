@@ -20,6 +20,9 @@ _App =
       searchQuery = Session.get('searchQuery')
       searchQuery is '' or targetStr.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1
 
+    formatDate: (date) ->
+      moment(date or moment(1999, 'YYYY')).fromNow()
+
 
 #register global helpers
 for helperName of _App.helpers

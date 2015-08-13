@@ -2,7 +2,6 @@
 
 .spoiler {
   background-color: @primaryBackground;
-  cursor: pointer;
   margin-bottom: @defaultIndent;
 
   .spoiler-panel {
@@ -20,6 +19,7 @@
     }
 
     .expand-button {
+      cursor: pointer;
       display: block;
       position: absolute;
       width: @expandButtonWidth;
@@ -67,5 +67,9 @@
     border-radius: 0 0 5px 5px;
     overflow: hidden;
     cursor: auto;
+  }
+
+  [role="spoiler-collapse"] {
+    cursor: pointer;
   }
 }
