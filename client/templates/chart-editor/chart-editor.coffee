@@ -1,16 +1,22 @@
 Template.ChartEditor.onRendered ->
   userId = Meteor.userId()
-  createdChartId = Charts.insert
+  @createdChartId = Charts.insert
     userId: userId
+    createdAt: moment().toDate()
     name: ''
 
-  window.onbeforeunload = (e) ->
-    Charts.remove _id: createdChartId
+  window.onbeforeunload = =>
+    removeNewlyCreatedChart @
     if false then ''
 
-Template.ChartEditor.onCreated ->
 
+Template.ChartEditor.onDestroyed ->
+  removeNewlyCreatedChart @
+
+
+Template.ChartEditor.onCreated ->
   @chart = new ReactiveVar(@data and @data.chart)
+  @chartSaved = no
   @axisX = new ReactiveVar {type: 'x'}
   @axisY = new ReactiveVar {type: 'y'}
 
@@ -28,11 +34,8 @@ Template.ChartEditor.onCreated ->
       Charts.update {_id: editedChart._id}, {$set: chart}, App.handleError =>
         @chart.set _.extend editedChart, chart
     else
-      Charts.insert chart, App.handleError (chartId) =>
-        @subscribe 'userChart', chartId,
-          onReady: => @chart.set Charts.findOne {_id: chartId}
-
-          onStop: App.handleError()
+      @chartSaved = yes
+      Router.go 'dashboard'
 
 
 Template.ChartEditor.helpers
@@ -54,6 +57,12 @@ Template.ChartEditor.events
 
   'keyup .chart-name': (event, tmpl) ->
     tmpl.saveChart() if event.which is 13 #pressed enter
+    chartName = tmpl.$('.chart-name').val()
+
+    Charts.update {_id: tmpl.createdChartId}, {
+      $set:
+        name: chartName
+    }
 
   'click .axis-chooser': (event, tmpl) ->
     chosenAxis = getChosenAxis(event, tmpl)
@@ -69,3 +78,7 @@ getChosenAxis = (event, tmpl) ->
     tmpl.$(event.target).parent().data 'axis'
   else
     tmpl.$(event.target).data 'axis'
+
+removeNewlyCreatedChart = (tmpl) ->
+  if not tmpl.chartSaved
+    Charts.remove _id: tmpl.createdChartId

@@ -4,3 +4,6 @@ Charts.allow
   insert: isOwner
   update: isOwner
   remove: isOwner
+
+Charts.after.remove (userId, doc) ->
+  Curves.remove chartId: doc._id
