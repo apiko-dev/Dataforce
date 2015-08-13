@@ -23,3 +23,12 @@ Template.CurveEditor.events
     analytics.track 'Save new curve', {
       curveName: tmpl.$('.curve-title').val()
     }
+
+  'keyup .curve-title': (event, tmpl) ->
+    curveId = tmpl.get 'newCurveId'
+    curveName = tmpl.$(event.target).val()
+
+    Curves.update {_id: curveId}, {
+      $set:
+        name: curveName
+    }
