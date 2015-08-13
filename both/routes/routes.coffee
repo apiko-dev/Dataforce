@@ -39,7 +39,10 @@ Router.map ->
     name: 'chartEditor',
     template: 'ChartEditor'
     waitOn: ->
-      Meteor.subscribe 'userCurves'
+      [
+        Meteor.subscribe 'userCharts'
+        Meteor.subscribe 'userCurves'
+      ]
 
   @route '/connectors',
     name: 'connectors',

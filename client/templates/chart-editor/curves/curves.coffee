@@ -15,3 +15,11 @@ Template.Curves.events
     tmpl.curveCreating.set true
     tmpl.newCurves.get().push 0
     tmpl.newCurves.set tmpl.newCurves.get()
+
+    chartId = tmpl.get('createdChartId')
+    Curves.insert {
+      chartId: chartId
+      userId: Charts.findOne(_id: chartId).userId
+      metric: {}
+      dimension: {}
+    }
