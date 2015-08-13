@@ -6,6 +6,9 @@ navigationMenuItems = [
   {name: 'adminPanel', caption: 'Admin Panel', roles: ['admin']}
 ]
 
+Template.SidebarNavigation.onRendered ->
+  @$('#side-menu').metisMenu();
+
 Template.SidebarNavigation.helpers
   samplesRoutes: ->
     navigationMenuItems.filter (item) -> !item.roles or Roles.userIsInRole Meteor.userId(), item.roles
