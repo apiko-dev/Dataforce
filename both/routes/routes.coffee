@@ -25,7 +25,7 @@ Router.map ->
     name: 'dashboard',
     template: 'Dashboard'
     waitOn: -> @subscribe 'userCharts'
-    data: -> charts: Charts.find()
+    data: -> charts: Charts.find {}, {sort: createdAt: -1}
 
   @route '/chart-editor/:chartId',
     name: 'existingChartEditor',
