@@ -2,7 +2,7 @@ Template.ChartEditor.onRendered ->
   userId = Meteor.userId()
   @createdChartId = Charts.insert
     userId: userId
-    createdAt: moment().unix()
+    createdAt: moment().toDate()
     name: ''
 
   window.onbeforeunload = =>
