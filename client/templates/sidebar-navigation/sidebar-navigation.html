@@ -1,27 +1,20 @@
 <template name="SidebarNavigation">
-    <div id="sidebar-wrapper" class="sidebar-container">
-        <ul class="sidebar-nav">
-            <li class="sidebar-brand">
-                <a href="#">DataForce</a>
-            </li>
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+                {{#each samplesRoutes}}
+                    <li>
+                        <a href="{{pathFor name}}" class="{{isActiveRoute name}}">{{caption}}</a>
+                    </li>
+                {{/each}}
 
-            {{#each samplesRoutes}}
-                <li>
-                    <a href="{{pathFor name}}" class="{{isActiveRoute name}}">{{caption}}</a>
-                </li>
-            {{/each}}
+                {{> SignStatus}}
 
-            {{> SignStatus}}
-        </ul>
+                {{#if currentUser}}
+                    {{> FeedbackWidget}}
+                {{/if}}
+            </ul>
 
-        {{#if currentUser}}
-            {{> FeedbackWidget}}
-        {{/if}}
-
-        <ul class="sidebar-nav bottom-menu">
-            <li>
-                {{> yield 'footer'}}
-            </li>
-        </ul>
+        </div>
     </div>
 </template>

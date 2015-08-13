@@ -1,7 +1,6 @@
 @import "../../configs.import.less";
 
-.sidebar-container {
-  background: @primaryDark;
+.navbar-default.sidebar {
   font-size: 14px;
 
   .sidebar-nav {
@@ -11,64 +10,34 @@
     padding: 0;
     list-style: none;
 
-    &:not(.bottom-menu) {
-      top: 0;
+    li {
+      margin-bottom: 3px;
 
-      .sidebar-brand {
-        font-size: 25px;
-        font-weight: bold;
-        line-height: 25px;
-      }
+      & > a {
+        display: block;
+        padding: 10px;
+        color: @primaryText;
+        text-decoration: none;
+        background: @primaryColor;
 
-      li {
-        margin-bottom: 3px;
+        &:hover {
+          background: @primaryDark;
+        }
 
-        & > a {
-          display: block;
-          padding: 10px;
-          color: @primaryText;
+        &.active {
+          background: @primaryDark;
+          color: @accentColor;
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
           text-decoration: none;
-          background: @primaryColor;
-
-          &:hover {
-            background: @primaryDark;
-          }
-
-          &.active {
-            background: @primaryDark;
-            color: @accentColor;
-          }
-
-          &:hover,
-          &:active,
-          &:focus {
-            text-decoration: none;
-          }
-        }
-
-        &:not(:first-child) {
-
-        }
-
-        &.sidebar-brand a {
-          background: @accentColor;
-          color: @primaryColor;
-        }
-
-        &#login-dropdown-list {
-          .dropdown-menu {
-            min-width: 250px;
-            width: 250px;
-          }
         }
       }
 
     }
 
-    &.bottom-menu {
-      top: auto;
-      bottom: 0;
-    }
   }
 }
 
