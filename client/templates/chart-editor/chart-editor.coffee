@@ -8,11 +8,14 @@ Template.ChartEditor.onRendered ->
     removeNewlyCreatedChart @
     if false then ''
 
+
 Template.ChartEditor.onDestroyed ->
   removeNewlyCreatedChart @
 
+
 Template.ChartEditor.onCreated ->
   @chart = new ReactiveVar(@data and @data.chart)
+  @chartSaved = no
   @axisX = new ReactiveVar {type: 'x'}
   @axisY = new ReactiveVar {type: 'y'}
 
@@ -30,11 +33,8 @@ Template.ChartEditor.onCreated ->
       Charts.update {_id: editedChart._id}, {$set: chart}, App.handleError =>
         @chart.set _.extend editedChart, chart
     else
-      Charts.insert chart, App.handleError (chartId) =>
-        @subscribe 'userChart', chartId,
-          onReady: => @chart.set Charts.findOne {_id: chartId}
-
-          onStop: App.handleError()
+      @chartSaved = yes
+      Router.go 'dashboard'
 
 
 Template.ChartEditor.helpers
@@ -79,4 +79,5 @@ getChosenAxis = (event, tmpl) ->
     tmpl.$(event.target).data 'axis'
 
 removeNewlyCreatedChart = (tmpl) ->
-  Charts.remove _id: tmpl.createdChartId
+  if not tmpl.chartSaved
+    Charts.remove _id: tmpl.createdChartId
