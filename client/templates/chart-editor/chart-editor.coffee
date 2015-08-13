@@ -53,6 +53,12 @@ Template.ChartEditor.events
 
   'keyup .chart-name': (event, tmpl) ->
     tmpl.saveChart() if event.which is 13 #pressed enter
+    chartName = tmpl.$('.chart-name').val()
+
+    Charts.update {_id: tmpl.createdChartId}, {
+      $set:
+        name: chartName
+    }
 
   'click .axis-chooser': (event, tmpl) ->
     chosenAxis = getChosenAxis(event, tmpl)
