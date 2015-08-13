@@ -1,19 +1,24 @@
 <template name="ChartListItem">
     <div class="chart-item">
-        {{#Spoiler opened=true}}
-            <div class="heading">
-                <i class="fa fa-area-chart chart-icon" role="spoiler-collapse"></i>
-                {{name}}
-                <span class="chart-buttons">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <div class="heading">
+                        <i class="fa fa-area-chart chart-icon" role="spoiler-collapse"></i>
+                        {{name}}
+                        <span class="chart-buttons">
                     <span>{{formatDate createdAt}}&nbsp;</span>
                     <i class="fa fa-pencil edit-chart-button"></i>
                     <i class="fa fa-trash-o remove-chart-button"></i>
                 </span>
+                    </div>
+                </h3>
             </div>
-        {{else}}
-            <div class="details">
-                {{> ChartDisplay}}
+            <div class="panel-body">
+                <div class="details">
+                    {{> ChartDisplay}}
+                </div>
             </div>
-        {{/Spoiler}}
+        </div>
     </div>
 </template>
