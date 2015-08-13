@@ -48,3 +48,4 @@ mrt:cron
 cmather:handlebars-server
 email
 okgrow:analytics
+matb33:collection-hooks
