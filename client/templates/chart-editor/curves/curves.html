@@ -1,10 +1,8 @@
 <template name="Curves">
     {{#EditorPanel title="Curves"}}
-        {{#if curveCreating}}
-            {{#each newCurves}}
-                {{> CurveEditor}}
-            {{/each}}
-        {{/if}}
+        {{#each newCurves}}
+            {{> CurveEditor}}
+        {{/each}}
         <button class="btn btn-hg btn-primary fullwidth" id="new-curve">
             <span class="glyphicon glyphicon-plus"></span>
             Add new curve

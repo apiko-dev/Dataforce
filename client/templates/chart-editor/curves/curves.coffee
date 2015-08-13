@@ -1,25 +1,19 @@
 Template.Curves.onCreated ->
-  @curveCreating = new ReactiveVar false
-  @newCurves = new ReactiveVar []
   @newCurveId = ''
+  @newCurves = new ReactiveVar false
 
 Template.Curves.helpers
-  curveCreating: ->
-    Template.instance().curveCreating.get()
-
   newCurves: ->
     Template.instance().newCurves.get()
 
 Template.Curves.events
   'click #new-curve': (event, tmpl) ->
     analytics.track 'Created new curve'
-    tmpl.curveCreating.set true
-    tmpl.newCurves.get().push 0
-    tmpl.newCurves.set tmpl.newCurves.get()
+    tmpl.chartId = tmpl.get 'createdChartId'
 
-    chartId = tmpl.get 'createdChartId'
     tmpl.newCurveId = Curves.insert {
-      chartId: chartId
+      chartId: tmpl.chartId
       name: 'New curve'
-      userId: Charts.findOne(_id: chartId).userId
+      userId: Charts.findOne(_id: tmpl.chartId).userId
     }
+    tmpl.newCurves.set Curves.find(chartId: Template.instance().chartId)
