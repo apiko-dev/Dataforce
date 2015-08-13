@@ -1,5 +1,6 @@
-Meteor.publish 'userCharts', -> Charts.find {userId: @userId}
+Meteor.publish 'userCharts', -> Charts.find(userId: @userId)
 
+Meteor.publish 'userCurves', -> Curves.find(userId: @userId)
 
 Meteor.publish 'userChart', (chartId) ->
   check chartId, App.checkers.MongoId

@@ -29,10 +29,15 @@ Template.CurveTypeChooser.helpers
 
 Template.CurveTypeChooser.events
   'click .curve-type-chooser .btn': (event, tmpl) ->
-    buttonObject = tmpl.$(event.target)
+    pressedButton = tmpl.$(event.target)
     otherButtons = tmpl.$('.curve-type-chooser .btn')
-
-    chosenCurveType = buttonObject.data 'type'
-
     otherButtons.removeClass "pressed"
-    buttonObject.addClass "pressed"
+    pressedButton.addClass "pressed"
+
+    curveType = pressedButton.data 'type'
+    curveId = tmpl.get 'newCurveId'
+
+    Curves.update {_id: curveId}, {
+      $set:
+        type: curveType
+    }

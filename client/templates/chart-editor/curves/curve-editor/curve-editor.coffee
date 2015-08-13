@@ -16,10 +16,19 @@ Template.CurveEditor.events
     newCurves = tmpl.get "newCurves"
     Meteor.setTimeout ->
       # todo: rewrite considering removing the specific curve, not last
-      newCurves.set App.Functions._withoutLast newCurves.get()
+      newCurves.set _.reject newCurves.get(), (num, i) -> (newCurves.get().length - 1) is i
     , 510
 
   'click .save-curve': (event, tmpl) ->
     analytics.track 'Save new curve', {
       curveName: tmpl.$('.curve-title').val()
+    }
+
+  'keyup .curve-title': (event, tmpl) ->
+    curveId = tmpl.get 'newCurveId'
+    curveName = tmpl.$(event.target).val()
+
+    Curves.update {_id: curveId}, {
+      $set:
+        name: curveName
     }
