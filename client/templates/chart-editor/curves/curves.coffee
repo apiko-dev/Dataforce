@@ -22,6 +22,4 @@ Template.Curves.events
       chartId: chartId
       name: 'New curve'
       userId: Charts.findOne(_id: chartId).userId
-      metric: {}
-      dimension: {}
     }
