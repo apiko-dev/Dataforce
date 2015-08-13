@@ -1,6 +1,3 @@
-Template.CurveEditor.onRendered ->
-  @editor = @$('.curve-wrapper')
-
 Template.CurveEditor.helpers
   curvesList: [
     {caption: 'Line', type: 'line'}
@@ -11,17 +8,16 @@ Template.CurveEditor.helpers
 
 Template.CurveEditor.events
   'click .remove-curve': (event, tmpl) ->
-    tmpl.editor.slideUp 500, -> tmpl.editor.remove()
+    Curves.remove _id: tmpl.data._id
 
-    newCurves = tmpl.get "newCurves"
-    Meteor.setTimeout ->
-      # todo: rewrite considering removing the specific curve, not last
-      newCurves.set _.reject newCurves.get(), (num, i) -> (newCurves.get().length - 1) is i
-    , 510
+    tmpl.chartId = tmpl.get 'createdChartId'
+    tmpl.get('newCurves').set Curves.find(chartId: tmpl.chartId)
 
   'keyup .curve-title': (event, tmpl) ->
-    curveId = tmpl.get 'newCurveId'
+    curveId = tmpl.data._id
     curveName = tmpl.$(event.target).val()
+
+    console.log curveId, curveName
 
     Curves.update {_id: curveId}, {
       $set:
