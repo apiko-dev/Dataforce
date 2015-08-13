@@ -4,9 +4,12 @@ Template.ChartEditor.onRendered ->
     userId: userId
     name: ''
 
-  window.onbeforeunload = (e) =>
-    Charts.remove _id: @createdChartId
+  window.onbeforeunload = =>
+    removeNewlyCreatedChart @
     if false then ''
+
+Template.ChartEditor.onDestroyed ->
+  removeNewlyCreatedChart @
 
 Template.ChartEditor.onCreated ->
   @chart = new ReactiveVar(@data and @data.chart)
@@ -74,3 +77,6 @@ getChosenAxis = (event, tmpl) ->
     tmpl.$(event.target).parent().data 'axis'
   else
     tmpl.$(event.target).data 'axis'
+
+removeNewlyCreatedChart = (tmpl) ->
+  Charts.remove _id: tmpl.createdChartId
