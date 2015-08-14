@@ -26,8 +26,16 @@ body {
     font-size: 25px;
     font-weight: bold;
     line-height: 25px;
-    background: @accentColor;
     color: @primaryColor;
+    display: block;
+    width: 250px;
+    background: #DCFC02 url("/logo.png") no-repeat center;
+    background-size: 35%;
+
+    @media (max-width: 768px) {
+      width: 100px;
+      background-size: 90%;
+    }
   }
 }
 
