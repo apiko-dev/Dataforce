@@ -31,8 +31,6 @@ Template.CurveEditor.events
     curveId = tmpl.data._id
     curveName = tmpl.$(event.target).val()
 
-    console.log curveId, curveName
-
     Curves.update {_id: curveId}, {
       $set:
         name: curveName
