@@ -7,7 +7,7 @@
 meteor-platform
 audit-argument-checks
 #this package should be commented if app running localhost is opened from LAN
-#force-ssl
+force-ssl
 reactive-var
 coffeescript
 less
