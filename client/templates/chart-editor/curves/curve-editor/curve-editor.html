@@ -5,23 +5,11 @@
             <input class="form-control no-borders curve-title" type="text" value="New curve"/>
         {{else}}
             <div class="curve-editor-wrapper">
-
-                <!-- Nav tabs -->
-                <ul>
-                    {{#each editorTabs}}
-                        <li>
-                            {{connector}}
-                            <img src="{{iconUrl}}">
-                        </li>
-                    {{/each}}
-                </ul>
-                <!-- Tab panes -->
-
+                {{> CurveEditorTabs}}
 
                 <div class="row editor-row">
                     <div class="col-xs-12 bottom-buttons">
                         <button class="btn btn-default remove-curve-button">Delete</button>
-                        <button class="btn btn-default cancel-curve-editing-button">Cancel</button>
                     </div>
                 </div>
             </div>

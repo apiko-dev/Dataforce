@@ -1,0 +1,16 @@
+<template name="CurveEditorTabs">
+    <div class="curve-editor-tabs-wrapper">
+        <!-- Nav tabs -->
+        <ul class="editor-tabs">
+            {{#each editorTabs}}
+                <li class="tab {{#if isActive}}active{{/if}}" data-connector="{{connector}}" title="{{connector}}"
+                    style="background-image: url('{{iconUrl}}');">
+                </li>
+            {{/each}}
+        </ul>
+        <!-- Tab pane -->
+        <div class="tab-content">
+            {{> Template.dynamic template=currentTab.template}}
+        </div>
+    </div>
+</template>

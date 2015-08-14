@@ -5,11 +5,7 @@ Template.CurveEditor.helpers
     {caption: 'Area', type: 'area'}
     {caption: 'Pie', type: 'pie'}
   ]
-  editorTabs: [
-    {connector: ConnectorNames.Salesforce, iconUrl: '/connectors/sf-small-logo.png'}
-    {connector: ConnectorNames.GoogleAnalytics, iconUrl: '/connectors/ga-small-logo.png'}
-    {connector: ConnectorNames.Dataforce, iconUrl: '/connectors/df-small-logo.png'}
-  ]
+
 
   sourcePickerModalConfig: ->
     tmpl = Template.instance()

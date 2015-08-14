@@ -1,0 +1,31 @@
+@import '../../../../../configs.import.less';
+
+@tabDimension: 64px;
+
+.curve-editor-tabs-wrapper {
+  //tabs
+  .editor-tabs {
+    display: block;
+    list-style-type: none;
+    padding-left: 0;
+    border-bottom: @border;
+    height: @tabDimension+1;
+
+    .tab {
+      display: inline-block;
+      width: @tabDimension;
+      height: @tabDimension;
+      background-color: #bbbbbb;
+      background-repeat: no-repeat;
+      background-size: 100%;
+
+      &.active {
+        border-bottom: 3px solid @accentColor;
+      }
+    }
+  }
+  //current tab's content
+  .tab-content {
+
+  }
+}
