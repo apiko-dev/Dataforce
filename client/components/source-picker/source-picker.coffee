@@ -59,14 +59,7 @@ Template.SourcePicker.events
           entityName: axis.entityName
       }
 
-    if axisType is 'x'
-      _.extend tmpl.curveMetadata.metadata, {
-        metric: axis.fieldName
-      }
-    else
-      _.extend tmpl.curveMetadata.metadata, {
-        dimension: axis.fieldName
-      }
+    _.extend tmpl.curveMetadata.metadata, if axisType is 'x' then {metric: axis.fieldName} else {dimension: axis.fieldName}
 
     Curves.update {_id: curveId}, {
       $set:
