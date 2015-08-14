@@ -1,42 +1,63 @@
 @import "../../configs.import.less";
 @import "variables.import.less";
 
+@navbarHeight: 53px;
+
 body {
   background: @primaryDark;
 }
 
+html, body {
+  height: 100%;
+}
+
 #wrapper {
   width: 100%;
-}
+  height: 100%;
+  min-height: 100%;
 
-#page-wrapper {
-  min-height: 568px;
-  background: @primaryBackground;
-}
+  .navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
 
-@media (min-width: 768px) {
-  #page-wrapper {
-    position: inherit;
-    margin: 0 0 0 250px;
-  }
-}
+    .navbar-header {
+      .navbar-brand {
+        font-size: 25px;
+        font-weight: bold;
+        line-height: 25px;
+        color: @primaryColor;
+        display: block;
+        width: 250px;
+        background: @brandColor url("/logo.png") no-repeat center;
+        background-size: 35%;
 
-.navbar-header {
-  .navbar-brand {
-    font-size: 25px;
-    font-weight: bold;
-    line-height: 25px;
-    color: @primaryColor;
-    display: block;
-    width: 250px;
-    background: #DCFC02 url("/logo.png") no-repeat center;
-    background-size: 35%;
-
-    @media (max-width: 768px) {
-      width: 100px;
-      background-size: 90%;
+        @media (max-width: 768px) {
+          width: 100px;
+          background-size: 90%;
+        }
+      }
     }
   }
+
+  #page-wrapper {
+    background: @primaryBackground;
+    min-height: 100%;
+
+    &:before {
+      display: block;
+      content: ' ';
+      width: 100%;
+      height: @navbarHeight;
+    }
+
+    @media (min-width: 768px) {
+      position: inherit;
+      margin: 0 0 0 250px;
+    }
+  }
+
 }
 
 // Navigation
