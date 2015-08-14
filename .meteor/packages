@@ -13,6 +13,7 @@ coffeescript
 less
 npm-container
 service-configuration
+email
 
 accounts-base
 accounts-ui
@@ -47,6 +48,5 @@ percolate:intercom
 alanning:roles
 mrt:cron
 cmather:handlebars-server
-email
 okgrow:analytics
 matb33:collection-hooks
