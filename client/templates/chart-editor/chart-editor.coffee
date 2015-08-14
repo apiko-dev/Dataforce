@@ -35,8 +35,8 @@ Template.ChartEditor.onCreated ->
 
 
 Template.ChartEditor.events
-  'click #load-series': (event, tmpl) ->
-    Meteor.call 'loadSeries', 1, 2, 3, 4, 5
+  'click #load-series-button': (event, tmpl) ->
+    Meteor.call 'loadSeries', Curves.find({chartId: tmpl.createdChartId}).fetch()
 
   'click .save-chart-button': (event, tmpl) ->
     tmpl.saveChart()

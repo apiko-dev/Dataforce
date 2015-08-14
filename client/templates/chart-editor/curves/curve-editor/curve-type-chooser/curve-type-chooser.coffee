@@ -35,7 +35,7 @@ Template.CurveTypeChooser.events
     pressedButton.addClass "pressed"
 
     curveType = pressedButton.data 'type'
-    curveId = tmpl.get 'newCurveId'
+    curveId = tmpl.data._id
 
     Curves.update {_id: curveId}, {
       $set:

@@ -1,14 +1,14 @@
 Meteor.methods
-  'loadSeries': (chartDescriptions...) ->
-    check chartDescriptions, Array
+  'loadSeries': (curveIds...) ->
+    check curveIds, Array
 
-    seriesLoader = new SeriesLoader(chartDescriptions...)
+    seriesLoader = new SeriesLoader(curveIds...)
     seriesLoader.getSeries()
 
 
 class SeriesLoader
-  constructor: (chartDescriptions...) ->
-    console.log chartDescriptions
+  constructor: (curveIds...) ->
+    console.log curveIds
 
   getSeries: ->
     console.log 'getting the series'
