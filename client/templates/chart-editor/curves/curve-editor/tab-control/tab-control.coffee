@@ -17,8 +17,15 @@ tabs = [
 ]
 
 Template.CurveEditorTabs.onCreated ->
-  @currentTab = new ReactiveVar(tabs[0]);
+  @currentTab = new ReactiveVar tabs[0]
 
+
+Template.CurveEditorTabs.onRendered ->
+  curveId = tmpl.data._id
+  Curves.update {_id: curveId}, {
+    $set:
+      source: tabs[0].connector
+  }
 
 Template.CurveEditorTabs.helpers
   currentTab: -> Template.instance().currentTab.get()
