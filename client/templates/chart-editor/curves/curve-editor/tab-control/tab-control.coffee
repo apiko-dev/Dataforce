@@ -21,7 +21,7 @@ Template.CurveEditorTabs.onCreated ->
 
 
 Template.CurveEditorTabs.onRendered ->
-  curveId = tmpl.data._id
+  curveId = @data._id
   Curves.update {_id: curveId}, {
     $set:
       source: tabs[0].connector
