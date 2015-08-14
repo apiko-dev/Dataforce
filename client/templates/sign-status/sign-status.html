@@ -1,11 +1,17 @@
 <template name="SignStatus">
     {{#if currentUser}}
         <li title="Logout">
-            <a href="#" class="logout-button">{{currentUser.emails.[0].address}}</a>
+            <a href="#" class="logout-button">
+                <i class="fa fa-user menu-icon"></i>
+                {{currentUser.emails.[0].address}}
+            </a>
         </li>
     {{else}}
         <li>
-            <a href="{{pathFor route='signIn'}}">Sign In</a>
+            <a href="{{pathFor route='signIn'}}">
+                <i class="fa fa-sign-in menu-icon"></i>
+                Sign In
+            </a>
         </li>
     {{/if}}
 </template>
