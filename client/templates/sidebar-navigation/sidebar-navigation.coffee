@@ -1,9 +1,9 @@
 navigationMenuItems = [
-  {name: 'home', caption: 'Home', roles: false}
-  {name: 'dashboard', caption: 'Dashboard', roles: ['tester', 'admin']}
-  {name: 'chartEditor', caption: 'Chart Editor', roles: ['tester', 'admin']}
-  {name: 'connectors', caption: 'Connectors', roles: ['tester', 'admin']}
-  {name: 'adminPanel', caption: 'Admin Panel', roles: ['admin']}
+  {name: 'home', caption: 'Home', icon: 'home', roles: false}
+  {name: 'dashboard', caption: 'Dashboard', icon: 'dashboard', roles: ['tester', 'admin']}
+  {name: 'chartEditor', caption: 'Chart Editor', icon: 'bar-chart', roles: ['tester', 'admin']}
+  {name: 'connectors', caption: 'Connectors', icon: 'link', roles: ['tester', 'admin']}
+  {name: 'adminPanel', caption: 'Admin Panel', icon: 'hand-spock-o', roles: ['admin']}
 ]
 
 Template.SidebarNavigation.onRendered ->
