@@ -1,8 +1,3 @@
-Template.CurveEditor.onCreated ->
-  @axisX = new ReactiveVar {type: 'x'}
-  @axisY = new ReactiveVar {type: 'y'}
-
-
 Template.CurveEditor.helpers
   curvesList: [
     {caption: 'Line', type: 'line'}
@@ -38,11 +33,7 @@ Template.CurveEditor.events
 
   'click .axis-chooser': (event, tmpl) ->
     chosenAxis = getChosenAxis(event, tmpl)
-
-    if chosenAxis is 'x'
-      tmpl.chartSourcePicker.show axis: tmpl.axisX
-    else
-      tmpl.chartSourcePicker.show axis: tmpl.axisY
+    tmpl.chartSourcePicker.show chosenAxis
 
 getChosenAxis = (event, tmpl) ->
   clickedOnChild = event.target.tagName is 'SPAN'

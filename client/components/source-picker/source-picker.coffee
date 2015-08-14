@@ -22,8 +22,6 @@ Template.SourcePicker.onCreated ->
 
   @autorun =>
     data = Template.currentData()
-    axisVar = data.context.axis
-    if axisVar and not axisVar.get() then axisVar.set {filterBy: [], orderBy: null}
 
 
 Template.SourcePicker.helpers
@@ -52,7 +50,7 @@ Template.SourcePicker.events
       entityName: metricsList.attr('data-entity')
 
     curveId = tmpl.get 'newCurveId'
-    axisType = tmpl.data.context.axis.get().type
+    axisType = tmpl.data.context
 
     if not tmpl.curveMetadata.source
       _.extend tmpl.curveMetadata, {
