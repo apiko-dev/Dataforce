@@ -2,16 +2,16 @@
     <div class="row editor-row axis-chooser-wrapper">
         <div class="col-xs-6 ">
             <div class="axis-chooser" data-axis="x">
-                <!--<img src="https://pbs.twimg.com/profile_images/443439417571561472/JDKNOknx.png" class="connector-logo"/>-->
+                <span class="connector-logo-backdrop" style="background: url({{xAxis.logoUrl}});"></span>
                 <span class="axis-sign">x</span>
-                <span class="axis-data">{{xAxisInfo}}</span>
+                <span class="axis-data">{{xAxis.source}} -> {{xAxis.metadata.entityName}} -> {{xAxis.metadata.metric}}</span>
             </div>
         </div>
         <div class="col-xs-6">
             <div class="axis-chooser" data-axis="y">
-                <!--<img src="http://nosok.name/wp-content/uploads/salesforce-flat-logo.jpg" class="connector-logo"/>-->
+                <span class="connector-logo-backdrop" style="background: url({{xAxis.logoUrl}});"></span>
                 <span class="axis-sign">y</span>
-                <span class="axis-data">{{yAxisInfo}}</span>
+                <span class="axis-data">{{yAxis.source}} -> {{yAxis.metadata.entityName}} -> {{yAxis.metadata.dimension}}</span>
             </div>
         </div>
     </div>

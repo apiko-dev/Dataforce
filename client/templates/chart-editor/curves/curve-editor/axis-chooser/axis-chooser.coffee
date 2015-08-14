@@ -1,18 +1,11 @@
 Template.AxisChooser.onRendered ->
-  @curve = new ReactiveVar false
-
-Template.AxisChooser.onRendered ->
-  tmpl = @
-  curveId = tmpl.get 'newCurveId'
-  Tracker.autorun ->
-    tmpl.curve.set Curves.findOne {_id: curveId}
-
+  @curveId = @get 'newCurveId'
 
 Template.AxisChooser.helpers
-  xAxisInfo: ->
-    if curve = Template.instance().curve?.get()
-      "#{curve.source} -> #{curve.metadata?.entityName} -> #{curve.metadata?.metric or ''}"
+  xAxis: ->
+    tmpl = Template.instance()
+    Curves.findOne {_id: tmpl.curveId}
 
-  yAxisInfo: ->
-    if curve = Template.instance().curve?.get()
-      "#{curve.source} -> #{curve.metadata?.entityName} -> #{curve.metadata?.dimension or ''}"
+  yAxis: ->
+    tmpl = Template.instance()
+    Curves.findOne {_id: tmpl.curveId}

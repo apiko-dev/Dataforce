@@ -3,7 +3,7 @@
 .axis-chooser-wrapper {
   .axis-chooser {
     .transition(background-color, .2s);
-
+    cursor: pointer;
     background-color: @primaryBackground;
     border: 2px dashed @secondaryText;
     border-radius: 5px;
@@ -24,16 +24,15 @@
       display: block;
     }
 
-    .connector-logo {
+    .connector-logo-backdrop {
       position: absolute;
-      width: 100px;
-      opacity: 0;
-      margin-left: -38px;
-      -webkit-filter: blur(2px);
-      -moz-filter: blur(2px);
-      -o-filter: blur(2px);
-      -ms-filter: blur(2px);
-      filter: blur(2px);
+      display: block;
+      width: 50%;
+      height: 96%;
+      left: 50px;
+      background-size: contain;
+      background-repeat: round;
+      opacity: .2;
     }
   }
 }
