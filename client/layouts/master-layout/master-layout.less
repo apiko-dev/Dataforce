@@ -29,15 +29,20 @@ html, body {
         line-height: 25px;
         color: @primaryColor;
         display: block;
-        width: 250px;
         background: @brandColor url("/logo.png") no-repeat center;
-        background-size: 35%;
 
-        @media (max-width: 768px) {
-          width: 100px;
-          background-size: 90%;
+        width: 100px;
+        background-size: 90%;
+
+        @media (min-width: 768px) {
+          width: 250px;
+          background-size: 35%;
         }
       }
+    }
+
+    .navbar-collapse {
+      border: none;
     }
   }
 
@@ -144,7 +149,7 @@ html, body {
     z-index: 1;
     position: absolute;
     width: 250px;
-    margin-top: 51px;
+    margin-top: 53px;
   }
 
   .navbar-top-links .dropdown-messages,
