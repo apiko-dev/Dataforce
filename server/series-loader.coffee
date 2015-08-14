@@ -1,15 +1,29 @@
 Meteor.methods
-  'loadSeries': (curveIds...) ->
-    check curveIds, Array
+  'loadSeries': (chartId) ->
+    check chartId, String
 
-    seriesLoader = new SeriesLoader(curveIds...)
+    seriesLoader = new SeriesLoader(chartId)
     seriesLoader.getSeries()
 
 
 class SeriesLoader
-  constructor: (curveIds...) ->
-    console.log curveIds
+  constructor: (chartId) ->
+    @userId = Charts.findOne(_id: chartId).userId
+    @curves = Curves.find(chartId: chartId).fetch()
 
   getSeries: ->
-    console.log 'getting the series'
-    [name: 'seriesName', data: [1, 2, 3]]
+    console.log 'getting the series...'
+    for curve in @curves
+      console.log curve
+      switch curve.source
+        when ConnectorNames.GoogleAnalytics
+          console.log 'yay, google analytics'
+          gadl = new GoogleAnalyticsDataLoader(curve.metadata, @userId)
+          gada = new GoogleAnalyticsDataAdapter(curve, gadl.getJSON())
+          gada.getSeries()
+
+        when ConnectorNames.Salesforce
+          []
+
+        else
+          []
