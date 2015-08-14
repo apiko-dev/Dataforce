@@ -7,31 +7,21 @@
             <div class="curve-editor-wrapper">
 
                 <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#ga" aria-controls="ga" role="tab"
-                                                              data-toggle="tab">GA</a></li>
-                    <li role="presentation"><a href="#sf" aria-controls="sf" role="tab" data-toggle="tab">SF</a></li>
-                    <li role="presentation"><a href="#df" aria-controls="df" role="tab" data-toggle="tab">DF</a></li>
+                <ul>
+                    {{#each editorTabs}}
+                        <li>
+                            {{connector}}
+                            <img src="{{iconUrl}}">
+                        </li>
+                    {{/each}}
                 </ul>
-
                 <!-- Tab panes -->
-                <div class="tab-content editor-row">
-                    <div role="tabpanel" class="tab-pane active" id="ga">
-                        {{> AxisChooser}}
-                        {{> CurveTypeChooser}}
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="sf">
-                        Salesforce data
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="df">
-                        Dataforce curves
-                    </div>
-                </div>
 
 
                 <div class="row editor-row">
                     <div class="col-xs-12 bottom-buttons">
-                        <button class="btn btn-default remove-curve">Delete</button>
+                        <button class="btn btn-default remove-curve-button">Delete</button>
+                        <button class="btn btn-default cancel-curve-editing-button">Cancel</button>
                     </div>
                 </div>
             </div>

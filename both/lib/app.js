@@ -19,5 +19,6 @@ App = {
 ConnectorNames = {
   GoogleAnalytics: 'Google Analytics',
   Salesforce: 'Salesforce',
+  Dataforce: 'Dataforce', //used for curve references
   Zendesk: 'Zendesk'
 };

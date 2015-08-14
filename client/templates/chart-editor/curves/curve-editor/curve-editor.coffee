@@ -5,6 +5,11 @@ Template.CurveEditor.helpers
     {caption: 'Area', type: 'area'}
     {caption: 'Pie', type: 'pie'}
   ]
+  editorTabs: [
+    {connector: ConnectorNames.Salesforce, iconUrl: '/connectors/sf-small-logo.png'}
+    {connector: ConnectorNames.GoogleAnalytics, iconUrl: '/connectors/ga-small-logo.png'}
+    {connector: ConnectorNames.Dataforce, iconUrl: '/connectors/df-small-logo.png'}
+  ]
 
   sourcePickerModalConfig: ->
     tmpl = Template.instance()
@@ -16,7 +21,7 @@ Template.CurveEditor.helpers
 
 
 Template.CurveEditor.events
-  'click .remove-curve': (event, tmpl) ->
+  'click .remove-curve-button': (event, tmpl) ->
     Curves.remove _id: tmpl.data._id
 
     tmpl.chartId = tmpl.get 'createdChartId'
