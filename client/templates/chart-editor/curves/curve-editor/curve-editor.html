@@ -5,33 +5,11 @@
             <input class="form-control no-borders curve-title" type="text" value="New curve"/>
         {{else}}
             <div class="curve-editor-wrapper">
-
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#ga" aria-controls="ga" role="tab"
-                                                              data-toggle="tab">GA</a></li>
-                    <li role="presentation"><a href="#sf" aria-controls="sf" role="tab" data-toggle="tab">SF</a></li>
-                    <li role="presentation"><a href="#df" aria-controls="df" role="tab" data-toggle="tab">DF</a></li>
-                </ul>
-
-                <!-- Tab panes -->
-                <div class="tab-content editor-row">
-                    <div role="tabpanel" class="tab-pane active" id="ga">
-                        {{> AxisChooser}}
-                        {{> CurveTypeChooser}}
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="sf">
-                        Salesforce data
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="df">
-                        Dataforce curves
-                    </div>
-                </div>
-
+                {{> CurveEditorTabs}}
 
                 <div class="row editor-row">
                     <div class="col-xs-12 bottom-buttons">
-                        <button class="btn btn-default remove-curve">Delete</button>
+                        <button class="btn btn-default remove-curve-button">Delete</button>
                     </div>
                 </div>
             </div>

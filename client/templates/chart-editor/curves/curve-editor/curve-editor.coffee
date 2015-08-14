@@ -6,6 +6,7 @@ Template.CurveEditor.helpers
     {caption: 'Pie', type: 'pie'}
   ]
 
+
   sourcePickerModalConfig: ->
     tmpl = Template.instance()
     context: {}
@@ -16,7 +17,7 @@ Template.CurveEditor.helpers
 
 
 Template.CurveEditor.events
-  'click .remove-curve': (event, tmpl) ->
+  'click .remove-curve-button': (event, tmpl) ->
     Curves.remove _id: tmpl.data._id
 
     tmpl.chartId = tmpl.get 'createdChartId'
