@@ -17,10 +17,6 @@ Template.ChartEditor.onDestroyed ->
 Template.ChartEditor.onCreated ->
   @chart = new ReactiveVar(@data and @data.chart)
   @chartSaved = no
-  @axisX = new ReactiveVar {type: 'x'}
-  @axisY = new ReactiveVar {type: 'y'}
-
-  tmpl = Template.instance()
 
   @saveChart = =>
     #extract chart info
@@ -38,17 +34,10 @@ Template.ChartEditor.onCreated ->
       Router.go 'dashboard'
 
 
-Template.ChartEditor.helpers
-  sourcePickerModalConfig: ->
-    tmpl = Template.instance()
-    context: {}
-    windowClass: 'dragable-big'
-    backdrop: true
-    onInitialize: (instance) ->
-      tmpl.chartSourcePicker = instance
-
-
 Template.ChartEditor.events
+  'click #load-series': (event, tmpl) ->
+    Meteor.call 'loadSeries', 1, 2, 3, 4, 5
+
   'click .save-chart-button': (event, tmpl) ->
     tmpl.saveChart()
     analytics.track 'Saved new chart', {
@@ -64,20 +53,6 @@ Template.ChartEditor.events
         name: chartName
     }
 
-  'click .axis-chooser': (event, tmpl) ->
-    chosenAxis = getChosenAxis(event, tmpl)
-
-    if chosenAxis is 'x'
-      tmpl.chartSourcePicker.show axis: tmpl.axisX
-    else
-      tmpl.chartSourcePicker.show axis: tmpl.axisY
-
-getChosenAxis = (event, tmpl) ->
-  clickedOnChild = event.target.tagName is 'SPAN'
-  if clickedOnChild
-    tmpl.$(event.target).parent().data 'axis'
-  else
-    tmpl.$(event.target).data 'axis'
 
 removeNewlyCreatedChart = (tmpl) ->
   if not tmpl.chartSaved

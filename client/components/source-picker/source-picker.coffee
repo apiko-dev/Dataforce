@@ -4,6 +4,7 @@ Template.SourcePicker.onRendered ->
 Template.SourcePicker.onCreated ->
   @showConnectorEntityPicker = new ReactiveVar false
   @entityPickerConnectorName = new ReactiveVar false
+  @curveMetadata = {}
 
   @setEntityPickerVisibility = (visibility) => @showConnectorEntityPicker.set visibility
 
@@ -21,8 +22,6 @@ Template.SourcePicker.onCreated ->
 
   @autorun =>
     data = Template.currentData()
-    axisVar = data.context.axis
-    if axisVar and not axisVar.get() then axisVar.set {filterBy: [], orderBy: null}
 
 
 Template.SourcePicker.helpers
@@ -35,12 +34,11 @@ Template.SourcePicker.events
     tmpl.data.instance.hide()
     tmpl.clearSearch()
 
-
   'click .save-button': (event, tmpl) ->
     tmpl.clearSearch()
     tmpl.data.instance.hide()
 
-  'change.radiocheck [name="metricRadio"]': (event, tmpl, value) ->
+  'change.radiocheck [name="metricRadio"]': (event, tmpl) ->
     target = tmpl.$(event.target)
     metricsList = target.closest('.metrics-list')
 
@@ -51,10 +49,20 @@ Template.SourcePicker.events
       connectorId: metricsList.attr('data-connector')
       entityName: metricsList.attr('data-entity')
 
-    axisVar = tmpl.data.context.axis
-    axisType = axisVar.get().type
-    axisVar.set _.extend axisVar.get(), axis
-    if axisType is 'x'
-      Session.set 'axisVarX', axisVar.get()
-    else
-      Session.set 'axisVarY', axisVar.get()
+    curveId = tmpl.get 'newCurveId'
+    axisType = tmpl.data.context
+
+    if not tmpl.curveMetadata.source
+      _.extend tmpl.curveMetadata, {
+        source: axis.connectorId
+        metadata:
+          entityName: axis.entityName
+      }
+
+    _.extend tmpl.curveMetadata.metadata, if axisType is 'x' then {metric: axis.fieldName} else {dimension: axis.fieldName}
+
+    Curves.update {_id: curveId}, {
+      $set:
+        source: tmpl.curveMetadata.source
+        metadata: tmpl.curveMetadata.metadata
+    }

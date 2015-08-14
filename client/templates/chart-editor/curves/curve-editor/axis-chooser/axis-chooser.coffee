@@ -1,17 +1,18 @@
-Template.AxisChooser.helpers
-  xAxisChosenDate: ->
-    xData = Session.get 'axisVarX'
-    if not xData
-      ''
-    else
-      xData.connectorId + '\n' + xData.entityName + '\n' + xData.fieldName
+Template.AxisChooser.onRendered ->
+  @curve = new ReactiveVar false
 
-  yAxisChosenDate: ->
-    yData = Session.get 'axisVarY'
-    if not yData
-      ''
-    else
-      yData.connectorId + '\n' + yData.entityName + '\n' + yData.fieldName
-Template.AxisChooser.events
-  'click .axis-chooser': (event, tmpl) ->
-    chosenAxis = tmpl.$(event.target).data 'axis'
+Template.AxisChooser.onRendered ->
+  tmpl = @
+  curveId = tmpl.get 'newCurveId'
+  Tracker.autorun ->
+    tmpl.curve.set Curves.findOne {_id: curveId}
+
+
+Template.AxisChooser.helpers
+  xAxisInfo: ->
+    if curve = Template.instance().curve?.get()
+      "#{curve.source} -> #{curve.metadata?.entityName} -> #{curve.metadata?.metric or ''}"
+
+  yAxisInfo: ->
+    if curve = Template.instance().curve?.get()
+      "#{curve.source} -> #{curve.metadata?.entityName} -> #{curve.metadata?.dimension or ''}"
