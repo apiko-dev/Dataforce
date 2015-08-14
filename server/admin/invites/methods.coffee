@@ -12,7 +12,7 @@ Meteor.methods
       if invite
         Email.send
           to: invite.email
-          from: "Mykola @ getDataForce <mykola@getdataforce.com>"
+          from: "Mykola @ getDataforce <mykola@getdataforce.com>"
           subject: "Welcome to the Dataforce Alpha!"
           html: Handlebars.templates['invite-email'](
             urlWithToken: "#{process.env.ROOT_URL}sign-up/#{inviteId}"
