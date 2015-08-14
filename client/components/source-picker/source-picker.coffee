@@ -54,7 +54,7 @@ Template.SourcePicker.events
 
     if not tmpl.curveMetadata.source
       _.extend tmpl.curveMetadata, {
-        source: axis.connectorId
+#        source: axis.connectorId
         metadata:
           entityName: axis.entityName
       }
@@ -63,6 +63,6 @@ Template.SourcePicker.events
 
     Curves.update {_id: curveId}, {
       $set:
-        source: tmpl.curveMetadata.source
+#        source: tmpl.curveMetadata.source
         metadata: tmpl.curveMetadata.metadata
     }
