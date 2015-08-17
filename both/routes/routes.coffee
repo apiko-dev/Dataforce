@@ -33,19 +33,20 @@ Router.map ->
   @route '/chart-editor/:chartId',
     name: 'existingChartEditor',
     template: 'ChartEditor'
-    waitOn: -> @subscribe 'userChart', @params.chartId
+    waitOn: -> @subscribe 'chart', @params.chartId
     data: ->
       if @params.chartId
         chart: Charts.findOne {_id: @params.chartId}
 
   @route '/chart-editor',
-    name: 'chartEditor',
-    template: 'ChartEditor'
-    waitOn: ->
-      [
-        Meteor.subscribe 'userCharts'
-        Meteor.subscribe 'userCurves'
-      ]
+    name: 'chartEditor'
+    template: 'Loading'
+    onAfterAction: ->
+      Charts.insert {
+        name: 'New chart'
+      }, App.handleError (chartId) =>
+        @redirect 'existingChartEditor', {chartId: chartId}
+
 
   @route '/connectors',
     name: 'connectors',

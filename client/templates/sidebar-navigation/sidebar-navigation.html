@@ -4,7 +4,7 @@
             <ul class="nav" id="side-menu">
                 {{#each samplesRoutes}}
                     <li>
-                        <a href="{{pathFor name}}" class="{{isActiveRoute name}}">
+                        <a href="{{pathFor name}}" class="{{isActiveRoute regex=activeRouteName}}">
                             <i class="fa fa-{{icon}} menu-icon"></i>
                             {{caption}}
                         </a>

@@ -5,5 +5,10 @@ Charts.allow
   update: isOwner
   remove: isOwner
 
+Charts.before.insert (userId, doc) ->
+  doc.userId = userId
+  doc.createdAt = new Date()
+
 Charts.after.remove (userId, doc) ->
-  Curves.remove chartId: doc._id
+  if Meteor.isServer
+    Curves.remove chartId: doc._id

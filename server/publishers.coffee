@@ -1,16 +1,26 @@
-Meteor.publish 'userCharts', -> Charts.find(userId: @userId)
+compositeCurves = find: (chart) -> Curves.find {chartId: chart._id}
 
-Meteor.publish 'userCurves', -> Curves.find(userId: @userId)
 
-Meteor.publish 'userChart', (chartId) ->
+#one chart
+Meteor.publishComposite 'chart', (chartId) ->
   check chartId, App.checkers.MongoId
+  userId = @userId
 
-  cursor = Charts.find {_id: chartId}
+  find: ->
+    chartsCursor = Charts.find {_id: chartId}
+    #check owner
+    if chartsCursor.count() > 0 and chartsCursor.fetch()[0].userId isnt userId
+      @error new Meteor.Error('403', 'Access denied')
+    else
+      chartsCursor
 
-  if cursor.fetch()[0].userId is @userId
-    return cursor
-  else
-    @error new Meteor.Error('Access denied')
+  children: [compositeCurves]
 
+#all user's charts
+Meteor.publishComposite 'userCharts', ->
+  userId = @userId
+
+  find: -> Charts.find {userId: userId}
+  children: [compositeCurves]
 
 Meteor.publish 'authStatus', () -> Connectors.find {userId: @userId}, fields: {tokens: 0}

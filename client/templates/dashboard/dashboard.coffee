@@ -1,3 +1,3 @@
 Template.Dashboard.helpers
-  hasCharts: -> @charts.count() > 0
+  hasCharts: -> @charts and @charts.count() > 0
 

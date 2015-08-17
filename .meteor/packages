@@ -30,23 +30,24 @@ nsinenko:jsforce
 iron:router
 
 momentjs:moment
-workman:templating-ext
+alanning:roles
 
 fortawesome:fontawesome
+twbs:bootstrap
+jss:flat-ui
 rajit:bootstrap3-datepicker
 maazalik:highcharts
 zimme:active-route
 sacha:spin
-
-
-jss:flat-ui
-simple:reactive-method
-aldeed:template-extension
-twbs:bootstrap
-jss:dragable-window
-percolate:intercom
-alanning:roles
 mrt:cron
-cmather:handlebars-server
-okgrow:analytics
+workman:templating-ext
+aldeed:template-extension
+percolate:intercom
 matb33:collection-hooks
+reywood:publish-composite
+cmather:handlebars-server
+
+
+simple:reactive-method
+jss:dragable-window
+okgrow:analytics
