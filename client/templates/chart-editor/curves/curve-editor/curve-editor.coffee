@@ -1,48 +1,21 @@
 Template.CurveEditor.onCreated ->
-#pass
+  @updateCurveName = =>
+    updatedName = @$('.curve-name-input').val()
+    if @name isnt updatedName
+      Curves.update {_id: @data._id}, $set: {name: updatedName}
+
 
 Template.CurveEditor.helpers
-  curvesList: [
-    {caption: 'Line', type: 'line'}
-    {caption: 'Column', type: 'line'}
-    {caption: 'Area', type: 'area'}
-    {caption: 'Pie', type: 'pie'}
-  ]
-
-  currentConnector: -> Template.instance().currentConnector.get().source
-
-  sourcePickerModalConfig: ->
-    tmpl = Template.instance()
-    context: {}
-    windowClass: 'dragable-big'
-    backdrop: true
-    onInitialize: (instance) ->
-      tmpl.chartSourcePicker = instance
+  isNew: -> Template.instance().get('newCurveId').get() is @_id
 
 
 Template.CurveEditor.events
+  'keyup .curve-name-input': (event, tmpl) ->
+    if event.which is 13
+      tmpl.updateCurveName()
+
+  'blur .curve-name-input': (event, tmpl) ->
+    tmpl.updateCurveName()
+
   'click .remove-curve-button': (event, tmpl) ->
     Curves.remove _id: tmpl.data._id
-
-    tmpl.chartId = tmpl.get 'createdChartId'
-    tmpl.get('newCurves').set Curves.find(chartId: tmpl.chartId)
-
-  'keyup .curve-title': (event, tmpl) ->
-    curveId = tmpl.data._id
-    curveName = tmpl.$(event.target).val()
-
-    Curves.update {_id: curveId}, {
-      $set:
-        name: curveName
-    }
-
-  'click .axis-chooser': (event, tmpl) ->
-    chosenAxis = getChosenAxis(event, tmpl)
-    tmpl.chartSourcePicker.show chosenAxis
-
-getChosenAxis = (event, tmpl) ->
-  clickedOnChild = event.target.tagName is 'SPAN'
-  if clickedOnChild
-    tmpl.$(event.target).parent().data 'axis'
-  else
-    tmpl.$(event.target).data 'axis'

@@ -1,17 +1,25 @@
-@import "../../../mixins.import.less";
 @import "../../../configs.import.less";
 
-.panel-title {
-  color: @primaryText;
+.chart-item {
+  .chart-heading {
+    background-color: @secondaryBackground;
 
-  .chart-buttons {
-    i {
-      cursor: pointer;
-      .transition(color, .2s);
-      margin: 0 10px;
+    .panel-title {
+      color: @primaryText;
 
-      &:hover {
-        color: lighten(rgb(138, 151, 173), 10%);
+      .chart-buttons {
+        display: inline-block;
+        float: right;
+
+        i {
+          cursor: pointer;
+          .transition(color, .2s);
+          margin: 0 10px;
+
+          &:hover {
+            color: lighten(rgb(138, 151, 173), 10%);
+          }
+        }
       }
     }
   }

@@ -36,7 +36,7 @@ Router.map ->
     waitOn: -> @subscribe 'chart', @params.chartId
     data: ->
       if @params.chartId
-        chart: Charts.findOne {_id: @params.chartId}
+        Charts.findOne {_id: @params.chartId}
 
   @route '/chart-editor',
     name: 'chartEditor'

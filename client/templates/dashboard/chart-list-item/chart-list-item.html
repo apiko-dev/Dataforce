@@ -1,23 +1,20 @@
 <template name="ChartListItem">
     <div class="chart-item">
         <div class="panel panel-default">
-            <div class="panel-heading">
+            <div class="panel-heading chart-heading">
                 <h3 class="panel-title">
-                    <div class="heading">
-                        <i class="fa fa-area-chart chart-icon" role="spoiler-collapse"></i>
-                        {{name}}
-                        <span class="chart-buttons">
-                    <span>{{formatDate createdAt}}&nbsp;</span>
-                    <i class="fa fa-pencil edit-chart-button"></i>
-                    <i class="fa fa-trash-o remove-chart-button"></i>
-                </span>
+                    <i class="fa fa-area-chart chart-icon" role="spoiler-collapse"></i>
+                    {{name}}
+
+                    <div class="chart-buttons">
+                        <span>{{formatDate createdAt}}&nbsp;</span>
+                        <i class="fa fa-pencil edit-chart-button"></i>
+                        <i class="fa fa-trash-o remove-chart-button"></i>
                     </div>
                 </h3>
             </div>
             <div class="panel-body">
-                <div class="details">
-                    {{> ChartDisplay}}
-                </div>
+                {{> ChartDisplay}}
             </div>
         </div>
     </div>

@@ -1,11 +1,11 @@
 <template name="CurveEditor">
     <div class="curve-wrapper">
-        {{#Spoiler opened=true}}
+        {{#Spoiler opened=isNew}}
             <span class="glyphicon glyphicon-signal curve-icon"></span>
-            <input class="form-control no-borders curve-title" type="text" value="New curve"/>
+            <input class="form-control no-borders curve-name curve-name-input" type="text" value="{{name}}"/>
         {{else}}
             <div class="curve-editor-wrapper">
-                {{> CurveEditorTabs tabsConfig}}
+                {{> CurveEditorTabs}}
 
                 {{> CurveTypeChooser}}
                 <div class="row editor-row">
@@ -16,7 +16,4 @@
             </div>
         {{/Spoiler}}
     </div>
-    {{#DragableWindow sourcePickerModalConfig}}
-        {{> SourcePicker}}
-    {{/DragableWindow}}
 </template>
