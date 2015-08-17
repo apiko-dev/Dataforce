@@ -1,9 +1,0 @@
-ZendeskQueries =
-  OPENED_TICKETS: "OPENED_TICKETS"
-  SOLVED_TICKETS: "SOLVED_TICKETS"
-  BACKLOG: "BACKLOG"
-  SATISFACTION_RATING: "SATISFACTION_RATING"
-
-_.extend App.DataMisc, {
-  ZendeskQueries: ZendeskQueries
-}

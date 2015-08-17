@@ -25,7 +25,10 @@ Router.map ->
     name: 'dashboard',
     template: 'Dashboard'
     waitOn: -> @subscribe 'userCharts'
-    data: -> charts: Charts.find {}, {sort: createdAt: -1}
+    data: -> charts: Charts.find {}, {
+      sort:
+        createdAt: -1
+    }
 
   @route '/chart-editor/:chartId',
     name: 'existingChartEditor',
@@ -69,22 +72,6 @@ Router.map ->
     template: 'AdminPanel'
 
 
-  #  =====  SAMPLES (redundant, should be removed in future)  ====
-
-  @route '/google-analytics-sample',
-    name: 'googleAnalyticsSample'
-    template: 'googleAnalyticsSample'
-
-  @route '/zendesk-example',
-    name: 'zendeskExample',
-    template: 'zendeskExample'
-
-  @route '/sales-force-sample',
-    name: 'salesForceSample',
-    template: 'SalesForceSample'
-
-
-# =================================================
 routePermissionDefaultAction = (context, conditionFn) ->
   if Meteor.isServer
     return context.next() #this check doesn't make sense on server side

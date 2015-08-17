@@ -1,7 +1,7 @@
 .meteor/local
 .idea/
-superbi-2.iml
 dataforce.iml
 packages/npm-container/.npm
 server/lib/debug.js
 _netrc
+.DS_Store
