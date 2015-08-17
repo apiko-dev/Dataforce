@@ -10,7 +10,7 @@ redirect = (response, url) ->
 Router.route SF_AUTH_URL,
   where: 'server'
   action: ->
-    redirectUrl = App.Connectors.Salesforce.createOAuth2Credentials().getAuthorizationUrl {
+    redirectUrl = App.SalesForce.Connector.createOAuth2Credentials().getAuthorizationUrl {
       scope: 'full refresh_token'
     }
     redirect @response, redirectUrl
@@ -23,7 +23,7 @@ Meteor.methods
     userId = Meteor.userId()
 
     conn = new jsforce.Connection
-      oauth2: App.Connectors.Salesforce.createOAuth2Credentials()
+      oauth2: App.SalesForce.Connector.createOAuth2Credentials()
 
     authorizeAsync = Meteor.wrapAsync conn.authorize, conn
 
@@ -52,4 +52,4 @@ Meteor.methods
 
 
   sfRevokeAccess: () ->
-    App.Connectors.Salesforce.revokeToken @userId
+    App.SalesForce.Connector.revokeToken @userId

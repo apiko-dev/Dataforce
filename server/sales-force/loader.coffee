@@ -1,10 +1,10 @@
 checkCredentialsAndCreateConnection = (userId) ->
 #get credentials
-  credentials = App.Connectors.Salesforce.getConnectorByUserId userId
+  credentials = App.SalesForce.Connector.getConnectorByUserId userId
 
   unless credentials then throw new Meteor.Error('500', 'You are not authenticated in Salesforce on "Connectors" page')
 
-  return App.Connectors.Salesforce.createConnection(credentials.tokens)
+  return App.SalesForce.Connector.createConnection(credentials.tokens)
 
 
 ###
@@ -21,7 +21,7 @@ runSyncQuery = (userId, runQueryFuncName, constructQueryFunc) ->
     queryResult = Async.runSync (done) -> constructQueryFunc(connection)[runQueryFuncName](done)
     if queryResult.error
       if queryResult.error.name is 'invalid_grant' #we need to refresh token
-        App.Connectors.Salesforce.refreshToken(userId)
+        App.SalesForce.Connector.refreshToken(userId)
         return false
       else
         throw queryResult.error

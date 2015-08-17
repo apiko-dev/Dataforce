@@ -1,4 +1,4 @@
-App.Connectors.Salesforce = {
+App.SalesForce.Connector = {
   createOAuth2Credentials: () ->
     oAuth2 = new jsforce.OAuth2({
       clientId: Meteor.settings.private.SalesForce.key
