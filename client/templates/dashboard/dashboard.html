@@ -5,13 +5,11 @@
         </div>
     </div>
 
-    <div class="dashboard-content">
+    <div class="row dashboard-content">
         {{#if hasCharts}}
-            <div class="charts-list">
-                {{#each charts}}
-                    {{> ChartListItem}}
-                {{/each}}
-            </div>
+            {{#each charts}}
+                {{> ChartListItem}}
+            {{/each}}
         {{else}}
             <div class="alert alert-info" role="alert">
                 <p><strong>You have no charts yet</strong></p>
