@@ -11,9 +11,11 @@
                 {{> ChartListItem}}
             {{/each}}
         {{else}}
-            <div class="alert alert-info" role="alert">
-                <p><strong>You have no charts yet</strong></p>
-                Use <a href="{{pathFor route='chartEditor'}}">chart editor</a> to create one
+            <div class="col-md-12">
+                <div class="alert alert-info" role="alert">
+                    <p><strong>You have no charts yet</strong></p>
+                    Use <a href="{{pathFor route='chartEditor'}}">chart editor</a> to create one
+                </div>
             </div>
         {{/if}}
     </div>
