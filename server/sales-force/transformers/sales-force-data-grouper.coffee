@@ -1,4 +1,4 @@
-class SalesForceDataGrouper
+class DataGrouper
   constructor: (@chart, data) ->
     @series = {}
 
@@ -85,6 +85,6 @@ class SalesForceDataGrouper
     series: series
 
 
-_.extend App.DataTransformers, {
-  SalesForceDataGrouper: SalesForceDataGrouper
+_.extend App.SalesForce, {
+  DataGrouper: DataGrouper
 }

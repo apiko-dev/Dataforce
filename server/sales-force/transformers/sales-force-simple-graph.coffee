@@ -1,10 +1,10 @@
 #todo finish this transformer
-class SalesForceSimpleGraph
+class RawGraph
   constructor: (@chart, data) ->
 
-  getConvertedSeriesForHighchart: () ->
+  getSeries: () ->
 
 
-_.extend App.DataTransformers, {
-  SalesForceSimpleGraph: SalesForceSimpleGraph
+_.extend App.SalesForce, {
+  RawGraph: RawGraph
 }

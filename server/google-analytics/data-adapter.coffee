@@ -63,6 +63,6 @@ class GoogleAnalyticsDataAdapter
     else
       series
 
-_.extend App.DataAdapters, {
-  GoogleAnalytics: GoogleAnalyticsDataAdapter
+_.extend App.GoogleAnalytics, {
+  DataAdapter: GoogleAnalyticsDataAdapter
 }

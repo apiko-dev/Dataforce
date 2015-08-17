@@ -59,7 +59,7 @@ Meteor.methods
   sfGetSeriesForChart: (chart) ->
     check chart, App.checkers.Chart
 
-    transformer = App.DataTransformers.SalesForceDataGrouper
+    transformer = App.SalesForce.DataGrouper
 
     tableData = Meteor.call 'sfGetTableData', chart.table, chart.filters
     series = new transformer(chart, tableData)

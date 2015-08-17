@@ -58,7 +58,7 @@ Meteor.methods
       }, (err, result) ->
         done err, result
 
-    dataAdapter = new App.DataAdapters.GoogleAnalytics query, rawJson
+    dataAdapter = new App.GoogleAnalytics.DataAdapters query, rawJson
     dataAdapter.getSeries()
 
 loadTokens = (userId) ->
