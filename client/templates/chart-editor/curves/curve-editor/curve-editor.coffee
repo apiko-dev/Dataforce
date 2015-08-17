@@ -1,3 +1,6 @@
+Template.CurveEditor.onCreated ->
+#pass
+
 Template.CurveEditor.helpers
   curvesList: [
     {caption: 'Line', type: 'line'}
@@ -6,6 +9,7 @@ Template.CurveEditor.helpers
     {caption: 'Pie', type: 'pie'}
   ]
 
+  currentConnector: -> Template.instance().currentConnector.get().source
 
   sourcePickerModalConfig: ->
     tmpl = Template.instance()

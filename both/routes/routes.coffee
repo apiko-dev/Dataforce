@@ -109,7 +109,9 @@ requireTester = ->
 
 # not signed users can visit only home page
 Router.onBeforeAction checkUserLoggedIn, except: ['home', 'signIn', 'signUp']
+
+#enable only testers access main app's functionality routes
 Router.onBeforeAction requireTester, except: ['home', 'signIn', 'signUp']
+
 Router.onBeforeAction requireAdmin, only: ['adminPanel']
 
-# ==================================================

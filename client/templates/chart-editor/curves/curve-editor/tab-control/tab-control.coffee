@@ -20,13 +20,6 @@ Template.CurveEditorTabs.onCreated ->
   @currentTab = new ReactiveVar tabs[0]
 
 
-Template.CurveEditorTabs.onRendered ->
-  curveId = @data._id
-  Curves.update {_id: curveId}, {
-    $set:
-      source: tabs[0].connector
-  }
-
 Template.CurveEditorTabs.helpers
   currentTab: -> Template.instance().currentTab.get()
   editorTabs: -> tabs
@@ -39,9 +32,3 @@ Template.CurveEditorTabs.events
   'click .tab': (event, tmpl) ->
     connector = tmpl.$(event.target).closest('.tab').data('connector')
     tmpl.currentTab.set _.find tabs, (tab) -> tab.connector is connector
-
-    curveId = tmpl.data._id
-    Curves.update {_id: curveId}, {
-      $set:
-        source: connector
-    }

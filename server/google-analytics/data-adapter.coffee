@@ -28,6 +28,8 @@ class GoogleAnalyticsDataAdapter
     rows = @json.result.rows
     axisesCount = rows[0].length - 1
 
+    #todo: this piece of code is hard to maintain
+    #todo: @vlad: please refactor it
     series = ({
     data: _.map rows, (row) -> (parseInt element for element, index in row when index is (axisIndex + 1))
     name: axisNames.y[axisIndex]

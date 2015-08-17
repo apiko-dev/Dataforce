@@ -19,7 +19,7 @@ Template.ChartEditor.onCreated ->
   @chartSaved = no
 
   @saveChart = =>
-    #extract chart info
+#extract chart info
     chart = {
       userId: Meteor.userId(),
       name: @$('.chart-name').val()
@@ -40,6 +40,8 @@ Template.ChartEditor.events
 
   'click .save-chart-button': (event, tmpl) ->
     tmpl.saveChart()
+
+    #GA tracking stuff
     analytics.track 'Saved new chart', {
       chartName: tmpl.$('.chart-name').val()
     }

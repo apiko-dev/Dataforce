@@ -14,12 +14,3 @@ Meteor.publish 'userChart', (chartId) ->
 
 
 Meteor.publish 'authStatus', () -> Connectors.find {userId: @userId}, fields: {tokens: 0}
-
-
-#publish also user's role
-Meteor.publish null, () ->
-  Meteor.users.find {_id: @userId}, {
-    fields: {
-      role: 1
-    }
-  }
