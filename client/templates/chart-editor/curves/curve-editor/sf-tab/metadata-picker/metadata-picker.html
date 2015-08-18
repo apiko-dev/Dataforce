@@ -1,0 +1,24 @@
+<!-- args: description, propertyName, dataSource-->
+
+<template name="SfMetadataPicker">
+    <div class="metadata-picker {{#if isExpanded}}expanded{{/if}}">
+        {{#if value}}
+            <div class="picker-value">
+                {{value}}
+            </div>
+        {{else}}
+            <div class="picker-description">
+                {{description}}
+            </div>
+        {{/if}}
+
+        <div class="values-list">
+            <ul>
+                {{#each items}}
+                    <li>{{this}}</li>
+                {{/each}}
+            </ul>
+            <button class="btn btn-success btn-sm select-value-button">Select</button>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,46 @@
+@import "../../../../../../configs.import.less";
+
+.metadata-picker {
+  cursor: pointer;
+  background-color: @primaryBackground;
+  border: 2px dashed @secondaryText;
+  border-radius: 5px;
+  font-size: 3rem;
+  text-align: center;
+
+  .picker-value {
+    color: @primaryText;
+  }
+
+  .picker-description {
+    opacity: .2;
+    font-family: "Times New Roman", serif;
+    font-size: 5rem;
+    font-style: oblique;
+    color: @secondaryText;
+  }
+
+  .values-list {
+    display: none;
+    font-size: 14px;
+    text-align: right;
+    padding: @defaultIndent;
+
+    ul {
+      text-align: left;
+      height: 350px;
+      margin-bottom: @defaultIndent;
+      padding-left: 0;
+      list-style-type: none;
+
+      li {
+      }
+    }
+  }
+
+  &.expanded {
+    .values-list {
+      display: block;
+    }
+  }
+}

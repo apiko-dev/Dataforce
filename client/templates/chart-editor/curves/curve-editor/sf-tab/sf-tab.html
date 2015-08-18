@@ -1,3 +1,4 @@
 <template name="SalesforceCurveEditorTab">
-    Salesforce tab
+    {{> SfMetadataPicker description='Table' propertyName='entityName'
+    items=tables id='tablePicker' doc=this}}
 </template>
