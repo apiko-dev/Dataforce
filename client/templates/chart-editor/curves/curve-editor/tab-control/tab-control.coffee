@@ -1,3 +1,28 @@
+Template.CurveEditorTabs.onCreated ->
+  @currentTab = new ReactiveVar(false)
+
+  @setCurrentTabByConnector = (connector) =>
+    @currentTab.set _.find tabs, (tab) -> tab.connector is connector
+
+  @autorun =>
+    connector = Template.currentData().source
+    @setCurrentTabByConnector(connector)
+
+
+Template.CurveEditorTabs.helpers
+  editorTabs: -> tabs
+
+  isActive: ->
+    current = Template.instance().currentTab.get()
+    @connector is current.connector
+
+
+Template.CurveEditorTabs.events
+  'click .tab': (event, tmpl) ->
+    connector = tmpl.$(event.target).closest('.tab').data('connector')
+    Curves.update {_id: tmpl.data._id}, $set: {source: connector,metadata: {}}
+
+
 tabs = [
   {
     connector: ConnectorNames.GoogleAnalytics,
@@ -15,20 +40,3 @@ tabs = [
     template: 'DataforceCurveEditorTab'
   }
 ]
-
-Template.CurveEditorTabs.onCreated ->
-  @currentTab = new ReactiveVar tabs[0]
-
-
-Template.CurveEditorTabs.helpers
-  currentTab: -> Template.instance().currentTab.get()
-  editorTabs: -> tabs
-  isActive: ->
-    current = Template.instance().currentTab.get()
-    @connector is current.connector
-
-
-Template.CurveEditorTabs.events
-  'click .tab': (event, tmpl) ->
-    connector = tmpl.$(event.target).closest('.tab').data('connector')
-    tmpl.currentTab.set _.find tabs, (tab) -> tab.connector is connector

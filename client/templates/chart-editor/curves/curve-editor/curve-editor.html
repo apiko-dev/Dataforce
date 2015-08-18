@@ -5,15 +5,20 @@
             <input class="form-control curve-name curve-name-input" type="text" value="{{name}}"/>
         {{else}}
             <div class="curve-editor-wrapper">
-                {{> CurveEditorTabs}}
-
                 {{> CurveTypeChooser}}
+
+                {{> CurveEditorTabs}}
 
                 {{> ContextPrinter}}
 
                 <div class="row editor-row">
                     <div class="col-xs-12 bottom-buttons">
-                        <button class="btn btn-default remove-curve-button">
+                        <input type="checkbox" data-toggle="switch" class="visibility-checkbox"
+                               data-on-text="<i class='fa fa-eye'></i>"
+                               data-off-text="<i class='fa fa-eye-slash'></i>"
+                            {{isVisible}}/>
+                        
+                        <button class="btn btn-warning remove-curve-button">
                             <i class="fa fa-trash-o"></i> Delete
                         </button>
                     </div>

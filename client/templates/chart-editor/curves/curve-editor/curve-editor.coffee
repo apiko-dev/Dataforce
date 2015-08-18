@@ -7,6 +7,9 @@ Template.CurveEditor.onCreated ->
   @collapsedCurves = @get('collapsedCurves')
   @curveHiddenState = => @collapsedCurves.remove {curveId: @data._id}
 
+Template.CurveEditor.onRendered ->
+  @$('.visibility-checkbox').bootstrapSwitch()
+
 
 Template.CurveEditor.helpers
   isOpened: -> !!Template.instance().collapsedCurves.findOne {curveId: @_id}
@@ -14,6 +17,8 @@ Template.CurveEditor.helpers
   curveType: ->
     types = Template.instance().get('curveTypes')
     _.find types, (typeObj) => @type is typeObj.type
+
+  isVisible: -> if @visible then {checked: ''} else {}
 
 
 Template.CurveEditor.events
@@ -23,6 +28,9 @@ Template.CurveEditor.events
 
   'blur .curve-name-input': (event, tmpl) ->
     tmpl.updateCurveName()
+
+  'switchChange.bootstrapSwitch .visibility-checkbox': (event, tmpl, state) ->
+    Curves.update {_id: tmpl.data._id}, $set: {visible: state}
 
   'click .remove-curve-button': (event, tmpl) ->
     Curves.remove _id: tmpl.data._id
