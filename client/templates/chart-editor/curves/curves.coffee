@@ -1,7 +1,13 @@
 Template.Curves.onCreated ->
-#prevents self collapsing after curve update
-#stores collapsed curves
+#stores faded in curves and prevents self collapsing after collection update
   @collapsedCurves = new Mongo.Collection null
+
+  @curveTypes = [
+    {caption: 'Line', type: 'line', icon: 'fa-line-chart'}
+    {caption: 'Column', type: 'column', icon: 'fa-bar-chart'}
+    {caption: 'Area', type: 'area', icon: 'fa-area-chart'}
+    {caption: 'Pie', type: 'pie', icon: 'fa-pie-chart'}
+  ]
 
 
 Template.Curves.helpers

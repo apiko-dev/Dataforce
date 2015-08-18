@@ -4,9 +4,16 @@ Template.CurveEditor.onCreated ->
     if @name isnt updatedName
       Curves.update {_id: @data._id}, $set: {name: updatedName}
 
+  @collapsedCurves = @get('collapsedCurves')
+  @curveHiddenState = => @collapsedCurves.remove {curveId: @data._id}
+
 
 Template.CurveEditor.helpers
-  isOpened: -> !!Template.instance().get('collapsedCurves').findOne {curveId: @_id}
+  isOpened: -> !!Template.instance().collapsedCurves.findOne {curveId: @_id}
+
+  curveType: ->
+    types = Template.instance().get('curveTypes')
+    _.find types, (typeObj) => @type is typeObj.type
 
 
 Template.CurveEditor.events
@@ -19,12 +26,12 @@ Template.CurveEditor.events
 
   'click .remove-curve-button': (event, tmpl) ->
     Curves.remove _id: tmpl.data._id
+    tmpl.curveHiddenState()
 
 #    spoiler retain instance state stuff
   'show.bs.collapse .curve-wrapper': (event, tmpl) ->
-    tmpl.get('collapsedCurves').insert {curveId: tmpl.data._id}
+    tmpl.collapsedCurves.insert {curveId: tmpl.data._id}
 
   'hide.bs.collapse .curve-wrapper': (event, tmpl) ->
-    tmpl.get('collapsedCurves').remove {curveId: tmpl.data._id}
-
+    tmpl.curveHiddenState()
 

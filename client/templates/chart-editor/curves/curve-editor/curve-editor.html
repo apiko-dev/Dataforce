@@ -1,16 +1,21 @@
 <template name="CurveEditor">
     <div class="curve-wrapper">
         {{#Spoiler opened=isOpened}}
-            <span class="glyphicon glyphicon-signal curve-icon"></span>
-            <input class="form-control no-borders curve-name curve-name-input" type="text" value="{{name}}"/>
+            <i class="fa {{curveType.icon}} curve-icon" title="{{curveType.caption}}"></i>
+            <input class="form-control curve-name curve-name-input" type="text" value="{{name}}"/>
         {{else}}
             <div class="curve-editor-wrapper">
                 {{> CurveEditorTabs}}
 
                 {{> CurveTypeChooser}}
+
+                {{> ContextPrinter}}
+
                 <div class="row editor-row">
                     <div class="col-xs-12 bottom-buttons">
-                        <button class="btn btn-default remove-curve-button">Delete</button>
+                        <button class="btn btn-default remove-curve-button">
+                            <i class="fa fa-trash-o"></i> Delete
+                        </button>
                     </div>
                 </div>
             </div>

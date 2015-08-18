@@ -2,33 +2,33 @@
 
 @indentPartial: @defaultIndent*1.5;
 
-.curve-editor-wrapper {
-  padding: @indentPartial;
+.curve-wrapper {
 
-  .editor-row {
-    &:not(:last-child) {
-      margin-bottom: @indentPartial;
+  .curve-name {
+    border: none;
+    display: inline-block;
+    width: 200px;
+
+    &:focus {
+      .dotted-bottom-border;
     }
   }
 
-  .bottom-buttons {
-    text-align: right;
+  .curve-icon {
+    padding: 0 @defaultIndent
   }
-}
 
-.curve-name {
-  width: 200px;
+  .curve-editor-wrapper {
+    padding: @indentPartial;
 
-  &:focus {
-    .dotted-bottom-border;
+    .editor-row {
+      &:not(:last-child) {
+        margin-bottom: @indentPartial;
+      }
+    }
+
+    .bottom-buttons {
+      text-align: right;
+    }
   }
-}
-
-.curve-icon {
-  float: left;
-  padding: 10px;
-}
-
-.no-borders {
-  border: none;
 }

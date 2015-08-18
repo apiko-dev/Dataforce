@@ -24,6 +24,7 @@ _App =
       moment(date or moment(1999, 'YYYY')).fromNow()
 
 
+
 #register global helpers
 for helperName of _App.helpers
   Template.registerHelper helperName, _App.helpers[helperName]
