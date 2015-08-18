@@ -17,7 +17,7 @@ html, body {
   min-height: 100%;
 
   .navbar-default {
-    background: @primaryBackground;
+    background: @primaryDark;
   }
 
   .navbar {
@@ -27,6 +27,10 @@ html, body {
     right: 0;
 
     .navbar-header {
+      .navbar-toggle:before {
+        color: @primaryText;
+      }
+
       .navbar-brand {
         font-size: 25px;
         font-weight: bold;
