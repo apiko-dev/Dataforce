@@ -10,6 +10,7 @@ Template.CurveEditorTabs.onCreated ->
 
 
 Template.CurveEditorTabs.helpers
+  currentTab: -> Template.instance().currentTab.get()
   editorTabs: -> tabs
 
   isActive: ->
@@ -20,7 +21,7 @@ Template.CurveEditorTabs.helpers
 Template.CurveEditorTabs.events
   'click .tab': (event, tmpl) ->
     connector = tmpl.$(event.target).closest('.tab').data('connector')
-    Curves.update {_id: tmpl.data._id}, $set: {source: connector,metadata: {}}
+    Curves.update {_id: tmpl.data._id}, $set: {source: connector, metadata: {}}
 
 
 tabs = [
