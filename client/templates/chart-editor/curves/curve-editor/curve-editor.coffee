@@ -6,7 +6,7 @@ Template.CurveEditor.onCreated ->
 
 
 Template.CurveEditor.helpers
-  isNew: -> Template.instance().get('newCurveId').get() is @_id
+  isOpened: -> !!Template.instance().get('collapsedCurves').findOne {curveId: @_id}
 
 
 Template.CurveEditor.events
@@ -19,3 +19,12 @@ Template.CurveEditor.events
 
   'click .remove-curve-button': (event, tmpl) ->
     Curves.remove _id: tmpl.data._id
+
+#    spoiler retain instance state stuff
+  'show.bs.collapse .curve-wrapper': (event, tmpl) ->
+    tmpl.get('collapsedCurves').insert {curveId: tmpl.data._id}
+
+  'hide.bs.collapse .curve-wrapper': (event, tmpl) ->
+    tmpl.get('collapsedCurves').remove {curveId: tmpl.data._id}
+
+

@@ -5,10 +5,10 @@ Template.Spoiler.onRendered ->
   @autorun =>
     data = Template.currentData()
     if data?.opened
-      spoilerDetails.addClass('in')
+      spoilerDetails.collapse('show')
       @$('.expand-icon').addClass('fa-rotate-180')
     else
-      spoilerDetails.removeClass('in')
+      spoilerDetails.collapse('hide')
       @$('.expand-icon').removeClass('fa-rotate-180')
 
 

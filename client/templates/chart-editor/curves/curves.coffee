@@ -1,7 +1,9 @@
 Template.Curves.onCreated ->
-  @newCurveId = new ReactiveVar(null)
+#prevents self collapsing after curve update
+#stores collapsed curves
+  @collapsedCurves = new Mongo.Collection null
 
-  
+
 Template.Curves.helpers
   curves: -> Curves.find {chartId: @_id}
 
@@ -12,4 +14,4 @@ Template.Curves.events
       name: 'New curve'
       chartId: @_id
     }, App.handleError (id) ->
-      tmpl.newCurveId.set(id)
+      tmpl.collapsedCurves.insert {curveId: id}
