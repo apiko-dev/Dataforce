@@ -4,7 +4,7 @@ Template.SfMetadataPicker.onCreated ->
 
 Template.SfMetadataPicker.helpers
   isExpanded: -> Template.instance().activePickerId.get() is @id
-  value: -> @doc.metadata[@propertyName]
+  value: -> @doc.metadata[@propertyName]?.label
 
 
 Template.SfMetadataPicker.events
@@ -15,8 +15,10 @@ Template.SfMetadataPicker.events
     event.stopPropagation()
     tmpl.activePickerId.set false
 
-    #    todo get value here
-    value = 'test'
+    radioValue = tmpl.$('input:radio[name=pickerValue]:checked').val()
+    value = _.find tmpl.data.items, (item) -> item.name is radioValue
+
+    console.log radioValue, value
 
     updateQuery = {}
     updateQuery["metadata.#{tmpl.data.propertyName}"] = value

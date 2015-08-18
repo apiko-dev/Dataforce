@@ -7,4 +7,4 @@ Template.SalesforceCurveEditorTab.onCreated ->
 
 
 Template.SalesforceCurveEditorTab.helpers
-  tables: -> ['campaigns', 'accounts', 'users', 'leads']
+  tables: -> ReactiveMethod.call 'sfGetConnectorEntries'

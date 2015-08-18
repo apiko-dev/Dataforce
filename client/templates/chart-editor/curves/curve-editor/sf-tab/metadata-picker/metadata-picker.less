@@ -29,11 +29,33 @@
     ul {
       text-align: left;
       height: 350px;
+      overflow-y: auto;
       margin-bottom: @defaultIndent;
       padding-left: 0;
       list-style-type: none;
 
       li {
+
+        label {
+          margin: 0;
+        }
+
+        .metric-info {
+          display: inline-block;
+          padding: @defaultIndent/2 @defaultIndent;
+          width: 100%;
+
+          &:hover {
+            background-color: @accentColor;
+            color: white;
+          }
+          .metrics-type {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: @primaryText;
+            float: right;
+          }
+        }
       }
     }
   }
