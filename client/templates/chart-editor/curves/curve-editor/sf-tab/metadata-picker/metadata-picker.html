@@ -13,9 +13,12 @@
         {{/if}}
 
         <div class="values-list">
+            <input type="text" class="form-control flat search-input" placeholder="Search"/>
             <ul>
                 {{#each items}}
-                    {{> SfMetadataPickerListItem}}
+                    {{#if isMatchSearchQuery}}
+                        {{> SfMetadataPickerListItem}}
+                    {{/if}}
                 {{/each}}
             </ul>
             <button class="btn btn-success btn-sm select-value-button">Select</button>
