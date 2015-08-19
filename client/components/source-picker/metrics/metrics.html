@@ -1,8 +1,0 @@
-<template name="Metrics">
-    <div class="metrics-list-wrapper">
-        {{#with ConnectorNames}}
-            {{> MetricsConnector name=Salesforce method='sfDescribe'}}
-            {{> MetricsConnector name=GoogleAnalytics method='GA.getAllMetrics'}}
-        {{/with}}
-    </div>
-</template>
