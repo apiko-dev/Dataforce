@@ -1,10 +1,15 @@
+tables = false
+
 Template.SalesforceCurveEditorTab.onCreated ->
   @activePickerId = new ReactiveVar(false)
 
-  @autorun =>
-    t = @activePickerId.get()
-    console.log 'value changed ', t
-
 
 Template.SalesforceCurveEditorTab.helpers
-  tables: -> ReactiveMethod.call 'sfGetConnectorEntries'
+  tables: ->
+    unless tables
+      tables = ReactiveMethod.call 'sfGetConnectorEntries'
+    return tables
+
+  tableColumns: ->
+    entityName = @metadata?.name
+    if entityName then ReactiveMethod.call 'sfDescribe', entityName else []
