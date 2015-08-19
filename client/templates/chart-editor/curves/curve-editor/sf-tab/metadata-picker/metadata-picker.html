@@ -1,7 +1,7 @@
 <!-- args: description, propertyName, dataSource-->
 
 <template name="SfMetadataPicker">
-    <div class="metadata-picker {{#if isExpanded}}expanded{{/if}}">
+    <div class="metadata-picker">
         {{#if value}}
             <div class="picker-value">
                 {{value}}
@@ -12,16 +12,18 @@
             </div>
         {{/if}}
 
-        <div class="values-list">
-            <input type="text" class="form-control flat search-input" placeholder="Search"/>
-            <ul>
-                {{#each items}}
-                    {{#if isMatchSearchQuery}}
-                        {{> SfMetadataPickerListItem}}
-                    {{/if}}
-                {{/each}}
-            </ul>
-            <button class="btn btn-success btn-sm select-value-button">Select</button>
-        </div>
+        {{#if isExpanded}}
+            <div class="values-list">
+                <input type="text" class="form-control flat search-input" placeholder="Search"/>
+                <ul>
+                    {{#each items}}
+                        {{#if isMatchSearchQuery}}
+                            {{> SfMetadataPickerListItem}}
+                        {{/if}}
+                    {{/each}}
+                </ul>
+                <button class="btn btn-success btn-sm select-value-button">Select</button>
+            </div>
+        {{/if}}
     </div>
 </template>

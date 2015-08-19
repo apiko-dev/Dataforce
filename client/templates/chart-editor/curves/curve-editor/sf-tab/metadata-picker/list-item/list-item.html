@@ -1,7 +1,8 @@
 <template name="SfMetadataPickerListItem">
     <li>
-        <label class="radio" for="{{name}}">
-            <input type="radio" name="pickerValue" value="{{name}}" id="{{name}}" data-toggle="radio">
+        <label class="radio" for="{{name}}_{{../doc._id}}">
+            <input type="radio" name="pickerValue_{{../doc._id}}" value="{{name}}" id="{{name}}_{{../doc._id}}"
+                   data-toggle="radio">
 
             <div class="metric-info">
                 {{label}}

@@ -36,7 +36,7 @@ Template.SfMetadataPicker.events
     event.stopPropagation()
     tmpl.activePickerId.set false
 
-    radioValue = tmpl.$('input:radio[name=pickerValue]:checked').val()
+    radioValue = tmpl.$("input:radio[name=pickerValue_#{tmpl.data.doc._id}]:checked").val()
     value = _.find tmpl.data.items, (item) -> item.name is radioValue
 
     updateQuery = {}
