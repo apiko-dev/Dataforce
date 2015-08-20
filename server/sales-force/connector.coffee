@@ -21,6 +21,11 @@ App.SalesForce.Connector = {
   getConnectorByUserId: (userId) -> Connectors.findOne {userId: userId, name: ConnectorNames.Salesforce}
 
 
+  updateApiUsage: (userId, apiUsage) ->
+    Connectors.update {userId: userId, name: ConnectorNames.Salesforce},
+      $set: {apiUsage: apiUsage}
+
+
   refreshToken: (userId) ->
     connector = @getConnectorByUserId userId
     oAuth2 = @createOAuth2Credentials()

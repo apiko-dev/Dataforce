@@ -1,8 +1,7 @@
-#todo finish this transformer
 class RawGraph
   constructor: (@metadata, @data) ->
 
-  getSeries: () ->
+  getSeries: ->
     metric = @metadata.metric.name
     dimension = @metadata.dimension.name
 

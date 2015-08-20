@@ -18,6 +18,9 @@ runSyncQuery = (userId, runQueryFuncName, constructQueryFunc) ->
   executeQuery = ->
     connection = checkCredentialsAndCreateConnection(userId)
     queryResult = Async.runSync (done) -> constructQueryFunc(connection)[runQueryFuncName](done)
+
+    App.SalesForce.Connector.updateApiUsage(userId, connection.limitInfo.apiUsage)
+
     if queryResult.error
       if queryResult.error.name is 'invalid_grant' #we need to refresh token
         App.SalesForce.Connector.refreshToken(userId)

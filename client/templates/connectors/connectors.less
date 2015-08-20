@@ -6,10 +6,24 @@
   margin: @defaultIndent;
 
   li {
+    border: @border;
+    border-radius: @defaultIndent;
+    margin-bottom: @defaultIndent;
+    padding: @defaultIndent;
+
+    .revoke-access-button {
+      float: right;
+    }
+
     .auth-status-info {
       text-transform: uppercase;
       font-size: 12px;
       color: @primaryText;
+    }
+
+    .connector-details {
+      font-size: 12px;
+      color: @primaryText
     }
   }
 }

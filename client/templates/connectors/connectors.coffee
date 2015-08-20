@@ -18,6 +18,7 @@ Template.Connectors.helpers
   ]
 
   hasAuth: -> !!Connectors.findOne name: @name
+  apiUsage: -> Connectors.findOne(name: @name).apiUsage
 
 
 Template.Connectors.events

@@ -10,11 +10,21 @@
             <li class="connector-item">
                 {{#if hasAuth}}
                     <!--show that user is already authenticated in service-->
-                    {{name}}
-                    <span class="auth-status-info">logged in</span>
-                    <button class="btn btn-danger btn-xs revoke-access-button" data-logout-method="{{logoutMethod}}">
-                        Revoke access
-                    </button>
+                    <div class="connector-main-info">
+                        {{name}}
+                        <span class="auth-status-info">logged in</span>
+                        <button class="btn btn-danger btn-xs revoke-access-button"
+                                data-logout-method="{{logoutMethod}}">
+                            Revoke access
+                        </button>
+                    </div>
+                    <div class="connector-details">
+                        {{#if apiUsage}}
+                            {{#with apiUsage}}
+                                API usage: {{used}}/{{limit}}
+                            {{/with}}
+                        {{/if}}
+                    </div>
                 {{else}}
                     <!--show auth link-->
                     <a href="{{authUrl}}" class="connect-connector" target="_blank">{{name}}</a>

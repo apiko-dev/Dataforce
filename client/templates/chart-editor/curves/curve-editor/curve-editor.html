@@ -5,11 +5,12 @@
             <input class="form-control curve-name curve-name-input" type="text" value="{{name}}"/>
         {{else}}
             <div class="curve-editor-wrapper">
-                {{> CurveTypeChooser}}
 
                 {{> CurveEditorTabs}}
 
-                {{> ContextPrinter}}
+                {{> CurveTypeChooser}}
+                
+                <!--{{> ContextPrinter}}-->
 
                 <div class="row editor-row">
                     <div class="col-xs-12 bottom-buttons">
@@ -23,6 +24,7 @@
                         </button>
                     </div>
                 </div>
+
             </div>
         {{/Spoiler}}
     </div>
