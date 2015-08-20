@@ -1,5 +1,4 @@
 checkCredentialsAndCreateConnection = (userId) ->
-#get credentials
   credentials = App.SalesForce.Connector.getConnectorByUserId userId
 
   unless credentials then throw new Meteor.Error('500', 'You are not authenticated in Salesforce on "Connectors" page')
@@ -59,17 +58,19 @@ Loader = {
       query[filter.field.name] = condition
 
     #todo: small optimisation: investigate column selection in order to reduce amount of traffic
-    runSyncQuery @userId, 'execute', (conn) -> conn.sobject(tableName).find(query).limit(100)
+    runSyncQuery Meteor.userId(), 'execute', (conn) -> conn.sobject(tableName).find(query).limit(50)
 
 
   getSeriesForCurve: (curve) ->
-    tableData = Loader.sfGetTableData curve.metadata.name, chart.filters
+    if curve.metadata.name and curve.metadata.metric and curve.metadata.dimension
+      tableData = Loader.getTableData curve.metadata.name, curve.metadata.filters || []
 
-    #todo: data adapter dispatching
-    dataAdapter = new App.SalesForce.RawGraph(curve.metadata, tableData)
-    series = dataAdapter.getSeries()
-    console.log series
-    return series
+      #todo: data adapter dispatching
+      dataAdapter = new App.SalesForce.RawGraph(curve.metadata, tableData)
+      series = dataAdapter.getSeries()
+      return series
+    else
+      return []
 }
 
 

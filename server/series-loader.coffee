@@ -28,8 +28,8 @@ onCurvesChange = (userId, curve) ->
 #        gada.getSeries()
       saveSeriesUsingMockData()
     when ConnectorNames.Salesforce
-
-      saveSeriesUsingMockData()
+      data = App.SalesForce.Loader.getSeriesForCurve(curve)
+      saveSeriesObject(data)
     when ConnectorNames.Dataforce
       saveSeriesUsingMockData()
     else
