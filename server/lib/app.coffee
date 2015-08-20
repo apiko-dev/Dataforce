@@ -37,6 +37,12 @@ _App = {
           dimension: String
           dimension2: Match.OneOf String, null
       return true
+
+#check user's permissions to access specified document
+  checkPermissions: (document, userId) ->
+    userId ?= Meteor.userId()
+    if userId isnt document.userId or not Roles.userIsInRole userId, ['admin', 'tester']
+      throw new Meteor.Error '401', 'Access denied by checkPermission'
 }
 
 

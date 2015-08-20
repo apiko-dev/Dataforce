@@ -1,3 +1,4 @@
+#todo: update this adapter for new data structures
 class DataGrouper
   constructor: (@chart, data) ->
     @series = {}

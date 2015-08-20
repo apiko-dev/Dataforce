@@ -4,14 +4,24 @@
 ###
 
 Template.ChartDisplay.onCreated ->
-#todo remove it after adding real series loading
-#temporal series cap
-  randomData = (curve) ->
-    _id: curve._id
-    data: [0..10].map (i) -> [i, Math.floor Math.random() * 100]
-    name: curve.name
-
   @series = new Mongo.Collection(null)
+
+  loadSeriesForCurve = (curve, isUpdate) =>
+    Meteor.call 'loadSeries', curve._id, App.handleError (series) =>
+      console.log 'series', series
+      seriesObj = {
+        _id: curve._id
+        name: curve.name
+        data: series
+        type: curve.type
+      }
+      unless isUpdate
+        @series.insert seriesObj
+      else
+        delete seriesObj._id
+        @series.update {_id: curve._id}, $set: seriesObj
+
+
   @autorun =>
     chart = Template.currentData()
     curves = Curves.find {chartId: chart._id}
@@ -20,17 +30,9 @@ Template.ChartDisplay.onCreated ->
     @series.remove({})
 
     curves.observe
-      added: (curve) =>
-        console.log 'new curve', curve
-        @series.insert randomData(curve)
-      changed: (curve) =>
-        console.log 'updated curve', curve
-        newData = randomData(curve)
-        delete newData._id
-        @series.update {_id: curve._id}, {$set: newData}
-      removed: (curve) =>
-        console.log 'curve removed', curve
-        @series.remove {_id: curve._id}
+      added: (curve) => loadSeriesForCurve(curve)
+      changed: (curve) => loadSeriesForCurve(curve, true)
+      removed: (curve) => @series.remove {_id: curve._id}
 
 
 Template.ChartDisplay.onRendered ->
