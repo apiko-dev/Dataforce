@@ -1,4 +1,4 @@
-isTester = (userId) -> Roles.userIsInRole(userId, 'tester')
+@Feedbacks = new Mongo.Collection('feedbacks')
 
 Feedbacks.allow
   insert: App.isAdmin

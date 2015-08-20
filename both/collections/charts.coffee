@@ -1,4 +1,6 @@
-isOwner = (userId, doc) -> userId and doc.userId is userId
+@Charts = new Mongo.Collection('charts')
+
+isOwner = (userId, doc) -> App.allowAccess(doc, userId)
 
 Charts.allow
   insert: isOwner

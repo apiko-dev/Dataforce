@@ -1,4 +1,11 @@
-compositeCurves = find: (chart) -> Curves.find {chartId: chart._id}
+compositeCurves = [
+  {
+    find: (chart) -> Curves.find {chartId: chart._id}
+  }
+  {
+    find: (chart) -> Series.find {chartId: chart._id}
+  }
+]
 
 
 #one chart
@@ -14,7 +21,7 @@ Meteor.publishComposite 'chart', (chartId) ->
     else
       chartsCursor
 
-  children: [compositeCurves]
+  children: compositeCurves
 
 
 #all user's charts
@@ -22,7 +29,7 @@ Meteor.publishComposite 'userCharts', ->
   userId = @userId
 
   find: -> Charts.find {userId: userId}
-  children: [compositeCurves]
+  children: compositeCurves
 
 
 Meteor.publish 'authStatus', -> Connectors.find {userId: @userId}, fields: {tokens: 0}

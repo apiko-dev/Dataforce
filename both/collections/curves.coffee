@@ -1,4 +1,6 @@
-isOwner = (userId, doc) -> userId and doc.userId is userId
+@Curves = new Mongo.Collection('curves')
+
+isOwner = (userId, doc) -> App.allowAccess(doc, userId)
 
 Curves.allow
   insert: isOwner

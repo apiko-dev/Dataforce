@@ -7,9 +7,9 @@ disableExpiredInvitesTask = ->
   users = Meteor.users.find({'emails.0.address': {$in: emails}}).fetch()
   Roles.removeUsersFromRoles users, 'tester'
 
-
-new Meteor.Cron({
-  events: {
-    "0 * * * *": disableExpiredInvitesTask
-  }
-});
+Meteor.startup ->
+  new Meteor.Cron({
+    events: {
+      "0 * * * *": disableExpiredInvitesTask
+    }
+  });

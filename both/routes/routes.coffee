@@ -60,6 +60,7 @@ Router.map ->
       serviceName: 'SalesForce'
     onAfterAction: -> Meteor.setTimeout (-> window.close()), 1000
 
+  #todo: @vlad, this route should be renamed
   @route '/google-analytics-sample/_oauth/google',
     name: 'gaOAuth'
     action: ->
