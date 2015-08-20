@@ -16,6 +16,7 @@ Meteor.publishComposite 'chart', (chartId) ->
 
   children: [compositeCurves]
 
+
 #all user's charts
 Meteor.publishComposite 'userCharts', ->
   userId = @userId
@@ -23,4 +24,5 @@ Meteor.publishComposite 'userCharts', ->
   find: -> Charts.find {userId: userId}
   children: [compositeCurves]
 
-Meteor.publish 'authStatus', () -> Connectors.find {userId: @userId}, fields: {tokens: 0}
+
+Meteor.publish 'authStatus', -> Connectors.find {userId: @userId}, fields: {tokens: 0}
