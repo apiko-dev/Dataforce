@@ -47,26 +47,43 @@ Meteor.methods
 
   sfGetConnectorEntries: () -> JSON.parse Assets.getText('sf/entities.json')
 
+  sfUpdateTablesDescriptions: () ->
+    unless App.isAdmin(@userId) then throw new Meteor.Error('401', 'Access denied')
+
+    #clear old descriptions
+    SalesforceTables.remove {}
+
+    globalDescription = runSyncQuery @userId, 'describeGlobal', (conn) -> conn
+
+    globalDescription.sobjects.forEach (table, i, arr) ->
+      console.log "processing table #{table.name} #{i}/#{arr.length}"
+      fields = Meteor.call 'sfDescribe', table.name
+      table = {
+        label: table.label,
+        name: table.name,
+        fields: fields.filter (field) -> App.SalesForce.isSupportedType(field.type)
+      }
+      if table.fields.length > 0
+        SalesforceTables.insert table
+      else console.log table.name, ' missed'
+
 
 #Salesforce series loader
 Loader = {
-  getTableData: (tableName, filters) ->
-    check tableName, String
-    check filters, [App.checkers.Filter]
-
+  getTableData: (curveMetadata) ->
+#todo: implement filters here
     query = {}
-    filters.forEach (filter) ->
-      condition = {}
-      condition[filter.modifier] = filter.field.value
-      query[filter.field.name] = condition
 
-    #todo: small optimisation: investigate column selection in order to reduce amount of traffic
-    runSyncQuery Meteor.userId(), 'execute', (conn) -> conn.sobject(tableName).find(query).limit(50)
+    tableName = curveMetadata.name
+    fields = "#{curveMetadata.metric.name}, #{curveMetadata.dimension.name}"
+    runSyncQuery Meteor.userId(), 'execute', (conn) -> conn.sobject(tableName).find(query, fields).limit(50)
 
 
   getSeriesForCurve: (curve) ->
-    if curve.metadata and curve.metadata.name and curve.metadata.metric and curve.metadata.dimension
-      tableData = Loader.getTableData curve.metadata.name, curve.metadata.filters || []
+    curveMetadata = curve.metadata
+
+    if curveMetadata and curveMetadata.name and curveMetadata.metric and curveMetadata.dimension
+      tableData = Loader.getTableData curve.metadata
 
       #todo: data adapter dispatching
       dataAdapter = new App.SalesForce.RawGraph(curve.metadata, tableData)

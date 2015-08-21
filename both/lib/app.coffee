@@ -3,6 +3,8 @@
   GoogleAnalytics: {}
   SalesForce:
     isNumberType: (type) -> type in ['int', 'double', 'currency', 'percent']
+    isSupportedType: (type) ->
+      type in ['int', 'double', 'currency', 'percent', 'packlist', 'string', 'date', 'datetime']
 
   isAdmin: (userId) ->
     userId = userId or Meteor.userId()

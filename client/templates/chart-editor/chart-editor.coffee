@@ -6,6 +6,7 @@ Template.ChartEditor.onCreated ->
 
 
 Template.ChartEditor.onRendered ->
+#todo: extract into separate package
 #  apply sticky position to chart preview
   scrollThreshold = 56
   element = @$('.preview-column')
