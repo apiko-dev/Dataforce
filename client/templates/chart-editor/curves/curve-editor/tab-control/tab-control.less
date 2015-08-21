@@ -1,6 +1,7 @@
 @import '../../../../../configs.import.less';
 
 @tabDimension: 64px;
+@tabBorder: 1px solid rgba(207, 214, 220, 0.51);
 
 .curve-editor-tabs-wrapper {
   //tabs
@@ -8,8 +9,8 @@
     display: block;
     list-style-type: none;
     padding-left: 0;
-    border-bottom: @border;
-    height: @tabDimension+1;
+    height: @tabDimension;
+    margin-bottom: 0;
 
     .tab {
       display: inline-block;
@@ -26,6 +27,7 @@
   }
   //current tab's content
   .tab-content {
-
+    border: @tabBorder;
+    padding: @defaultIndent;
   }
 }
