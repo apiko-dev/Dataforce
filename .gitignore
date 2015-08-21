@@ -2,6 +2,7 @@
 .idea/
 dataforce.iml
 packages/npm-container/.npm
+packages/position-sticky/
 server/lib/debug.js
 _netrc
 .DS_Store
