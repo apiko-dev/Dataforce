@@ -10,6 +10,7 @@ Charts.allow
 Charts.before.insert (userId, doc) ->
   doc.userId = userId
   doc.createdAt = new Date()
+  doc.metadata = {}
 
 Charts.after.remove (userId, doc) ->
   if Meteor.isServer

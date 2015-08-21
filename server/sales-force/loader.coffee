@@ -65,7 +65,7 @@ Loader = {
 
 
   getSeriesForCurve: (curve) ->
-    if curve.metadata.name and curve.metadata.metric and curve.metadata.dimension
+    if curve.metadata and curve.metadata.name and curve.metadata.metric and curve.metadata.dimension
       tableData = Loader.getTableData curve.metadata.name, curve.metadata.filters || []
 
       #todo: data adapter dispatching
