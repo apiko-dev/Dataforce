@@ -9,7 +9,7 @@
                 {{> CurveEditorTabs}}
 
                 {{> CurveTypeChooser}}
-                
+
                 <!--{{> ContextPrinter}}-->
 
                 <div class="row editor-row">
@@ -17,6 +17,8 @@
                         <input type="checkbox" data-toggle="switch" class="visibility-checkbox"
                                data-on-text="<i class='fa fa-eye'></i>"
                                data-off-text="<i class='fa fa-eye-slash'></i>"
+                               data-on-color="success"
+                               data-off-color="danger"
                             {{isVisible}}/>
 
                         <button class="btn btn-warning remove-curve-button">

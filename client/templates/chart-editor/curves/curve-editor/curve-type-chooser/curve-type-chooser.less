@@ -9,10 +9,16 @@
     height: 50px;
     .transition(border, .5s);
     border-radius: 0;
-    border: 25px solid rgba(0, 0, 0, 0.3);
+    border: 25px solid @primaryBackground;
+
+    &:hover:not(.pressed) {
+      color: @accentColor;
+    }
 
     &.pressed {
-      border: 2px solid rgba(0, 0, 0, 0.7);
+      border: 0 solid white;
+      background: @accentColor;
+      color: white;
     }
 
     &, i {
