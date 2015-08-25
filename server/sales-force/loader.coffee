@@ -37,6 +37,7 @@ runSyncQuery = (userId, runQueryFuncName, constructQueryFunc) ->
 
 
 Meteor.methods
+#todo: after caching implemented this method should be moved into table-descriptions file
   sfDescribe: (tableName) ->
     check tableName, String
 
@@ -44,7 +45,7 @@ Meteor.methods
 
     tableMeta.fields?.map (field) -> {name: field.name, type: field.type, label: field.label}
 
-
+#todo: after table caching this method and related file will become redundant
   sfGetConnectorEntries: () -> JSON.parse Assets.getText('sf/entities.json')
 
   sfUpdateTablesDescriptions: () ->
@@ -57,6 +58,7 @@ Meteor.methods
 
     globalDescription.sobjects.forEach (table, i, arr) ->
       console.log "processing table #{table.name} #{i}/#{arr.length}"
+      #todo update it after moving method above
       fields = Meteor.call 'sfDescribe', table.name
       table = {
         label: table.label,
