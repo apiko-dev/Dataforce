@@ -1,5 +1,11 @@
 <template name="SalesforceCurveEditorTab">
     {{> SfMetadataPicker description='Table' propertyName='' items=tables id='tablePicker' doc=this}}
-    {{> SfMetadataPicker description='x' propertyName='dimension' items=tableColumns id='dimensionPicker' doc=this}}
-    {{> SfMetadataPicker description='y' propertyName='metric' items=tableColumns id='metricPicker' doc=this}}
+    {{#if isLoading}}
+        <div>
+            {{> spinner}}
+        </div>
+    {{else}}
+        {{> SfMetadataPicker description='x' propertyName='dimension' items=tableColumns id='dimensionPicker' doc=this}}
+        {{> SfMetadataPicker description='y' propertyName='metric' items=tableColumns id='metricPicker' doc=this}}
+    {{/if}}
 </template>

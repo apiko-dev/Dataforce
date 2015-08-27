@@ -1,11 +1,13 @@
 Template.SalesforceCurveEditorTab.onCreated ->
+  @isLoading = new ReactiveVar(false)
   @activePickerId = new ReactiveVar(false)
 
   @autorun =>
     curve = Template.currentData()
     currentTableName = curve.metadata.name
     if currentTableName
-      @subscribe 'salesforceTableFields', currentTableName
+      @isLoading.set true
+      @subscribe 'salesforceTableFields', currentTableName, => @isLoading.set false
 
 
 Template.SalesforceCurveEditorTab.helpers
@@ -20,3 +22,5 @@ Template.SalesforceCurveEditorTab.helpers
 
       if table then table.fields else []
     else []
+
+  isLoading: -> Template.instance().isLoading.get()
