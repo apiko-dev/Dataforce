@@ -4,7 +4,6 @@
 ###
 Template.ChartDisplay.onRendered ->
   @autorun =>
-    console.log 'data changed: from cd tracker'
     Template.currentData()
     series = Series.find({chartId: @data._id, visible: true}).fetch()
     @$(".highchart-chart").highcharts defaultChartOptions @data.name, series

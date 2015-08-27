@@ -2,12 +2,15 @@ Template.SalesforceCurveEditorTab.onCreated ->
   @isLoading = new ReactiveVar(false)
   @activePickerId = new ReactiveVar(false)
 
+  spinnerVisibility = (visible) => @isLoading.set visible
+
   @autorun =>
     curve = Template.currentData()
     currentTableName = curve.metadata.name
     if currentTableName
-      @isLoading.set true
-      @subscribe 'salesforceTableFields', currentTableName, => @isLoading.set false
+      spinnerVisibility(true)
+      sub = @subscribe 'salesforceTableFields', currentTableName, => spinnerVisibility(false)
+      if sub.ready() then spinnerVisibility(false)
 
 
 Template.SalesforceCurveEditorTab.helpers
@@ -17,9 +20,6 @@ Template.SalesforceCurveEditorTab.helpers
     entityName = @metadata?.name
     if entityName
       table = SalesforceTables.findOne({name: entityName})
-
-      console.log 'table undefined' unless table
-
       if table then table.fields else []
     else []
 
