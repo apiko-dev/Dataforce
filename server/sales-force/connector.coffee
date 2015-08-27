@@ -1,4 +1,6 @@
-App.SalesForce.Connector = {
+NOT_AUTHORIZED_ERR_MSG = 'You are not authenticated in Salesforce on "Connectors" page'
+
+class SalesForceConnector
   createOAuth2Credentials: () ->
     oAuth2 = new jsforce.OAuth2({
       clientId: Meteor.settings.private.SalesForce.key
@@ -19,6 +21,14 @@ App.SalesForce.Connector = {
 
 
   getConnectorByUserId: (userId) -> Connectors.findOne {userId: userId, name: ConnectorNames.Salesforce}
+
+
+  checkCredentialsAndCreateConnection: (userId) ->
+    credentials = @getConnectorByUserId userId
+
+    unless credentials then throw new Meteor.Error('500', NOT_AUTHORIZED_ERR_MSG)
+
+    return @createConnection(credentials.tokens)
 
 
   updateApiUsage: (userId, apiUsage) ->
@@ -47,4 +57,34 @@ App.SalesForce.Connector = {
       else
         Connectors.remove {_id: connector._id}
 
-}
+  ###
+  Runs query synchronously
+
+  @params:
+  constructQueryFunc - function that receives connection instance and returns query ready for execution
+  runQueryFuncName  - name of function that executes query instance
+  userId - ID of current user
+  ###
+  runSyncQuery: (userId, runQueryFuncName, constructQueryFunc) ->
+    executeQuery = ->
+      connection = App.SalesForce.Connector.checkCredentialsAndCreateConnection(userId)
+      queryResult = Async.runSync (done) -> constructQueryFunc(connection)[runQueryFuncName](done)
+
+      App.SalesForce.Connector.updateApiUsage(userId, connection.limitInfo.apiUsage)
+
+      if queryResult.error
+        if queryResult.error.name is 'invalid_grant' #we need to refresh token
+          App.SalesForce.Connector.refreshToken(userId)
+          return false
+        else
+          throw queryResult.error
+      return queryResult.result
+
+    result = executeQuery()
+    if result is false #token was refreshed -> execute query again
+      result = executeQuery()
+
+    return result
+
+
+App.SalesForce.Connector = new SalesForceConnector()

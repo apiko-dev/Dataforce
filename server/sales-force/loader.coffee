@@ -1,91 +1,50 @@
-checkCredentialsAndCreateConnection = (userId) ->
-  credentials = App.SalesForce.Connector.getConnectorByUserId userId
-
-  unless credentials then throw new Meteor.Error('500', 'You are not authenticated in Salesforce on "Connectors" page')
-
-  return App.SalesForce.Connector.createConnection(credentials.tokens)
-
-
-###
-  Runs query synchronously
-
-  @params:
-  constructQueryFunc - function that receives connection instance and returns query ready for execution
-  runQueryFuncName  - name of function that executes query instance
-  userId - ID of current user
-###
-runSyncQuery = (userId, runQueryFuncName, constructQueryFunc) ->
-  executeQuery = ->
-    connection = checkCredentialsAndCreateConnection(userId)
-    queryResult = Async.runSync (done) -> constructQueryFunc(connection)[runQueryFuncName](done)
-
-    App.SalesForce.Connector.updateApiUsage(userId, connection.limitInfo.apiUsage)
-
-    if queryResult.error
-      if queryResult.error.name is 'invalid_grant' #we need to refresh token
-        App.SalesForce.Connector.refreshToken(userId)
-        return false
-      else
-        throw queryResult.error
-    return queryResult.result
-
-  result = executeQuery()
-  if result is false #token was refreshed -> execute query again
-    result = executeQuery()
-
-  return result
-
-
 Meteor.methods
-#todo: after caching implemented this method should be moved into table-descriptions file
-  sfDescribe: (tableName) ->
-    check tableName, String
-
-    tableMeta = runSyncQuery @userId, 'describe', (conn) -> conn.sobject(tableName)
-
-    tableMeta.fields?.map (field) -> {name: field.name, type: field.type, label: field.label}
-
-#todo: after table caching this method and related file will become redundant
-  sfGetConnectorEntries: () -> JSON.parse Assets.getText('sf/entities.json')
-
   sfUpdateTablesDescriptions: () ->
+    userId = @userId
+    describeTable = (tableName) ->
+      tableMeta = App.SalesForce.Connector.runSyncQuery userId, 'describe', (conn) -> conn.sobject(tableName)
+      tableMeta.fields.filter((field) ->
+        App.SalesForce.isSupportedType(field.type)
+      ).map (field) -> {name: field.name, type: field.type, label: field.label}
+
+
     unless App.isAdmin(@userId) then throw new Meteor.Error('401', 'Access denied')
 
     #clear old descriptions
     SalesforceTables.remove {}
 
-    globalDescription = runSyncQuery @userId, 'describeGlobal', (conn) -> conn
+    globalDescription = App.SalesForce.Connector.runSyncQuery @userId, 'describeGlobal', (conn) -> conn
 
     globalDescription.sobjects.forEach (table, i, arr) ->
       console.log "processing table #{table.name} #{i}/#{arr.length}"
-      #todo update it after moving method above
-      fields = Meteor.call 'sfDescribe', table.name
-      table = {
-        label: table.label,
-        name: table.name,
-        fields: fields.filter (field) -> App.SalesForce.isSupportedType(field.type)
-      }
-      if table.fields.length > 0
+      fields = describeTable table.name
+      if fields.length > 1 and _.some(fields, (f) -> App.SalesForce.isNumberType(f.type))
+        table =
+          label: table.label
+          name: table.name
+          fields: fields
         SalesforceTables.insert table
-      else console.log table.name, ' missed'
+      else
+        console.log table.name, ' missed'
 
 
 #Salesforce series loader
-Loader = {
+class SalesForceLoader
   getTableData: (curveMetadata) ->
 #todo: implement filters here
     query = {}
 
     tableName = curveMetadata.name
     fields = "#{curveMetadata.metric.name}, #{curveMetadata.dimension.name}"
-    runSyncQuery Meteor.userId(), 'execute', (conn) -> conn.sobject(tableName).find(query, fields).limit(50)
+    queryFn = (conn) -> conn.sobject(tableName).find(query, fields).limit(50)
+    App.SalesForce.Connector.runSyncQuery Meteor.userId(), 'execute', queryFn
 
 
   getSeriesForCurve: (curve) ->
     curveMetadata = curve.metadata
 
     if curveMetadata and curveMetadata.name and curveMetadata.metric and curveMetadata.dimension
-      tableData = Loader.getTableData curve.metadata
+      tableData = @getTableData curve.metadata
 
       #todo: data adapter dispatching
       dataAdapter = new App.SalesForce.RawGraph(curve.metadata, tableData)
@@ -93,9 +52,7 @@ Loader = {
       return series
     else
       return []
-}
 
 
-_.extend App.SalesForce, {
-  Loader: Loader
-}
+_.extend App.SalesForce,
+  Loader: new SalesForceLoader()

@@ -1,3 +1,11 @@
+Meteor.publish 'salesforceTables', () -> SalesforceTables.find {}, {fields: {fields: 0}}
+
+
+Meteor.publish 'salesforceTableFields', (tableName) ->
+  check tableName, String
+  SalesforceTables.find {name: tableName}
+
+
 Meteor.startup ->
 #upload default descriptions from /sf/tables.json file
   if SalesforceTables.find().count() is 0
@@ -10,8 +18,6 @@ Meteor.startup ->
 # app starts first time. can be called only in development mode
 _.extend App.SalesForce, {
   exportTablesDescriptions: () ->
-    unless App.isAdmin(@userId) then throw new Meteor.Error('401', 'Access denied')
-
     fs = Npm.require('fs');
     privatePath = fs.realpathSync('./../../../../../private/sf');
     if fs.existsSync(privatePath)

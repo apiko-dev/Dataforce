@@ -33,7 +33,10 @@ Router.map ->
   @route '/chart-editor/:chartId',
     name: 'existingChartEditor',
     template: 'ChartEditor'
-    waitOn: -> @subscribe 'chart', @params.chartId
+    waitOn: -> [
+      @subscribe('chart', @params.chartId)
+      @subscribe('salesforceTables')
+    ]
     data: ->
       if @params.chartId
         Charts.findOne {_id: @params.chartId}
@@ -47,6 +50,9 @@ Router.map ->
       }, App.handleError (chartId) =>
         @redirect 'existingChartEditor', {chartId: chartId}
 
+  @route '/admin-panel',
+    name: 'adminPanel'
+    template: 'AdminPanel'
 
   @route '/connectors',
     name: 'connectors',
@@ -68,10 +74,6 @@ Router.map ->
         Meteor.call 'GA.saveToken', @params.query.code, (err, result) ->
           Router.go 'connectors'
     onAfterAction: -> Meteor.setTimeout (-> window.close()), 1000
-
-  @route '/admin-panel',
-    name: 'adminPanel'
-    template: 'AdminPanel'
 
 
 routePermissionDefaultAction = (context, conditionFn) ->
