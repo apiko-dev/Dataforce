@@ -47,7 +47,7 @@ class SalesForceLoader
       tableData = @getTableData curve.metadata
 
       #todo: data adapter dispatching
-      dataAdapter = new App.SalesForce.RawGraph(curve.metadata, tableData)
+      dataAdapter = new App.SalesForce.RawGraph(curve, tableData)
       series = dataAdapter.getSeries()
       return series
     else

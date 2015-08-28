@@ -8,7 +8,7 @@ Template.CurveEditor.onCreated ->
   @curveHiddenState = => @collapsedCurves.remove {curveId: @data._id}
 
 Template.CurveEditor.onRendered ->
-  @$('.visibility-checkbox').bootstrapSwitch()
+  @$('.visibility-checkbox,.normalize-checkbox').bootstrapSwitch()
 
 
 Template.CurveEditor.helpers
@@ -19,6 +19,8 @@ Template.CurveEditor.helpers
     _.find types, (typeObj) => @type is typeObj.type
 
   isVisible: -> if @visible then {checked: ''} else {}
+
+  isNormalized: -> if @normalize then {checked: ''} else {}
 
 
 Template.CurveEditor.events
@@ -31,6 +33,10 @@ Template.CurveEditor.events
 
   'switchChange.bootstrapSwitch .visibility-checkbox': (event, tmpl, state) ->
     Curves.update {_id: tmpl.data._id}, $set: {visible: state}
+
+  'switchChange.bootstrapSwitch .normalize-checkbox': (event, tmpl, state) ->
+    Curves.update {_id: tmpl.data._id}, $set: {normalize: state}
+
 
   'click .remove-curve-button': (event, tmpl) ->
     Curves.remove _id: tmpl.data._id
