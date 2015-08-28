@@ -17,8 +17,7 @@ class RawGraph
     if @curve.normalize
       data.forEach (point) -> point[1] = point[1] / max
 
-    console.log data
-    return data
+    return {data: data, min: min, max: max}
 
 
 _.extend App.SalesForce, {
