@@ -40,7 +40,7 @@ class SalesForceLoader
     App.SalesForce.Connector.runSyncQuery Meteor.userId(), 'execute', queryFn
 
 
-  getSeriesForCurve: (curve) ->
+  getDataForCurve: (curve) ->
     curveMetadata = curve.metadata
 
     if curveMetadata and curveMetadata.name and curveMetadata.metric and curveMetadata.dimension
@@ -48,8 +48,8 @@ class SalesForceLoader
 
       #todo: data adapter dispatching
       dataAdapter = new App.SalesForce.RawGraph(curve, tableData)
-      series = dataAdapter.getSeries()
-      return series
+      data = dataAdapter.getData()
+      return data
     else
       return []
 

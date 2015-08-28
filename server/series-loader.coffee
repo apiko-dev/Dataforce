@@ -1,28 +1,10 @@
 onCurvesChange = (userId, curve) ->
-  createSeriesObject = (data) ->
-    _.extend data,
-      name: curve.name
-      type: curve.type
-      curveId: curve._id
-      chartId: curve.chartId
-      visible: curve.visible
-
   saveSeriesObject = (data) ->
-    series = createSeriesObject(data)
+    series = SeriesPostprocessor.process(curve, data)
     Series.update {curveId: curve._id}, {$set: series}, {upsert: true}
 
   #todo: temporal series cap - remove after implementing real services
-  randomData = ->
-    min = false
-    max = false
-    data = [0..10].map (i) ->
-      point = [i, Math.floor Math.random() * 100]
-      metricValue = point[1]
-      if min is false or metricValue < min then min = metricValue
-      if max is false or metricValue > max then max = metricValue
-      return point
-    if curve.normalize then data.forEach (point) -> point[1] = point[1] / max
-    return {min: min, max: max, data: data}
+  randomData = -> [0..10].map (i) -> [i, (Math.floor Math.random() * 100) * 1000]
   saveSeriesUsingMockData = -> saveSeriesObject randomData()
   #end of mock data generator
 
@@ -39,7 +21,7 @@ onCurvesChange = (userId, curve) ->
 #        gada.getSeries()
       saveSeriesUsingMockData()
     when ConnectorNames.Salesforce
-      data = App.SalesForce.Loader.getSeriesForCurve(curve)
+      data = App.SalesForce.Loader.getDataForCurve(curve)
       saveSeriesObject(data)
     when ConnectorNames.Dataforce
       saveSeriesUsingMockData()
