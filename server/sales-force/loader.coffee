@@ -29,8 +29,8 @@ Meteor.methods
 
 
 #Salesforce series loader
-class SalesForceLoader
-  getTableData: (curveMetadata) ->
+class App.SalesForce.Loader
+  @getTableData: (curveMetadata) ->
 #todo: implement filters here
     query = {}
 
@@ -40,7 +40,7 @@ class SalesForceLoader
     App.SalesForce.Connector.runSyncQuery Meteor.userId(), 'execute', queryFn
 
 
-  getDataForCurve: (curve) ->
+  @getDataForCurve: (curve) ->
     curveMetadata = curve.metadata
 
     if curveMetadata and curveMetadata.name and curveMetadata.metric and curveMetadata.dimension
@@ -52,7 +52,3 @@ class SalesForceLoader
       return data
     else
       return []
-
-
-_.extend App.SalesForce,
-  Loader: new SalesForceLoader()

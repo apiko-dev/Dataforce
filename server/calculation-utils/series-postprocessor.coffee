@@ -14,7 +14,7 @@ class @SeriesPostprocessor
 
 
   @_normalize: (series) ->
-    SeriesPostprocessor._seriesMinAndMax(series)
+    @_seriesMinAndMax(series)
     series.data.forEach (point) -> point[1] = point[1] / series.max
 
 
@@ -34,8 +34,8 @@ class @SeriesPostprocessor
       chartId: curve.chartId
       visible: curve.visible
 
-    if curve.normalize then SeriesPostprocessor._normalize(series)
+    if curve.normalize then @_normalize(series)
     #find actual min and max
-    SeriesPostprocessor._seriesMinAndMax(series)
+    @_seriesMinAndMax(series)
 
     return series

@@ -13,9 +13,7 @@ defaultChartOptions = (title, series) ->
 #  find min of series mins
   min = false
   series.forEach (entry) -> if min is false or entry.min < min then min = entry.min
-
-  console.log 'min ', min
-
+  
   chart:
     type: 'column'
   title:

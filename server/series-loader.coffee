@@ -1,6 +1,6 @@
 onCurvesChange = (userId, curve) ->
   saveSeriesObject = (data) ->
-    series = SeriesPostprocessor.process(curve, data)
+    series = SeriesPostprocessor.process(curve, data) #makes normalizing & addes min/max values
     Series.update {curveId: curve._id}, {$set: series}, {upsert: true}
 
   #todo: temporal series cap - remove after implementing real services

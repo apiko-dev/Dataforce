@@ -1,7 +1,7 @@
 NOT_AUTHORIZED_ERR_MSG = 'You are not authenticated in Salesforce on "Connectors" page'
 
-class SalesForceConnector
-  createOAuth2Credentials: () ->
+class App.SalesForce.Connector
+  @createOAuth2Credentials: () ->
     oAuth2 = new jsforce.OAuth2({
       clientId: Meteor.settings.private.SalesForce.key
       clientSecret: Meteor.settings.private.SalesForce.secret
@@ -10,7 +10,7 @@ class SalesForceConnector
     return oAuth2
 
 
-  createConnection: (credentials) ->
+  @createConnection: (credentials) ->
     return new jsforce.Connection
       oauth2: {
         clientId: Meteor.settings.private.SalesForce.key
@@ -20,10 +20,10 @@ class SalesForceConnector
       instanceUrl: credentials.instanceUrl
 
 
-  getConnectorByUserId: (userId) -> Connectors.findOne {userId: userId, name: ConnectorNames.Salesforce}
+  @getConnectorByUserId: (userId) -> Connectors.findOne {userId: userId, name: ConnectorNames.Salesforce}
 
 
-  checkCredentialsAndCreateConnection: (userId) ->
+  @checkCredentialsAndCreateConnection: (userId) ->
     credentials = @getConnectorByUserId userId
 
     unless credentials then throw new Meteor.Error('500', NOT_AUTHORIZED_ERR_MSG)
@@ -31,12 +31,12 @@ class SalesForceConnector
     return @createConnection(credentials.tokens)
 
 
-  updateApiUsage: (userId, apiUsage) ->
+  @updateApiUsage: (userId, apiUsage) ->
     Connectors.update {userId: userId, name: ConnectorNames.Salesforce},
       $set: {apiUsage: apiUsage}
 
 
-  refreshToken: (userId) ->
+  @refreshToken: (userId) ->
     connector = @getConnectorByUserId userId
     oAuth2 = @createOAuth2Credentials()
     syncRes = Async.runSync (done) -> oAuth2.refreshToken connector.tokens.refreshToken, done
@@ -48,7 +48,7 @@ class SalesForceConnector
       Connectors.update {userId: userId, name: ConnectorNames.Salesforce}, {$set: {'tokens.accessToken': accessToken}}
 
 
-  revokeToken: (userId) ->
+  @revokeToken: (userId) ->
     connector = @getConnectorByUserId userId
     oAuth2 = @createOAuth2Credentials()
     oAuth2.revokeToken connector.tokens.accessToken, Meteor.bindEnvironment (err, res) ->
@@ -65,16 +65,16 @@ class SalesForceConnector
   runQueryFuncName  - name of function that executes query instance
   userId - ID of current user
   ###
-  runSyncQuery: (userId, runQueryFuncName, constructQueryFunc) ->
-    executeQuery = ->
-      connection = App.SalesForce.Connector.checkCredentialsAndCreateConnection(userId)
+  @runSyncQuery: (userId, runQueryFuncName, constructQueryFunc) ->
+    executeQuery = =>
+      connection = @checkCredentialsAndCreateConnection(userId)
       queryResult = Async.runSync (done) -> constructQueryFunc(connection)[runQueryFuncName](done)
 
-      App.SalesForce.Connector.updateApiUsage(userId, connection.limitInfo.apiUsage)
+      @updateApiUsage(userId, connection.limitInfo.apiUsage)
 
       if queryResult.error
         if queryResult.error.name is 'invalid_grant' #we need to refresh token
-          App.SalesForce.Connector.refreshToken(userId)
+          @refreshToken(userId)
           return false
         else
           throw queryResult.error
@@ -85,6 +85,3 @@ class SalesForceConnector
       result = executeQuery()
 
     return result
-
-
-App.SalesForce.Connector = new SalesForceConnector()

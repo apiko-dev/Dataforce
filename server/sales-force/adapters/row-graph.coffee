@@ -1,4 +1,4 @@
-class RawGraph
+class App.SalesForce.RawGraph
   constructor: (@curve, @data) ->
 
   getData: ->
@@ -6,8 +6,3 @@ class RawGraph
     metric = metadata.metric.name
     dimension = metadata.dimension.name
     @data.map (doc) -> [doc[dimension], doc[metric]]
-
-
-_.extend App.SalesForce, {
-  RawGraph: RawGraph
-}
