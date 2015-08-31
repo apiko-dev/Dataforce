@@ -18,6 +18,14 @@ class @SeriesPostprocessor
     series.data.forEach (point) -> point[1] = point[1] / series.max
 
 
+  @_convertDate: (series) ->
+    if series.dimension.type is 'date'
+      series.data.forEach (point) ->
+        point[0] = new Date(point[0]).valueOf()
+
+      series.data.sort (a, b) -> a[0] - b[0]
+
+
   ###
     Series postprocessing method
       @args
@@ -39,4 +47,8 @@ class @SeriesPostprocessor
     #find actual min and max
     @_seriesMinAndMax(series)
 
+    #convert dimension to date if it has date type
+    @_convertDate(series)
+
     return series
+

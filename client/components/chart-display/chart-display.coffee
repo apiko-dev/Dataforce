@@ -13,11 +13,10 @@ defaultChartOptions = (title, series) ->
 #  find min of series mins and dimension type
   min = false
   xAxisType = 'linear'
+
   series.forEach (entry) ->
     if min is false or entry.min < min then min = entry.min
     if entry.dimension.type is 'date' then xAxisType = 'datetime'
-
-  console.log series
 
   chart:
     type: 'column'
