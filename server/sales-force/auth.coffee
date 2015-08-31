@@ -1,5 +1,6 @@
 SF_AUTH_URL = Meteor.settings.public.SalesForce.authUrl
 
+
 redirect = (response, url) ->
   response.writeHead(302, {
     'Location': url
@@ -32,13 +33,8 @@ Meteor.methods
         console.error(err)
       else
         mapAuthParams = (connection) ->
-          params = {}
-          [
-            'accessToken'
-            'instanceUrl'
-            'refreshToken'
-          ].forEach (key) -> params[key] = connection[key]
-          return params
+          mapParams = (params, key) -> params[key] = connection[key]; params;
+          _.reduce ['accessToken', 'instanceUrl', 'refreshToken'], mapParams, {}
 
         authParams = mapAuthParams conn
 

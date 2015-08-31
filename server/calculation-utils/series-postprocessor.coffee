@@ -33,6 +33,7 @@ class @SeriesPostprocessor
       curveId: curve._id
       chartId: curve.chartId
       visible: curve.visible
+      dimension: curve.metadata.dimension
 
     if curve.normalize then @_normalize(series)
     #find actual min and max
