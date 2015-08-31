@@ -1,6 +1,6 @@
 <!-- args: description, propertyName, dataSource-->
 
-<template name="MetadataPicker">
+<template name="DfMetadataPicker">
     <div class="metadata-picker">
         {{#if value}}
             <div class="picker-value">
@@ -18,7 +18,7 @@
                 <ul>
                     {{#each items}}
                         {{#if isMatchSearchQuery}}
-                            {{> MetadataPickerListItem}}
+                            {{> DfMetadataPickerListItem}}
                         {{/if}}
                     {{/each}}
                 </ul>

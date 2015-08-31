@@ -1,17 +1,10 @@
-Template.MetadataPicker.onCreated ->
+Template.DfMetadataPicker.onCreated ->
   @activePickerId = @get('activePickerId')
   @searchPhrase = new ReactiveVar('')
 
-  @isRootPropertyName = => @data.propertyName is ''
-  @getDocumentProperty = =>
-    metadata = @data.doc.metadata
-    if @isRootPropertyName() then metadata else metadata?[@data.propertyName]
-
   @getUpdateQuery = (value) =>
     updateQuery = {}
-    documentPropertyPath = "metadata"
-    documentPropertyPath += ".#{@data.propertyName}" unless @isRootPropertyName()
-    updateQuery[documentPropertyPath] = value
+    updateQuery["metadata.#{@data.propertyName}"] = value
     return updateQuery
 
   @closePicker = =>
@@ -19,17 +12,19 @@ Template.MetadataPicker.onCreated ->
     @activePickerId.set false
 
 
-Template.MetadataPicker.helpers
+Template.DfMetadataPicker.helpers
   isExpanded: -> Template.instance().activePickerId.get() is @id
 
-  value: -> Template.instance().getDocumentProperty()?.label
+  value: ->
+    curveId = @doc.metadata?[@propertyName]
+    if curveId then Curves.findOne({_id: curveId}).name
 
   isMatchSearchQuery: ->
     searchPhrase = Template.instance().searchPhrase.get().toLowerCase()
-    @label.toLowerCase().indexOf(searchPhrase) >= 0
+    @name.toLowerCase().indexOf(searchPhrase) >= 0
 
 
-Template.MetadataPicker.events
+Template.DfMetadataPicker.events
   'click .metadata-picker': (event, tmpl) ->
     if tmpl.activePickerId.get() isnt @id then tmpl.activePickerId.set tmpl.data.id
 
@@ -60,8 +55,5 @@ Template.MetadataPicker.events
     documentId = tmpl.data.doc._id
 
     radioValue = tmpl.$("input:radio[name=pickerValue_#{documentId}]:checked").val()
-    value = _.find tmpl.data.items, (item) -> item.name is radioValue
 
-    delete value._id
-
-    Curves.update {_id: documentId}, $set: tmpl.getUpdateQuery(value)
+    Curves.update {_id: documentId}, $set: tmpl.getUpdateQuery(radioValue) if radioValue

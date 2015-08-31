@@ -1,6 +1,6 @@
-Template.SfMetadataPickerListItem.onRendered ->
+Template.MetadataPickerListItem.onRendered ->
   @$(':radio').radiocheck()
 
 
-Template.SfMetadataPickerListItem.onDestroyed ->
+Template.MetadataPickerListItem.onDestroyed ->
   @$(':radio').radiocheck('destroy')

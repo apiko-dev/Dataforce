@@ -1,0 +1,14 @@
+<template name="DfMetadataPickerListItem">
+    <li>
+        <!--doc._id is Id if curve that is editing right now-->
+        <!--_id is Id of curve that user whould like to refrence to current curve-->
+        <label class="radio" for="{{_id}}_{{../doc._id}}">
+            <input type="radio" name="pickerValue_{{../doc._id}}" value="{{_id}}" id="{{_id}}_{{../doc._id}}"
+                   data-toggle="radio">
+
+            <span class="metric-info">
+                {{name}}
+            </span>
+        </label>
+    </li>
+</template>
