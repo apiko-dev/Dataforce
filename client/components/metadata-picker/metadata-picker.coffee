@@ -62,4 +62,6 @@ Template.SfMetadataPicker.events
     radioValue = tmpl.$("input:radio[name=pickerValue_#{documentId}]:checked").val()
     value = _.find tmpl.data.items, (item) -> item.name is radioValue
 
+    delete value._id
+
     Curves.update {_id: documentId}, $set: tmpl.getUpdateQuery(value)

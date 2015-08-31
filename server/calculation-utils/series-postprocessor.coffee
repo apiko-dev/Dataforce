@@ -43,12 +43,15 @@ class @SeriesPostprocessor
       visible: curve.visible
       dimension: curve.metadata.dimension
 
+    #connector specific processing here
+    #Salesforce specific processing
+    if curve.source is ConnectorNames.Salesforce
+      @_convertDate(series) #convert dimension to date if it has date type
+
+    #common processing jobs
     if curve.normalize then @_normalize(series)
     #find actual min and max
     @_seriesMinAndMax(series)
-
-    #convert dimension to date if it has date type
-    @_convertDate(series)
 
     return series
 
