@@ -30,6 +30,12 @@ Router.map ->
         createdAt: -1
     }
 
+  @route '/chart-viewer/:chartId',
+    name: 'chartViewer',
+    template: 'ChartViewer'
+    waitOn: -> [@subscribe('chart', @params.chartId)]
+    data: -> Charts.findOne({_id: @params.chartId})
+
   @route '/chart-editor/:chartId',
     name: 'existingChartEditor',
     template: 'ChartEditor'

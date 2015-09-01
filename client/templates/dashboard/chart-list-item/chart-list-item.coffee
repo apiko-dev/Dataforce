@@ -4,3 +4,6 @@ Template.ChartListItem.events
 
   'click .edit-chart-button': (event, tmpl) ->
     Router.go 'existingChartEditor', {chartId: tmpl.data._id}
+
+  'click .open-chart-viewer-button': (event, tmpl) ->
+    Router.go 'chartViewer', {chartId: tmpl.data._id}

@@ -1,0 +1,16 @@
+<template name="ChartViewer">
+    <div class="row app-view-header chart-viewer-header">
+        <div class="col-md-12">
+            <h4 class="app-view-title">
+                {{name}}
+                <i class="fa fa-pencil edit-chart-button" title="Edit chart"></i>
+            </h4>
+        </div>
+    </div>
+
+    <div class="row chart-viewer-content">
+        <div class="col-md-12">
+            {{> ChartDisplay}}
+        </div>
+    </div>
+</template>
