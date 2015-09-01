@@ -8,7 +8,7 @@ class App.Dataforce.Adapter
 
   @_monthMergeIterate: (dimensionValue) ->
     monthNumber = new Date(dimensionValue).getMonth()
-    App.Dataforce.Adapter._months[monthNumber]
+    @_months[monthNumber]
 
   @_dayMergeIterate: (dimensionValue) -> new Date(dimensionValue).getDate()
 
@@ -45,8 +45,9 @@ class App.Dataforce.Adapter
     #merge iterate dispatching
     deltaName = dataforceCurve.metadata.delta.name
     currentMergeIterate = @["_#{deltaName}MergeIterate"]
-
     unless currentMergeIterate then throw new Meteor.Error("Unknown delta: #{deltaName}")
+    #bind context that was lost after dispatching
+    currentMergeIterate = _.bind currentMergeIterate, @
 
     metricMergedSeries = @_merge metricSeries.data, currentMergeIterate
     dimensionMergedSeries = @_merge dimensionSeries.data, currentMergeIterate
