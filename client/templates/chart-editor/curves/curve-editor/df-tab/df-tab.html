@@ -1,4 +1,5 @@
 <template name="DataforceCurveEditorTab">
+    {{> MetadataPicker description='Time delta' propertyName='delta' items=availableDeltas id='timeDeltaPicker' doc=this}}
     {{> DfMetadataPicker description='x' propertyName='dimension' items=referenceSupportCurves id='dimensionPicker' doc=this}}
     {{> DfMetadataPicker description='y' propertyName='metric' items=referenceSupportCurves id='metricPicker' doc=this}}
 </template>
