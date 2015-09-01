@@ -37,10 +37,18 @@ onCurvesChange = (userId, curve) ->
     when ConnectorNames.Dataforce
       if CurveSourceCheckers.Dataforce(curve)
         data = App.Dataforce.Adapter.generateCurveSeries(curve)
-        console.log data
         saveSeriesObject(data)
     else
       console.log "Requested source do not supported: #{curve.source}"
+
+  #notify other curves about change if they depend on this curve
+  Curves.find({
+    chartId: curve.chartId,
+    $or: [
+      {'metadata.dimension': curve._id}
+      {'metadata.metric': curve._id}
+    ]
+  }).forEach (changedCurve) -> onCurvesChange(userId, changedCurve)
 
 
 #initialize collection's hooks

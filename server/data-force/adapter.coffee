@@ -33,7 +33,9 @@ class App.Dataforce.Adapter
       y ?= 0
       allKeys[key] = [x, y]
 
-    Object.keys(allKeys).map((key) -> allKeys[key]).sort (pointA, pointB) -> pointA[0] - pointB[0]
+    Object.keys(allKeys)
+    .map((key) -> allKeys[key])
+    .sort (pointA, pointB) -> pointA[0] - pointB[0]
 
 
   @generateCurveSeries: (dataforceCurve) ->
