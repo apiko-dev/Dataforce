@@ -1,6 +1,7 @@
 #global application's scope
 @App =
   GoogleAnalytics: {}
+  Dataforce: {}
   SalesForce:
     isNumberType: (type) -> type in ['int', 'double', 'currency', 'percent']
     isSupportedType: (type) ->

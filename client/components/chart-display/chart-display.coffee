@@ -6,6 +6,7 @@ Template.ChartDisplay.onRendered ->
   @autorun =>
     Template.currentData()
     series = Series.find({chartId: @data._id, visible: true}).fetch()
+
     @$(".highchart-chart").highcharts defaultChartOptions @data.name, series
 
 

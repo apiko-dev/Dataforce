@@ -1,6 +1,11 @@
-checkCurveWithSalesforceSource = (curve) ->
-  curveMetadata = curve.metadata
-  curveMetadata and curveMetadata.name and curveMetadata.metric and curveMetadata.dimension
+class CurveSourceCheckers
+  @Salesforce: (curve) ->
+    curveMetadata = curve.metadata
+    curveMetadata and curveMetadata.name and curveMetadata.metric and curveMetadata.dimension
+
+  @Dataforce: (curve) ->
+    curveMetadata = curve.metadata
+    curveMetadata and curveMetadata.dimension and curveMetadata.metric and curveMetadata.delta
 
 
 onCurvesChange = (userId, curve) ->
@@ -26,11 +31,14 @@ onCurvesChange = (userId, curve) ->
 #        gada.getSeries()
       saveSeriesUsingMockData()
     when ConnectorNames.Salesforce
-      if checkCurveWithSalesforceSource(curve)
+      if CurveSourceCheckers.Salesforce(curve)
         data = App.SalesForce.Loader.getDataForCurve(curve)
         saveSeriesObject(data)
     when ConnectorNames.Dataforce
-      saveSeriesUsingMockData()
+      if CurveSourceCheckers.Dataforce(curve)
+        data = App.Dataforce.Adapter.generateCurveSeries(curve)
+        console.log data
+        saveSeriesObject(data)
     else
       console.log "Requested source do not supported: #{curve.source}"
 
