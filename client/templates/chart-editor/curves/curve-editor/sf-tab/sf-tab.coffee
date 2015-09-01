@@ -6,8 +6,9 @@ Template.SalesforceCurveEditorTab.onCreated ->
 
   @autorun =>
     curve = Template.currentData()
-    currentTableName = curve.metadata.name
-    if currentTableName
+    curveMetadata = curve.metadata
+    if curveMetadata and curveMetadata.name
+      currentTableName = curveMetadata.name
       spinnerVisibility(true)
       sub = @subscribe 'salesforceTableFields', currentTableName, => spinnerVisibility(false)
       if sub.ready() then spinnerVisibility(false)

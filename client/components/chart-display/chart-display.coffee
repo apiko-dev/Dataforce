@@ -16,7 +16,7 @@ defaultChartOptions = (title, series) ->
 
   series.forEach (entry) ->
     if min is false or entry.min < min then min = entry.min
-    if entry.dimension.type is 'date' then xAxisType = 'datetime'
+    if entry.dimension and entry.dimension.type is 'date' then xAxisType = 'datetime'
 
   chart:
     type: 'column'

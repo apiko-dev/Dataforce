@@ -1,3 +1,8 @@
+checkCurveWithSalesforceSource = (curve) ->
+  curveMetadata = curve.metadata
+  curveMetadata and curveMetadata.name and curveMetadata.metric and curveMetadata.dimension
+
+
 onCurvesChange = (userId, curve) ->
   saveSeriesObject = (data) ->
     series = SeriesPostprocessor.process(curve, data) #makes normalizing & addes min/max values
@@ -21,8 +26,9 @@ onCurvesChange = (userId, curve) ->
 #        gada.getSeries()
       saveSeriesUsingMockData()
     when ConnectorNames.Salesforce
-      data = App.SalesForce.Loader.getDataForCurve(curve)
-      saveSeriesObject(data)
+      if checkCurveWithSalesforceSource(curve)
+        data = App.SalesForce.Loader.getDataForCurve(curve)
+        saveSeriesObject(data)
     when ConnectorNames.Dataforce
       saveSeriesUsingMockData()
     else
