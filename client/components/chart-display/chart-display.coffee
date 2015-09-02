@@ -17,9 +17,15 @@ defaultChartOptions = (title, series) ->
 
   series.forEach (entry) ->
     if min is false or entry.min < min then min = entry.min
+
+    #if one of the series has date as dimension make it as type of axis
     if entry.curve.metadata and entry.curve.metadata.dimension and entry.curve.metadata.dimension.type is 'date' then xAxisType = 'datetime'
 
-  #  todo add custom tooltips for curves with dataforce source
+    #add custom tooltips for curves with dataforce source
+    if entry.curve.source is ConnectorNames.Dataforce
+      entry.tooltip =
+        pointFormat: '<span style="color:{point.color}">\u25CF</span> {series.name}: <b>{point.y}</b> for <b>{point.mergeValue}</b><br/>'
+
 
   chart:
     type: 'column'
