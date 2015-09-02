@@ -10,11 +10,14 @@ class CurveSourceCheckers
 
 onCurvesChange = (userId, curve) ->
   saveSeriesObject = (data) ->
+    console.log curve.name
     series = SeriesPostprocessor.process(curve, data) #makes normalizing & addes min/max values
+
+    console.log series
     Series.update {curveId: curve._id}, {$set: series}, {upsert: true}
 
   #todo: temporal series cap - remove after implementing real services
-  randomData = -> [0..10].map (i) -> [i, (Math.floor Math.random() * 100) * 1000]
+  randomData = -> [0..10].map (i) -> {x: i, y: (Math.floor Math.random() * 100) * 1000}
   saveSeriesUsingMockData = -> saveSeriesObject randomData()
   #end of mock data generator
 

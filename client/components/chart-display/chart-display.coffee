@@ -5,7 +5,7 @@
 Template.ChartDisplay.onRendered ->
   @autorun =>
     Template.currentData()
-    series = Series.find({chartId: @data._id, visible: true}).fetch()
+    series = Series.find({'curve.chartId': @data._id, 'curve.visible': true}).fetch()
 
     @$(".highchart-chart").highcharts defaultChartOptions @data.name, series
 
@@ -17,7 +17,9 @@ defaultChartOptions = (title, series) ->
 
   series.forEach (entry) ->
     if min is false or entry.min < min then min = entry.min
-    if entry.dimension and entry.dimension.type is 'date' then xAxisType = 'datetime'
+    if entry.curve.metadata and entry.curve.metadata.dimension and entry.curve.metadata.dimension.type is 'date' then xAxisType = 'datetime'
+
+  #  todo add custom tooltips for curves with dataforce source
 
   chart:
     type: 'column'

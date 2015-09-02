@@ -7,7 +7,7 @@ class @SeriesPostprocessor
     min = false
     max = false
     series.data.forEach (point) ->
-      metricValue = point[1]
+      metricValue = point.y
       if min is false or metricValue < min then min = metricValue
       if max is false or metricValue > max then max = metricValue
     _.extend series, {min: min, max: max}
@@ -15,15 +15,15 @@ class @SeriesPostprocessor
 
   @_normalize: (series) ->
     @_seriesMinAndMax(series)
-    series.data.forEach (point) -> point[1] = point[1] / series.max
+    series.data.forEach (point) -> point.y = point.y / series.max
 
 
   @_convertDate: (series) ->
-    if series.dimension.type is 'date'
+    if series.curve.metadata.dimension.type is 'date'
       series.data.forEach (point) ->
-        point[0] = new Date(point[0]).valueOf()
+        point.x = new Date(point.x).valueOf()
 
-      series.data.sort (a, b) -> a[0] - b[0]
+      series.data.sort (a, b) -> a.x - b.x
 
 
   ###
@@ -34,14 +34,17 @@ class @SeriesPostprocessor
       @returns series based on curve and it's data
   ###
   @process: (curve, data) ->
+#    copy curve
+    curve = _.extend {}, curve
     series =
       name: curve.name
       type: curve.type
       data: data
-      curveId: curve._id
-      chartId: curve.chartId
-      visible: curve.visible
-      dimension: curve.metadata.dimension
+      curve: curve
+
+    #remove duplicated fields
+    delete curve.type
+    delete curve.name
 
     #connector specific processing here
     #Salesforce specific processing

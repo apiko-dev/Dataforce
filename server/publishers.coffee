@@ -3,7 +3,7 @@ compositeCurves = [
     find: (chart) -> Curves.find {chartId: chart._id}
   }
   {
-    find: (chart) -> Series.find {chartId: chart._id}
+    find: (chart) -> Series.find {'curve.chartId': chart._id}
   }
 ]
 

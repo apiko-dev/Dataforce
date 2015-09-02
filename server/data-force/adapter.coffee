@@ -13,10 +13,10 @@ class App.Dataforce.Adapter
   @_dayMergeIterate: (dimensionValue) -> new Date(dimensionValue).getDate()
 
   @_merge: (series, mergeIterate) ->
-    reduceIterate = (memo, data) ->
-      memoKey = mergeIterate(data[0])
+    reduceIterate = (memo, point) ->
+      memoKey = mergeIterate(point.x)
       memo[memoKey] ?= 0
-      memo[memoKey] += data[1]
+      memo[memoKey] += point.y
       return memo
 
     _.reduce series, reduceIterate, {}
@@ -26,32 +26,30 @@ class App.Dataforce.Adapter
     allKeys = _.extend {}, dimensionMergedSeries
     _.extend allKeys, metricMergedSeries
 
-    _.each allKeys, (value, key) ->
+    Object.keys(allKeys).map (key) ->
       x = dimensionMergedSeries[key]
       y = metricMergedSeries[key]
       x ?= 0
       y ?= 0
-      allKeys[key] = [x, y]
-
-    Object.keys(allKeys)
-    .map((key) -> allKeys[key])
-    .sort (pointA, pointB) -> pointA[0] - pointB[0]
+      {x: x, y: y, mergeValue: key}
+    .sort (pointA, pointB) -> pointA.x - pointB.x
 
 
   @generateCurveSeries: (dataforceCurve) ->
     dimensionSeries = Series.findOne {curveId: dataforceCurve.metadata.dimension}
     metricSeries = Series.findOne {curveId: dataforceCurve.metadata.metric}
 
-    #merge iterate dispatching
-    deltaName = dataforceCurve.metadata.delta.name
-    currentMergeIterate = @["_#{deltaName}MergeIterate"]
-    unless currentMergeIterate then throw new Meteor.Error("Unknown delta: #{deltaName}")
-    #bind context that was lost after dispatching
-    currentMergeIterate = _.bind currentMergeIterate, @
+    if dimensionSeries and metricSeries
+#merge iterate dispatching
+      deltaName = dataforceCurve.metadata.delta.name
+      currentMergeIterate = @["_#{deltaName}MergeIterate"]
+      unless currentMergeIterate then throw new Meteor.Error("Unknown delta: #{deltaName}")
+      #bind context that was lost after dispatching
+      currentMergeIterate = _.bind currentMergeIterate, @
 
-    metricMergedSeries = @_merge metricSeries.data, currentMergeIterate
-    dimensionMergedSeries = @_merge dimensionSeries.data, currentMergeIterate
+      metricMergedSeries = @_merge metricSeries.data, currentMergeIterate
+      dimensionMergedSeries = @_merge dimensionSeries.data, currentMergeIterate
 
-    @_zipMergedData(dimensionMergedSeries, metricMergedSeries)
+      @_zipMergedData(dimensionMergedSeries, metricMergedSeries)
 
 

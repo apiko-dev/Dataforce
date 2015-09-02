@@ -6,4 +6,4 @@ class App.SalesForce.RawGraph
     metric = metadata.metric.name
     dimension = metadata.dimension.name
 
-    @data.map (doc) -> [doc[dimension], doc[metric]]
+    @data.map (doc) -> {x: doc[dimension], y: doc[metric]}
