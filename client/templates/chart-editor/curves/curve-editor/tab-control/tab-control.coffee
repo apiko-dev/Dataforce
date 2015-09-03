@@ -25,11 +25,12 @@ Template.CurveEditorTabs.events
 
 
 tabs = [
-  {
-    connector: ConnectorNames.GoogleAnalytics,
-    iconUrl: '/connectors/ga-small-logo.png',
-    template: 'GoogleAnalyticsCurveEditorTab'
-  }
+# GA temporally unavailable
+#  {
+#    connector: ConnectorNames.GoogleAnalytics,
+#    iconUrl: '/connectors/ga-small-logo.png',
+#    template: 'GoogleAnalyticsCurveEditorTab'
+#  }
   {
     connector: ConnectorNames.Salesforce,
     iconUrl: '/connectors/sf-small-logo.png',

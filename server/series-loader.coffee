@@ -10,10 +10,7 @@ class CurveSourceCheckers
 
 onCurvesChange = (userId, curve) ->
   saveSeriesObject = (data) ->
-    console.log curve.name
     series = SeriesPostprocessor.process(curve, data) #makes normalizing & addes min/max values
-
-    console.log series
     Series.update {curveId: curve._id}, {$set: series}, {upsert: true}
 
   #todo: temporal series cap - remove after implementing real services
