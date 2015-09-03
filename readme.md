@@ -16,3 +16,13 @@ __password:__
 ```
 fPz4Xm5p
 ```
+
+###Salesforce data can be used
+
+__Table: `Opportunity`__
+Dimension: `Close Date`
+Metric: `Amount`
+
+__Table: `Campaign`__
+Start: `Date`
+Budgeted: `Cost`
