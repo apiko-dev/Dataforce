@@ -7,16 +7,14 @@
     padding: 0;
     width: 25%;
     height: 50px;
-    .transition(border, .5s);
+    .transition(background, .2s);
     border-radius: 0;
-    border: 25px solid @primaryBackground;
 
     &:hover:not(.pressed) {
       color: @accentColor;
     }
 
     &.pressed {
-      border: 0 solid white;
       background: @accentColor;
       color: white;
       border-radius: 3px;
