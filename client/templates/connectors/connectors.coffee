@@ -10,11 +10,11 @@ Template.Connectors.helpers
       authUrl: Meteor.settings.public.SalesForce.authUrl
       logoutMethod: 'sfRevokeAccess'
     }
-    {
-      name: ConnectorNames.GoogleAnalytics
-      authUrl: ReactiveMethod.call 'GA.generateAuthUrl'
-      logoutMethod: 'GA.logout'
-    }
+#    {
+#      name: ConnectorNames.GoogleAnalytics
+#      authUrl: ReactiveMethod.call 'GA.generateAuthUrl'
+#      logoutMethod: 'GA.logout'
+#    }
   ]
 
   hasAuth: -> !!Connectors.findOne name: @name
